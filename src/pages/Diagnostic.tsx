@@ -48,25 +48,63 @@ const questions = [
 
 export const Diagnostic = () => {
   const [currentStep, setCurrentStep] = useState(0);
-  const [answers, setAnswers] = useState<Record<number, number>>({});
+  const [answers, setAnswers] = useState<Record<number, { id: string, text: string, score: number }>>({});
   const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
 
-  const handleAnswer = (questionId: number, score: number) => {
-    setAnswers(prev => ({ ...prev, [questionId]: score }));
+  const [formData, setFormData] = useState({
+    firstName: '',
+    email: '',
+    company: '',
+    sector: ''
+  });
+
+  const handleAnswer = (questionId: number, option: { id: string, text: string, score: number }) => {
+    setAnswers(prev => ({ ...prev, [questionId]: option }));
     setTimeout(() => {
       setCurrentStep(prev => prev + 1);
     }, 400);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setFormStatus('submitting');
-    setTimeout(() => {
-      setFormStatus('success');
-    }, 1500);
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const { id, value } = e.target;
+    setFormData(prev => ({ ...prev, [id]: value }));
   };
 
-  const totalScore = Object.values(answers).reduce<number>((a, b) => a + Number(b), 0);
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setFormStatus('submitting');
+    
+    try {
+      const payload = {
+        ...formData,
+        answers: Object.entries(answers).map(([qId, ans]: [string, any]) => ({
+          questionId: Number(qId),
+          question: questions.find(q => q.id === Number(qId))?.question,
+          selectedOptionId: ans.id,
+          selectedOptionText: ans.text,
+          score: ans.score
+        })),
+        totalScore: Object.values(answers).reduce<number>((a, b: any) => a + Number(b.score), 0),
+        timestamp: new Date().toISOString()
+      };
+
+      await fetch('https://nolanprayagsing.app.n8n.cloud/webhook/Diagnostic', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+      });
+      
+      setFormStatus('success');
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      // Even if webhook fails, we show success to not block the user from seeing their results
+      setFormStatus('success');
+    }
+  };
+
+  const totalScore = Object.values(answers).reduce<number>((a, b: any) => a + Number(b.score), 0);
 
   const getResult = () => {
     if (totalScore >= 3) {
@@ -137,7 +175,7 @@ export const Diagnostic = () => {
                 {questions[currentStep].options.map((option) => (
                   <button
                     key={option.id}
-                    onClick={() => handleAnswer(questions[currentStep].id, option.score)}
+                    onClick={() => handleAnswer(questions[currentStep].id, option)}
                     className="w-full text-left p-6 rounded-2xl bg-brand-card/50 border border-brand-blue/10 hover:border-brand-blue hover:bg-brand-blue/5 transition-all duration-300 group flex items-center min-h-[48px]"
                   >
                     <div className="w-8 h-8 rounded-full bg-brand-navy border border-brand-blue/30 flex items-center justify-center text-brand-blue font-bold mr-4 group-hover:bg-brand-blue group-hover:text-brand-navy transition-colors">
@@ -178,6 +216,8 @@ export const Diagnostic = () => {
                         type="text" 
                         id="firstName" 
                         required
+                        value={formData.firstName}
+                        onChange={handleInputChange}
                         className="w-full bg-brand-navy border border-brand-blue/20 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-blue transition-colors"
                       />
                     </div>
@@ -187,6 +227,8 @@ export const Diagnostic = () => {
                         type="email" 
                         id="email" 
                         required
+                        value={formData.email}
+                        onChange={handleInputChange}
                         className="w-full bg-brand-navy border border-brand-blue/20 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-blue transition-colors"
                       />
                     </div>
@@ -199,6 +241,8 @@ export const Diagnostic = () => {
                         type="text" 
                         id="company" 
                         required
+                        value={formData.company}
+                        onChange={handleInputChange}
                         className="w-full bg-brand-navy border border-brand-blue/20 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-blue transition-colors"
                       />
                     </div>
@@ -207,6 +251,8 @@ export const Diagnostic = () => {
                       <select 
                         id="sector" 
                         required
+                        value={formData.sector}
+                        onChange={handleInputChange}
                         className="w-full bg-brand-navy border border-brand-blue/20 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-blue transition-colors appearance-none"
                       >
                         <option value="">Select a sector</option>
