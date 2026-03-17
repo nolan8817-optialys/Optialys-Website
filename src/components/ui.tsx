@@ -6,19 +6,7 @@ import { ArrowRight } from 'lucide-react';
 export const Logo = ({ className = "" }: { className?: string }) => (
   <Link to="/" className={`flex items-center gap-3 group ${className}`}>
     <div className="relative w-10 h-10 shrink-0">
-      <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-        {/* Center Dot */}
-        <circle cx="50" cy="50" r="6" fill="#FFFFFF" />
-        {/* Inner Ring */}
-        <path d="M 35 50 A 15 15 0 1 1 50 65" stroke="#00C2FF" strokeWidth="4" strokeLinecap="round" />
-        <path d="M 65 50 A 15 15 0 0 0 50 35" stroke="#0098CC" strokeWidth="4" strokeLinecap="round" />
-        {/* Outer Swoosh Top-Right */}
-        <path d="M 25 50 A 25 25 0 0 1 65 20 L 75 10 A 35 35 0 0 0 15 50 Z" fill="#00C2FF" />
-        <path d="M 65 20 L 75 25 L 70 35 Z" fill="#00C2FF" />
-        {/* Outer Swoosh Bottom-Left */}
-        <path d="M 75 50 A 25 25 0 0 1 35 80 L 25 90 A 35 35 0 0 0 85 50 Z" fill="#0098CC" />
-        <path d="M 35 80 L 25 75 L 30 65 Z" fill="#0098CC" />
-      </svg>
+      <img src="/optialys-logo.webp" alt="Optialys Logo" className="w-full h-full object-contain" referrerPolicy="no-referrer" />
     </div>
     <span className="font-sans font-bold text-2xl tracking-tight text-white">
       <span className="inline-block transition-transform duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:rotate-[360deg]">O</span>ptialys
