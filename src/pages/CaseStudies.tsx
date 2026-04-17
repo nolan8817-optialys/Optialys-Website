@@ -22,7 +22,7 @@ export const CaseStudies = () => {
     },
     {
       id: "alternative-aml",
-      client: "AlternativeAML / GITS / OmniTrust",
+      client: "AlternativeAML / Global IT Services PSF / OmniTrust",
       sector: "Compliance (BE/LU)",
       title: "Automated LinkedIn content pipeline",
       challenge: "Need to maintain a strong presence on LinkedIn for 3 different entities without spending internal time.",

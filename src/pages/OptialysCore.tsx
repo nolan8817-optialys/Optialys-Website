@@ -110,7 +110,7 @@ export const OptialysCore = () => {
       result: "15h+/week recovered · Active partnership"
     },
     {
-      name: "AlternativeAML / GITS / OmniTrust",
+      name: "AlternativeAML / Global IT Services PSF / OmniTrust",
       sector: "Compliance (BE/LU)",
       desc: "Three companies, same need: regular LinkedIn presence without a dedicated resource. We deployed an automated content generation pipeline — adapted to each brand's voice.",
       result: "5 posts/week per company · 0 human intervention"

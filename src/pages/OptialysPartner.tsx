@@ -74,7 +74,7 @@ export const OptialysPartner = () => {
       result: "15h+/week recovered · Ongoing partnership"
     },
     {
-      name: "AlternativeAML / GITS / OmniTrust",
+      name: "AlternativeAML / Global IT Services PSF / OmniTrust",
       sector: "Compliance (BE/LU)",
       desc: "Three companies, automated LinkedIn infrastructure, maintenance and monthly evolution of the content pipeline.",
       result: "5 posts/week · 0 human intervention · Active maintenance"

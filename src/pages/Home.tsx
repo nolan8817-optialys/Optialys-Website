@@ -174,7 +174,7 @@ const ClientReferences = () => {
       stack: "n8n · Claude AI · Pipedrive"
     },
     {
-      name: "AlternativeAML / GITS / OmniTrust",
+      name: "AlternativeAML / Global IT Services PSF / OmniTrust",
       sector: "Compliance (BE/LU)",
       project: "Automated LinkedIn content pipeline — 3 companies",
       result: "⚡ 5 posts/week · 0 human intervention",

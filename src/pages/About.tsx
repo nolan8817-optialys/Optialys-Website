@@ -68,7 +68,7 @@ export const About = () => {
                 </p>
                 <p>
                   Working with companies like Koosmik, AlternativeAML, OmniTrust,
-                  GITS and LybraMedia taught me something essential: most SMEs
+                  Global IT Services PSF and LybraMedia taught me something essential: most SMEs
                   don't lack the tools — they lack someone who knows how to implement
                   them properly inside their specific business reality.
                 </p>
