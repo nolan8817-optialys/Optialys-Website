@@ -71,7 +71,7 @@ const SocialProof = () => (
         <p className="text-xs font-bold tracking-widest text-brand-gray uppercase mb-8 font-mono">Businesses I've worked with</p>
         <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-70 hover:opacity-100 transition-all duration-500 text-white">
           <span className="font-sans text-2xl font-bold tracking-tight">Alternative AML</span>
-          <span className="font-sans text-2xl font-black tracking-widest text-brand-blue">G.I.T.S</span>
+          <span className="font-sans text-2xl font-black tracking-widest text-brand-blue">Global IT Services PSF</span>
           <span className="font-serif text-2xl font-bold italic">Omnitrust</span>
           <span className="font-sans text-2xl font-medium lowercase tracking-wide">koosmik</span>
           <span className="font-sans text-2xl font-bold">Lybra<span className="font-light">Media</span></span>
