@@ -37,7 +37,7 @@ export const CaseStudies = () => {
     {
       id: "lybramedia",
       client: "LybraMedia",
-      sector: "Media Agency",
+      sector: "Media Company",
       title: "Comprehensive Onboarding Infrastructure",
       challenge: "Manual, disorganized, and time-consuming onboarding process for new clients and team members.",
       solution: "Built a centralized infrastructure using Airtable to automate and streamline the entire onboarding workflow, from data collection to task assignment.",

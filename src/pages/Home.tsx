@@ -182,7 +182,7 @@ const ClientReferences = () => {
     },
     {
       name: "LybraMedia",
-      sector: "Media Agency",
+      sector: "Media Company",
       project: "Comprehensive Onboarding Infrastructure",
       result: "⚡ 100% automated onboarding",
       stack: "Airtable · n8n · Make"

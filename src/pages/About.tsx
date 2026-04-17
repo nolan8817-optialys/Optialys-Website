@@ -86,7 +86,7 @@ export const About = () => {
 
               {/* Closing Statement */}
               <div className="text-[#00C2FF] text-2xl md:text-3xl font-bold leading-tight mb-10">
-                <p>Optialys is not an agency that sells software.</p>
+                <p>Optialys is not a company that sells software.</p>
                 <p>It's a partner that keeps your business ahead.</p>
               </div>
 

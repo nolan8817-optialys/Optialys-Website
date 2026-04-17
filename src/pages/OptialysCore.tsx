@@ -65,7 +65,7 @@ export const OptialysCore = () => {
 
   const examples = [
     {
-      sector: "Real Estate Agency",
+      sector: "Real Estate Company",
       situation: "Every new lead fills out a form on your site.",
       automation: "AI analyzes the profile, assigns a quality score, sends a personalized response in under 2 minutes and notifies the relevant agent on WhatsApp.",
       result: "No more leads without a rapid response."
@@ -83,7 +83,7 @@ export const OptialysCore = () => {
       result: "3 to 5 hours recovered per week."
     },
     {
-      sector: "HR / Recruiting Agency",
+      sector: "HR / Recruiting Company",
       situation: "You source candidates manually on LinkedIn.",
       automation: "A system continuously monitors profiles matching your criteria and sends you a qualified shortlist every morning in your recruiting tool.",
       result: "Sourcing volume multiplied without additional resources."
