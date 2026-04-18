@@ -3,35 +3,37 @@ import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Zap, Code, CheckCircle2, Users } from 'lucide-react';
 import { FadeIn, GlowButton } from '../components/ui';
+import { useLanguage } from '../i18n/LanguageContext';
 
 export const Services = () => {
+  const { t } = useLanguage();
   const services = [
     {
       id: "core",
       icon: <Zap className="w-12 h-12" />,
-      badge: "Project · 30 days",
+      badge: t('services.core.badge'),
       title: "Optialys Core™",
-      desc: "A custom, complete deployment, delivered in 30 days. Ideal to start and see concrete results quickly.",
+      desc: t('services.core.desc'),
       includes: [
-        "Free diagnostic included",
-        "Automations adapted to your business",
-        "30-day delivery guarantee"
+        t('services.core.inc.1'),
+        t('services.core.inc.2'),
+        t('services.core.inc.3')
       ],
-      cta: "Discover Optialys Core™",
+      cta: t('services.core.cta'),
       link: "/optialys-core"
     },
     {
       id: "partner",
       icon: <Users className="w-12 h-12" />,
-      badge: "Partnership · Long term",
+      badge: t('services.partner.badge'),
       title: "Optialys Partner",
-      desc: "Nolan integrated into your team as a dedicated AI consultant — new automations every month, strategic advice, infrastructure that evolves with your business.",
+      desc: t('services.partner.desc'),
       includes: [
-        "Setup included in the first months",
-        "New automations deployed every month",
-        "No long-term commitment"
+        t('services.partner.inc.1'),
+        t('services.partner.inc.2'),
+        t('services.partner.inc.3')
       ],
-      cta: "Discover Optialys Partner",
+      cta: t('services.partner.cta'),
       link: "/optialys-partner"
     }
   ];
@@ -39,10 +41,10 @@ export const Services = () => {
   const additionalService = {
     id: "custom",
     icon: <Code className="w-12 h-12" />,
-    badge: "On quote",
-    title: "Custom Development",
-    desc: "For specific needs outside the standard framework — complex integrations, advanced AI agents, special projects.",
-    cta: "Request a quote",
+    badge: t('services.custom.badge'),
+    title: t('services.custom.title'),
+    desc: t('services.custom.desc'),
+    cta: t('services.custom.cta'),
     link: "https://calendly.com/nolprayagsing/automation-strategy-audit"
   };
 
@@ -61,10 +63,10 @@ export const Services = () => {
           transition={{ duration: 0.6 }}
         >
           <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight text-white mb-6">
-            Our Offers
+            {t('services.page.title')}
           </h1>
           <p className="text-xl text-brand-gray leading-relaxed max-w-2xl mx-auto">
-            Two ways to work with Optialys — depending on where you are.
+            {t('services.page.subtitle')}
           </p>
         </motion.div>
       </section>
@@ -87,7 +89,7 @@ export const Services = () => {
                 </p>
 
                 <div className="bg-brand-navy/50 border border-brand-blue/10 rounded-xl p-6 mb-8">
-                  <h4 className="text-white font-bold mb-4">Key points:</h4>
+                  <h4 className="text-white font-bold mb-4">{t('services.keyPoints')}</h4>
                   <ul className="space-y-3">
                     {service.includes.map((item, i) => (
                       <li key={i} className="flex items-start gap-3 text-brand-gray">
@@ -134,7 +136,7 @@ export const Services = () => {
               <span className="inline-block px-3 py-1 rounded-full bg-brand-navy border border-brand-blue/30 text-xs font-bold text-brand-blue mb-4">
                 {additionalService.badge}
               </span>
-              <h3 className="text-2xl font-bold text-white mb-3">ADDITIONAL SERVICE — {additionalService.title}</h3>
+              <h3 className="text-2xl font-bold text-white mb-3">{t('services.custom.label')} — {additionalService.title}</h3>
               <p className="text-brand-gray leading-relaxed mb-6">
                 {additionalService.desc}
               </p>
@@ -151,9 +153,9 @@ export const Services = () => {
       <section className="mt-32 py-24 bg-brand-navy-2 border-y border-brand-blue/10">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <FadeIn>
-            <h2 className="text-3xl font-bold text-white mb-4">Our technical stack</h2>
-            <p className="text-brand-gray mb-12">The tools we master and deploy for our clients</p>
-            
+            <h2 className="text-3xl font-bold text-white mb-4">{t('services.stack.title')}</h2>
+            <p className="text-brand-gray mb-12">{t('services.stack.subtitle')}</p>
+
             <div className="flex flex-wrap justify-center gap-4">
               {techStack.map((tech, i) => (
                 <span key={i} className="px-6 py-3 rounded-xl bg-brand-card border border-brand-blue/20 text-white font-medium hover:border-brand-blue/50 hover:bg-brand-blue/5 transition-colors cursor-default">
