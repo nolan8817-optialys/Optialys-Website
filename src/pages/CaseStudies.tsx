@@ -1,11 +1,55 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Link } from 'react-router-dom';
 import { ArrowRight, Building2, Target, Lightbulb, TrendingUp, Code } from 'lucide-react';
 import { FadeIn, GlowButton } from '../components/ui';
+import { useLanguage } from '../i18n/LanguageContext';
 
 export const CaseStudies = () => {
-  const cases = [
+  const { lang } = useLanguage();
+  const fr = lang === 'fr';
+
+  const cases = fr ? [
+    {
+      id: "koosmik",
+      client: "Koosmik",
+      sector: "FinTech (Paris)",
+      title: "RFP Radar — Veille automatisée des appels d’offres",
+      challenge: "L’équipe passait des heures chaque semaine à surveiller manuellement les appels d’offres publics et privés, et ratait souvent des opportunités clés.",
+      solution: "Déploiement d’un système de veille automatisé via n8n qui scrape les sources, filtre via IA selon les critères de Koosmik et notifie l’équipe commerciale sur Slack.",
+      results: ["15h+/semaine économisées", "0 opportunité manquée", "Réactivité multipliée par 3"],
+      stack: ["n8n", "Claude AI", "Pipedrive", "Slack"]
+    },
+    {
+      id: "alternative-aml",
+      client: "AlternativeAML / Global IT Services PSF / OmniTrust",
+      sector: "Compliance (BE/LU)",
+      title: "Pipeline LinkedIn automatisé",
+      challenge: "Maintenir une présence forte sur LinkedIn pour 3 entités différentes sans y consacrer de temps interne.",
+      solution: "Création d’un pipeline de contenu automatisé. L’IA génère des posts basés sur l’actualité réglementaire, validés dans Airtable, puis publiés automatiquement via l’API LinkedIn.",
+      results: ["5 posts/semaine par entité", "0 intervention humaine", "+45% d’engagement en 2 mois"],
+      stack: ["n8n", "Claude AI", "Airtable", "LinkedIn API"]
+    },
+    {
+      id: "lybramedia",
+      client: "LybraMedia",
+      sector: "Média",
+      title: "Infrastructure d’onboarding complète",
+      challenge: "Process d’onboarding manuel, désorganisé et chronophage pour les nouveaux clients et membres d’équipe.",
+      solution: "Construction d’une infrastructure centralisée sur Airtable pour automatiser tout le workflow d’onboarding, de la collecte à l’assignation des tâches.",
+      results: ["Onboarding 100% automatisé", "Gestion des données centralisée", "Temps significatif gagné par nouveau client"],
+      stack: ["Airtable", "n8n", "Make"]
+    },
+    {
+      id: "lafa",
+      client: "lafa-asbl",
+      sector: "Association (Belgique)",
+      title: "Automatisation des processus opérationnels internes",
+      challenge: "Gestion administrative chronophage (inscriptions, facturation, communication membres).",
+      solution: "Digitalisation et automatisation complète des flux opérationnels via Google Workspace et n8n.",
+      results: ["100% des inscriptions automatisées", "0 erreur de saisie", "20h/mois économisées en admin"],
+      stack: ["n8n", "Google Workspace", "Stripe"]
+    }
+  ] : [
     {
       id: "koosmik",
       client: "Koosmik",
@@ -13,11 +57,7 @@ export const CaseStudies = () => {
       title: "RFP Radar — Automated tender monitoring",
       challenge: "The team spent hours every week manually monitoring public and private tenders, often missing key opportunities.",
       solution: "Deployment of an automated monitoring system via n8n that scrapes sources, filters via AI according to Koosmik's criteria, and notifies the sales team on Slack.",
-      results: [
-        "15h+/week saved",
-        "0 missed opportunities",
-        "Reactivity increased by 300%"
-      ],
+      results: ["15h+/week saved", "0 missed opportunities", "Reactivity increased by 300%"],
       stack: ["n8n", "Claude AI", "Pipedrive", "Slack"]
     },
     {
@@ -27,11 +67,7 @@ export const CaseStudies = () => {
       title: "Automated LinkedIn content pipeline",
       challenge: "Need to maintain a strong presence on LinkedIn for 3 different entities without spending internal time.",
       solution: "Creation of an automated content pipeline. AI generates posts based on regulatory news, validated in Airtable, then published automatically via the LinkedIn API.",
-      results: [
-        "5 posts/week per entity",
-        "0 human intervention required",
-        "+45% engagement in 2 months"
-      ],
+      results: ["5 posts/week per entity", "0 human intervention required", "+45% engagement in 2 months"],
       stack: ["n8n", "Claude AI", "Airtable", "LinkedIn API"]
     },
     {
@@ -41,11 +77,7 @@ export const CaseStudies = () => {
       title: "Comprehensive Onboarding Infrastructure",
       challenge: "Manual, disorganized, and time-consuming onboarding process for new clients and team members.",
       solution: "Built a centralized infrastructure using Airtable to automate and streamline the entire onboarding workflow, from data collection to task assignment.",
-      results: [
-        "100% automated onboarding",
-        "Centralized data management",
-        "Significant time saved per new client"
-      ],
+      results: ["100% automated onboarding", "Centralized data management", "Significant time saved per new client"],
       stack: ["Airtable", "n8n", "Make"]
     },
     {
@@ -55,14 +87,20 @@ export const CaseStudies = () => {
       title: "Internal operational process automation",
       challenge: "Time-consuming administrative management (registrations, billing, member communication).",
       solution: "Complete digitization and automation of operational flows via Google Workspace and n8n.",
-      results: [
-        "100% of registrations automated",
-        "0 manual data entry errors",
-        "20h/month saved on admin"
-      ],
+      results: ["100% of registrations automated", "0 manual data entry errors", "20h/month saved on admin"],
       stack: ["n8n", "Google Workspace", "Stripe"]
     }
   ];
+
+  const T = {
+    title: fr ? "Nos références" : "Our Case Studies",
+    subtitle: fr ? "Découvrez comment nous avons aidé ces sociétés à faire passer leurs opérations à l’échelle avec l’IA." : "Discover how we helped these companies scale their operations with AI.",
+    challenge: fr ? "Problématique" : "Challenge",
+    solution: fr ? "Solution" : "Solution",
+    results: fr ? "Résultats" : "Results",
+    ctaTitle: fr ? "Envie des mêmes résultats ?" : "Ready to get the same results?",
+    ctaBtn: fr ? "Réserver un audit gratuit" : "Book a free audit",
+  };
 
   return (
     <div className="pt-32 pb-20">
@@ -73,10 +111,10 @@ export const CaseStudies = () => {
           transition={{ duration: 0.6 }}
         >
           <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight text-white mb-6">
-            Our Case Studies
+            {T.title}
           </h1>
           <p className="text-xl text-brand-gray leading-relaxed max-w-2xl mx-auto">
-            Discover how we helped these companies scale their operations with AI.
+            {T.subtitle}
           </p>
         </motion.div>
       </section>
@@ -101,7 +139,7 @@ export const CaseStudies = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
                   <div>
                     <div className="flex items-center gap-2 text-red-400 font-bold mb-4">
-                      <Target className="w-5 h-5" /> Challenge
+                      <Target className="w-5 h-5" /> {T.challenge}
                     </div>
                     <p className="text-brand-gray leading-relaxed">
                       {study.challenge}
@@ -109,7 +147,7 @@ export const CaseStudies = () => {
                   </div>
                   <div>
                     <div className="flex items-center gap-2 text-brand-blue font-bold mb-4">
-                      <Lightbulb className="w-5 h-5" /> Solution
+                      <Lightbulb className="w-5 h-5" /> {T.solution}
                     </div>
                     <p className="text-brand-gray leading-relaxed">
                       {study.solution}
@@ -119,7 +157,7 @@ export const CaseStudies = () => {
 
                 <div className="p-6 rounded-2xl bg-brand-navy border border-brand-blue/20 mb-8">
                   <div className="flex items-center gap-2 text-emerald-400 font-bold mb-6">
-                    <TrendingUp className="w-5 h-5" /> Results
+                    <TrendingUp className="w-5 h-5" /> {T.results}
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
                     {study.results.map((result, i) => (
@@ -148,10 +186,10 @@ export const CaseStudies = () => {
 
       <section className="mt-32 py-24 px-6 text-center">
         <FadeIn>
-          <h2 className="text-3xl font-bold text-white mb-8">Ready to get the same results?</h2>
+          <h2 className="text-3xl font-bold text-white mb-8">{T.ctaTitle}</h2>
           <a href="https://calendly.com/nolprayagsing/automation-strategy-audit" target="_blank" rel="noopener noreferrer">
             <GlowButton className="text-lg px-8 py-4">
-              Book a free audit <ArrowRight className="w-5 h-5 ml-2" />
+              {T.ctaBtn} <ArrowRight className="w-5 h-5 ml-2" />
             </GlowButton>
           </a>
         </FadeIn>
