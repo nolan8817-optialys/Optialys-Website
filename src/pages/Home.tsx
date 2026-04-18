@@ -1,281 +1,236 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import { ArrowRight, Check, ChevronDown, Clock, AlertTriangle, BarChart3 } from 'lucide-react';
+import React from 'react';
+import { motion } from 'motion/react';
+import { Link } from 'react-router-dom';
+import { ArrowRight, CheckCircle2, Zap, Settings, X, Building2 } from 'lucide-react';
 import { FadeIn, GlowButton } from '../components/ui';
-import { CalendlyEmbed } from '../components/CalendlyEmbed';
 
-// Section 1 — Hero
-const Hero = () => (
-  <section className="pt-16 pb-20 px-6 max-w-5xl mx-auto min-h-[88vh] flex flex-col items-center justify-center text-center gap-10 relative z-10">
-    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-brand-blue/8 rounded-full blur-[140px] -z-10 pointer-events-none" />
+const Hero = () => {
+  return (
+    <section className="pt-40 pb-20 px-6 max-w-4xl mx-auto min-h-[90vh] flex flex-col items-center justify-center text-center gap-12 relative z-10">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-blue/10 rounded-full blur-[120px] -z-10 pointer-events-none" />
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="flex flex-col items-center space-y-8 w-full"
+      >
+        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-blue/10 text-brand-blue border border-brand-blue/20 text-xs font-bold tracking-wide uppercase">
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-accent opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-blue"></span>
+          </span>
+          Your AI Growth Team — Available 24/7
+        </div>
+        
+        <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.1] text-white">
+          We Guarantee <br/>
+          <span className="relative inline-block my-1">
+            <span className="italic font-serif text-gradient-blue pr-2">25 Hours Saved</span>
+            <svg className="absolute w-full h-full top-0 left-0 -z-10 scale-110 text-brand-blue/40" viewBox="0 0 100 100" preserveAspectRatio="none">
+              <motion.path 
+                initial={{ pathLength: 0 }}
+                animate={{ pathLength: 1 }}
+                transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
+                d="M10,50 Q50,10 90,50 Q50,90 10,50" 
+                fill="none" 
+                stroke="currentColor" 
+                strokeWidth="2" 
+              />
+            </svg>
+          </span>
+          <br/>
+          Every Month.<br/>
+          <span className="text-3xl md:text-4xl text-brand-gray mt-4 block">Or We Work For Free.</span>
+        </h1>
+        
+        <p className="text-xl text-brand-gray max-w-2xl leading-relaxed mx-auto">
+          For European SMEs ready to stop being their own bottleneck. We build custom automation systems for operations, marketing, and sales — so scaling <span className="font-bold text-white border-b-2 border-brand-blue">finally happens</span>.
+        </p>
+        
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4 w-full flex-wrap">
+          <a href="https://calendly.com/nolprayagsing/automation-strategy-audit" target="_blank" rel="noopener noreferrer">
+            <GlowButton className="w-full sm:w-auto text-lg px-8 py-4">
+              Get Started <ArrowRight className="w-5 h-5" />
+            </GlowButton>
+          </a>
+          <Link to="/diagnostic">
+            <GlowButton primary={false} className="w-full sm:w-auto text-lg px-8 py-4 border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/10">
+              <CheckCircle2 className="w-5 h-5 text-emerald-400" /> Free Diagnostic
+            </GlowButton>
+          </Link>
+        </div>
+      </motion.div>
+    </section>
+  );
+};
 
-    <motion.div
-      initial={{ opacity: 0, y: 24 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.65 }}
-      className="flex flex-col items-center gap-8"
-    >
-      <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.08] text-brand-blue">
-        Des AI agents qui opèrent<br />
-        <span className="text-white">pour les cabinets réglementés.</span>
-      </h1>
-
-      <p className="text-xl md:text-2xl text-white/80 max-w-3xl leading-relaxed font-light">
-        Optialys déploie des agents IA dédiés aux fiduciaires, cabinets compliance et trust offices
-        en Belgique, Luxembourg et France. KYC, reporting client, onboarding —
-        en production sous 30 jours.
-      </p>
-
-      <div className="flex flex-col sm:flex-row items-center gap-4 pt-2">
-        <a
-          href="https://calendly.com/nolprayagsing/automation-strategy-audit"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <GlowButton className="text-base px-8 py-4">
-            Réserver un diagnostic de 30 min <ArrowRight className="w-5 h-5" />
-          </GlowButton>
-        </a>
-        <a href="#methode" className="text-brand-blue font-medium hover:text-white transition-colors text-base">
-          Comment ça marche →
-        </a>
+const SocialProof = () => (
+  <FadeIn>
+    <section className="py-12 border-y border-brand-blue/10 bg-brand-card/30 backdrop-blur-md relative z-10">
+      <div className="max-w-7xl mx-auto px-6 text-center">
+        <p className="text-xs font-bold tracking-widest text-brand-gray uppercase mb-8 font-mono">Businesses I've worked with</p>
+        <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-70 hover:opacity-100 transition-all duration-500 text-white">
+          <span className="font-sans text-2xl font-bold tracking-tight">Alternative AML</span>
+          <span className="font-sans text-2xl font-black tracking-widest text-brand-blue">Global IT Services PSF</span>
+          <span className="font-serif text-2xl font-bold italic">Omnitrust</span>
+          <span className="font-sans text-2xl font-medium lowercase tracking-wide">koosmik</span>
+          <span className="font-sans text-2xl font-bold">Lybra<span className="font-light">Media</span></span>
+        </div>
       </div>
-    </motion.div>
-
-    {/* Diagram */}
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.65, delay: 0.25 }}
-      className="flex items-center gap-3 md:gap-6 mt-4 px-6 py-5 rounded-2xl bg-brand-card/60 border border-brand-blue/20 backdrop-blur-sm"
-    >
-      {[
-        { label: 'Données client', sub: 'CRM · Email · ERP' },
-        null,
-        { label: 'Agent Optialys', sub: 'Traitement autonome', highlight: true },
-        null,
-        { label: 'Résultat métier', sub: 'KYC · Rapport · Alerte' },
-      ].map((item, i) =>
-        item === null ? (
-          <div key={i} className="text-brand-blue text-xl font-bold select-none">→</div>
-        ) : (
-          <div
-            key={i}
-            className={`px-4 py-3 rounded-xl text-center ${
-              item.highlight
-                ? 'bg-brand-blue text-brand-navy font-bold'
-                : 'bg-brand-navy border border-brand-blue/30 text-white'
-            }`}
-          >
-            <div className="text-sm font-semibold whitespace-nowrap">{item.label}</div>
-            <div className={`text-xs mt-0.5 ${item.highlight ? 'text-brand-navy/70' : 'text-brand-gray'}`}>
-              {item.sub}
-            </div>
-          </div>
-        )
-      )}
-    </motion.div>
-  </section>
+    </section>
+  </FadeIn>
 );
 
-// Section 2 — Problème ciblé
-const ProblemeSection = () => {
-  const metrics = [
-    {
-      icon: <Clock className="w-6 h-6" />,
-      value: '15-25h / semaine',
-      label: "Temps d'un analyste junior sur la saisie KYC dans un cabinet fiduciaire 5-20 personnes.",
-    },
-    {
-      icon: <AlertTriangle className="w-6 h-6" />,
-      value: '2-4 semaines',
-      label: 'Délai moyen d'onboarding client BeNeLux. Benchmark cabinet avec agents IA : 3-5 jours.',
-    },
-    {
-      icon: <BarChart3 className="w-6 h-6" />,
-      value: '40%+',
-      label: 'Part des heures équipe sur l'ops admin non-facturable dans un cabinet conseil moyen.',
-    },
-  ];
-
+const Stats = () => {
   return (
     <section className="py-24 px-6 relative z-10">
-      <div className="max-w-6xl mx-auto">
-        <FadeIn>
-          <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-4">
-            Le vrai coût des opérations manuelles dans un cabinet réglementé.
-          </h2>
-          <p className="text-brand-gray text-center mb-14 max-w-2xl mx-auto">
-            Ces chiffres ne viennent pas d'une étude de cabinet conseil. Ils viennent des cabinets avec lesquels on travaille.
-          </p>
-        </FadeIn>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {metrics.map((m, i) => (
+      <div className="max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {[
+            { icon: <Zap className="w-6 h-6" />, value: "15h+", label: "Saved on average per week by our clients" },
+            { icon: <Settings className="w-6 h-6" />, value: "Day 3", label: "First visible result after deployment" },
+            { icon: <CheckCircle2 className="w-6 h-6" />, value: "30 Days", label: "Guaranteed deployment timeframe" }
+          ].map((stat, i) => (
             <FadeIn key={i} delay={i * 0.1}>
-              <div className="p-8 rounded-2xl bg-brand-card/60 border border-brand-blue/15 backdrop-blur-sm h-full flex flex-col gap-5">
-                <div className="w-11 h-11 rounded-xl bg-brand-blue/10 flex items-center justify-center text-brand-blue">
-                  {m.icon}
+              <div className="p-8 rounded-2xl bg-brand-card/50 border border-brand-blue/20 backdrop-blur-sm text-center group hover:border-brand-blue/50 transition-colors">
+                <div className="w-12 h-12 mx-auto bg-brand-blue/10 rounded-full flex items-center justify-center text-brand-blue mb-6 group-hover:scale-110 transition-transform">
+                  {stat.icon}
                 </div>
-                <div className="text-3xl font-extrabold text-brand-blue">{m.value}</div>
-                <p className="text-brand-gray text-sm leading-relaxed">{m.label}</p>
+                <div className="text-5xl font-black text-white mb-2">{stat.value}</div>
+                <div className="text-sm text-brand-gray font-medium">{stat.label}</div>
               </div>
             </FadeIn>
           ))}
+        </div>
+
+        <FadeIn delay={0.4}>
+          <div className="mt-12 text-center">
+            <Link to="/roi-calculator" className="inline-flex items-center gap-2 text-brand-blue hover:text-white transition-colors font-medium">
+              Calculate your potential ROI <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </FadeIn>
+      </div>
+    </section>
+  );
+};
+
+const ProblemSolution = () => {
+  return (
+    <section className="py-24 px-6 bg-brand-navy-2 relative z-10">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          <FadeIn direction="left">
+            <h2 className="text-3xl font-bold text-white mb-8">Why AI hasn't saved your team's time yet</h2>
+            <div className="space-y-8">
+              {[
+                { title: "We bought the tools, but nobody uses them.", desc: "You pay for AI subscriptions, but your team still spends 15 hours a week copy-pasting client data between emails, spreadsheets, and your CRM." },
+                { title: "We tried a pilot, and it went nowhere.", desc: "You spent months on a proof-of-concept that looked great on a slide deck, but never actually replaced the manual admin work your senior staff hates doing." },
+                { title: "Every small change requires an IT ticket.", desc: "You want to tweak a simple lead routing rule, but you have to wait three weeks and pay a developer to rewrite the code." }
+              ].map((item, i) => (
+                <div key={i} className="flex gap-4">
+                  <div className="w-8 h-8 shrink-0 rounded-full bg-red-500/10 flex items-center justify-center text-red-500 mt-1">
+                    <X className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
+                    <p className="text-brand-gray leading-relaxed">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </FadeIn>
+
+          <FadeIn direction="right">
+            <h2 className="text-3xl font-bold text-brand-blue mb-8">Your operations, fully automated in 30 days.</h2>
+            <div className="p-8 rounded-2xl border-2 border-brand-blue bg-brand-blue/5 backdrop-blur-sm relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-brand-blue/20 blur-[50px] rounded-full" />
+              <p className="text-lg text-white leading-relaxed mb-6 relative z-10">
+                We build custom AI systems that connect your existing tools to handle repetitive tasks automatically. In just 30 days, we deploy the workflows and train your team. You just approve the final setup and watch the hours saved pile up.
+              </p>
+              <p className="text-lg font-bold text-brand-blue relative z-10">
+                We guarantee a measurable ROI within 30 days, or we refund your entire investment.
+              </p>
+              <div className="mt-8 relative z-10">
+                <Link to="/optialys-core">
+                  <GlowButton primary={false}>Explore the 30-Day Deployment Plan <ArrowRight className="w-4 h-4 ml-2" /></GlowButton>
+                </Link>
+              </div>
+            </div>
+          </FadeIn>
         </div>
       </div>
     </section>
   );
 };
 
-// Section 3 — Offre
-const OffreSection = () => (
-  <section className="py-24 px-6 relative z-10">
-    <div className="max-w-6xl mx-auto">
-      <FadeIn>
-        <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-16">
-          Deux façons de travailler avec Optialys.
-        </h2>
-      </FadeIn>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
-
-        {/* Card 1 — Core */}
-        <FadeIn direction="left">
-          <div className="h-full p-8 rounded-2xl bg-brand-card/60 border border-brand-blue/15 backdrop-blur-sm flex flex-col gap-6">
-            <div className="inline-block px-3 py-1 rounded-full bg-brand-blue/10 text-brand-blue text-xs font-bold uppercase tracking-wider self-start">
-              Déploiement 30 jours
-            </div>
-            <h3 className="text-2xl font-bold text-white">Un projet. Un système livré.</h3>
-            <p className="text-brand-gray leading-relaxed text-sm">
-              Diagnostic opérationnel sur site, mapping des workflows critiques, déploiement d'agents IA
-              custom en 30 jours, formation équipe, documentation complète. Garantie de livraison : si les
-              deliverables ne sont pas en production à J30, je continue sans facturation additionnelle.
-            </p>
-            <ul className="space-y-3 flex-1">
-              {[
-                'Diagnostic opérationnel complet (2h sur site ou visio)',
-                '1 à 3 agents IA en production',
-                'Intégrations CRM, ERP, email, Slack',
-                'Formation équipe (vidéo + session live)',
-                'Monitoring 24/7 en place',
-              ].map((item, i) => (
-                <li key={i} className="flex items-start gap-3 text-sm text-white/80">
-                  <Check className="w-4 h-4 text-brand-blue shrink-0 mt-0.5" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <a
-              href="https://calendly.com/nolprayagsing/automation-strategy-audit"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-brand-blue font-semibold hover:text-white transition-colors text-sm flex items-center gap-1"
-            >
-              Discuter d'un projet <ArrowRight className="w-4 h-4" />
-            </a>
-          </div>
-        </FadeIn>
-
-        {/* Card 2 — Partner (featured) */}
-        <FadeIn direction="right">
-          <div className="h-full p-8 rounded-2xl bg-brand-card/80 border-2 border-brand-blue backdrop-blur-sm flex flex-col gap-6 relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-40 h-40 bg-brand-blue/10 blur-[60px] rounded-full pointer-events-none" />
-            <div className="inline-block px-3 py-1 rounded-full bg-brand-blue text-brand-navy text-xs font-bold uppercase tracking-wider self-start relative z-10">
-              Engagement mensuel
-            </div>
-            <h3 className="text-2xl font-bold text-white relative z-10">Votre équipe IA embarquée.</h3>
-            <p className="text-brand-gray leading-relaxed text-sm relative z-10">
-              Partenariat mensuel où j'opère comme consultant IA intégré à votre cabinet. Je diagnostique,
-              construis et optimise vos agents en continu. Sans engagement long — mensuel, préavis 30 jours.
-            </p>
-            <ul className="space-y-3 flex-1 relative z-10">
-              {[
-                "Jusqu'à 3 nouveaux agents / mois",
-                'Maintenance & monitoring continu',
-                'Canal Slack dédié (réponse < 24h)',
-                'Strategy call mensuel',
-                'Agents qui évoluent avec vos données',
-              ].map((item, i) => (
-                <li key={i} className="flex items-start gap-3 text-sm text-white/90">
-                  <Check className="w-4 h-4 text-brand-blue shrink-0 mt-0.5" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <a
-              href="https://calendly.com/nolprayagsing/automation-strategy-audit"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="relative z-10"
-            >
-              <GlowButton className="w-full justify-center">
-                Voir si on matche <ArrowRight className="w-4 h-4" />
-              </GlowButton>
-            </a>
-          </div>
-        </FadeIn>
-
-      </div>
-    </div>
-  </section>
-);
-
-// Section 4 — Preuves
-const PreuvesSection = () => {
+const ClientReferences = () => {
   const clients = [
     {
-      name: 'Koosmik',
-      sector: 'FinTech · Paris / Bruxelles',
-      context: 'Cabinet fintech B2B actif sur les marchés publics européens.',
-      solution: 'RFP Radar : monitoring automatisé des tenders publics, qualification et alertes en temps réel.',
-      metric: '15+ heures/semaine économisées sur la veille commerciale.',
-      stack: 'n8n · Claude API · Pipedrive',
+      name: "Koosmik",
+      sector: "FinTech (Paris)",
+      project: "RFP Radar — Automated tender monitoring",
+      result: "⚡ 15h+/week saved",
+      stack: "n8n · Claude AI · Pipedrive"
     },
     {
-      name: 'AlternativeAML · GITS · OmniTrust',
-      sector: 'Compliance · BeNeLux',
-      context: 'Trois cabinets compliance avec besoin de présence LinkedIn régulière sans y consacrer de ressources.',
-      solution: 'Moteur de contenu LinkedIn IA : 5 posts/semaine/entreprise, validation humaine uniquement.',
-      metric: '0 heure d'écriture — validation en 10 min/semaine par cabinet.',
-      stack: 'n8n · Claude API · Airtable · LinkedIn',
+      name: "AlternativeAML / Global IT Services PSF / OmniTrust",
+      sector: "Compliance (BE/LU)",
+      project: "Automated LinkedIn content pipeline — 3 companies",
+      result: "⚡ 5 posts/week · 0 human intervention",
+      stack: "n8n · Claude AI · Airtable · LinkedIn API"
     },
     {
-      name: 'Groupe Louyet',
-      sector: 'Distribution automobile premium · Belgique',
-      context: 'Groupe automobile premium avec processus opérationnels multi-sites.',
-      solution: 'Automatisation des flux de données inter-entités et reporting consolidé.',
-      metric: 'Résultat opérationnel à confirmer avec Nolan avant publication.',
-      stack: 'n8n · Google Workspace · CRM',
+      name: "LybraMedia",
+      sector: "Media Company",
+      project: "Comprehensive Onboarding Infrastructure",
+      result: "⚡ 100% automated onboarding",
+      stack: "Airtable · n8n · Make"
     },
+    {
+      name: "lafa-asbl",
+      sector: "Association (Belgium)",
+      project: "Internal operational process automation",
+      result: "✅ Deployed",
+      stack: "n8n · Google Workspace"
+    }
   ];
 
   return (
-    <section className="py-24 px-6 relative z-10">
-      <div className="max-w-6xl mx-auto">
-        <FadeIn>
-          <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-4">
-            Déjà déployé. Déjà en production.
-          </h2>
-          <p className="text-brand-gray text-center mb-14 max-w-xl mx-auto">
-            Pas de POC. Pas de roadmap à 18 mois. Des agents qui tournent aujourd'hui.
+    <section className="py-24 px-6 bg-brand-navy-2 relative z-10">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold text-white mb-4">Trusted by</h2>
+          <p className="text-xl text-brand-gray max-w-2xl mx-auto">
+            Systems deployed on real businesses. Measurable results.
           </p>
-        </FadeIn>
+        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {clients.map((client, i) => (
             <FadeIn key={i} delay={i * 0.1}>
-              <div className="p-7 rounded-2xl bg-brand-card/60 border border-brand-blue/15 backdrop-blur-sm h-full flex flex-col gap-4">
-                <div>
-                  <h3 className="text-lg font-bold text-white">{client.name}</h3>
-                  <p className="text-xs text-brand-gray mt-0.5">{client.sector}</p>
+              <div className="p-8 rounded-2xl bg-brand-card/50 border border-brand-blue/10 backdrop-blur-sm">
+                <div className="flex items-center gap-3 mb-4">
+                  <Building2 className="w-6 h-6 text-brand-blue" />
+                  <h3 className="text-xl font-bold text-white">{client.name}</h3>
                 </div>
-                <p className="text-sm text-brand-gray leading-relaxed">{client.context}</p>
-                <p className="text-sm text-white/80 leading-relaxed">{client.solution}</p>
-                <div className="mt-auto pt-4 border-t border-brand-blue/10">
-                  <span className="text-brand-blue text-sm font-semibold">{client.metric}</span>
+                <div className="text-sm text-brand-gray mb-6">{client.sector}</div>
+                
+                <div className="space-y-4">
+                  <div>
+                    <div className="text-xs font-bold text-brand-gray uppercase mb-1">Project</div>
+                    <div className="text-white font-medium">{client.project}</div>
+                  </div>
+                  
+                  <div className="inline-block px-3 py-1.5 rounded-lg bg-brand-blue/10 border border-brand-blue/20 text-brand-blue font-bold text-sm">
+                    {client.result}
+                  </div>
+                  
+                  <div className="pt-4 border-t border-brand-blue/10">
+                    <div className="text-xs font-bold text-brand-gray uppercase mb-2">Tech Stack</div>
+                    <div className="text-sm text-brand-gray font-mono">{client.stack}</div>
+                  </div>
                 </div>
-                <p className="text-xs text-brand-gray/60 font-mono">{client.stack}</p>
               </div>
             </FadeIn>
           ))}
@@ -285,171 +240,82 @@ const PreuvesSection = () => {
   );
 };
 
-// Section 5 — Méthode
-const MethodeSection = () => {
-  const steps = [
-    {
-      num: '01',
-      title: 'Diagnostic',
-      sub: 'Semaine 1',
-      desc: 'Audit sur site ou visio. Cartographie de vos workflows, outils, bottlenecks. Plan chiffré en heures et en deliverables — pas en "phases".',
-    },
-    {
-      num: '02',
-      title: 'Build',
-      sub: 'Semaines 2-4',
-      desc: 'Construction des agents IA dans votre stack existant (CRM, Google Workspace, Slack, outils métier). Testé sur données réelles. Aucun code côté client.',
-    },
-    {
-      num: '03',
-      title: 'Production & optimisation',
-      sub: 'J30 et après',
-      desc: 'Go-live, formation équipe, monitoring continu. En Partner : nouveaux agents et optimisation chaque mois.',
-    },
-  ];
-
-  return (
-    <section id="methode" className="py-24 px-6 relative z-10">
-      <div className="max-w-6xl mx-auto">
-        <FadeIn>
-          <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-4">
-            Un processus en 3 étapes. Pas de mystère.
-          </h2>
-          <p className="text-brand-gray text-center mb-16 max-w-xl mx-auto">
-            Déployé, pas promis.
-          </p>
-        </FadeIn>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-0 relative">
-          {/* Connector line (desktop only) */}
-          <div className="hidden md:block absolute top-12 left-[16.5%] right-[16.5%] h-px bg-brand-blue/30 z-0" />
-
-          {steps.map((step, i) => (
-            <FadeIn key={i} delay={i * 0.15}>
-              <div className="relative flex flex-col items-center text-center px-6 pb-8">
-                <div className="relative z-10 w-24 h-24 rounded-full bg-brand-card border-2 border-brand-blue flex flex-col items-center justify-center mb-6">
-                  <span className="text-brand-blue text-xs font-bold tracking-wider">{step.num}</span>
-                  <span className="text-white font-bold text-sm mt-0.5">{step.title}</span>
-                </div>
-                <p className="text-brand-blue text-xs font-semibold mb-3 tracking-wide uppercase">{step.sub}</p>
-                <p className="text-brand-gray text-sm leading-relaxed max-w-xs">{step.desc}</p>
-              </div>
-            </FadeIn>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
-
-// Section 6 — FAQ
-const faqData = [
-  {
-    q: "Je n'ai pas d'équipe tech. C'est un problème ?",
-    a: "Non. Vous n'avez jamais à toucher au code ou à n8n. Votre seule interaction : Slack ou email pour les demandes, Calendly pour les checkpoints.",
-  },
-  {
-    q: 'Mes données clients sont sensibles (secret professionnel, RGPD). Où vont-elles ?',
-    a: "Aucune donnée ne sort de votre stack (Google Workspace ou Microsoft 365, votre CRM existant). Les agents tournent en cloud EU ou self-host selon vos besoins. Documentation RGPD fournie pour chaque projet.",
-  },
-  {
-    q: 'Combien ça coûte ?',
-    a: "Le prix dépend de la complexité, chiffré après diagnostic. Optialys Core démarre typiquement entre 1 500 et 3 500€ pour un projet 30 jours. Optialys Partner démarre à 1 500€/mois. Le diagnostic est gratuit et sans engagement.",
-  },
-  {
-    q: "Pourquoi Optialys et pas une agence IA généraliste ?",
-    a: "Parce que je travaille avec des cabinets compliance (OmniTrust, AlternativeAML, GITS), une fintech (Koosmik) et un distributeur premium (Groupe Louyet). La profondeur métier bat le volume d'agences généralistes en 2026.",
-  },
-  {
-    q: 'Mon équipe utilise déjà ChatGPT. En quoi c'est différent ?',
-    a: "ChatGPT = outil individuel, contexte perdu à chaque session, aucune intégration à vos outils. Un agent Optialys = processus métier autonome, connecté à votre CRM, exécutant une tâche précise 24/7, traçable et auditable.",
-  },
-  {
-    q: 'Vous avez 18 ans. Sérieusement ?',
-    a: "Oui. Mes clients — Koosmik, OmniTrust, Groupe Louyet — sont des boîtes sérieuses. Le travail se juge sur les agents en production, pas sur l'âge.",
-  },
-];
-
-const FAQSection = () => {
-  const [open, setOpen] = useState<number | null>(null);
-
+const CTASection = () => {
   return (
     <section className="py-24 px-6 relative z-10">
-      <div className="max-w-3xl mx-auto">
-        <FadeIn>
-          <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-14">
-            Questions fréquentes.
-          </h2>
-        </FadeIn>
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-black text-white mb-4">Two ways to work with us</h2>
+        </div>
 
-        <div className="space-y-3">
-          {faqData.map((item, i) => (
-            <FadeIn key={i} delay={i * 0.05}>
-              <div className="rounded-xl bg-brand-card/60 border border-brand-blue/10 overflow-hidden">
-                <button
-                  onClick={() => setOpen(open === i ? null : i)}
-                  className="w-full flex items-center justify-between gap-4 p-6 text-left text-white font-medium hover:text-brand-blue transition-colors"
-                >
-                  <span>{item.q}</span>
-                  <ChevronDown
-                    className={`w-5 h-5 shrink-0 text-brand-blue transition-transform duration-300 ${
-                      open === i ? 'rotate-180' : ''
-                    }`}
-                  />
-                </button>
-                <AnimatePresence>
-                  {open === i && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: 'auto', opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3 }}
-                      className="overflow-hidden"
-                    >
-                      <p className="px-6 pb-6 text-brand-gray leading-relaxed text-sm">{item.a}</p>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* Card 1: Optialys Core */}
+          <FadeIn direction="left">
+            <div className="relative overflow-hidden rounded-3xl bg-brand-card/50 border border-brand-blue/20 p-10 h-full flex flex-col group hover:border-brand-blue/50 transition-colors">
+              <div className="inline-block px-4 py-1.5 rounded-full bg-brand-blue/10 text-brand-blue font-bold text-sm mb-6 self-start">
+                30 days
               </div>
-            </FadeIn>
-          ))}
+              <h3 className="text-3xl font-bold text-white mb-4">Optialys Core™</h3>
+              <p className="text-xl font-medium text-brand-blue mb-6">
+                One project. One deployment. Results.
+              </p>
+              <p className="text-brand-gray leading-relaxed mb-10 flex-1">
+                Custom automations deployed in 30 days. Delivery guarantee included.
+              </p>
+              <Link to="/optialys-core" className="w-full">
+                <GlowButton className="w-full">
+                  Discover <ArrowRight className="w-5 h-5 ml-2" />
+                </GlowButton>
+              </Link>
+            </div>
+          </FadeIn>
+
+          {/* Card 2: Optialys Partner */}
+          <FadeIn direction="right">
+            <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-brand-blue to-[#0098CC] p-10 h-full flex flex-col text-brand-navy">
+              <motion.div 
+                className="absolute inset-0 bg-white/10"
+                animate={{ opacity: [0.1, 0.3, 0.1] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              />
+              <div className="relative z-10 flex flex-col h-full">
+                <div className="inline-block px-4 py-1.5 rounded-full bg-brand-navy/10 border border-brand-navy/20 text-brand-navy font-bold text-sm mb-6 self-start">
+                  Partnership
+                </div>
+                <h3 className="text-3xl font-bold mb-4">Optialys Partner</h3>
+                <p className="text-xl font-medium mb-6 opacity-90">
+                  Your AI consultant — integrated into your team.
+                </p>
+                <p className="leading-relaxed mb-10 flex-1 font-medium opacity-80">
+                  AI infrastructure that evolves every month. Setup included. No long-term commitment.
+                </p>
+                <Link to="/optialys-partner" className="w-full">
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="w-full bg-brand-navy text-white font-bold text-lg px-8 py-4 rounded-xl shadow-xl hover:shadow-brand-navy/50 transition-all flex items-center justify-center"
+                  >
+                    Discover <ArrowRight className="w-5 h-5 ml-2" />
+                  </motion.button>
+                </Link>
+              </div>
+            </div>
+          </FadeIn>
         </div>
       </div>
     </section>
   );
 };
 
-// Section 7 — CTA final + Calendly
-const CTAFinalSection = () => (
-  <section className="py-24 px-6 relative z-10">
-    <div className="max-w-4xl mx-auto">
-      <FadeIn>
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            30 minutes pour voir ce qui est automatisable dans votre cabinet.
-          </h2>
-          <p className="text-brand-gray max-w-2xl mx-auto leading-relaxed">
-            Diagnostic gratuit, sans engagement. Si on ne matche pas, vous repartez avec
-            une cartographie opérationnelle utilisable en interne.
-          </p>
-        </div>
-      </FadeIn>
-
-      <FadeIn delay={0.15}>
-        <CalendlyEmbed />
-      </FadeIn>
-    </div>
-  </section>
-);
-
-export const Home = () => (
-  <>
-    <Hero />
-    <ProblemeSection />
-    <OffreSection />
-    <PreuvesSection />
-    <MethodeSection />
-    <FAQSection />
-    <CTAFinalSection />
-  </>
-);
+export const Home = () => {
+  return (
+    <>
+      <Hero />
+      <SocialProof />
+      <Stats />
+      <ProblemSolution />
+      <ClientReferences />
+      <CTASection />
+    </>
+  );
+};
