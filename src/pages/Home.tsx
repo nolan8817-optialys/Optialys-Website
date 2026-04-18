@@ -89,12 +89,12 @@ const ProblemeSection = () => {
     {
       icon: <AlertTriangle className="w-6 h-6" />,
       value: '2-4 semaines',
-      label: "Délai moyen d'onboarding client BeNeLux. Benchmark cabinet avec agents IA : 3-5 jours.",
+      label: 'Délai moyen d'onboarding client BeNeLux. Benchmark cabinet avec agents IA : 3-5 jours.',
     },
     {
       icon: <BarChart3 className="w-6 h-6" />,
       value: '40%+',
-      label: "Part des heures équipe sur l'ops admin non-facturable dans un cabinet conseil moyen.",
+      label: 'Part des heures équipe sur l'ops admin non-facturable dans un cabinet conseil moyen.',
     },
   ];
 
@@ -237,7 +237,7 @@ const PreuvesSection = () => {
       sector: 'Compliance · BeNeLux',
       context: 'Trois cabinets compliance avec besoin de présence LinkedIn régulière sans y consacrer de ressources.',
       solution: 'Moteur de contenu LinkedIn IA : 5 posts/semaine/entreprise, validation humaine uniquement.',
-      metric: "0 heure d'écriture — validation en 10 min/semaine par cabinet.",
+      metric: '0 heure d'écriture — validation en 10 min/semaine par cabinet.',
       stack: 'n8n · Claude API · Airtable · LinkedIn',
     },
     {
@@ -361,7 +361,7 @@ const faqData = [
     a: "Parce que je travaille avec des cabinets compliance (OmniTrust, AlternativeAML, GITS), une fintech (Koosmik) et un distributeur premium (Groupe Louyet). La profondeur métier bat le volume d'agences généralistes en 2026.",
   },
   {
-    q: "Mon équipe utilise déjà ChatGPT. En quoi c'est différent ?",
+    q: 'Mon équipe utilise déjà ChatGPT. En quoi c'est différent ?',
     a: "ChatGPT = outil individuel, contexte perdu à chaque session, aucune intégration à vos outils. Un agent Optialys = processus métier autonome, connecté à votre CRM, exécutant une tâche précise 24/7, traçable et auditable.",
   },
   {

@@ -16,7 +16,7 @@ const ApprochePage = () => {
       options: ['Moins de 5', '5 à 20', '20 à 50', 'Plus de 50'],
     },
     {
-      q: "Quel est votre principal secteur d'activité ?",
+      q: 'Quel est votre principal secteur d'activité ?',
       options: ['Fiduciaire / Comptabilité', 'Compliance / AML / KYC', 'Trust office / Family office', 'Autre secteur réglementé'],
     },
     {
@@ -24,7 +24,7 @@ const ApprochePage = () => {
       options: ['Saisie et vérification KYC', 'Reporting client / production documents', 'Onboarding nouveaux clients', 'Veille réglementaire / contenu'],
     },
     {
-      q: "Avez-vous déjà tenté d'automatiser un processus ?",
+      q: 'Avez-vous déjà tenté d'automatiser un processus ?',
       options: ['Non, jamais', 'Oui, avec des outils comme Zapier / Make', 'Oui, avec une agence — sans résultat durable', 'Oui, partiellement en interne'],
     },
     {
@@ -71,8 +71,8 @@ const ApprochePage = () => {
                 <h3 className="text-white font-bold mb-5 text-lg">Automatisation classique</h3>
                 <ul className="space-y-3">
                   {[
-                    "Exécute des règles fixes définies à l'avance",
-                    "Bloque dès qu'une exception survient",
+                    'Exécute des règles fixes définies à l'avance',
+                    'Bloque dès qu'une exception survient',
                     'Nécessite un déclencheur manuel ou un cron',
                     'Ne comprend pas le contexte métier',
                     'Maintenance dès que le format change',
@@ -92,7 +92,7 @@ const ApprochePage = () => {
                     'Gère les exceptions avec une logique contextuelle',
                     'Surveille et agit de façon autonome, 24/7',
                     'Comprend le jargon métier de votre secteur',
-                    "S'améliore avec vos données réelles",
+                    'S'améliore avec vos données réelles',
                   ].map((item, i) => (
                     <li key={i} className="flex items-start gap-3 text-sm text-white/90">
                       <Check className="w-4 h-4 text-brand-blue shrink-0 mt-0.5" />
@@ -150,7 +150,7 @@ const ApprochePage = () => {
                 {
                   tool: 'Claude API',
                   role: 'Intelligence des agents',
-                  detail: "Le modèle de langage d'Anthropic qui permet à l'agent de comprendre des documents, rédiger des rapports et prendre des décisions contextuelles.",
+                  detail: 'Le modèle de langage d'Anthropic qui permet à l'agent de comprendre des documents, rédiger des rapports et prendre des décisions contextuelles.',
                 },
                 {
                   tool: 'Vos outils existants',
@@ -174,12 +174,12 @@ const ApprochePage = () => {
             <h2 className="text-2xl font-bold text-white mb-6">Ce qu'on ne fait pas</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               {[
-                "Développement d'applications web ou mobiles sur mesure",
+                'Développement d'applications web ou mobiles sur mesure',
                 'Projets hors cabinets réglementés (e-commerce, SaaS généraliste...)',
                 'Promesses de ROI chiffré sans diagnostic préalable',
-                "Retouches d'un système construit par une autre agence sans évaluation",
+                'Retouches d'un système construit par une autre agence sans évaluation',
                 'Projets nécessitant une équipe tech côté client',
-                "Automatisations RPA (robots de clics d'écran)",
+                'Automatisations RPA (robots de clics d'écran)',
               ].map((item, i) => (
                 <div key={i} className="flex items-start gap-3 text-sm text-brand-gray p-3 rounded-lg bg-brand-card/30">
                   <X className="w-4 h-4 text-red-400/60 shrink-0 mt-0.5" />
