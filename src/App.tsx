@@ -12,6 +12,7 @@ import { Contact } from './pages/Contact';
 import { Legal } from './pages/Legal';
 import { ROICalculator } from './pages/ROICalculator';
 import { Diagnostic } from './pages/Diagnostic';
+import { LanguageProvider } from './i18n/LanguageContext';
 
 // --- Background Effects ---
 
@@ -97,10 +98,11 @@ const BackgroundEffects = () => {
 
 export default function App() {
   return (
-    <Router>
-      <BackgroundEffects />
-      <Layout>
-        <Routes>
+    <LanguageProvider>
+      <Router>
+        <BackgroundEffects />
+        <Layout>
+          <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/services" element={<Services />} />
           <Route path="/optialys-core" element={<OptialysCore />} />
@@ -110,9 +112,10 @@ export default function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/legal" element={<Legal />} />
           <Route path="/roi-calculator" element={<ROICalculator />} />
-          <Route path="/diagnostic" element={<Diagnostic />} />
-        </Routes>
-      </Layout>
-    </Router>
+            <Route path="/diagnostic" element={<Diagnostic />} />
+          </Routes>
+        </Layout>
+      </Router>
+    </LanguageProvider>
   );
 }
