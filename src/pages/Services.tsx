@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Zap, Code, CheckCircle2, Users } from 'lucide-react';
-import { FadeIn, GlowButton } from '../components/ui';
+import { FadeIn, GlowButton, PillBadge } from '../components/ui';
 import { useLanguage } from '../i18n/LanguageContext';
 
 export const Services = () => {
@@ -55,17 +55,18 @@ export const Services = () => {
   ];
 
   return (
-    <div className="pt-32 pb-20">
+    <div className="pt-32 pb-20 bg-bg-cream">
       <section className="px-6 max-w-4xl mx-auto text-center mb-24">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight text-white mb-6">
+          <PillBadge className="mb-6">{t('services.page.title')}</PillBadge>
+          <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight text-ink-navy mb-6">
             {t('services.page.title')}
           </h1>
-          <p className="text-xl text-brand-gray leading-relaxed max-w-2xl mx-auto">
+          <p className="text-xl text-ink-gray leading-relaxed max-w-2xl mx-auto">
             {t('services.page.subtitle')}
           </p>
         </motion.div>
@@ -75,25 +76,25 @@ export const Services = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {services.map((service, index) => (
             <FadeIn key={service.id} direction={index % 2 === 0 ? "left" : "right"}>
-              <div className="flex flex-col h-full p-10 rounded-3xl bg-brand-card/30 border border-brand-blue/10 hover:border-brand-blue/30 transition-colors">
-                <div className="w-20 h-20 rounded-2xl bg-brand-blue/10 flex items-center justify-center text-brand-blue mb-8">
+              <div className="flex flex-col h-full p-10 rounded-3xl bg-surface-white border border-border-cream hover:border-accent-coral/30 transition-colors">
+                <div className="w-20 h-20 rounded-2xl bg-accent-coral/10 flex items-center justify-center text-accent-coral mb-8">
                   {service.icon}
                 </div>
 
-                <span className="inline-block px-4 py-1.5 rounded-full bg-brand-navy border border-brand-blue/30 text-sm font-bold text-brand-blue mb-6 self-start">
+                <span className="inline-block px-4 py-1.5 rounded-full bg-bg-cream border border-accent-coral/20 text-sm font-bold text-accent-coral mb-6 self-start">
                   {service.badge}
                 </span>
-                <h2 className="text-3xl font-bold text-white mb-4">{service.title}</h2>
-                <p className="text-lg text-brand-gray leading-relaxed mb-8 flex-1">
+                <h2 className="text-3xl font-bold text-ink-navy mb-4">{service.title}</h2>
+                <p className="text-lg text-ink-gray leading-relaxed mb-8 flex-1">
                   {service.desc}
                 </p>
 
-                <div className="bg-brand-navy/50 border border-brand-blue/10 rounded-xl p-6 mb-8">
-                  <h4 className="text-white font-bold mb-4">{t('services.keyPoints')}</h4>
+                <div className="bg-bg-cream border border-border-cream rounded-xl p-6 mb-8">
+                  <h4 className="text-ink-navy font-bold mb-4">{t('services.keyPoints')}</h4>
                   <ul className="space-y-3">
                     {service.includes.map((item, i) => (
-                      <li key={i} className="flex items-start gap-3 text-brand-gray">
-                        <CheckCircle2 className="w-5 h-5 text-brand-blue shrink-0 mt-0.5" />
+                      <li key={i} className="flex items-start gap-3 text-ink-gray">
+                        <CheckCircle2 className="w-5 h-5 text-accent-coral shrink-0 mt-0.5" />
                         <span>{item}</span>
                       </li>
                     ))}
@@ -103,13 +104,13 @@ export const Services = () => {
                 {service.cta && service.link && (
                   service.link.startsWith('http') ? (
                     <a href={service.link} target="_blank" rel="noopener noreferrer" className="mt-auto">
-                      <GlowButton className="w-full">
+                      <GlowButton variant="primary" className="w-full">
                         {service.cta} <ArrowRight className="w-4 h-4 ml-2" />
                       </GlowButton>
                     </a>
                   ) : (
                     <Link to={service.link} className="mt-auto">
-                      <GlowButton className="w-full">
+                      <GlowButton variant="primary" className="w-full">
                         {service.cta} <ArrowRight className="w-4 h-4 ml-2" />
                       </GlowButton>
                     </Link>
@@ -123,25 +124,25 @@ export const Services = () => {
 
       {/* Additional Service Separator */}
       <div className="max-w-7xl mx-auto px-6 py-24">
-        <div className="h-px bg-gradient-to-r from-transparent via-brand-blue/20 to-transparent w-full" />
+        <div className="h-px bg-gradient-to-r from-transparent via-border-cream to-transparent w-full" />
       </div>
 
       <section className="px-6 max-w-4xl mx-auto">
         <FadeIn direction="up">
-          <div className="flex flex-col md:flex-row gap-8 items-center p-10 rounded-3xl bg-brand-card/30 border border-brand-blue/10">
-            <div className="w-20 h-20 rounded-2xl bg-brand-blue/10 flex items-center justify-center text-brand-blue shrink-0">
+          <div className="flex flex-col md:flex-row gap-8 items-center p-10 rounded-3xl bg-surface-white border border-border-cream">
+            <div className="w-20 h-20 rounded-2xl bg-accent-electric/10 flex items-center justify-center text-accent-electric shrink-0">
               {additionalService.icon}
             </div>
             <div className="flex-1 text-center md:text-left">
-              <span className="inline-block px-3 py-1 rounded-full bg-brand-navy border border-brand-blue/30 text-xs font-bold text-brand-blue mb-4">
+              <span className="inline-block px-3 py-1 rounded-full bg-bg-cream border border-accent-coral/20 text-xs font-bold text-accent-coral mb-4">
                 {additionalService.badge}
               </span>
-              <h3 className="text-2xl font-bold text-white mb-3">{t('services.custom.label')} — {additionalService.title}</h3>
-              <p className="text-brand-gray leading-relaxed mb-6">
+              <h3 className="text-2xl font-bold text-ink-navy mb-3">{t('services.custom.label')} — {additionalService.title}</h3>
+              <p className="text-ink-gray leading-relaxed mb-6">
                 {additionalService.desc}
               </p>
               <a href={additionalService.link} target="_blank" rel="noopener noreferrer">
-                <GlowButton primary={false} className="w-full sm:w-auto">
+                <GlowButton variant="outline" className="w-full sm:w-auto">
                   {additionalService.cta} <ArrowRight className="w-4 h-4 ml-2" />
                 </GlowButton>
               </a>
@@ -150,15 +151,15 @@ export const Services = () => {
         </FadeIn>
       </section>
 
-      <section className="mt-32 py-24 bg-brand-navy-2 border-y border-brand-blue/10">
+      <section className="mt-32 py-24 bg-bg-cream-alt border-y border-border-cream">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <FadeIn>
-            <h2 className="text-3xl font-bold text-white mb-4">{t('services.stack.title')}</h2>
-            <p className="text-brand-gray mb-12">{t('services.stack.subtitle')}</p>
+            <h2 className="text-3xl font-bold text-ink-navy mb-4">{t('services.stack.title')}</h2>
+            <p className="text-ink-gray mb-12">{t('services.stack.subtitle')}</p>
 
             <div className="flex flex-wrap justify-center gap-4">
               {techStack.map((tech, i) => (
-                <span key={i} className="px-6 py-3 rounded-xl bg-brand-card border border-brand-blue/20 text-white font-medium hover:border-brand-blue/50 hover:bg-brand-blue/5 transition-colors cursor-default">
+                <span key={i} className="px-6 py-3 rounded-xl bg-surface-white border border-border-cream text-ink-navy font-mono font-medium hover:border-accent-coral/40 hover:text-accent-coral transition-colors cursor-default">
                   {tech}
                 </span>
               ))}
