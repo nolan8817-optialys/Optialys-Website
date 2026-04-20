@@ -1,8 +1,8 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, CheckCircle2, Zap, Settings, X, Building2 } from 'lucide-react';
-import { FadeIn, GlowButton, PillBadge, AsteriskDecor } from '../components/ui';
+import { ArrowRight, CheckCircle2, Zap, Settings, X, Building2, Quote } from 'lucide-react';
+import { FadeIn, GlowButton, PillBadge, AsteriskDecor, NPByline } from '../components/ui';
 import { useLanguage } from '../i18n/LanguageContext';
 
 const Hero = () => {
@@ -249,6 +249,51 @@ const ClientReferences = () => {
   );
 };
 
+const Testimonials = () => {
+  const { lang } = useLanguage();
+  const fr = lang === 'fr';
+
+  return (
+    <section className="py-24 px-6 bg-bg-cream-alt relative z-10">
+      <div className="max-w-4xl mx-auto">
+        <div className="text-center mb-14">
+          <AsteriskDecor size={20} className="mx-auto mb-4" />
+          <h2 className="text-4xl font-bold text-ink-navy mb-4">
+            {fr ? 'Ce que disent nos clients' : 'What our clients say'}
+          </h2>
+        </div>
+
+        <FadeIn direction="up">
+          <div className="relative p-10 rounded-3xl bg-surface-white border border-border-cream">
+            <Quote className="w-10 h-10 text-accent-coral/30 mb-6" />
+            <blockquote className="text-lg text-ink-black leading-relaxed mb-8">
+              "J'ai l'opportunité d'utiliser les services de Nolan et je recommande vivement son expertise.
+              Nolan a développé un outil de création de publications LinkedIn qui s'est révélé être un véritable atout
+              dans mon travail quotidien. Grâce à cette solution, j'ai considérablement optimisé mon temps consacré à
+              la création de contenu et à la veille professionnelle.
+              Ce qui le distingue particulièrement, c'est son expertise technique combinée à un vrai professionnalisme.
+              Il a su créer un outil performant et bien pensé, qu'il continue d'améliorer pour répondre aux besoins
+              concrets des professionnels cherchant à maintenir une présence active sur LinkedIn."
+            </blockquote>
+            <div className="flex items-center gap-4 pt-6 border-t border-border-cream">
+              <div className="w-10 h-10 rounded-full bg-ink-navy flex items-center justify-center text-white text-sm font-bold shrink-0">
+                TB
+              </div>
+              <div>
+                <div className="font-bold text-ink-navy">Thomas Badri</div>
+                <div className="text-sm text-ink-gray">Content Manager · OmniTrust</div>
+              </div>
+              <div className="ml-auto">
+                <PillBadge>OmniTrust</PillBadge>
+              </div>
+            </div>
+          </div>
+        </FadeIn>
+      </div>
+    </section>
+  );
+};
+
 const CTASection = () => {
   const { t } = useLanguage();
   return (
@@ -325,6 +370,7 @@ export const Home = () => {
       <Stats />
       <ProblemSolution />
       <ClientReferences />
+      <Testimonials />
       <CTASection />
     </>
   );

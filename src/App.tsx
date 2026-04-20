@@ -1,5 +1,5 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { Layout } from './components/Layout';
 import { Home } from './pages/Home';
 import { Services } from './pages/Services';
@@ -13,10 +13,19 @@ import { ROICalculator } from './pages/ROICalculator';
 import { Diagnostic } from './pages/Diagnostic';
 import { LanguageProvider } from './i18n/LanguageContext';
 
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }, [pathname]);
+  return null;
+};
+
 export default function App() {
   return (
     <LanguageProvider>
       <Router>
+        <ScrollToTop />
         <div className="fixed inset-0 z-[-1] bg-bg-cream bg-dot-grid pointer-events-none" />
         <Layout>
           <Routes>
