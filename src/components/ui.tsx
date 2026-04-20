@@ -1,17 +1,15 @@
-import React, { useRef, useState, useEffect } from 'react';
-import { motion, useScroll, useTransform } from 'motion/react';
-import { Link, useLocation } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
+import React, { useRef, useState } from 'react';
+import { motion } from 'motion/react';
 
 export const Logo = ({ className = "" }: { className?: string }) => (
-  <Link to="/" className={`flex items-center gap-3 group ${className}`}>
+  <a href="/" className={`flex items-center gap-3 group ${className}`}>
     <div className="relative w-10 h-10 shrink-0">
       <img src="/optialys-logo.webp" alt="Optialys Logo" className="w-full h-full object-contain" referrerPolicy="no-referrer" />
     </div>
-    <span className="font-sans font-bold text-2xl tracking-tight text-white">
+    <span className="font-sans font-bold text-2xl tracking-tight text-ink-navy">
       <span className="inline-block transition-transform duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:rotate-[360deg]">O</span>ptialys
     </span>
-  </Link>
+  </a>
 );
 
 export const Magnetic = ({ children, className = "" }: { children: React.ReactNode, className?: string }) => {
@@ -51,7 +49,7 @@ export const FadeIn = ({ children, delay = 0, className = "", direction = "up", 
     right: { x: 60, opacity: 0 },
     in: { scale: 0.85, opacity: 0 }
   };
-  
+
   const initial = variants[direction];
   const animate = { y: 0, x: 0, scale: 1, opacity: 1 };
 
@@ -68,74 +66,72 @@ export const FadeIn = ({ children, delay = 0, className = "", direction = "up", 
   );
 };
 
-export const GlowButton = ({ children, primary = true, className = "", ...props }: any) => {
+export const GlowButton = ({ children, className = '', variant = 'primary', ...props }: {
+  children: React.ReactNode;
+  className?: string;
+  variant?: 'primary' | 'electric' | 'outline';
+  type?: 'button' | 'submit' | 'reset';
+  disabled?: boolean;
+  onClick?: () => void;
+}) => {
+  const base = 'relative inline-flex items-center gap-2 rounded-full font-semibold text-sm px-6 py-3 cursor-pointer transition-all duration-200 overflow-hidden';
+  const variants = {
+    primary: 'bg-accent-coral text-white hover:bg-accent-coral/90',
+    electric: 'bg-accent-electric text-ink-navy hover:bg-accent-electric/90',
+    outline: 'border border-ink-navy/20 text-ink-navy hover:bg-ink-navy/5 bg-transparent',
+  };
+  const shadows = {
+    primary: '0 4px 20px rgba(232,93,60,0.3)',
+    electric: '0 4px 20px rgba(0,194,255,0.3)',
+    outline: 'none',
+  };
+
   return (
     <Magnetic>
-      <motion.button
-        whileHover={{ scale: 1.02, y: -3 }}
-        whileTap={{ scale: 0.98 }}
-        className={`relative group overflow-hidden rounded-lg px-7 py-3.5 font-bold transition-all duration-300 ${
-          primary 
-            ? "bg-brand-blue text-brand-navy hover:bg-brand-blue-hover shadow-[0_0_0_rgba(0,194,255,0)] hover:shadow-[0_10px_30px_rgba(0,194,255,0.4)]" 
-            : "bg-brand-card text-white border border-brand-blue/20 hover:border-brand-blue/40 hover:bg-brand-blue/5"
-        } ${className}`}
+      <button
+        className={`${base} ${variants[variant]} ${className}`}
+        style={{ boxShadow: shadows[variant] }}
         {...props}
       >
-        {primary && (
-          <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]" />
+        {variant === 'primary' && (
+          <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full animate-[shimmer_2s_infinite] pointer-events-none" />
         )}
-        <span className="relative flex items-center gap-2">{children}</span>
-      </motion.button>
+        {children}
+      </button>
     </Magnetic>
   );
 };
 
-export const CustomCursor = () => {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [isHovering, setIsHovering] = useState(false);
+// Highlight block — mot(s) sur fond coral-soft
+export const HighlightBlock = ({ children, className = '' }: { children: React.ReactNode; className?: string }) => (
+  <span className={`highlight-coral font-semibold ${className}`}>{children}</span>
+);
 
-  useEffect(() => {
-    const updateMousePosition = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
+// Pill badge coral — labels de section
+export const PillBadge = ({ children, className = '' }: { children: React.ReactNode; className?: string }) => (
+  <span className={`inline-flex items-center px-3 py-1 rounded-full bg-accent-coral text-white text-xs font-bold tracking-wider uppercase ${className}`}>
+    {children}
+  </span>
+);
 
-    const handleMouseOver = (e: MouseEvent) => {
-      const target = e.target as HTMLElement;
-      if (target.tagName.toLowerCase() === 'a' || target.tagName.toLowerCase() === 'button' || target.closest('a') || target.closest('button')) {
-        setIsHovering(true);
-      } else {
-        setIsHovering(false);
-      }
-    };
+// Asterisk decoratif coral 8 branches
+export const AsteriskDecor = ({ size = 24, className = '' }: { size?: number; className?: string }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
+    <g fill="#E85D3C">
+      <rect x="11" y="1" width="2" height="22" rx="1"/>
+      <rect x="1" y="11" width="22" height="2" rx="1"/>
+      <rect x="3.515" y="3.515" width="2" height="17" rx="1" transform="rotate(45 3.515 3.515)"/>
+      <rect x="3.515" y="17.485" width="2" height="17" rx="1" transform="rotate(-45 3.515 17.485)"/>
+    </g>
+  </svg>
+);
 
-    window.addEventListener('mousemove', updateMousePosition);
-    window.addEventListener('mouseover', handleMouseOver);
-
-    return () => {
-      window.removeEventListener('mousemove', updateMousePosition);
-      window.removeEventListener('mouseover', handleMouseOver);
-    };
-  }, []);
-
-  if (typeof window !== 'undefined' && window.innerWidth < 768) return null;
-
-  return (
-    <>
-      <motion.div
-        className="fixed top-0 left-0 w-1.5 h-1.5 bg-brand-blue rounded-full pointer-events-none z-[100]"
-        animate={{ x: mousePosition.x - 3, y: mousePosition.y - 3 }}
-        transition={{ type: "tween", ease: "backOut", duration: 0.1 }}
-      />
-      <motion.div
-        className="fixed top-0 left-0 w-8 h-8 border border-brand-blue rounded-full pointer-events-none z-[99]"
-        animate={{ 
-          x: mousePosition.x - 16, 
-          y: mousePosition.y - 16,
-          scale: isHovering ? 1.5 : 1,
-          backgroundColor: isHovering ? 'rgba(0, 194, 255, 0.1)' : 'transparent'
-        }}
-        transition={{ type: "spring", stiffness: 150, damping: 15, mass: 0.5 }}
-      />
-    </>
-  );
-};
+// Byline signature NP
+export const NPByline = ({ className = '' }: { className?: string }) => (
+  <div className={`inline-flex items-center gap-3 ${className}`}>
+    <div className="w-8 h-8 rounded-full bg-ink-navy flex items-center justify-center text-white text-xs font-bold flex-shrink-0">
+      NP
+    </div>
+    <span className="text-sm text-ink-gray font-medium">Nolan Prayagsing · Optialys</span>
+  </div>
+);
