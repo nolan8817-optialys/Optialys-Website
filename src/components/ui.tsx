@@ -2,8 +2,11 @@ import React, { useRef, useState } from 'react';
 import { motion } from 'motion/react';
 
 export const Logo = ({ className = "" }: { className?: string }) => (
-  <a href="/" className={`flex items-center group ${className}`}>
-    <img src="/optialys-logo.webp" alt="Optialys" className="h-10 w-auto object-contain" />
+  <a href="/" className={`flex items-center gap-3 group ${className}`}>
+    <img src="/optialys-logo.webp" alt="Optialys monogram" className="h-10 w-10 object-contain" />
+    <span className="font-sans font-bold text-xl tracking-tight text-ink-navy">
+      Optialys
+    </span>
   </a>
 );
 
