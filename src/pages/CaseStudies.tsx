@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { ArrowRight, Building2, Target, Lightbulb, TrendingUp, Code } from 'lucide-react';
-import { FadeIn, GlowButton } from '../components/ui';
+import { FadeIn, GlowButton, PillBadge } from '../components/ui';
 import { useLanguage } from '../i18n/LanguageContext';
 
 export const CaseStudies = () => {
@@ -13,9 +13,9 @@ export const CaseStudies = () => {
       id: "koosmik",
       client: "Koosmik",
       sector: "FinTech (Paris)",
-      title: "RFP Radar — Veille automatisée des appels d’offres",
-      challenge: "L’équipe passait des heures chaque semaine à surveiller manuellement les appels d’offres publics et privés, et ratait souvent des opportunités clés.",
-      solution: "Déploiement d’un système de veille automatisé via n8n qui scrape les sources, filtre via IA selon les critères de Koosmik et notifie l’équipe commerciale sur Slack.",
+      title: "RFP Radar — Veille automatisée des appels d'offres",
+      challenge: "L'équipe passait des heures chaque semaine à surveiller manuellement les appels d'offres publics et privés, et ratait souvent des opportunités clés.",
+      solution: "Déploiement d'un système de veille automatisé via n8n qui scrape les sources, filtre via IA selon les critères de Koosmik et notifie l'équipe commerciale sur Slack.",
       results: ["15h+/semaine économisées", "0 opportunité manquée", "Réactivité multipliée par 3"],
       stack: ["n8n", "Claude AI", "Pipedrive", "Slack"]
     },
@@ -25,17 +25,17 @@ export const CaseStudies = () => {
       sector: "Compliance (BE/LU)",
       title: "Pipeline LinkedIn automatisé",
       challenge: "Maintenir une présence forte sur LinkedIn pour 3 entités différentes sans y consacrer de temps interne.",
-      solution: "Création d’un pipeline de contenu automatisé. L’IA génère des posts basés sur l’actualité réglementaire, validés dans Airtable, puis publiés automatiquement via l’API LinkedIn.",
-      results: ["5 posts/semaine par entité", "0 intervention humaine", "+45% d’engagement en 2 mois"],
+      solution: "Création d'un pipeline de contenu automatisé. L'IA génère des posts basés sur l'actualité réglementaire, validés dans Airtable, puis publiés automatiquement via l'API LinkedIn.",
+      results: ["5 posts/semaine par entité", "0 intervention humaine", "+45% d'engagement en 2 mois"],
       stack: ["n8n", "Claude AI", "Airtable", "LinkedIn API"]
     },
     {
       id: "lybramedia",
       client: "LybraMedia",
       sector: "Média",
-      title: "Infrastructure d’onboarding complète",
-      challenge: "Process d’onboarding manuel, désorganisé et chronophage pour les nouveaux clients et membres d’équipe.",
-      solution: "Construction d’une infrastructure centralisée sur Airtable pour automatiser tout le workflow d’onboarding, de la collecte à l’assignation des tâches.",
+      title: "Infrastructure d'onboarding complète",
+      challenge: "Process d'onboarding manuel, désorganisé et chronophage pour les nouveaux clients et membres d'équipe.",
+      solution: "Construction d'une infrastructure centralisée sur Airtable pour automatiser tout le workflow d'onboarding, de la collecte à l'assignation des tâches.",
       results: ["Onboarding 100% automatisé", "Gestion des données centralisée", "Temps significatif gagné par nouveau client"],
       stack: ["Airtable", "n8n", "Make"]
     },
@@ -94,7 +94,7 @@ export const CaseStudies = () => {
 
   const T = {
     title: fr ? "Nos références" : "Our Case Studies",
-    subtitle: fr ? "Découvrez comment nous avons aidé ces sociétés à faire passer leurs opérations à l’échelle avec l’IA." : "Discover how we helped these companies scale their operations with AI.",
+    subtitle: fr ? "Découvrez comment nous avons aidé ces sociétés à faire passer leurs opérations à l'échelle avec l'IA." : "Discover how we helped these companies scale their operations with AI.",
     challenge: fr ? "Problématique" : "Challenge",
     solution: fr ? "Solution" : "Solution",
     results: fr ? "Résultats" : "Results",
@@ -103,17 +103,18 @@ export const CaseStudies = () => {
   };
 
   return (
-    <div className="pt-32 pb-20">
+    <div className="pt-32 pb-20 bg-bg-cream">
       <section className="px-6 max-w-4xl mx-auto text-center mb-24">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight text-white mb-6">
+          <PillBadge className="mb-6">{T.title}</PillBadge>
+          <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight text-ink-navy mb-6">
             {T.title}
           </h1>
-          <p className="text-xl text-brand-gray leading-relaxed max-w-2xl mx-auto">
+          <p className="text-xl text-ink-gray leading-relaxed max-w-2xl mx-auto">
             {T.subtitle}
           </p>
         </motion.div>
@@ -122,57 +123,57 @@ export const CaseStudies = () => {
       <section className="px-6 max-w-5xl mx-auto space-y-24">
         {cases.map((study, index) => (
           <FadeIn key={study.id} direction="up" delay={index * 0.1}>
-            <div className="rounded-3xl bg-brand-card/30 border border-brand-blue/10 overflow-hidden">
+            <div className="rounded-3xl bg-surface-white border border-border-cream overflow-hidden">
               <div className="p-8 md:p-12">
                 <div className="flex flex-wrap items-center gap-4 mb-8">
-                  <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-brand-blue/10 text-brand-blue font-bold">
+                  <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-accent-coral/10 text-accent-coral font-bold">
                     <Building2 className="w-4 h-4" />
                     {study.client}
                   </div>
-                  <div className="text-brand-gray text-sm font-medium">
+                  <div className="text-ink-gray text-sm font-medium">
                     {study.sector}
                   </div>
                 </div>
 
-                <h2 className="text-3xl font-bold text-white mb-8">{study.title}</h2>
+                <h2 className="text-3xl font-bold text-ink-navy mb-8">{study.title}</h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
                   <div>
                     <div className="flex items-center gap-2 text-red-400 font-bold mb-4">
                       <Target className="w-5 h-5" /> {T.challenge}
                     </div>
-                    <p className="text-brand-gray leading-relaxed">
+                    <p className="text-ink-gray leading-relaxed">
                       {study.challenge}
                     </p>
                   </div>
                   <div>
-                    <div className="flex items-center gap-2 text-brand-blue font-bold mb-4">
+                    <div className="flex items-center gap-2 text-accent-electric font-bold mb-4">
                       <Lightbulb className="w-5 h-5" /> {T.solution}
                     </div>
-                    <p className="text-brand-gray leading-relaxed">
+                    <p className="text-ink-gray leading-relaxed">
                       {study.solution}
                     </p>
                   </div>
                 </div>
 
-                <div className="p-6 rounded-2xl bg-brand-navy border border-brand-blue/20 mb-8">
-                  <div className="flex items-center gap-2 text-emerald-400 font-bold mb-6">
+                <div className="p-6 rounded-2xl bg-bg-cream border border-border-cream mb-8">
+                  <div className="flex items-center gap-2 text-accent-green font-bold mb-6">
                     <TrendingUp className="w-5 h-5" /> {T.results}
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
                     {study.results.map((result, i) => (
-                      <div key={i} className="text-white font-medium">
-                        <span className="text-brand-blue mr-2">✓</span> {result}
+                      <div key={i} className="text-ink-navy font-medium">
+                        <span className="text-accent-coral mr-2">✓</span> {result}
                       </div>
                     ))}
                   </div>
                 </div>
 
-                <div className="flex items-center gap-4 pt-8 border-t border-brand-blue/10">
-                  <Code className="w-5 h-5 text-brand-gray" />
+                <div className="flex items-center gap-4 pt-8 border-t border-border-cream">
+                  <Code className="w-5 h-5 text-ink-gray" />
                   <div className="flex flex-wrap gap-2">
                     {study.stack.map((tech, i) => (
-                      <span key={i} className="px-3 py-1 rounded-md bg-brand-navy border border-brand-blue/10 text-xs font-mono text-brand-gray">
+                      <span key={i} className="px-3 py-1 rounded-md bg-bg-cream border border-border-cream text-xs font-mono text-ink-gray">
                         {tech}
                       </span>
                     ))}
@@ -184,11 +185,11 @@ export const CaseStudies = () => {
         ))}
       </section>
 
-      <section className="mt-32 py-24 px-6 text-center">
+      <section className="mt-32 py-24 px-6 text-center bg-bg-cream-alt border-t border-border-cream">
         <FadeIn>
-          <h2 className="text-3xl font-bold text-white mb-8">{T.ctaTitle}</h2>
+          <h2 className="text-3xl font-bold text-ink-navy mb-8">{T.ctaTitle}</h2>
           <a href="https://calendly.com/nolprayagsing/automation-strategy-audit" target="_blank" rel="noopener noreferrer">
-            <GlowButton className="text-lg px-8 py-4">
+            <GlowButton variant="primary" className="text-lg px-8 py-4">
               {T.ctaBtn} <ArrowRight className="w-5 h-5 ml-2" />
             </GlowButton>
           </a>
