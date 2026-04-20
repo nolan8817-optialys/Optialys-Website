@@ -1,81 +1,79 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap');
 @import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap');
 
 @theme {
   --font-sans: "Montserrat", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "Space Mono", ui-monospace, SFMono-Regular, monospace;
-  
-  --color-brand-navy: #0A1628;
-  --color-brand-card: #132038;
-  --color-brand-blue: #00C2FF;
-  --color-brand-blue-dark: #0098CC;
-  --color-brand-accent: #00E5FF;
-  --color-brand-gray: #8A9BB5;
-  --color-brand-light: #E8EDF2;
+
+  /* Foundation */
+  --color-bg-cream:         #F5F0E6;
+  --color-bg-cream-alt:     #F4EFE6;
+  --color-bg-cream-light:   #F8F4E9;
+  --color-surface-white:    #FFFFFF;
+  --color-ink-navy:         #0A1628;
+  --color-ink-black:        #1A1A1A;
+  --color-ink-gray:         #6B6B6B;
+
+  /* Accents */
+  --color-accent-coral:     #E85D3C;
+  --color-accent-coral-soft:#F4846A;
+  --color-accent-peach:     #F5D4B8;
+  --color-accent-electric:  #00C2FF;
+  --color-accent-green:     #4A7B5C;
+
+  /* Borders */
+  --color-border-cream:     #E8E0CF;
+
+  /* Legacy aliases (for smooth migration, some pages still use brand-* classes) */
+  --color-brand-navy:       #0A1628;
+  --color-brand-blue:       #00C2FF;
+  --color-brand-gray:       #6B6B6B;
+  --color-brand-card:       #FFFFFF;
+  --color-brand-light:      #F5F0E6;
+}
+
+@layer base {
+  body {
+    background-color: #F5F0E6;
+    color: #1A1A1A;
+    font-family: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+  }
+  ::selection {
+    background-color: rgba(232, 93, 60, 0.2);
+    color: #0A1628;
+  }
 }
 
 @layer utilities {
-  .bg-grid-pattern {
-    background-size: 40px 40px;
-    background-image: linear-gradient(to right, rgba(0, 194, 255, 0.05) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(0, 194, 255, 0.05) 1px, transparent 1px);
-    mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+  /* Subtle dot-grid texture */
+  .bg-dot-grid {
+    background-image: radial-gradient(circle, rgba(10, 22, 40, 0.06) 1px, transparent 1px);
+    background-size: 24px 24px;
   }
-
-  .bg-beam-texture {
-    background: radial-gradient(
-      circle at 50% -20%,
-      rgba(0, 194, 255, 0.15) 0%,
-      rgba(0, 194, 255, 0) 50%
-    );
+  /* Warm paper texture */
+  .bg-paper-texture {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Crect width='4' height='4' fill='%23F5F0E6'/%3E%3Ccircle cx='1' cy='1' r='0.5' fill='%230A1628' opacity='0.03'/%3E%3C/svg%3E");
   }
-
-  .bg-fluid-flow {
-    background: radial-gradient(circle at 50% 50%, rgba(0, 194, 255, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(0, 229, 255, 0.05) 0%, transparent 40%);
-    background-size: 200% 200%;
-    animation: fluidFlow 15s ease-in-out infinite alternate;
+  /* Coral highlight block (highlighter pen effect) */
+  .highlight-coral {
+    background-color: #F4846A;
+    padding: 2px 6px;
+    border-radius: 3px;
+    color: #0A1628;
+    display: inline;
   }
-
-  .text-gradient-blue {
+  /* Electric blue text gradient */
+  .text-gradient-electric {
     background: linear-gradient(135deg, #00C2FF, #0098CC);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
-
-  .glass-card {
-    background: rgba(19, 32, 56, 0.7);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(0, 194, 255, 0.15);
+  /* Cream card */
+  .cream-card {
+    background-color: #FFFFFF;
+    border: 1px solid #E8E0CF;
+    border-radius: 1.5rem;
   }
-}
-
-@keyframes fluidFlow {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-body {
-  background-color: var(--color-brand-navy);
-  color: #FFFFFF;
-  font-family: var(--font-sans);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-track {
-  background: var(--color-brand-navy);
-}
-::-webkit-scrollbar-thumb {
-  background: var(--color-brand-card);
-  border-radius: 4px;
-  border: 1px solid rgba(0, 194, 255, 0.2);
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-brand-blue-dark);
 }
