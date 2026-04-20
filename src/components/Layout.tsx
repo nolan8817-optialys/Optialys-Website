@@ -64,12 +64,12 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         <Logo />
 
-        <div className="hidden md:flex items-center gap-8 text-sm font-medium text-ink-gray">
+        <div className="hidden lg:flex items-center gap-4 xl:gap-6 text-xs xl:text-sm font-medium text-ink-gray">
           {navLinks.map((link) => (
             <Link
               key={link.path}
               to={link.path}
-              className={`relative transition-colors hover:text-accent-coral ${
+              className={`relative whitespace-nowrap transition-colors hover:text-accent-coral ${
                 location.pathname === link.path ? 'text-ink-navy' : ''
               }`}
             >
@@ -87,7 +87,7 @@ const Navbar = () => {
           ))}
         </div>
 
-        <div className="hidden md:flex items-center gap-5">
+        <div className="hidden lg:flex items-center gap-4">
           <LangToggle />
           <a href="https://calendly.com/nolprayagsing/automation-strategy-audit" target="_blank" rel="noopener noreferrer">
             <GlowButton variant="primary" className="text-sm px-5 py-2.5">
@@ -97,7 +97,7 @@ const Navbar = () => {
         </div>
 
         <button
-          className="md:hidden text-ink-navy p-2"
+          className="lg:hidden text-ink-navy p-2"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
           {mobileMenuOpen ? <X /> : <Menu />}
@@ -110,7 +110,7 @@ const Navbar = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="absolute top-full left-0 right-0 bg-bg-cream border-b border-border-cream p-6 flex flex-col gap-4 shadow-2xl md:hidden"
+            className="absolute top-full left-0 right-0 bg-bg-cream border-b border-border-cream p-6 flex flex-col gap-4 shadow-2xl lg:hidden"
           >
             {navLinks.map((link) => (
               <Link
