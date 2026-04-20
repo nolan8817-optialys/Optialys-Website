@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
-import { GlowButton } from '../components/ui';
+import { GlowButton, PillBadge } from '../components/ui';
 import { useLanguage } from '../i18n/LanguageContext';
 
 export const Diagnostic = () => {
@@ -11,20 +11,20 @@ export const Diagnostic = () => {
   const questions = fr ? [
     {
       id: 1,
-      question: "Combien d’heures par semaine votre équipe passe-t-elle sur des tâches répétitives ? (saisie, relances, rapports…)",
+      question: "Combien d'heures par semaine votre équipe passe-t-elle sur des tâches répétitives ? (saisie, relances, rapports…)",
       options: [
         { id: 'A', text: "Moins de 2h — nous sommes plutôt efficaces", score: 0 },
-        { id: 'B', text: "Entre 2h et 5h — c’est gérable mais améliorable", score: 0 },
-        { id: 'C', text: "Entre 5h et 15h — c’est un vrai problème", score: 1 },
+        { id: 'B', text: "Entre 2h et 5h — c'est gérable mais améliorable", score: 0 },
+        { id: 'C', text: "Entre 5h et 15h — c'est un vrai problème", score: 1 },
         { id: 'D', text: "Plus de 15h — on perd beaucoup de temps", score: 1 }
       ]
     },
     {
       id: 2,
-      question: "Avez-vous déjà essayé d’automatiser un process dans votre entreprise ?",
+      question: "Avez-vous déjà essayé d'automatiser un process dans votre entreprise ?",
       options: [
         { id: 'A', text: "Non, jamais essayé", score: 0 },
-        { id: 'B', text: "Essayé mais ça n’a pas vraiment marché", score: 1 },
+        { id: 'B', text: "Essayé mais ça n'a pas vraiment marché", score: 1 },
         { id: 'C', text: "On utilise quelques outils basiques (ex : emails auto)", score: 0 },
         { id: 'D', text: "Oui, nous avons déjà des automatisations en place", score: 0 }
       ]
@@ -33,7 +33,7 @@ export const Diagnostic = () => {
       id: 3,
       question: "Quel est votre plus gros problème opérationnel actuel ?",
       options: [
-        { id: 'A', text: "On perd des leads parce qu’on répond trop lentement", score: 1 },
+        { id: 'A', text: "On perd des leads parce qu'on répond trop lentement", score: 1 },
         { id: 'B', text: "Notre CRM est en désordre — données manquantes, doublons", score: 1 },
         { id: 'C', text: "On passe trop de temps sur les rapports et la saisie", score: 1 },
         { id: 'D', text: "On manque de visibilité temps réel sur notre activité", score: 0 }
@@ -109,18 +109,18 @@ export const Diagnostic = () => {
     analyzing: fr ? "Analyse…" : "Analyzing...",
     getDiag: fr ? "Obtenir mon diagnostic" : "Get my diagnostic",
     privacy: fr ? "🔒 Vos données sont confidentielles.\nRésultats envoyés immédiatement par email." : "🔒 Your data is confidential.\nResults sent immediately by email.",
-    high: fr ? "🔥 Fort potentiel d’automatisation" : "🔥 High automation potential",
-    highTitle: fr ? "Votre société a un fort potentiel d’automatisation IA" : "Your company has a strong AI automation potential",
-    highText: fr ? "D’après vos réponses, votre équipe perd probablement entre 10 et 20 heures par semaine sur des tâches que l’IA pourrait gérer. C’est exactement le type de situation où Optialys intervient." : "Based on your answers, your team probably loses between 10 and 20 hours per week on tasks that AI could handle. This is exactly the kind of situation where Optialys intervenes.",
+    high: fr ? "🔥 Fort potentiel d'automatisation" : "🔥 High automation potential",
+    highTitle: fr ? "Votre société a un fort potentiel d'automatisation IA" : "Your company has a strong AI automation potential",
+    highText: fr ? "D'après vos réponses, votre équipe perd probablement entre 10 et 20 heures par semaine sur des tâches que l'IA pourrait gérer. C'est exactement le type de situation où Optialys intervient." : "Based on your answers, your team probably loses between 10 and 20 hours per week on tasks that AI could handle. This is exactly the kind of situation where Optialys intervenes.",
     highCta: fr ? "Réserver mon diagnostic gratuit" : "Book my free diagnostic",
-    mid: fr ? "⚡ Potentiel d’automatisation modéré" : "⚡ Moderate automation potential",
+    mid: fr ? "⚡ Potentiel d'automatisation modéré" : "⚡ Moderate automation potential",
     midTitle: fr ? "Vous avez des quick wins à aller chercher" : "You have quick wins to achieve",
     midText: fr ? "Votre équipe gère bien ses opérations, mais il existe des automatisations simples qui pourraient libérer plusieurs heures par semaine immédiatement." : "Your team manages its operations well, but there are simple automations that could free up several hours per week immediately.",
     midCta: fr ? "Voir ce que nous pouvons automatiser" : "Discover what we can automate",
     low: fr ? "✅ Bonne base opérationnelle" : "✅ Good operational base",
-    lowTitle: fr ? "Vous êtes bien organisés — et c’est le meilleur moment pour automatiser" : "You are well organized — and it's the best time to automate",
+    lowTitle: fr ? "Vous êtes bien organisés — et c'est le meilleur moment pour automatiser" : "You are well organized — and it's the best time to automate",
     lowText: fr ? "Les meilleures sociétés à automatiser sont celles qui ont déjà des process clairs. Vous êtes dans la situation idéale pour déployer des automatisations à fort impact." : "The best companies to automate are those that already have clear processes. You are in the ideal situation to deploy high-impact automations.",
-    lowCta: fr ? "Voir ce qu’on peut construire ensemble" : "See what we can build together",
+    lowCta: fr ? "Voir ce qu'on peut construire ensemble" : "See what we can build together",
   };
 
   const [currentStep, setCurrentStep] = useState(0);
@@ -183,7 +183,7 @@ export const Diagnostic = () => {
   const getResult = () => {
     if (totalScore >= 3) {
       return {
-        color: 'text-brand-blue',
+        color: 'text-accent-coral',
         badge: T.high,
         title: T.highTitle,
         text: T.highText,
@@ -192,7 +192,7 @@ export const Diagnostic = () => {
       };
     } else if (totalScore >= 1) {
       return {
-        color: 'text-[#8A9BB5]',
+        color: 'text-accent-electric',
         badge: T.mid,
         title: T.midTitle,
         text: T.midText,
@@ -201,7 +201,7 @@ export const Diagnostic = () => {
       };
     } else {
       return {
-        color: 'text-emerald-400',
+        color: 'text-accent-green',
         badge: T.low,
         title: T.lowTitle,
         text: T.lowText,
@@ -214,10 +214,10 @@ export const Diagnostic = () => {
   const progress = ((currentStep) / (questions.length + 1)) * 100;
 
   return (
-    <div className="min-h-screen bg-brand-navy pt-24 pb-20 flex flex-col">
-      <div className="fixed top-0 left-0 w-full h-1.5 bg-brand-navy-2 z-50">
+    <div className="min-h-screen bg-bg-cream pt-24 pb-20 flex flex-col">
+      <div className="fixed top-0 left-0 w-full h-1.5 bg-border-cream z-50">
         <motion.div
-          className="h-full bg-brand-blue"
+          className="h-full bg-accent-coral"
           initial={{ width: 0 }}
           animate={{ width: `${progress}%` }}
           transition={{ duration: 0.5 }}
@@ -236,10 +236,10 @@ export const Diagnostic = () => {
               transition={{ duration: 0.4 }}
               className="w-full"
             >
-              <div className="text-brand-blue font-bold text-sm mb-4">
+              <div className="text-accent-coral font-bold text-sm mb-4">
                 {T.questionOf(currentStep + 1, questions.length)}
               </div>
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-10 leading-tight">
+              <h2 className="text-3xl md:text-4xl font-bold text-ink-navy mb-10 leading-tight">
                 {questions[currentStep].question}
               </h2>
 
@@ -248,12 +248,12 @@ export const Diagnostic = () => {
                   <button
                     key={option.id}
                     onClick={() => handleAnswer(questions[currentStep].id, option)}
-                    className="w-full text-left p-6 rounded-2xl bg-brand-card/50 border border-brand-blue/10 hover:border-brand-blue hover:bg-brand-blue/5 transition-all duration-300 group flex items-center min-h-[48px]"
+                    className="w-full text-left p-4 md:p-6 rounded-2xl bg-surface-white border border-border-cream hover:border-accent-coral hover:bg-accent-coral/5 transition-all duration-300 group flex items-center min-h-[48px]"
                   >
-                    <div className="w-8 h-8 rounded-full bg-brand-navy border border-brand-blue/30 flex items-center justify-center text-brand-blue font-bold mr-4 group-hover:bg-brand-blue group-hover:text-brand-navy transition-colors">
+                    <div className="w-8 h-8 rounded-full bg-bg-cream border border-border-cream flex items-center justify-center text-ink-navy font-bold mr-4 group-hover:bg-accent-coral group-hover:text-white group-hover:border-accent-coral transition-colors">
                       {option.id}
                     </div>
-                    <span className="text-white font-medium text-lg">{option.text}</span>
+                    <span className="text-ink-black font-medium text-lg">{option.text}</span>
                   </button>
                 ))}
               </div>
@@ -270,61 +270,61 @@ export const Diagnostic = () => {
               className="w-full"
             >
               <div className="text-center mb-10">
-                <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                <h2 className="text-3xl md:text-4xl font-bold text-ink-navy mb-4">
                   {T.formTitle}
                 </h2>
-                <p className="text-brand-gray">
+                <p className="text-ink-gray">
                   {T.formSub}
                 </p>
               </div>
 
-              <div className="p-8 md:p-10 rounded-3xl bg-brand-card/50 border border-brand-blue/20 backdrop-blur-sm">
+              <div className="p-4 md:p-6 rounded-3xl bg-surface-white border border-border-cream">
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
-                      <label htmlFor="firstName" className="text-sm font-bold text-brand-gray">{T.firstName} *</label>
+                      <label htmlFor="firstName" className="text-sm font-bold text-ink-gray">{T.firstName} *</label>
                       <input
                         type="text"
                         id="firstName"
                         required
                         value={formData.firstName}
                         onChange={handleInputChange}
-                        className="w-full bg-brand-navy border border-brand-blue/20 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-blue transition-colors"
+                        className="w-full bg-bg-cream border border-border-cream rounded-xl px-4 py-3 text-ink-navy focus:outline-none focus:border-accent-coral transition-colors"
                       />
                     </div>
                     <div className="space-y-2">
-                      <label htmlFor="email" className="text-sm font-bold text-brand-gray">{T.profEmail} *</label>
+                      <label htmlFor="email" className="text-sm font-bold text-ink-gray">{T.profEmail} *</label>
                       <input
                         type="email"
                         id="email"
                         required
                         value={formData.email}
                         onChange={handleInputChange}
-                        className="w-full bg-brand-navy border border-brand-blue/20 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-blue transition-colors"
+                        className="w-full bg-bg-cream border border-border-cream rounded-xl px-4 py-3 text-ink-navy focus:outline-none focus:border-accent-coral transition-colors"
                       />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
-                      <label htmlFor="company" className="text-sm font-bold text-brand-gray">{T.company} *</label>
+                      <label htmlFor="company" className="text-sm font-bold text-ink-gray">{T.company} *</label>
                       <input
                         type="text"
                         id="company"
                         required
                         value={formData.company}
                         onChange={handleInputChange}
-                        className="w-full bg-brand-navy border border-brand-blue/20 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-blue transition-colors"
+                        className="w-full bg-bg-cream border border-border-cream rounded-xl px-4 py-3 text-ink-navy focus:outline-none focus:border-accent-coral transition-colors"
                       />
                     </div>
                     <div className="space-y-2">
-                      <label htmlFor="sector" className="text-sm font-bold text-brand-gray">{T.sector} *</label>
+                      <label htmlFor="sector" className="text-sm font-bold text-ink-gray">{T.sector} *</label>
                       <select
                         id="sector"
                         required
                         value={formData.sector}
                         onChange={handleInputChange}
-                        className="w-full bg-brand-navy border border-brand-blue/20 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-blue transition-colors appearance-none"
+                        className="w-full bg-bg-cream border border-border-cream rounded-xl px-4 py-3 text-ink-navy focus:outline-none focus:border-accent-coral transition-colors appearance-none"
                       >
                         <option value="">{T.selectSector}</option>
                         <option value="Real Estate">{T.secRe}</option>
@@ -338,6 +338,7 @@ export const Diagnostic = () => {
 
                   <GlowButton
                     type="submit"
+                    variant="primary"
                     className="w-full justify-center"
                     disabled={formStatus === 'submitting'}
                   >
@@ -345,7 +346,7 @@ export const Diagnostic = () => {
                     {formStatus === 'idle' && <ArrowRight className="w-4 h-4 ml-2" />}
                   </GlowButton>
 
-                  <p className="text-center text-xs text-brand-gray mt-4 whitespace-pre-line">
+                  <p className="text-center text-xs text-ink-gray mt-4 whitespace-pre-line">
                     {T.privacy}
                   </p>
                 </form>
@@ -361,20 +362,20 @@ export const Diagnostic = () => {
               transition={{ duration: 0.5 }}
               className="w-full text-center"
             >
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-navy-2 border border-brand-blue/20 font-bold text-sm mb-8">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface-white border border-border-cream font-bold text-sm mb-8">
                 <span className={getResult().color}>{getResult().badge}</span>
               </div>
 
-              <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-6 leading-tight">
+              <h2 className="text-4xl md:text-5xl font-extrabold text-ink-navy mb-6 leading-tight">
                 {getResult().title}
               </h2>
 
-              <p className="text-xl text-brand-gray leading-relaxed mb-12 max-w-2xl mx-auto">
+              <p className="text-xl text-ink-gray leading-relaxed mb-12 max-w-2xl mx-auto">
                 {getResult().text}
               </p>
 
               <a href={getResult().ctaLink} target={getResult().ctaLink.startsWith('http') ? "_blank" : "_self"} rel="noopener noreferrer">
-                <GlowButton className="text-lg px-8 py-4">
+                <GlowButton variant="primary" className="text-lg px-8 py-4">
                   {getResult().ctaText} <ArrowRight className="w-5 h-5 ml-2" />
                 </GlowButton>
               </a>
