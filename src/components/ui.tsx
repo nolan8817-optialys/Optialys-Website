@@ -4,7 +4,7 @@ import { motion } from 'motion/react';
 export const Logo = ({ className = "" }: { className?: string }) => (
   <a href="/" className={`flex items-center gap-3 group ${className}`}>
     <div className="relative w-10 h-10 shrink-0">
-      <img src="/optialys-logo.webp" alt="Optialys Logo" className="w-full h-full object-contain" referrerPolicy="no-referrer" />
+      <img src="/optialys-logo.webp" alt="Optialys Logo" className="w-full h-full object-contain" />
     </div>
     <span className="font-sans font-bold text-2xl tracking-tight text-ink-navy">
       <span className="inline-block transition-transform duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:rotate-[360deg]">O</span>ptialys

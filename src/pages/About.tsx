@@ -61,7 +61,6 @@ export const About = () => {
                   src="/nolan-headshot.jpg"
                   alt="Nolan Prayagsing - Founder of Optialys"
                   className="w-full h-auto object-cover aspect-[3/4] bg-bg-cream-alt"
-                  referrerPolicy="no-referrer"
                 />
               </div>
             </div>
