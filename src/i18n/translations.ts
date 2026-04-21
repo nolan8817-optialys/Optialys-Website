@@ -30,7 +30,7 @@ const en: Dict = {
   // Home - Hero
   "home.hero.badge": "Your AI Growth Team — Available 24/7",
   "home.hero.title.part1": "Your first AI system",
-  "home.hero.title.highlight": "live in 21 days",
+  "home.hero.title.highlight": "live in 30 days",
   "home.hero.title.part2": "Guaranteed.",
   "home.hero.title.part3": "Or you pay nothing.",
   "home.hero.subtitle.pre": "For European SMEs ready to stop being their own bottleneck. We build custom automation systems for operations, marketing, and sales — so scaling ",
@@ -61,7 +61,7 @@ const en: Dict = {
   "home.problem.3.desc": "You want to tweak a simple lead routing rule, but you have to wait three weeks and pay a developer to rewrite the code.",
   "home.solution.title": "Your operations, fully automated in 30 days.",
   "home.solution.desc": "We build custom AI systems that connect your existing tools to handle repetitive tasks automatically. In just 30 days, we deploy the workflows and train your team. You just approve the final setup and watch the hours saved pile up.",
-  "home.solution.guarantee": "We guarantee a live, operational system within 21 days of kick-off — or you pay nothing.",
+  "home.solution.guarantee": "We guarantee a live, operational system within 30 days of kick-off — or you pay nothing.",
   "home.solution.cta": "Explore the 30-Day Deployment Plan",
 
   // Home - Clients
@@ -318,7 +318,7 @@ const fr: Dict = {
   // Home - Hero
   "home.hero.badge": "Votre équipe IA — Disponible 24/7",
   "home.hero.title.part1": "Votre premier système IA",
-  "home.hero.title.highlight": "opérationnel en 21 jours",
+  "home.hero.title.highlight": "opérationnel en 30 jours",
   "home.hero.title.part2": "Garanti.",
   "home.hero.title.part3": "Ou vous ne payez rien.",
   "home.hero.subtitle.pre": "Pour les cabinets et PME en BeNeLux qui veulent arrêter d’être leur propre goulot. Nous construisons des systèmes d’automatisation sur-mesure pour les opérations, le marketing et les ventes — pour que la croissance ",
@@ -349,7 +349,7 @@ const fr: Dict = {
   "home.problem.3.desc": "Vous voulez ajuster une règle simple de routage de leads, mais il faut attendre trois semaines et payer un développeur pour réécrire le code.",
   "home.solution.title": "Vos opérations, automatisées en 30 jours.",
   "home.solution.desc": "Nous construisons des systèmes IA sur-mesure qui connectent vos outils existants pour gérer les tâches répétitives automatiquement. En 30 jours, nous déployons les workflows et formons votre équipe. Vous validez, et les heures gagnées s’accumulent.",
-  "home.solution.guarantee": "Nous garantissons un système opérationnel en 21 jours suivant le kick-off — ou vous ne payez rien.",
+  "home.solution.guarantee": "Nous garantissons un système opérationnel en 30 jours suivant le kick-off — ou vous ne payez rien.",
   "home.solution.cta": "Voir le plan de déploiement 30 jours",
 
   // Home - Clients

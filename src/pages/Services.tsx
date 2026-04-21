@@ -110,7 +110,7 @@ export const Services = () => {
                     </a>
                   ) : (
                     <Link to={service.link} className="mt-auto">
-                      <GlowButton variant="primary" className="w-full">
+                      <GlowButton variant="dark" className="w-full justify-center">
                         {service.cta} <ArrowRight className="w-4 h-4 ml-2" />
                       </GlowButton>
                     </Link>

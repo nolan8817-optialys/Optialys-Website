@@ -5,10 +5,101 @@ import { ArrowRight, CheckCircle2, Zap, Settings, X, Building2, Quote } from 'lu
 import { FadeIn, GlowButton, PillBadge, AsteriskDecor, NPByline } from '../components/ui';
 import { useLanguage } from '../i18n/LanguageContext';
 
+// Animated automation workflow background
+const WorkflowBackground = () => {
+  const nodes = [
+    { id: 'trigger', label: 'Trigger', x: 8, y: 20, color: '#E85D3C' },
+    { id: 'n8n', label: 'n8n', x: 22, y: 55, color: '#0A1628' },
+    { id: 'claude', label: 'Claude AI', x: 38, y: 15, color: '#00C2FF' },
+    { id: 'airtable', label: 'Airtable', x: 55, y: 65, color: '#E85D3C' },
+    { id: 'gws', label: 'Google WS', x: 70, y: 25, color: '#0A1628' },
+    { id: 'slack', label: 'Slack', x: 82, y: 60, color: '#4A7B5C' },
+    { id: 'output', label: 'Output', x: 92, y: 35, color: '#E85D3C' },
+  ];
+
+  const edges = [
+    { from: 'trigger', to: 'n8n' },
+    { from: 'trigger', to: 'claude' },
+    { from: 'n8n', to: 'airtable' },
+    { from: 'claude', to: 'gws' },
+    { from: 'airtable', to: 'slack' },
+    { from: 'gws', to: 'output' },
+    { from: 'slack', to: 'output' },
+  ];
+
+  const getNode = (id: string) => nodes.find(n => n.id === id)!;
+
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none -z-10">
+      <svg className="w-full h-full opacity-[0.12]" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
+        {/* Edges */}
+        {edges.map((edge, i) => {
+          const from = getNode(edge.from);
+          const to = getNode(edge.to);
+          return (
+            <g key={i}>
+              <line
+                x1={from.x} y1={from.y}
+                x2={to.x} y2={to.y}
+                stroke="#0A1628" strokeWidth="0.3" strokeDasharray="1 1"
+              />
+              {/* Animated data particle */}
+              <circle r="0.6" fill="#E85D3C">
+                <animateMotion
+                  dur={`${2 + i * 0.7}s`}
+                  repeatCount="indefinite"
+                  begin={`${i * 0.4}s`}
+                >
+                  <mpath href={`#path-${i}`} />
+                </animateMotion>
+              </circle>
+              <path
+                id={`path-${i}`}
+                d={`M${from.x},${from.y} L${to.x},${to.y}`}
+                fill="none"
+              />
+            </g>
+          );
+        })}
+        {/* Nodes */}
+        {nodes.map((node) => (
+          <g key={node.id}>
+            <circle cx={node.x} cy={node.y} r="3.5" fill={node.color} opacity="0.15" />
+            <circle cx={node.x} cy={node.y} r="1.8" fill={node.color} opacity="0.6" />
+            <text x={node.x} y={node.y + 5.5} textAnchor="middle" fontSize="2.2" fill="#0A1628" fontFamily="monospace" opacity="0.7">
+              {node.label}
+            </text>
+          </g>
+        ))}
+      </svg>
+
+      {/* Floating tool badges */}
+      {[
+        { label: 'n8n', top: '15%', left: '5%', delay: '0s' },
+        { label: 'Claude AI', top: '70%', left: '8%', delay: '0.5s' },
+        { label: 'Airtable', top: '20%', right: '6%', delay: '1s' },
+        { label: 'Make', top: '75%', right: '5%', delay: '1.5s' },
+        { label: 'n8n → Slack', top: '45%', left: '3%', delay: '2s' },
+      ].map((badge, i) => (
+        <motion.div
+          key={i}
+          className="absolute px-3 py-1.5 rounded-full bg-surface-white border border-border-cream text-ink-navy text-xs font-mono font-medium shadow-sm"
+          style={{ top: badge.top, left: (badge as any).left, right: (badge as any).right }}
+          animate={{ y: [0, -8, 0] }}
+          transition={{ duration: 4 + i, repeat: Infinity, ease: 'easeInOut', delay: parseFloat(badge.delay) }}
+        >
+          {badge.label}
+        </motion.div>
+      ))}
+    </div>
+  );
+};
+
 const Hero = () => {
   const { t } = useLanguage();
   return (
     <section className="pt-40 pb-20 px-6 max-w-4xl mx-auto min-h-[90vh] flex flex-col items-center justify-center text-center gap-12 relative z-10">
+      <WorkflowBackground />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-lg aspect-square bg-accent-coral/5 rounded-full blur-[120px] -z-10 pointer-events-none" />
       <motion.div
         initial={{ opacity: 0, y: 20 }}

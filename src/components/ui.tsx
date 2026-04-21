@@ -67,7 +67,7 @@ export const FadeIn = ({ children, delay = 0, className = "", direction = "up", 
 export const GlowButton = ({ children, className = '', variant = 'primary', ...props }: {
   children: React.ReactNode;
   className?: string;
-  variant?: 'primary' | 'electric' | 'outline';
+  variant?: 'primary' | 'electric' | 'outline' | 'dark';
   type?: 'button' | 'submit' | 'reset';
   disabled?: boolean;
   onClick?: () => void;
@@ -77,11 +77,13 @@ export const GlowButton = ({ children, className = '', variant = 'primary', ...p
     primary: 'bg-accent-coral text-white hover:bg-accent-coral/90',
     electric: 'bg-accent-electric text-ink-navy hover:bg-accent-electric/90',
     outline: 'border border-ink-navy/20 text-ink-navy hover:bg-ink-navy/5 bg-transparent',
+    dark: 'bg-ink-navy text-white hover:bg-ink-navy/90',
   };
   const shadows = {
     primary: '0 4px 20px rgba(232,93,60,0.3)',
     electric: '0 4px 20px rgba(0,194,255,0.3)',
     outline: 'none',
+    dark: '0 4px 20px rgba(10,22,40,0.25)',
   };
 
   return (
