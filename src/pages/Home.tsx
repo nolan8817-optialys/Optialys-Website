@@ -115,7 +115,7 @@ const Hero = () => {
           {t('home.hero.badge')}
         </PillBadge>
 
-        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] text-ink-navy">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.1] text-ink-navy">
           {t('home.hero.title.part1')} <br/>
           <span className="relative inline-block my-1">
             <span className="italic font-serif text-gradient-electric pr-2">{t('home.hero.title.highlight')}</span>
@@ -133,7 +133,7 @@ const Hero = () => {
           </span>
           <br/>
           {t('home.hero.title.part2')}<br/>
-          <span className="text-2xl md:text-3xl text-ink-gray mt-4 block">{t('home.hero.title.part3')}</span>
+          <span className="text-lg md:text-xl text-ink-gray mt-3 block">{t('home.hero.title.part3')}</span>
         </h1>
 
         <p className="text-xl text-ink-gray max-w-2xl leading-relaxed mx-auto">
@@ -142,12 +142,12 @@ const Hero = () => {
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4 w-full flex-wrap">
           <a href="https://calendly.com/nolprayagsing/automation-strategy-audit" target="_blank" rel="noopener noreferrer">
-            <GlowButton variant="primary" className="w-full sm:w-auto text-lg px-8 py-4">
-              {t('home.hero.cta.getStarted')} <ArrowRight className="w-5 h-5" />
+            <GlowButton variant="primary" className="w-full sm:w-auto px-7 py-3">
+              {t('home.hero.cta.getStarted')} <ArrowRight className="w-4 h-4" />
             </GlowButton>
           </a>
           <Link to="/diagnostic">
-            <GlowButton variant="outline" className="w-full sm:w-auto text-lg px-8 py-4 border-accent-green/40 text-accent-green hover:bg-accent-green/10">
+            <GlowButton variant="outline" className="w-full sm:w-auto px-7 py-3 border-accent-green/40 text-accent-green hover:bg-accent-green/10">
               <CheckCircle2 className="w-5 h-5 text-accent-green" /> {t('home.hero.cta.diagnostic')}
             </GlowButton>
           </Link>
