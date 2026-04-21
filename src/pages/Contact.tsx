@@ -26,7 +26,7 @@ export const Contact = () => {
           transition={{ duration: 0.6 }}
         >
           <PillBadge className="mb-6">{t('contact.title')}</PillBadge>
-          <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight text-ink-navy mb-6">
+          <h1 className="text-4xl md:text-4xl font-extrabold tracking-tight text-ink-navy mb-6">
             {t('contact.title')}
           </h1>
           <p className="text-xl text-ink-gray leading-relaxed max-w-2xl mx-auto">

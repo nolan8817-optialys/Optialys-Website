@@ -115,7 +115,7 @@ const Hero = () => {
           {t('home.hero.badge')}
         </PillBadge>
 
-        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.1] text-ink-navy">
+        <h1 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl font-extrabold tracking-tight leading-[1.1] text-ink-navy">
           {t('home.hero.title.part1')} <br/>
           <span className="relative inline-block my-1">
             <span className="italic font-serif text-gradient-electric pr-2">{t('home.hero.title.highlight')}</span>
@@ -193,7 +193,7 @@ const Stats = () => {
                 <div className="w-12 h-12 mx-auto bg-accent-coral/10 rounded-full flex items-center justify-center text-accent-coral mb-6 group-hover:scale-110 transition-transform">
                   {stat.icon}
                 </div>
-                <div className="text-5xl font-black text-accent-electric mb-2">{stat.value}</div>
+                <div className="text-3xl font-black text-accent-electric mb-2">{stat.value}</div>
                 <div className="text-sm text-ink-gray font-medium">{stat.label}</div>
               </div>
             </FadeIn>
@@ -300,7 +300,7 @@ const ClientReferences = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <AsteriskDecor size={20} className="mx-auto mb-4" />
-          <h2 className="text-4xl font-bold text-ink-navy mb-4">{t('home.clients.title')}</h2>
+          <h2 className="text-3xl font-bold text-ink-navy mb-4">{t('home.clients.title')}</h2>
           <p className="text-xl text-ink-gray max-w-2xl mx-auto">
             {t('home.clients.subtitle')}
           </p>
@@ -349,7 +349,7 @@ const Testimonials = () => {
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-14">
           <AsteriskDecor size={20} className="mx-auto mb-4" />
-          <h2 className="text-4xl font-bold text-ink-navy mb-4">
+          <h2 className="text-3xl font-bold text-ink-navy mb-4">
             {fr ? 'Ce que disent nos clients' : 'What our clients say'}
           </h2>
         </div>
@@ -391,7 +391,7 @@ const CTASection = () => {
     <section className="py-24 px-6 bg-bg-cream-alt relative z-10">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-black text-ink-navy mb-4">{t('home.cta.title')}</h2>
+          <h2 className="text-3xl md:text-4xl font-black text-ink-navy mb-4">{t('home.cta.title')}</h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

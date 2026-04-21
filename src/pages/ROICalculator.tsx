@@ -99,7 +99,7 @@ export const ROICalculator = () => {
             <Calculator className="w-4 h-4 mr-1" />
             {T.tool}
           </PillBadge>
-          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-ink-navy mb-6">
+          <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-ink-navy mb-6">
             {T.title}
           </h1>
           <p className="text-xl text-ink-gray leading-relaxed max-w-2xl mx-auto mb-10">
@@ -173,7 +173,7 @@ export const ROICalculator = () => {
                 <div className="space-y-8 flex-1">
                   <div>
                     <p className="text-white/60 font-bold text-sm uppercase tracking-wider mb-2">{T.cost}</p>
-                    <div className="text-4xl md:text-5xl font-black text-red-400">
+                    <div className="text-3xl md:text-3xl font-black text-red-400">
                       {formatCurrency(annualCost)} <span className="text-2xl text-white/50 font-medium">{T.year}</span>
                     </div>
                   </div>
@@ -182,7 +182,7 @@ export const ROICalculator = () => {
 
                   <div>
                     <p className="text-white/60 font-bold text-sm uppercase tracking-wider mb-2">{T.recover}</p>
-                    <div className="text-3xl md:text-4xl font-black text-accent-electric">
+                    <div className="text-3xl md:text-3xl font-black text-accent-electric">
                       {formatCurrency(potentialSavings)} <span className="text-xl text-white/50 font-medium">{T.savedYear}</span>
                     </div>
                   </div>

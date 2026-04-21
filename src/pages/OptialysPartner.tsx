@@ -124,7 +124,7 @@ export const OptialysPartner = () => {
           <PillBadge className="mb-8">{T.eyebrow}</PillBadge>
         </motion.div>
 
-        <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-ink-navy mb-8 leading-tight">
+        <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-ink-navy mb-8 leading-tight">
           {T.heroTitle1}<br/>
           <span className="text-accent-coral">{T.heroTitle2}</span>
         </h1>
@@ -149,7 +149,7 @@ export const OptialysPartner = () => {
       <section className="py-24 px-6 bg-bg-cream-alt border-y border-border-cream">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-ink-navy mb-4">
+            <h2 className="text-3xl md:text-3xl font-bold text-ink-navy mb-4">
               {T.compareTitle}
             </h2>
           </div>
@@ -190,7 +190,7 @@ export const OptialysPartner = () => {
       <section className="py-24 px-6 bg-bg-cream">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-ink-navy mb-4">{T.monthlyTitle}</h2>
+            <h2 className="text-3xl font-bold text-ink-navy mb-4">{T.monthlyTitle}</h2>
             <p className="text-xl text-ink-gray">{T.monthlySub}</p>
           </div>
 
@@ -214,7 +214,7 @@ export const OptialysPartner = () => {
       <section className="py-24 px-6 bg-bg-cream-alt border-y border-border-cream relative overflow-hidden">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-20">
-            <h2 className="text-4xl font-bold text-ink-navy mb-4">{T.timelineTitle}</h2>
+            <h2 className="text-3xl font-bold text-ink-navy mb-4">{T.timelineTitle}</h2>
           </div>
 
           <div className="space-y-12 relative before:absolute before:inset-0 before:ml-6 md:before:mx-auto md:before:translate-x-0 before:w-px before:bg-border-cream">
@@ -275,7 +275,7 @@ export const OptialysPartner = () => {
       <section className="py-24 px-6 bg-bg-cream">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-ink-navy">{T.forYouTitle}</h2>
+            <h2 className="text-3xl md:text-3xl font-bold text-ink-navy">{T.forYouTitle}</h2>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -324,7 +324,7 @@ export const OptialysPartner = () => {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">
             <AsteriskDecor size={20} className="mx-auto mb-4" />
-            <h2 className="text-4xl font-bold text-ink-navy">{T.practiceTitle}</h2>
+            <h2 className="text-3xl font-bold text-ink-navy">{T.practiceTitle}</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -355,7 +355,7 @@ export const OptialysPartner = () => {
       <section className="py-32 px-6 bg-bg-cream relative overflow-hidden">
         <div className="max-w-4xl mx-auto relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-6xl font-black text-ink-navy mb-8">
+            <h2 className="text-3xl md:text-4xl font-black text-ink-navy mb-8">
               {T.finalTitle}
             </h2>
             <p className="text-xl text-ink-gray leading-relaxed">

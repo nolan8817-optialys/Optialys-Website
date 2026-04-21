@@ -239,7 +239,7 @@ export const Diagnostic = () => {
               <div className="text-accent-coral font-bold text-sm mb-4">
                 {T.questionOf(currentStep + 1, questions.length)}
               </div>
-              <h2 className="text-3xl md:text-4xl font-bold text-ink-navy mb-10 leading-tight">
+              <h2 className="text-3xl md:text-3xl font-bold text-ink-navy mb-10 leading-tight">
                 {questions[currentStep].question}
               </h2>
 
@@ -270,7 +270,7 @@ export const Diagnostic = () => {
               className="w-full"
             >
               <div className="text-center mb-10">
-                <h2 className="text-3xl md:text-4xl font-bold text-ink-navy mb-4">
+                <h2 className="text-3xl md:text-3xl font-bold text-ink-navy mb-4">
                   {T.formTitle}
                 </h2>
                 <p className="text-ink-gray">
@@ -366,7 +366,7 @@ export const Diagnostic = () => {
                 <span className={getResult().color}>{getResult().badge}</span>
               </div>
 
-              <h2 className="text-4xl md:text-5xl font-extrabold text-ink-navy mb-6 leading-tight">
+              <h2 className="text-3xl md:text-3xl font-extrabold text-ink-navy mb-6 leading-tight">
                 {getResult().title}
               </h2>
 

@@ -43,7 +43,7 @@ export const About = () => {
           transition={{ duration: 0.6 }}
         >
           <PillBadge className="mb-6">{T.title}</PillBadge>
-          <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight text-ink-navy mb-6">
+          <h1 className="text-4xl md:text-4xl font-extrabold tracking-tight text-ink-navy mb-6">
             {T.title}
           </h1>
           <p className="text-xl text-ink-gray leading-relaxed max-w-2xl mx-auto">
@@ -67,7 +67,7 @@ export const About = () => {
 
             <div className="w-full md:w-7/12 flex flex-col">
               <div className="mb-8">
-                <h2 className="text-4xl md:text-5xl font-black text-ink-navy mb-2">Nolan Prayagsing</h2>
+                <h2 className="text-3xl md:text-3xl font-black text-ink-navy mb-2">Nolan Prayagsing</h2>
                 <p className="text-xl font-medium text-accent-coral mb-4">{T.role}</p>
                 <div className="flex flex-wrap gap-2 text-sm font-bold text-ink-gray">
                   <span className="px-3 py-1 rounded-full bg-surface-white border border-border-cream">{T.badge1}</span>
