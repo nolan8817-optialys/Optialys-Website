@@ -266,6 +266,13 @@ const ClientReferences = () => {
   const { t } = useLanguage();
   const clients = [
     {
+      name: "Agence immobilière (Côte d'Azur)",
+      sector: t('home.clients.0.sector'),
+      project: t('home.clients.0.project'),
+      result: t('home.clients.0.result'),
+      stack: "n8n · Claude AI · WhatsApp · Airtable"
+    },
+    {
       name: "Koosmik",
       sector: t('home.clients.1.sector'),
       project: t('home.clients.1.project'),

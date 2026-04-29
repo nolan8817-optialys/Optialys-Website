@@ -10,6 +10,16 @@ export const CaseStudies = () => {
 
   const cases = fr ? [
     {
+      id: "agence-immo",
+      client: "Agence immobilière (Côte d'Azur)",
+      sector: "Immobilier (Côte d'Azur)",
+      title: "Système IA de qualification de leads — réponse automatique en 4 min",
+      challenge: "Des dizaines de leads entrants chaque semaine, personne pour répondre rapidement. Résultat : leads perdus avant le premier échange.",
+      solution: "Déploiement d'un système IA qui répond par WhatsApp et email en moins de 4 minutes, qualifie le lead (projet, budget, délai), et planifie automatiquement la visite dans le calendrier de l'agent.",
+      results: ["-82% délai de réponse", "+35% mandats signés", "0 lead perdu la nuit ou le week-end"],
+      stack: ["n8n", "Claude AI", "WhatsApp API", "Airtable"]
+    },
+    {
       id: "koosmik",
       client: "Koosmik",
       sector: "FinTech (Paris)",
@@ -50,6 +60,16 @@ export const CaseStudies = () => {
       stack: ["n8n", "Google Workspace", "Stripe"]
     }
   ] : [
+    {
+      id: "agence-immo",
+      client: "Real Estate Agency (Côte d'Azur)",
+      sector: "Real Estate (Côte d'Azur)",
+      title: "AI Lead Qualification System — automatic 4-min response",
+      challenge: "Dozens of inbound leads every week, no one to respond quickly. Result: leads lost before the first conversation.",
+      solution: "Deployed an AI system that responds via WhatsApp and email in under 4 minutes, qualifies the lead (project, budget, timeline), and automatically schedules the visit in the agent's calendar.",
+      results: ["-82% response time", "+35% mandates signed", "0 leads lost at night or on weekends"],
+      stack: ["n8n", "Claude AI", "WhatsApp API", "Airtable"]
+    },
     {
       id: "koosmik",
       client: "Koosmik",

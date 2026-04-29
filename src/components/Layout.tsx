@@ -156,7 +156,7 @@ const Footer = () => {
               {t('footer.tagline')}
             </p>
             <div className="text-sm text-ink-gray space-y-2">
-              <p>🇱🇺 Luxembourg</p>
+              <p>🇫🇷 Nice, France</p>
               <a href="mailto:nolan@optialys.com" className="text-accent-electric hover:underline block mt-4 mb-6">
                 nolan@optialys.com
               </a>
