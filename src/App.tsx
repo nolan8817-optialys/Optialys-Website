@@ -12,6 +12,8 @@ import { Legal } from './pages/Legal';
 import { ROICalculator } from './pages/ROICalculator';
 import { Diagnostic } from './pages/Diagnostic';
 import { LanguageProvider } from './i18n/LanguageContext';
+import { Blog } from './pages/Blog';
+import { BlogPost } from './pages/BlogPost';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -39,6 +41,8 @@ export default function App() {
             <Route path="/legal" element={<Legal />} />
             <Route path="/roi-calculator" element={<ROICalculator />} />
             <Route path="/diagnostic" element={<Diagnostic />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
           </Routes>
         </Layout>
       </Router>
