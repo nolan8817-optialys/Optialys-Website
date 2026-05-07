@@ -89,8 +89,6 @@ function getTopPainPoints(answers: Answer[]): string[] {
 
 // ─── Constants ────────────────────────────────────────────────────────────────
 
-const POPUP_KEY = 'optialys_popup_seen';
-const TTL_MS = 7 * 24 * 60 * 60 * 1000;
 const CALENDLY_URL = 'https://calendly.com/nolprayagsing/automation-strategy-audit';
 const IS_DEV = import.meta.env.DEV;
 
@@ -111,22 +109,6 @@ export const LeadPopup = () => {
   useEffect(() => {
     if (!isHome) return;
 
-    // ?popup param forces display (dev + testing)
-    const forceShow = new URLSearchParams(window.location.search).has('popup');
-    if (forceShow) {
-      localStorage.removeItem(POPUP_KEY);
-    }
-
-    const seen = localStorage.getItem(POPUP_KEY);
-    if (seen && !forceShow) {
-      try {
-        const { ts } = JSON.parse(seen);
-        if (Date.now() - ts < TTL_MS) return;
-      } catch {
-        // stale entry — ignore and show
-      }
-    }
-
     // 1s in dev, 8s in production
     const delay = IS_DEV ? 1000 : 8000;
     timerRef.current = setTimeout(() => setVisible(true), delay);
@@ -137,7 +119,6 @@ export const LeadPopup = () => {
 
   const close = () => {
     setVisible(false);
-    localStorage.setItem(POPUP_KEY, JSON.stringify({ ts: Date.now() }));
   };
 
   const handleAnswer = (q: typeof QUESTIONS[0], option: typeof QUESTIONS[0]['options'][0]) => {
@@ -174,8 +155,6 @@ export const LeadPopup = () => {
       }).catch(() => {/* silent fail */});
     }
 
-    // Mark as seen, close popup, redirect to Calendly
-    localStorage.setItem(POPUP_KEY, JSON.stringify({ ts: Date.now() }));
     setVisible(false);
     window.open(CALENDLY_URL, '_blank', 'noopener,noreferrer');
   };
