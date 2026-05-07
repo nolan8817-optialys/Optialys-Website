@@ -137,6 +137,7 @@ export const LeadPopup = () => {
 
     // Fire webhook in background — don't block the redirect
     const webhookUrl = import.meta.env.VITE_N8N_WEBHOOK_URL;
+    console.log('[LeadPopup] webhook URL:', webhookUrl);
     if (webhookUrl) {
       const payload = {
         firstName: contact.firstName,
@@ -148,11 +149,16 @@ export const LeadPopup = () => {
         source: 'optialys.com popup',
         timestamp: new Date().toISOString(),
       };
+      console.log('[LeadPopup] sending payload:', payload);
       fetch(webhookUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
-      }).catch(() => {/* silent fail */});
+      })
+        .then(res => console.log('[LeadPopup] webhook response:', res.status, res.statusText))
+        .catch(err => console.error('[LeadPopup] webhook error:', err));
+    } else {
+      console.warn('[LeadPopup] VITE_N8N_WEBHOOK_URL is not set — webhook skipped');
     }
 
     setVisible(false);
