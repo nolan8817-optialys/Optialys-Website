@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
-import { X, ArrowRight, ChevronRight, Play } from 'lucide-react';
+import { X, ArrowRight, ChevronRight } from 'lucide-react';
 import { useLocation } from 'react-router-dom';
 import { GlowButton } from './ui';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
-type Step = 'hook' | 'quiz' | 'contact' | 'video';
+type Step = 'hook' | 'quiz' | 'contact';
 
 interface Answer {
   question: string;
@@ -103,10 +103,8 @@ export const LeadPopup = () => {
   const [answers, setAnswers] = useState<Answer[]>([]);
   const [contact, setContact] = useState<ContactData>({ firstName: '', lastName: '', email: '', phone: '' });
   const [submitting, setSubmitting] = useState(false);
-  const [videoError, setVideoError] = useState(false);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  // Only trigger on homepage
   const isHome = location.pathname === '/';
 
   useEffect(() => {
@@ -145,35 +143,32 @@ export const LeadPopup = () => {
 
   const handleContactSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setStep('video');
-    localStorage.setItem(POPUP_KEY, JSON.stringify({ ts: Date.now() }));
+    setSubmitting(true);
 
+    // Fire webhook in background — don't block the redirect
     const webhookUrl = import.meta.env.VITE_N8N_WEBHOOK_URL;
-    if (!webhookUrl) return;
-
-    const payload = {
-      firstName: contact.firstName,
-      lastName: contact.lastName,
-      email: contact.email,
-      phone: contact.phone,
-      answers,
-      painPoints: getTopPainPoints(answers),
-      source: 'optialys.com popup',
-      timestamp: new Date().toISOString(),
-    };
-
-    try {
-      setSubmitting(true);
-      await fetch(webhookUrl, {
+    if (webhookUrl) {
+      const payload = {
+        firstName: contact.firstName,
+        lastName: contact.lastName,
+        email: contact.email,
+        phone: contact.phone,
+        answers,
+        painPoints: getTopPainPoints(answers),
+        source: 'optialys.com popup',
+        timestamp: new Date().toISOString(),
+      };
+      fetch(webhookUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
-      });
-    } catch {
-      // Silent fail — user experience unaffected
-    } finally {
-      setSubmitting(false);
+      }).catch(() => {/* silent fail */});
     }
+
+    // Mark as seen, close popup, redirect to Calendly
+    localStorage.setItem(POPUP_KEY, JSON.stringify({ ts: Date.now() }));
+    setVisible(false);
+    window.open(CALENDLY_URL, '_blank', 'noopener,noreferrer');
   };
 
   if (!isHome) return null;
@@ -219,21 +214,16 @@ export const LeadPopup = () => {
               )}
 
               <AnimatePresence mode="wait">
-                {/* ── STEP: HOOK ── */}
                 {step === 'hook' && (
                   <StepHook key="hook" onStart={() => setStep('quiz')} onClose={close} />
                 )}
-
-                {/* ── STEP: QUIZ ── */}
                 {step === 'quiz' && (
                   <StepQuiz
-                    key="quiz"
+                    key={`quiz-${currentQuestion}`}
                     currentQuestion={currentQuestion}
                     onAnswer={handleAnswer}
                   />
                 )}
-
-                {/* ── STEP: CONTACT ── */}
                 {step === 'contact' && (
                   <StepContact
                     key="contact"
@@ -241,17 +231,6 @@ export const LeadPopup = () => {
                     onChange={setContact}
                     onSubmit={handleContactSubmit}
                     submitting={submitting}
-                  />
-                )}
-
-                {/* ── STEP: VIDEO ── */}
-                {step === 'video' && (
-                  <StepVideo
-                    key="video"
-                    firstName={contact.firstName}
-                    videoError={videoError}
-                    onVideoError={() => setVideoError(true)}
-                    onClose={close}
                   />
                 )}
               </AnimatePresence>
@@ -322,7 +301,7 @@ const StepQuiz = ({
   onAnswer: (q: typeof QUESTIONS[0], o: typeof QUESTIONS[0]['options'][0]) => void;
 }) => {
   const q = QUESTIONS[currentQuestion];
-  const progress = ((currentQuestion) / QUESTIONS.length) * 100;
+  const progress = (currentQuestion / QUESTIONS.length) * 100;
 
   return (
     <motion.div
@@ -338,7 +317,7 @@ const StepQuiz = ({
           <span className="text-xs font-bold text-ink-gray uppercase tracking-widest">
             Question {currentQuestion + 1} / {QUESTIONS.length}
           </span>
-          <span className="text-xs text-ink-gray">{Math.round(progress)}%</span>
+          <span className="text-xs text-ink-gray">{Math.round(((currentQuestion + 1) / QUESTIONS.length) * 100)}%</span>
         </div>
         <div className="h-1.5 bg-border-cream rounded-full overflow-hidden">
           <motion.div
@@ -457,7 +436,7 @@ const StepContact = ({
         className="w-full justify-center mt-2"
         disabled={submitting}
       >
-        Voir ma vidéo personnalisée
+        {submitting ? 'Redirection…' : 'Booker mon appel stratégique'}
         <ArrowRight className="w-4 h-4" />
       </GlowButton>
 
@@ -466,79 +445,4 @@ const StepContact = ({
       </p>
     </form>
   </motion.div>
-);
-
-// Video step
-const StepVideo = ({
-  firstName,
-  videoError,
-  onVideoError,
-  onClose,
-}: {
-  firstName: string;
-  videoError: boolean;
-  onVideoError: () => void;
-  onClose: () => void;
-}) => (
-  <motion.div
-    variants={stepVariants}
-    initial="initial"
-    animate="animate"
-    exit="exit"
-    className="p-8 md:p-10"
-  >
-    <div className="text-center mb-6">
-      <div className="inline-flex items-center gap-2 bg-accent-green/10 text-accent-green text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4">
-        Analyse envoyée ✓
-      </div>
-      <h3 className="text-xl font-bold text-ink-navy mb-2">
-        {firstName ? `${firstName}, voici` : 'Voici'} exactement ce que je peux faire pour vous
-      </h3>
-      <p className="text-sm text-ink-gray">
-        Vous recevrez votre analyse personnalisée par email dans quelques instants.
-      </p>
-    </div>
-
-    {/* Video or placeholder */}
-    {videoError ? (
-      <VideoPlaceholder />
-    ) : (
-      <video
-        autoPlay
-        controls
-        playsInline
-        className="w-full rounded-2xl bg-ink-navy/5 aspect-video object-cover mb-6"
-        onError={onVideoError}
-      >
-        <source src="/video/intro.mp4" type="video/mp4" />
-      </video>
-    )}
-
-    <div className="space-y-3">
-      <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" onClick={onClose}>
-        <GlowButton variant="primary" className="w-full justify-center">
-          Booker un appel stratégique →
-        </GlowButton>
-      </a>
-      <button
-        onClick={onClose}
-        className="w-full text-center text-xs text-ink-gray/60 hover:text-ink-gray transition-colors py-1"
-      >
-        Fermer et continuer sur le site
-      </button>
-    </div>
-  </motion.div>
-);
-
-// Placeholder shown when video file is not yet uploaded
-const VideoPlaceholder = () => (
-  <div className="w-full aspect-video rounded-2xl bg-ink-navy/5 border-2 border-dashed border-border-cream flex flex-col items-center justify-center mb-6 gap-3">
-    <div className="w-14 h-14 rounded-full bg-accent-coral/10 flex items-center justify-center">
-      <Play className="w-6 h-6 text-accent-coral ml-1" />
-    </div>
-    <p className="text-sm font-semibold text-ink-navy">Vidéo bientôt disponible</p>
-    <p className="text-xs text-ink-gray text-center px-4">
-      En attendant, bookez un appel pour découvrir comment automatiser vos leads.
-    </p>
-  </div>
 );
