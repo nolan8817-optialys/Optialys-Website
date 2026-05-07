@@ -92,6 +92,7 @@ function getTopPainPoints(answers: Answer[]): string[] {
 const POPUP_KEY = 'optialys_popup_seen';
 const TTL_MS = 7 * 24 * 60 * 60 * 1000;
 const CALENDLY_URL = 'https://calendly.com/nolprayagsing/automation-strategy-audit';
+const IS_DEV = import.meta.env.DEV;
 
 // ─── Component ────────────────────────────────────────────────────────────────
 
@@ -110,8 +111,14 @@ export const LeadPopup = () => {
   useEffect(() => {
     if (!isHome) return;
 
+    // ?popup param forces display (dev + testing)
+    const forceShow = new URLSearchParams(window.location.search).has('popup');
+    if (forceShow) {
+      localStorage.removeItem(POPUP_KEY);
+    }
+
     const seen = localStorage.getItem(POPUP_KEY);
-    if (seen) {
+    if (seen && !forceShow) {
       try {
         const { ts } = JSON.parse(seen);
         if (Date.now() - ts < TTL_MS) return;
@@ -120,7 +127,9 @@ export const LeadPopup = () => {
       }
     }
 
-    timerRef.current = setTimeout(() => setVisible(true), 8000);
+    // 1s in dev, 8s in production
+    const delay = IS_DEV ? 1000 : 8000;
+    timerRef.current = setTimeout(() => setVisible(true), delay);
     return () => {
       if (timerRef.current) clearTimeout(timerRef.current);
     };
