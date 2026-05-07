@@ -150,12 +150,15 @@ export const LeadPopup = () => {
         timestamp: new Date().toISOString(),
       };
       console.log('[LeadPopup] sending payload:', payload);
+      // mode: 'no-cors' + text/plain évite le preflight CORS
+      // n8n reçoit le body en string → utiliser JSON.parse($json.body) dans n8n
       fetch(webhookUrl, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain' },
         body: JSON.stringify(payload),
       })
-        .then(res => console.log('[LeadPopup] webhook response:', res.status, res.statusText))
+        .then(() => console.log('[LeadPopup] webhook sent (no-cors)'))
         .catch(err => console.error('[LeadPopup] webhook error:', err));
     } else {
       console.warn('[LeadPopup] VITE_N8N_WEBHOOK_URL is not set — webhook skipped');
