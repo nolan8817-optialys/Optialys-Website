@@ -4,9 +4,20 @@ import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import { FadeIn, GlowButton, PillBadge } from '../components/ui';
 import { CalendlyEmbed } from '../components/CalendlyEmbed';
 import { useLanguage } from '../i18n/LanguageContext';
+import { useSEO } from '../hooks/useSEO';
 
 export const Contact = () => {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
+  const fr = lang === 'fr';
+  useSEO({
+    title: fr
+      ? 'Contact — Réserver un audit automatisation gratuit | Optialys'
+      : 'Contact — Book a Free Automation Audit | Optialys',
+    description: fr
+      ? 'Prenez rendez-vous avec Optialys pour un diagnostic gratuit de 72h. Identifiez vos meilleures opportunités d\'automatisation IA pour votre agence immobilière.'
+      : 'Schedule a free 72h diagnostic with Optialys. Identify your best AI automation opportunities for your real estate agency.',
+    canonical: 'https://optialys.com/contact',
+  });
   const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
 
   const handleSubmit = (e: React.FormEvent) => {

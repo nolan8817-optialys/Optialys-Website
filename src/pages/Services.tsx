@@ -4,9 +4,20 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Zap, Code, CheckCircle2, Users } from 'lucide-react';
 import { FadeIn, GlowButton, PillBadge } from '../components/ui';
 import { useLanguage } from '../i18n/LanguageContext';
+import { useSEO } from '../hooks/useSEO';
 
 export const Services = () => {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
+  const fr = lang === 'fr';
+  useSEO({
+    title: fr
+      ? 'Nos Services — Automatisation IA pour Agences Immobilières | Optialys'
+      : 'Our Services — AI Automation for Real Estate Agencies | Optialys',
+    description: fr
+      ? 'Qualification de leads automatique, suivi des mandats, rapports de visite IA et intégration CRM. Découvrez les services d\'automatisation Optialys pour votre agence immobilière.'
+      : 'Automatic lead qualification, mandate tracking, AI visit reports and CRM integration. Discover Optialys automation services for your real estate agency.',
+    canonical: 'https://optialys.com/services',
+  });
   const services = [
     {
       id: "core",

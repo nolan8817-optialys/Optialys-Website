@@ -5,9 +5,20 @@ import { ArrowRight, Search, Zap, Settings, CheckCircle2, Shield, Building2, XCi
 import { FadeIn, GlowButton, PillBadge, AsteriskDecor } from '../components/ui';
 import { CalendlyEmbed } from '../components/CalendlyEmbed';
 import { useLanguage } from '../i18n/LanguageContext';
+import { useSEO } from '../hooks/useSEO';
 
 export const OptialysCore = () => {
   const { lang } = useLanguage();
+  const fr = lang === 'fr';
+  useSEO({
+    title: fr
+      ? 'Optialys Core™ — Système IA Clé en Main pour Agences Immobilières'
+      : 'Optialys Core™ — Turnkey AI System for Real Estate Agencies',
+    description: fr
+      ? 'Optialys Core déploie en 30 jours un système complet : qualification leads IA, suivi mandats automatisé, rapports de visite et CRM connecté. Garanti ou remboursé.'
+      : 'Optialys Core deploys in 30 days a complete system: AI lead qualification, automated mandate tracking, visit reports and connected CRM. Guaranteed or refunded.',
+    canonical: 'https://optialys.com/optialys-core',
+  });
   const fr = lang === 'fr';
 
   const problems = fr ? [

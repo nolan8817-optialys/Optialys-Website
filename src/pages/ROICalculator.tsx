@@ -3,10 +3,20 @@ import { motion } from 'motion/react';
 import { Calculator, ArrowRight, CheckCircle2 } from 'lucide-react';
 import { FadeIn, GlowButton, PillBadge } from '../components/ui';
 import { useLanguage } from '../i18n/LanguageContext';
+import { useSEO } from '../hooks/useSEO';
 
 export const ROICalculator = () => {
   const { lang } = useLanguage();
   const fr = lang === 'fr';
+  useSEO({
+    title: fr
+      ? 'Calculateur ROI Automatisation — Combien vous coûte l\'inaction ? | Optialys'
+      : 'Automation ROI Calculator — What Does Inaction Cost You? | Optialys',
+    description: fr
+      ? 'Calculez en 2 minutes le ROI exact d\'une automatisation IA pour votre agence immobilière : temps récupéré, mandats supplémentaires et retour sur investissement estimé.'
+      : 'Calculate in 2 minutes the exact ROI of AI automation for your real estate agency: time recovered, additional mandates and estimated return on investment.',
+    canonical: 'https://optialys.com/roi-calculator',
+  });
 
   const [employees, setEmployees] = useState(5);
   const [hours, setHours] = useState(8);
