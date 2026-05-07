@@ -14,7 +14,6 @@ import { Diagnostic } from './pages/Diagnostic';
 import { LanguageProvider } from './i18n/LanguageContext';
 import { Blog } from './pages/Blog';
 import { BlogPost } from './pages/BlogPost';
-import { LeadPopup } from './components/LeadPopup';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -30,7 +29,6 @@ export default function App() {
       <Router>
         <ScrollToTop />
         <div className="fixed inset-0 z-[-1] bg-bg-cream bg-dot-grid pointer-events-none" />
-        <LeadPopup />
         <Layout>
           <Routes>
             <Route path="/" element={<Home />} />
