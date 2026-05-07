@@ -135,33 +135,55 @@ export const LeadPopup = () => {
     e.preventDefault();
     setSubmitting(true);
 
-    // Fire webhook in background — don't block the redirect
-    const webhookUrl = import.meta.env.VITE_N8N_WEBHOOK_URL;
-    console.log('[LeadPopup] webhook URL:', webhookUrl);
-    if (webhookUrl) {
-      const payload = {
-        firstName: contact.firstName,
-        lastName: contact.lastName,
-        email: contact.email,
-        phone: contact.phone,
-        answers,
-        painPoints: getTopPainPoints(answers),
-        source: 'optialys.com popup',
-        timestamp: new Date().toISOString(),
+    // Send email notification via Web3Forms (no backend, no CORS issues)
+    const web3key = import.meta.env.VITE_WEB3FORMS_KEY;
+    if (web3key) {
+      const painPointLabels: Record<string, string> = {
+        HIGH_VOLUME: 'Volume de leads élevé',
+        VERY_HIGH_VOLUME: 'Volume de leads critique (+100/mois)',
+        MED_VOLUME: 'Volume de leads croissant',
+        LOW_VOLUME: 'Faible volume',
+        VERY_SLOW_RESPONSE: 'Leads contactés trop tard',
+        SLOW_RESPONSE: 'Délai de réponse trop long',
+        SAME_DAY: 'Réponse le même jour',
+        FAST_RESPONSE: 'Réponse rapide',
+        NO_TIME: 'Manque de temps pour relancer',
+        NO_QUALIFICATION: 'Difficulté à identifier les leads chauds',
+        BAD_TOOLS: 'Outils non connectés',
+        ADMIN_OVERLOAD: 'Équipe noyée dans l\'admin',
+        VERY_HIGH_ADMIN: 'Charge admin critique (+20h/sem)',
+        HIGH_ADMIN: 'Charge admin lourde (10-20h/sem)',
+        MED_ADMIN: 'Charge admin modérée (5-10h/sem)',
+        LOW_ADMIN: 'Charge admin maîtrisée',
+        AUTO_QUALIFY: 'Automatiser la qualification',
+        AUTO_FOLLOWUP: 'Automatiser les relances',
+        AUTO_BOOKING: 'Automatiser la prise de RDV',
+        AUTO_REPORTING: 'Automatiser le reporting',
       };
-      console.log('[LeadPopup] sending payload:', payload);
-      // mode: 'no-cors' + text/plain évite le preflight CORS
-      // n8n reçoit le body en string → utiliser JSON.parse($json.body) dans n8n
-      fetch(webhookUrl, {
+
+      const topPains = getTopPainPoints(answers)
+        .map(tag => painPointLabels[tag] || tag)
+        .join(' | ');
+
+      const answersText = answers
+        .map((a, i) => `Q${i + 1}: ${a.answer}`)
+        .join('\n');
+
+      fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'text/plain' },
-        body: JSON.stringify(payload),
-      })
-        .then(() => console.log('[LeadPopup] webhook sent (no-cors)'))
-        .catch(err => console.error('[LeadPopup] webhook error:', err));
-    } else {
-      console.warn('[LeadPopup] VITE_N8N_WEBHOOK_URL is not set — webhook skipped');
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          access_key: web3key,
+          subject: `🔔 Nouveau lead popup — ${contact.firstName} ${contact.lastName}`,
+          from_name: 'Optialys Popup',
+          name: `${contact.firstName} ${contact.lastName}`,
+          email: contact.email,
+          phone: contact.phone || 'Non renseigné',
+          top_pain_points: topPains,
+          reponses_quiz: answersText,
+          source: 'optialys.com popup',
+        }),
+      }).catch(() => {/* silent fail */});
     }
 
     setVisible(false);
