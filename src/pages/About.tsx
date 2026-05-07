@@ -3,10 +3,20 @@ import { motion } from 'motion/react';
 import { ArrowRight, Target, Lightbulb, ShieldCheck, Linkedin } from 'lucide-react';
 import { FadeIn, GlowButton, PillBadge, NPByline } from '../components/ui';
 import { useLanguage } from '../i18n/LanguageContext';
+import { useSEO } from '../hooks/useSEO';
 
 export const About = () => {
   const { lang } = useLanguage();
   const fr = lang === 'fr';
+  useSEO({
+    title: fr
+      ? 'À propos — Nolan Prayagsing, Consultant IA Immobilier | Optialys'
+      : 'About — Nolan Prayagsing, Real Estate AI Consultant | Optialys',
+    description: fr
+      ? 'Optialys est fondé par Nolan Prayagsing, expert en automatisation IA pour agences immobilières françaises. Découvrez notre mission et notre approche sur-mesure.'
+      : 'Optialys is founded by Nolan Prayagsing, AI automation expert for French real estate agencies. Discover our mission and bespoke approach.',
+    canonical: 'https://optialys.com/about',
+  });
 
   const T = {
     title: fr ? "À propos d'Optialys" : "About Optialys",

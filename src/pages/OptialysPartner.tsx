@@ -5,9 +5,20 @@ import { ArrowRight, Zap, Settings, Compass, MessageSquare, CheckCircle2, XCircl
 import { FadeIn, GlowButton, PillBadge, AsteriskDecor } from '../components/ui';
 import { CalendlyEmbed } from '../components/CalendlyEmbed';
 import { useLanguage } from '../i18n/LanguageContext';
+import { useSEO } from '../hooks/useSEO';
 
 export const OptialysPartner = () => {
   const { lang } = useLanguage();
+  const fr = lang === 'fr';
+  useSEO({
+    title: fr
+      ? 'Optialys Partner — Accompagnement IA Long Terme pour Agences'
+      : 'Optialys Partner — Long-Term AI Support for Real Estate Agencies',
+    description: fr
+      ? 'Devenez partenaire Optialys : accès illimité à notre expertise IA, évolutions continues de vos automatisations et support prioritaire. Pour les agences qui veulent une longueur d\'avance.'
+      : 'Become an Optialys Partner: unlimited access to our AI expertise, continuous automation upgrades and priority support. For agencies that want to stay ahead.',
+    canonical: 'https://optialys.com/optialys-partner',
+  });
   const fr = lang === 'fr';
 
   const comparison = fr ? {

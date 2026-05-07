@@ -4,6 +4,53 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, CheckCircle2, Zap, Settings, X, Building2, Quote } from 'lucide-react';
 import { FadeIn, GlowButton, PillBadge, AsteriskDecor, NPByline } from '../components/ui';
 import { useLanguage } from '../i18n/LanguageContext';
+import { useSEO } from '../hooks/useSEO';
+
+const ORGANIZATION_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Optialys",
+  "url": "https://optialys.com",
+  "logo": "https://optialys.com/optialys-logo.webp",
+  "description": "Automatisation IA sur-mesure pour agences immobilières françaises. Qualification de leads, suivi des mandats et administration automatisés.",
+  "founder": {
+    "@type": "Person",
+    "name": "Nolan Prayagsing",
+    "url": "https://optialys.com/about",
+    "sameAs": "https://www.linkedin.com/in/nolan-prayagsing-a70815278/"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "France"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Services d'automatisation IA",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Optialys Core™",
+          "description": "Système IA clé en main déployé en 30 jours pour agences immobilières : qualification leads, suivi mandats, rapports de visite automatisés.",
+          "url": "https://optialys.com/optialys-core"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Optialys Partner",
+          "description": "Accompagnement IA long terme avec accès illimité à notre expertise et évolutions continues.",
+          "url": "https://optialys.com/optialys-partner"
+        }
+      }
+    ]
+  },
+  "sameAs": [
+    "https://www.linkedin.com/company/optialys"
+  ]
+};
 
 // Animated automation workflow background
 const WorkflowBackground = () => {
@@ -461,6 +508,18 @@ const CTASection = () => {
 };
 
 export const Home = () => {
+  const { lang } = useLanguage();
+  const fr = lang === 'fr';
+  useSEO({
+    title: fr
+      ? 'Optialys — Automatisation IA pour Agences Immobilières'
+      : 'Optialys — AI Automation for Real Estate Agencies',
+    description: fr
+      ? 'Optialys automatise la qualification de leads, le suivi des mandats et l\'admin de votre agence immobilière. Votre lead reçoit une réponse en 4 minutes — même à 23h.'
+      : 'Optialys automates lead qualification, mandate tracking and admin for your real estate agency. Your lead gets a response in 4 minutes — even at 11pm.',
+    canonical: 'https://optialys.com/',
+    schema: ORGANIZATION_SCHEMA,
+  });
   return (
     <>
       <Hero />

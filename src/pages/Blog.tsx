@@ -5,6 +5,7 @@ import { ArrowRight, Clock, Calendar } from 'lucide-react';
 import { FadeIn, GlowButton, PillBadge, AsteriskDecor } from '../components/ui';
 import { useLanguage } from '../i18n/LanguageContext';
 import { blogArticles, getCategoryColor, type BlogArticle } from '../data/blog';
+import { useSEO } from '../hooks/useSEO';
 
 const categoryFilters = {
   fr: ['Tous', 'Immobilier & IA', 'Automatisation pratique', 'Croissance agence'],
@@ -82,6 +83,15 @@ const ArticleCard = ({ article, lang }: { article: BlogArticle; lang: string }) 
 export const Blog = () => {
   const { lang } = useLanguage();
   const fr = lang === 'fr';
+  useSEO({
+    title: fr
+      ? 'Blog — Immobilier & Automatisation IA | Optialys'
+      : 'Blog — Real Estate & AI Automation | Optialys',
+    description: fr
+      ? 'Guides pratiques, études de cas et stratégies pour automatiser votre agence immobilière avec l\'IA. Qualification leads, suivi mandats, CRM — tous les conseils Optialys.'
+      : 'Practical guides, case studies and strategies to automate your real estate agency with AI. Lead qualification, mandate tracking, CRM — all Optialys insights.',
+    canonical: 'https://optialys.com/blog',
+  });
   const [activeFilter, setActiveFilter] = useState(fr ? 'Tous' : 'All');
 
   const filters = fr ? categoryFilters.fr : categoryFilters.en;

@@ -3,10 +3,20 @@ import { motion, AnimatePresence } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
 import { GlowButton, PillBadge } from '../components/ui';
 import { useLanguage } from '../i18n/LanguageContext';
+import { useSEO } from '../hooks/useSEO';
 
 export const Diagnostic = () => {
   const { lang } = useLanguage();
   const fr = lang === 'fr';
+  useSEO({
+    title: fr
+      ? 'Diagnostic Gratuit — Automatisation IA pour votre Agence | Optialys'
+      : 'Free Diagnostic — AI Automation for Your Agency | Optialys',
+    description: fr
+      ? 'Répondez à 5 questions et recevez votre diagnostic personnalisé : les 3 automatisations les plus rentables pour votre agence immobilière, identifiées en 72h.'
+      : 'Answer 5 questions and receive your personalised diagnostic: the 3 most profitable automations for your real estate agency, identified within 72h.',
+    canonical: 'https://optialys.com/diagnostic',
+  });
 
   const questions = fr ? [
     {

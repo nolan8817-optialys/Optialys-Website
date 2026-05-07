@@ -3,10 +3,20 @@ import { motion } from 'motion/react';
 import { ArrowRight, Building2, Target, Lightbulb, TrendingUp, Code } from 'lucide-react';
 import { FadeIn, GlowButton, PillBadge } from '../components/ui';
 import { useLanguage } from '../i18n/LanguageContext';
+import { useSEO } from '../hooks/useSEO';
 
 export const CaseStudies = () => {
   const { lang } = useLanguage();
   const fr = lang === 'fr';
+  useSEO({
+    title: fr
+      ? 'Études de Cas — Résultats Clients Automatisation IA Immobilier | Optialys'
+      : 'Case Studies — Real Estate AI Automation Client Results | Optialys',
+    description: fr
+      ? 'Découvrez comment nos clients ont réduit leur délai de réponse de 82%, augmenté leurs mandats signés de 35% et économisé 3h/jour grâce à l\'automatisation Optialys.'
+      : 'See how our clients reduced response time by 82%, increased signed mandates by 35% and saved 3h/day with Optialys automation.',
+    canonical: 'https://optialys.com/case-studies',
+  });
 
   const cases = fr ? [
     {
