@@ -10,6 +10,10 @@ export interface BlogArticle {
   seoTitle: { fr: string; en: string };
   seoDescription: { fr: string; en: string };
   keywords: string[];
+  faq?: {
+    fr: { q: string; a: string }[];
+    en: { q: string; a: string }[];
+  };
 }
 
 export const blogArticles: BlogArticle[] = [
@@ -39,6 +43,17 @@ export const blogArticles: BlogArticle[] = [
       "dépassement budget atelier", "suivi marge temps réel", "pilotage rentabilité chantier",
       "alerte budget automatique", "marge par chantier", "infrastructure opérationnelle atelier"
     ],
+    faq: {
+      fr: [
+        { q: "Faut-il changer notre logiciel de gestion ?", a: "Non. On connecte vos outils existants — logiciel de chantier, facturation, tableurs — sur un système central. Aucun remplacement, aucune migration douloureuse." },
+        { q: "Combien de temps pour mettre ça en place ?", a: "Une infrastructure connectée se déploie en 4 à 6 semaines. Tout commence par un Diagnostic Rentabilité de 2 heures qui chiffre précisément où part votre argent." },
+        { q: "Mes techniciens vont-ils devoir saisir plus de choses ?", a: "Au contraire. On supprime la double saisie : ils encodent une fois, sur mobile, et l'information remonte partout automatiquement." }
+      ],
+      en: [
+        { q: "Do we have to change our management software?", a: "No. We connect your existing tools — project software, invoicing, spreadsheets — into a central system. No replacement, no painful migration." },
+        { q: "How long does it take to set up?", a: "A connected infrastructure is deployed in 4 to 6 weeks. It all starts with a 2-hour Profitability Diagnostic that pinpoints exactly where your money goes." }
+      ]
+    },
     content: {
       fr: `<p>Dans un atelier de rénovation haut de gamme — yacht, voiture de collection, mobilier sur mesure — la marge ne se perd presque jamais d'un coup. Elle s'effrite. Quelques heures non prévues ici, un achat de pièce en urgence là, un imprévu technique qui ajoute deux jours. Pris isolément, rien d'alarmant. Cumulés sur un projet de plusieurs mois, ils transforment un chantier rentable en chantier à perte.</p>
 
@@ -126,6 +141,17 @@ export const blogArticles: BlogArticle[] = [
       "connecter outils atelier", "automatisation processus atelier rénovation", "système central PME",
       "intégration CRM facturation", "infrastructure opérationnelle sur mesure", "éviter migration logiciel"
     ],
+    faq: {
+      fr: [
+        { q: "Et si un de nos outils est vraiment trop ancien ?", a: "On l'évalue pendant le diagnostic. Dans la grande majorité des cas, même un outil ancien peut être connecté. Quand ce n'est vraiment pas possible, on vous le dit clairement et on propose l'alternative la plus légère." },
+        { q: "Qui est propriétaire du système à la fin ?", a: "Vous. Tout est documenté, votre équipe est formée, et le système vous appartient. Aucune dépendance forcée." },
+        { q: "Par où commence-t-on ?", a: "Par un Diagnostic Rentabilité de 2 heures. On cartographie vos outils et vos flux, on identifie les connexions qui rapportent le plus, et on vous remet un plan d'action chiffré." }
+      ],
+      en: [
+        { q: "What if one of our tools is really too old?", a: "We assess it during the diagnostic. In the vast majority of cases, even an old tool can be connected. When it truly can't, we tell you plainly and propose the lightest alternative." },
+        { q: "Who owns the system in the end?", a: "You do. Everything is documented, your team is trained, and the system is yours. No forced dependency." }
+      ]
+    },
     content: {
       fr: `<p>Quand un atelier décide enfin de « se digitaliser », le réflexe est souvent le mauvais : chercher LE logiciel qui fera tout. C'est une erreur coûteuse. Vous y passez des mois, vous formez l'équipe à un nouvel outil, et six mois plus tard la moitié des gens est revenue à ses anciennes habitudes — parce que le nouvel outil ne colle pas à la réalité du métier.</p>
 
@@ -211,6 +237,17 @@ export const blogArticles: BlogArticle[] = [
       "saisie terrain temps réel", "pointage heures atelier", "fin du papier atelier",
       "données chantier mobile", "double saisie automatisation", "suivi temps technicien"
     ],
+    faq: {
+      fr: [
+        { q: "Nos techniciens ne sont pas à l'aise avec la technologie.", a: "C'est justement pour ça que la saisie est réduite au strict minimum : deux gestes, pas de formation longue. On conçoit l'outil autour du terrain, pas l'inverse." },
+        { q: "Et sans réseau dans l'atelier ou sur le port ?", a: "La saisie fonctionne hors connexion et se synchronise dès que le réseau revient. Aucune donnée perdue." },
+        { q: "Combien de temps pour déployer ?", a: "C'est inclus dans l'infrastructure sur mesure, déployée en 4 à 6 semaines. On commence par un Diagnostic Rentabilité pour cadrer précisément vos besoins." }
+      ],
+      en: [
+        { q: "Our technicians aren't comfortable with technology.", a: "That's exactly why entry is reduced to the bare minimum: two taps, no long training. We design the tool around the floor, not the other way around." },
+        { q: "What about no signal in the workshop or on the dock?", a: "Entry works offline and syncs as soon as the network is back. No data lost." }
+      ]
+    },
     content: {
       fr: `<p>Voici une scène que tout dirigeant d'atelier connaît. Un technicien termine sa journée, note ses heures et ses relevés sur un carnet ou une feuille. Le lendemain, quelqu'un — souvent une personne précieuse dont ce n'est pas le métier — ressaisit tout dans le système. Entre les deux : un jour de décalage, et des erreurs de recopie.</p>
 

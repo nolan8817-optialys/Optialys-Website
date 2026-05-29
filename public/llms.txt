@@ -1,0 +1,40 @@
+# Optialys
+
+> Optialys est une infrastructure opérationnelle sur mesure pour ateliers et services haut de gamme (rénovation de yachts, voitures de collection, jets, mobilier sur mesure, conciergeries de luxe). Nous ne remplaçons pas vos outils : nous les connectons dans un système central pour vous donner une vision temps réel de vos chantiers et de votre marge, depuis votre téléphone.
+
+## Le problème que nous adressons
+
+Dans les ateliers haut de gamme, les outils ne se parlent pas (CRM, logiciel de chantier, facturation, Excel). Les dépassements de budget se découvrent à la facture finale, trop tard pour réagir. Les techniciens encodent sur papier, les décisions se prennent sur des données de la veille. Résultat : de l'argent perdu chaque semaine, sans alerte.
+
+## Cible
+
+- Ateliers de rénovation : yachts, voitures de collection, jets, mobilier sur mesure
+- Conciergeries et services premium
+- Équipes terrain de 10 à 40 collaborateurs
+- Projets de 30 000 € à 500 000 €
+
+## Offre (3 étapes)
+
+- **Diagnostic Rentabilité — 500 €** : 2 heures d'audit des outils et des flux. Identification de 3 à 5 pertes financières concrètes et chiffrées, avec plan d'action. Déduit du setup si démarrage dans les 30 jours.
+- **Infrastructure sur mesure — 6 000 € à 15 000 €** : 4 à 6 semaines. Connexion des outils existants dans un système central, tableau de bord temps réel, alertes budget automatiques, rapports hebdomadaires, formation incluse.
+- **Partenariat mensuel — 1 500 € à 2 500 € / mois** : maintenance et évolution du système, analyse mensuelle des données, 1 automatisation nouvelle par mois, conseil croissance, support prioritaire sous 24h.
+
+## Pages clés
+
+- [Accueil](https://optialys.com/): positionnement et offre complète
+- [La méthode](https://optialys.com/services): les 3 étapes en détail
+- [Infrastructure sur mesure](https://optialys.com/optialys-core): comment on connecte vos outils
+- [Partenariat mensuel](https://optialys.com/optialys-partner): suivi et évolution
+- [Pour qui](https://optialys.com/case-studies): métiers et profils accompagnés
+- [Diagnostic](https://optialys.com/diagnostic): auto-évaluation en 4 questions
+- [Calculateur de marge](https://optialys.com/roi-calculator): estimation du coût des outils déconnectés
+- [À propos](https://optialys.com/about): Nolan Prayagsing, fondateur
+- [Contact](https://optialys.com/contact): réserver un Diagnostic Rentabilité
+
+## Pricing lisible par agent
+
+- [pricing.md](https://optialys.com/pricing.md)
+
+## Contact
+
+- Email : nolprayagsing@gmail.com

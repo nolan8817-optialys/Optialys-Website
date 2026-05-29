@@ -26,7 +26,7 @@ const formatDate = (dateStr: string, lang: string) => {
   });
 };
 
-const ArticleCard = ({ article, lang }: { article: BlogArticle; lang: string }) => {
+const ArticleCard: React.FC<{ article: BlogArticle; lang: string }> = ({ article, lang }) => {
   const fr = lang === 'fr';
   const categoryColor = getCategoryColor(article.categoryKey);
 

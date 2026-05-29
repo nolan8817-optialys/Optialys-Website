@@ -129,7 +129,20 @@ export const BlogPost = () => {
       (scriptTag as HTMLScriptElement).type = 'application/ld+json';
       document.head.appendChild(scriptTag);
     }
-    scriptTag.textContent = JSON.stringify(schema);
+    const faqList = fr ? article.faq?.fr : article.faq?.en;
+    const graph: Record<string, unknown>[] = [schema];
+    if (faqList && faqList.length > 0) {
+      graph.push({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": faqList.map((item) => ({
+          "@type": "Question",
+          "name": item.q,
+          "acceptedAnswer": { "@type": "Answer", "text": item.a }
+        }))
+      });
+    }
+    scriptTag.textContent = JSON.stringify(graph.length === 1 ? schema : graph);
 
     return () => {
       document.title = 'Optialys — Infrastructure opérationnelle pour ateliers haut de gamme';

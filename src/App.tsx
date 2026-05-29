@@ -14,6 +14,7 @@ import { Diagnostic } from './pages/Diagnostic';
 import { LanguageProvider } from './i18n/LanguageContext';
 import { Blog } from './pages/Blog';
 import { BlogPost } from './pages/BlogPost';
+import { SolutionDetail } from './pages/SolutionDetail';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -43,6 +44,7 @@ export default function App() {
             <Route path="/diagnostic" element={<Diagnostic />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
+            <Route path="/solutions/:slug" element={<SolutionDetail />} />
           </Routes>
         </Layout>
       </Router>

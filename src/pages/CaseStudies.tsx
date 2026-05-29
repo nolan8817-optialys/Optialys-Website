@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
+import { Link } from 'react-router-dom';
 import { ArrowRight, Anchor, Car, Plane, Hammer, Sparkles, Target, Wrench, TrendingUp } from 'lucide-react';
 import { FadeIn, GlowButton, PillBadge } from '../components/ui';
 import { useLanguage } from '../i18n/LanguageContext';
@@ -21,17 +22,17 @@ export const CaseStudies = () => {
   });
 
   const segments = fr ? [
-    { icon: <Anchor className="w-7 h-7" />, name: "Rénovation de yachts", desc: "Refits longs, équipes terrain, achats lourds. Le suivi des heures et du budget pièces décide de la marge — et reste invisible jusqu'à la livraison." },
-    { icon: <Car className="w-7 h-7" />, name: "Voitures de collection", desc: "Restaurations sur mesure, pièces rares, devis qui s'étalent dans le temps. Chaque heure et chaque achat doivent être rattachés au bon véhicule." },
-    { icon: <Plane className="w-7 h-7" />, name: "Jets & aéronautique", desc: "Interventions techniques exigeantes, traçabilité critique, marges serrées. La donnée terrain doit remonter en temps réel, pas le lendemain." },
-    { icon: <Hammer className="w-7 h-7" />, name: "Mobilier sur mesure", desc: "Ateliers d'ébénisterie et de fabrication haut de gamme. Suivi des commandes, des délais et de la rentabilité par projet." },
-    { icon: <Sparkles className="w-7 h-7" />, name: "Conciergeries & services premium", desc: "Demandes clients multicanal, prestations multiples, équipes mobiles. Tout doit être centralisé, assigné et suivi sans rien perdre." },
+    { slug: "renovation-yachts", icon: <Anchor className="w-7 h-7" />, name: "Rénovation de yachts", desc: "Refits longs, équipes terrain, achats lourds. Le suivi des heures et du budget pièces décide de la marge — et reste invisible jusqu'à la livraison." },
+    { slug: "voitures-collection", icon: <Car className="w-7 h-7" />, name: "Voitures de collection", desc: "Restaurations sur mesure, pièces rares, devis qui s'étalent dans le temps. Chaque heure et chaque achat doivent être rattachés au bon véhicule." },
+    { slug: "jets-aeronautique", icon: <Plane className="w-7 h-7" />, name: "Jets & aéronautique", desc: "Interventions techniques exigeantes, traçabilité critique, marges serrées. La donnée terrain doit remonter en temps réel, pas le lendemain." },
+    { slug: "mobilier-sur-mesure", icon: <Hammer className="w-7 h-7" />, name: "Mobilier sur mesure", desc: "Ateliers d'ébénisterie et de fabrication haut de gamme. Suivi des commandes, des délais et de la rentabilité par projet." },
+    { slug: "conciergerie-luxe", icon: <Sparkles className="w-7 h-7" />, name: "Conciergeries & services premium", desc: "Demandes clients multicanal, prestations multiples, équipes mobiles. Tout doit être centralisé, assigné et suivi sans rien perdre." },
   ] : [
-    { icon: <Anchor className="w-7 h-7" />, name: "Yacht refit", desc: "Long refits, field teams, heavy purchases. Tracking hours and the parts budget decides the margin — and stays invisible until delivery." },
-    { icon: <Car className="w-7 h-7" />, name: "Classic cars", desc: "Bespoke restorations, rare parts, quotes that stretch over time. Every hour and purchase must be tied to the right vehicle." },
-    { icon: <Plane className="w-7 h-7" />, name: "Jets & aerospace", desc: "Demanding technical work, critical traceability, tight margins. Field data must flow up in real time, not the next day." },
-    { icon: <Hammer className="w-7 h-7" />, name: "Bespoke furniture", desc: "High-end joinery and fabrication workshops. Tracking orders, deadlines and profitability per project." },
-    { icon: <Sparkles className="w-7 h-7" />, name: "Concierge & premium services", desc: "Multichannel client requests, multiple services, mobile teams. Everything must be centralized, assigned and tracked without losing anything." },
+    { slug: "renovation-yachts", icon: <Anchor className="w-7 h-7" />, name: "Yacht refit", desc: "Long refits, field teams, heavy purchases. Tracking hours and the parts budget decides the margin — and stays invisible until delivery." },
+    { slug: "voitures-collection", icon: <Car className="w-7 h-7" />, name: "Classic cars", desc: "Bespoke restorations, rare parts, quotes that stretch over time. Every hour and purchase must be tied to the right vehicle." },
+    { slug: "jets-aeronautique", icon: <Plane className="w-7 h-7" />, name: "Jets & aerospace", desc: "Demanding technical work, critical traceability, tight margins. Field data must flow up in real time, not the next day." },
+    { slug: "mobilier-sur-mesure", icon: <Hammer className="w-7 h-7" />, name: "Bespoke furniture", desc: "High-end joinery and fabrication workshops. Tracking orders, deadlines and profitability per project." },
+    { slug: "conciergerie-luxe", icon: <Sparkles className="w-7 h-7" />, name: "Concierge & premium services", desc: "Multichannel client requests, multiple services, mobile teams. Everything must be centralized, assigned and tracked without losing anything." },
   ];
 
   const profile = fr ? [
@@ -87,13 +88,20 @@ export const CaseStudies = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-t border-l border-border-cream">
           {segments.map((seg, i) => (
             <FadeIn key={i} delay={i * 0.06}>
-              <div className="p-8 border-b border-r border-border-cream bg-surface-white h-full">
+              <Link
+                to={`/solutions/${seg.slug}`}
+                className="group block p-8 border-b border-r border-border-cream bg-surface-white h-full hover:bg-bg-cream transition-colors"
+              >
                 <div className="w-12 h-12 rounded-sm bg-accent-coral/10 flex items-center justify-center text-accent-coral mb-6">
                   {seg.icon}
                 </div>
-                <h3 className="text-xl font-bold text-ink-navy mb-3">{seg.name}</h3>
-                <p className="text-ink-gray leading-relaxed text-sm">{seg.desc}</p>
-              </div>
+                <h3 className="text-xl font-bold text-ink-navy mb-3 group-hover:text-accent-coral transition-colors">{seg.name}</h3>
+                <p className="text-ink-gray leading-relaxed text-sm mb-4">{seg.desc}</p>
+                <span className="inline-flex items-center gap-2 text-accent-coral font-semibold text-sm">
+                  {fr ? 'Voir cette page' : 'View this page'}
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </span>
+              </Link>
             </FadeIn>
           ))}
         </div>

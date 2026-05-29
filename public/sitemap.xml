@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <!-- Homepage -->
   <url>
     <loc>https://optialys.com/</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://optialys.com/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://optialys.com/"/>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -14,73 +12,100 @@
   <!-- Core pages -->
   <url>
     <loc>https://optialys.com/services</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://optialys.com/services"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://optialys.com/services"/>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://optialys.com/optialys-core</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://optialys.com/optialys-core"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://optialys.com/optialys-core"/>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://optialys.com/optialys-partner</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://optialys.com/optialys-partner"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://optialys.com/optialys-partner"/>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://optialys.com/case-studies</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://optialys.com/case-studies"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://optialys.com/case-studies"/>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://optialys.com/about</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://optialys.com/about"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://optialys.com/about"/>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://optialys.com/contact</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://optialys.com/contact"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://optialys.com/contact"/>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://optialys.com/roi-calculator</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://optialys.com/roi-calculator"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://optialys.com/roi-calculator"/>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://optialys.com/diagnostic</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://optialys.com/diagnostic"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://optialys.com/diagnostic"/>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+
+  <!-- Solution pages (par métier) -->
+  <url>
+    <loc>https://optialys.com/solutions/renovation-yachts</loc>
+    <lastmod>2026-05-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://optialys.com/solutions/voitures-collection</loc>
+    <lastmod>2026-05-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://optialys.com/solutions/jets-aeronautique</loc>
+    <lastmod>2026-05-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://optialys.com/solutions/mobilier-sur-mesure</loc>
+    <lastmod>2026-05-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://optialys.com/solutions/conciergerie-luxe</loc>
+    <lastmod>2026-05-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <!-- Blog index -->
   <url>
     <loc>https://optialys.com/blog</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://optialys.com/blog"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://optialys.com/blog"/>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
