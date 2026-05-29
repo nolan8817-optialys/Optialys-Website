@@ -1,226 +1,152 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { ArrowRight, Building2, Target, Lightbulb, TrendingUp, Code } from 'lucide-react';
+import { ArrowRight, Anchor, Car, Plane, Hammer, Sparkles, Target, Wrench, TrendingUp } from 'lucide-react';
 import { FadeIn, GlowButton, PillBadge } from '../components/ui';
 import { useLanguage } from '../i18n/LanguageContext';
 import { useSEO } from '../hooks/useSEO';
+
+const CALENDLY = 'https://calendly.com/nolprayagsing/automation-strategy-audit';
 
 export const CaseStudies = () => {
   const { lang } = useLanguage();
   const fr = lang === 'fr';
   useSEO({
     title: fr
-      ? 'Études de Cas — Résultats Clients Automatisation IA Immobilier | Optialys'
-      : 'Case Studies — Real Estate AI Automation Client Results | Optialys',
+      ? 'Pour qui — Ateliers et services haut de gamme | Optialys'
+      : 'For whom — High-end workshops and services | Optialys',
     description: fr
-      ? 'Découvrez comment nos clients ont réduit leur délai de réponse de 82%, augmenté leurs mandats signés de 35% et économisé 3h/jour grâce à l\'automatisation Optialys.'
-      : 'See how our clients reduced response time by 82%, increased signed mandates by 35% and saved 3h/day with Optialys automation.',
+      ? 'Optialys accompagne les ateliers de rénovation (yachts, voitures de collection, jets, mobilier sur mesure), conciergeries et services premium dont les outils ne se parlent pas.'
+      : 'Optialys works with restoration workshops (yachts, classic cars, jets, bespoke furniture), concierge and premium services whose tools don\'t talk to each other.',
     canonical: 'https://optialys.com/case-studies',
   });
 
-  const cases = fr ? [
-    {
-      id: "agence-immo",
-      client: "Agence immobilière (Côte d'Azur)",
-      sector: "Immobilier (Côte d'Azur)",
-      title: "Système IA de qualification de leads — réponse automatique en 4 min",
-      challenge: "Des dizaines de leads entrants chaque semaine, personne pour répondre rapidement. Résultat : leads perdus avant le premier échange.",
-      solution: "Déploiement d'un système IA qui répond par WhatsApp et email en moins de 4 minutes, qualifie le lead (projet, budget, délai), et planifie automatiquement la visite dans le calendrier de l'agent.",
-      results: ["-82% délai de réponse", "+35% mandats signés", "0 lead perdu la nuit ou le week-end"],
-      stack: ["n8n", "Claude AI", "WhatsApp API", "Airtable"]
-    },
-    {
-      id: "koosmik",
-      client: "Koosmik",
-      sector: "FinTech (Paris)",
-      title: "RFP Radar — Veille automatisée des appels d'offres",
-      challenge: "L'équipe passait des heures chaque semaine à surveiller manuellement les appels d'offres publics et privés, et ratait souvent des opportunités clés.",
-      solution: "Déploiement d'un système de veille automatisé via n8n qui scrape les sources, filtre via IA selon les critères de Koosmik et notifie l'équipe commerciale sur Slack.",
-      results: ["15h+/semaine économisées", "0 opportunité manquée", "Réactivité multipliée par 3"],
-      stack: ["n8n", "Claude AI", "Pipedrive", "Slack"]
-    },
-    {
-      id: "alternative-aml",
-      client: "AlternativeAML / Global IT Services PSF / OmniTrust",
-      sector: "Compliance (BE/LU)",
-      title: "Pipeline LinkedIn automatisé",
-      challenge: "Maintenir une présence forte sur LinkedIn pour 3 entités différentes sans y consacrer de temps interne.",
-      solution: "Création d'un pipeline de contenu automatisé. L'IA génère des posts basés sur l'actualité réglementaire, validés dans Airtable, puis publiés automatiquement via l'API LinkedIn.",
-      results: ["5 posts/semaine par entité", "0 intervention humaine", "+45% d'engagement en 2 mois"],
-      stack: ["n8n", "Claude AI", "Airtable", "LinkedIn API"]
-    },
-    {
-      id: "lybramedia",
-      client: "LybraMedia",
-      sector: "Média",
-      title: "Infrastructure d'onboarding complète",
-      challenge: "Process d'onboarding manuel, désorganisé et chronophage pour les nouveaux clients et membres d'équipe.",
-      solution: "Construction d'une infrastructure centralisée sur Airtable pour automatiser tout le workflow d'onboarding, de la collecte à l'assignation des tâches.",
-      results: ["Onboarding 100% automatisé", "Gestion des données centralisée", "Temps significatif gagné par nouveau client"],
-      stack: ["Airtable", "n8n", "Make"]
-    },
-    {
-      id: "lafa",
-      client: "lafa-asbl",
-      sector: "Association (Belgique)",
-      title: "Automatisation des processus opérationnels internes",
-      challenge: "Gestion administrative chronophage (inscriptions, facturation, communication membres).",
-      solution: "Digitalisation et automatisation complète des flux opérationnels via Google Workspace et n8n.",
-      results: ["100% des inscriptions automatisées", "0 erreur de saisie", "20h/mois économisées en admin"],
-      stack: ["n8n", "Google Workspace", "Stripe"]
-    }
+  const segments = fr ? [
+    { icon: <Anchor className="w-7 h-7" />, name: "Rénovation de yachts", desc: "Refits longs, équipes terrain, achats lourds. Le suivi des heures et du budget pièces décide de la marge — et reste invisible jusqu'à la livraison." },
+    { icon: <Car className="w-7 h-7" />, name: "Voitures de collection", desc: "Restaurations sur mesure, pièces rares, devis qui s'étalent dans le temps. Chaque heure et chaque achat doivent être rattachés au bon véhicule." },
+    { icon: <Plane className="w-7 h-7" />, name: "Jets & aéronautique", desc: "Interventions techniques exigeantes, traçabilité critique, marges serrées. La donnée terrain doit remonter en temps réel, pas le lendemain." },
+    { icon: <Hammer className="w-7 h-7" />, name: "Mobilier sur mesure", desc: "Ateliers d'ébénisterie et de fabrication haut de gamme. Suivi des commandes, des délais et de la rentabilité par projet." },
+    { icon: <Sparkles className="w-7 h-7" />, name: "Conciergeries & services premium", desc: "Demandes clients multicanal, prestations multiples, équipes mobiles. Tout doit être centralisé, assigné et suivi sans rien perdre." },
   ] : [
-    {
-      id: "agence-immo",
-      client: "Real Estate Agency (Côte d'Azur)",
-      sector: "Real Estate (Côte d'Azur)",
-      title: "AI Lead Qualification System — automatic 4-min response",
-      challenge: "Dozens of inbound leads every week, no one to respond quickly. Result: leads lost before the first conversation.",
-      solution: "Deployed an AI system that responds via WhatsApp and email in under 4 minutes, qualifies the lead (project, budget, timeline), and automatically schedules the visit in the agent's calendar.",
-      results: ["-82% response time", "+35% mandates signed", "0 leads lost at night or on weekends"],
-      stack: ["n8n", "Claude AI", "WhatsApp API", "Airtable"]
-    },
-    {
-      id: "koosmik",
-      client: "Koosmik",
-      sector: "FinTech (Paris)",
-      title: "RFP Radar — Automated tender monitoring",
-      challenge: "The team spent hours every week manually monitoring public and private tenders, often missing key opportunities.",
-      solution: "Deployment of an automated monitoring system via n8n that scrapes sources, filters via AI according to Koosmik's criteria, and notifies the sales team on Slack.",
-      results: ["15h+/week saved", "0 missed opportunities", "Reactivity increased by 300%"],
-      stack: ["n8n", "Claude AI", "Pipedrive", "Slack"]
-    },
-    {
-      id: "alternative-aml",
-      client: "AlternativeAML / Global IT Services PSF / OmniTrust",
-      sector: "Compliance (BE/LU)",
-      title: "Automated LinkedIn content pipeline",
-      challenge: "Need to maintain a strong presence on LinkedIn for 3 different entities without spending internal time.",
-      solution: "Creation of an automated content pipeline. AI generates posts based on regulatory news, validated in Airtable, then published automatically via the LinkedIn API.",
-      results: ["5 posts/week per entity", "0 human intervention required", "+45% engagement in 2 months"],
-      stack: ["n8n", "Claude AI", "Airtable", "LinkedIn API"]
-    },
-    {
-      id: "lybramedia",
-      client: "LybraMedia",
-      sector: "Media Company",
-      title: "Comprehensive Onboarding Infrastructure",
-      challenge: "Manual, disorganized, and time-consuming onboarding process for new clients and team members.",
-      solution: "Built a centralized infrastructure using Airtable to automate and streamline the entire onboarding workflow, from data collection to task assignment.",
-      results: ["100% automated onboarding", "Centralized data management", "Significant time saved per new client"],
-      stack: ["Airtable", "n8n", "Make"]
-    },
-    {
-      id: "lafa",
-      client: "lafa-asbl",
-      sector: "Association (Belgium)",
-      title: "Internal operational process automation",
-      challenge: "Time-consuming administrative management (registrations, billing, member communication).",
-      solution: "Complete digitization and automation of operational flows via Google Workspace and n8n.",
-      results: ["100% of registrations automated", "0 manual data entry errors", "20h/month saved on admin"],
-      stack: ["n8n", "Google Workspace", "Stripe"]
-    }
+    { icon: <Anchor className="w-7 h-7" />, name: "Yacht refit", desc: "Long refits, field teams, heavy purchases. Tracking hours and the parts budget decides the margin — and stays invisible until delivery." },
+    { icon: <Car className="w-7 h-7" />, name: "Classic cars", desc: "Bespoke restorations, rare parts, quotes that stretch over time. Every hour and purchase must be tied to the right vehicle." },
+    { icon: <Plane className="w-7 h-7" />, name: "Jets & aerospace", desc: "Demanding technical work, critical traceability, tight margins. Field data must flow up in real time, not the next day." },
+    { icon: <Hammer className="w-7 h-7" />, name: "Bespoke furniture", desc: "High-end joinery and fabrication workshops. Tracking orders, deadlines and profitability per project." },
+    { icon: <Sparkles className="w-7 h-7" />, name: "Concierge & premium services", desc: "Multichannel client requests, multiple services, mobile teams. Everything must be centralized, assigned and tracked without losing anything." },
+  ];
+
+  const profile = fr ? [
+    { label: "Taille d'équipe", value: "10 à 40 collaborateurs" },
+    { label: "Taille des projets", value: "30 000 € à 500 000 €" },
+    { label: "Profil", value: "Dirigeants d'ateliers et services haut de gamme" },
+  ] : [
+    { label: "Team size", value: "10 to 40 people" },
+    { label: "Project size", value: "€30,000 to €500,000" },
+    { label: "Profile", value: "Owners of high-end workshops and services" },
+  ];
+
+  const transformation = fr ? [
+    { icon: <Target className="w-6 h-6" />, before: "Marge découverte à la facture finale", after: "Marge par chantier visible en temps réel" },
+    { icon: <Wrench className="w-6 h-6" />, before: "Données dispersées dans dix outils", after: "Tout remonte dans un système central" },
+    { icon: <TrendingUp className="w-6 h-6" />, before: "Décisions prises sur des chiffres d'hier", after: "Décisions prises sur les chiffres du jour" },
+  ] : [
+    { icon: <Target className="w-6 h-6" />, before: "Margin discovered on the final invoice", after: "Margin per project visible in real time" },
+    { icon: <Wrench className="w-6 h-6" />, before: "Data scattered across ten tools", after: "Everything flows into one central system" },
+    { icon: <TrendingUp className="w-6 h-6" />, before: "Decisions made on yesterday's numbers", after: "Decisions made on today's numbers" },
   ];
 
   const T = {
-    title: fr ? "Nos références" : "Our Case Studies",
-    subtitle: fr ? "Découvrez comment nous avons aidé ces sociétés à faire passer leurs opérations à l'échelle avec l'IA." : "Discover how we helped these companies scale their operations with AI.",
-    challenge: fr ? "Problématique" : "Challenge",
-    solution: fr ? "Solution" : "Solution",
-    results: fr ? "Résultats" : "Results",
-    ctaTitle: fr ? "Envie des mêmes résultats ?" : "Ready to get the same results?",
-    ctaBtn: fr ? "Réserver un audit gratuit" : "Book a free audit",
+    eyebrow: fr ? "Pour qui" : "For whom",
+    title: fr ? "Pour les ateliers où chaque heure compte" : "For workshops where every hour counts",
+    subtitle: fr ? "Optialys est conçu pour les ateliers et services haut de gamme dont les outils ne se parlent pas — et dont la marge en souffre." : "Optialys is built for high-end workshops and services whose tools don't talk to each other — and whose margin suffers for it.",
+    segmentsTitle: fr ? "Les métiers qu'on accompagne" : "The trades we work with",
+    profileTitle: fr ? "Le profil type" : "The typical profile",
+    transfoTitle: fr ? "Ce qui change" : "What changes",
+    before: fr ? "Avant" : "Before",
+    after: fr ? "Après" : "After",
+    ctaTitle: fr ? "Votre atelier est dans la liste ?" : "Is your workshop on the list?",
+    ctaBtn: fr ? "Réserver un Diagnostic — 500 €" : "Book a Diagnostic — €500",
   };
 
   return (
     <div className="pt-32 pb-20 bg-bg-cream">
-      <section className="px-6 max-w-4xl mx-auto text-center mb-24">
+      <section className="px-6 max-w-4xl mx-auto mb-24">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <PillBadge className="mb-6">{T.title}</PillBadge>
-          <h1 className="text-4xl md:text-4xl font-extrabold tracking-tight text-ink-navy mb-6">
-            {T.title}
-          </h1>
-          <p className="text-xl text-ink-gray leading-relaxed max-w-2xl mx-auto">
-            {T.subtitle}
-          </p>
+          <PillBadge className="mb-6">{T.eyebrow}</PillBadge>
+          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-ink-navy mb-6">{T.title}</h1>
+          <p className="text-xl text-ink-gray leading-relaxed max-w-2xl">{T.subtitle}</p>
         </motion.div>
       </section>
 
-      <section className="px-6 max-w-5xl mx-auto space-y-24">
-        {cases.map((study, index) => (
-          <FadeIn key={study.id} direction="up" delay={index * 0.1}>
-            <div className="rounded-3xl bg-surface-white border border-border-cream overflow-hidden">
-              <div className="p-8 md:p-12">
-                <div className="flex flex-wrap items-center gap-4 mb-8">
-                  <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-accent-coral/10 text-accent-coral font-bold">
-                    <Building2 className="w-4 h-4" />
-                    {study.client}
-                  </div>
-                  <div className="text-ink-gray text-sm font-medium">
-                    {study.sector}
-                  </div>
+      {/* Segments */}
+      <section className="px-6 max-w-6xl mx-auto mb-28">
+        <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight text-ink-navy mb-12">{T.segmentsTitle}</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-t border-l border-border-cream">
+          {segments.map((seg, i) => (
+            <FadeIn key={i} delay={i * 0.06}>
+              <div className="p-8 border-b border-r border-border-cream bg-surface-white h-full">
+                <div className="w-12 h-12 rounded-sm bg-accent-coral/10 flex items-center justify-center text-accent-coral mb-6">
+                  {seg.icon}
                 </div>
-
-                <h2 className="text-3xl font-bold text-ink-navy mb-8">{study.title}</h2>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
-                  <div>
-                    <div className="flex items-center gap-2 text-red-400 font-bold mb-4">
-                      <Target className="w-5 h-5" /> {T.challenge}
-                    </div>
-                    <p className="text-ink-gray leading-relaxed">
-                      {study.challenge}
-                    </p>
-                  </div>
-                  <div>
-                    <div className="flex items-center gap-2 text-accent-electric font-bold mb-4">
-                      <Lightbulb className="w-5 h-5" /> {T.solution}
-                    </div>
-                    <p className="text-ink-gray leading-relaxed">
-                      {study.solution}
-                    </p>
-                  </div>
-                </div>
-
-                <div className="p-6 rounded-2xl bg-bg-cream border border-border-cream mb-8">
-                  <div className="flex items-center gap-2 text-accent-green font-bold mb-6">
-                    <TrendingUp className="w-5 h-5" /> {T.results}
-                  </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                    {study.results.map((result, i) => (
-                      <div key={i} className="text-ink-navy font-medium">
-                        <span className="text-accent-coral mr-2">✓</span> {result}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-4 pt-8 border-t border-border-cream">
-                  <Code className="w-5 h-5 text-ink-gray" />
-                  <div className="flex flex-wrap gap-2">
-                    {study.stack.map((tech, i) => (
-                      <span key={i} className="px-3 py-1 rounded-md bg-bg-cream border border-border-cream text-xs font-mono text-ink-gray">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+                <h3 className="text-xl font-bold text-ink-navy mb-3">{seg.name}</h3>
+                <p className="text-ink-gray leading-relaxed text-sm">{seg.desc}</p>
               </div>
-            </div>
-          </FadeIn>
-        ))}
+            </FadeIn>
+          ))}
+        </div>
       </section>
 
-      <section className="mt-32 py-24 px-6 text-center bg-bg-cream-alt border-t border-border-cream">
+      {/* Profile */}
+      <section className="px-6 max-w-5xl mx-auto mb-28">
+        <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight text-ink-navy mb-12">{T.profileTitle}</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {profile.map((p, i) => (
+            <FadeIn key={i} delay={i * 0.08}>
+              <div className="p-8 bg-surface-white border border-border-cream h-full">
+                <div className="text-xs font-bold uppercase tracking-wider text-ink-gray mb-3">{p.label}</div>
+                <div className="text-2xl font-bold text-ink-navy">{p.value}</div>
+              </div>
+            </FadeIn>
+          ))}
+        </div>
+      </section>
+
+      {/* Transformation */}
+      <section className="py-24 px-6 bg-surface-white border-y border-border-cream">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight text-ink-navy mb-12">{T.transfoTitle}</h2>
+          <div className="space-y-4">
+            {transformation.map((row, i) => (
+              <FadeIn key={i} delay={i * 0.06}>
+                <div className="grid grid-cols-1 md:grid-cols-[auto_1fr_auto_1fr] items-center gap-4 md:gap-6 p-6 bg-bg-cream border border-border-cream">
+                  <div className="w-11 h-11 rounded-sm bg-accent-coral/10 flex items-center justify-center text-accent-coral">
+                    {row.icon}
+                  </div>
+                  <div>
+                    <div className="text-xs font-bold uppercase tracking-wider text-ink-gray mb-1">{T.before}</div>
+                    <div className="text-ink-gray">{row.before}</div>
+                  </div>
+                  <ArrowRight className="w-5 h-5 text-accent-coral hidden md:block" />
+                  <div>
+                    <div className="text-xs font-bold uppercase tracking-wider text-accent-coral mb-1">{T.after}</div>
+                    <div className="text-ink-navy font-medium">{row.after}</div>
+                  </div>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24 px-6 text-center">
         <FadeIn>
-          <h2 className="text-3xl font-bold text-ink-navy mb-8">{T.ctaTitle}</h2>
-          <a href="https://calendly.com/nolprayagsing/automation-strategy-audit" target="_blank" rel="noopener noreferrer">
-            <GlowButton variant="primary" className="text-lg px-8 py-4">
-              {T.ctaBtn} <ArrowRight className="w-5 h-5 ml-2" />
+          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-ink-navy mb-8">{T.ctaTitle}</h2>
+          <a href={CALENDLY} target="_blank" rel="noopener noreferrer">
+            <GlowButton variant="primary" className="text-base px-8 py-4">
+              {T.ctaBtn} <ArrowRight className="w-5 h-5" />
             </GlowButton>
           </a>
         </FadeIn>

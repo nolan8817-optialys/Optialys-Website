@@ -65,10 +65,10 @@ export function useSEO({ title, description, canonical, ogImage, schema }: SEOPr
     }
 
     return () => {
-      document.title = 'Optialys — Automatisation IA pour Agences Immobilières';
+      document.title = 'Optialys — Infrastructure opérationnelle pour ateliers haut de gamme';
       document.querySelector('meta[name="description"]')?.setAttribute(
         'content',
-        'Optialys automatise la qualification de leads, le suivi des mandats et l\'admin de votre agence immobilière. Votre lead reçoit une réponse en 4 minutes — même à 23h.'
+        'Vos outils déconnectés vous font perdre de l\'argent. Optialys connecte votre infrastructure et vous donne une vision temps réel de vos chantiers et de votre marge.'
       );
       document.getElementById(SCHEMA_ID)?.remove();
     };

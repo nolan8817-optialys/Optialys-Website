@@ -11,11 +11,11 @@ export const Contact = () => {
   const fr = lang === 'fr';
   useSEO({
     title: fr
-      ? 'Contact — Réserver un audit automatisation gratuit | Optialys'
-      : 'Contact — Book a Free Automation Audit | Optialys',
+      ? 'Contact — Réserver un Diagnostic Rentabilité | Optialys'
+      : 'Contact — Book a Profitability Diagnostic | Optialys',
     description: fr
-      ? 'Prenez rendez-vous avec Optialys pour un diagnostic gratuit de 72h. Identifiez vos meilleures opportunités d\'automatisation IA pour votre agence immobilière.'
-      : 'Schedule a free 72h diagnostic with Optialys. Identify your best AI automation opportunities for your real estate agency.',
+      ? 'Réservez votre Diagnostic Rentabilité de 2h avec Optialys. On chiffre où part votre argent et on vous remet un plan d\'action pour piloter votre marge.'
+      : 'Book your 2-hour Profitability Diagnostic with Optialys. We pinpoint where your money goes and hand you an action plan to pilot your margin.',
     canonical: 'https://optialys.com/contact',
   });
   const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
@@ -114,11 +114,11 @@ export const Contact = () => {
                           className="w-full bg-bg-cream border border-border-cream rounded-xl px-4 py-3 text-ink-navy focus:outline-none focus:border-accent-coral transition-colors appearance-none"
                         >
                           <option value="">{t('contact.form.selectSector')}</option>
-                          <option value="Real Estate">{t('contact.form.sector.realEstate')}</option>
-                          <option value="Fiduciary">{t('contact.form.sector.fiduciary')}</option>
-                          <option value="Consulting">{t('contact.form.sector.consulting')}</option>
-                          <option value="HR">{t('contact.form.sector.hr')}</option>
-                          <option value="Other">{t('contact.form.sector.other')}</option>
+                          <option value="yacht">{t('contact.form.sector.realEstate')}</option>
+                          <option value="classic-cars">{t('contact.form.sector.fiduciary')}</option>
+                          <option value="concierge">{t('contact.form.sector.consulting')}</option>
+                          <option value="workshop">{t('contact.form.sector.hr')}</option>
+                          <option value="other">{t('contact.form.sector.other')}</option>
                         </select>
                       </div>
                     </div>

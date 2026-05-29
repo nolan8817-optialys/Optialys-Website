@@ -1,7 +1,7 @@
 export interface BlogArticle {
   slug: string;
   category: { fr: string; en: string };
-  categoryKey: 'real-estate-ai' | 'automation' | 'growth';
+  categoryKey: 'pilotage' | 'infrastructure' | 'terrain';
   date: string;
   readTime: number;
   title: { fr: string; en: string };
@@ -14,415 +14,267 @@ export interface BlogArticle {
 
 export const blogArticles: BlogArticle[] = [
   {
-    slug: "repondre-leads-immobilier-4-minutes-ia",
-    category: { fr: "Immobilier & IA", en: "Real Estate & AI" },
-    categoryKey: "real-estate-ai",
-    date: "2026-04-28",
+    slug: "chantiers-depassent-budget-sans-alerte",
+    category: { fr: "Pilotage de marge", en: "Margin piloting" },
+    categoryKey: "pilotage",
+    date: "2026-05-12",
     readTime: 6,
     title: {
-      fr: "Comment répondre à vos leads immobiliers en 4 minutes grâce à l'IA",
-      en: "How to respond to real estate leads in 4 minutes with AI"
+      fr: "Pourquoi vos chantiers dépassent leur budget sans que vous le voyiez venir",
+      en: "Why your projects run over budget without you seeing it coming"
     },
     excerpt: {
-      fr: "78% des mandats sont signés avec la première agence qui répond. Voici comment automatiser vos réponses pour ne plus jamais perdre un lead la nuit ou le week-end.",
-      en: "78% of mandates are signed with the first agency to respond. Here's how to automate your responses so you never lose a lead again."
+      fr: "Dans un atelier haut de gamme, un dépassement se découvre à la facture finale — trop tard pour agir. Voici pourquoi, et comment piloter votre marge en temps réel.",
+      en: "In a high-end workshop, an overrun surfaces on the final invoice — too late to act. Here's why, and how to pilot your margin in real time."
     },
     seoTitle: {
-      fr: "Répondre aux leads immobiliers en 4 minutes avec l'IA | Optialys",
-      en: "Respond to Real Estate Leads in 4 Minutes with AI | Optialys"
+      fr: "Dépassement de budget en atelier : le détecter avant qu'il coûte | Optialys",
+      en: "Budget overruns in workshops: catch them before they cost | Optialys"
     },
     seoDescription: {
-      fr: "Découvrez comment les agences immobilières utilisent l'IA pour répondre à leurs leads en moins de 4 minutes, 24h/24. Résultats concrets : -82% délai de réponse, +35% mandats signés.",
-      en: "Learn how real estate agencies use AI to respond to leads in under 4 minutes, 24/7. Concrete results: -82% response time, +35% mandates signed."
+      fr: "Suivi de marge en temps réel pour ateliers haut de gamme : pourquoi les dépassements se découvrent trop tard et comment une infrastructure connectée vous alerte avant.",
+      en: "Real-time margin tracking for high-end workshops: why overruns surface too late and how a connected infrastructure alerts you in time."
     },
     keywords: [
-      "automatisation immobilier", "IA agence immobilière", "réponse leads immobilier",
-      "qualification leads IA", "WhatsApp immobilier automatisé", "CRM immobilier IA"
+      "dépassement budget atelier", "suivi marge temps réel", "pilotage rentabilité chantier",
+      "alerte budget automatique", "marge par chantier", "infrastructure opérationnelle atelier"
     ],
     content: {
-      fr: `<p>Dans l'immobilier, <strong>78% des mandats sont signés avec la première agence qui répond</strong>. Pourtant, le délai de réponse moyen des agences françaises dépasse les 2h30. C'est une contradiction qui coûte des mandats chaque semaine — et la plupart des dirigeants d'agence ne réalisent pas l'ampleur du problème.</p>
+      fr: `<p>Dans un atelier de rénovation haut de gamme — yacht, voiture de collection, mobilier sur mesure — la marge ne se perd presque jamais d'un coup. Elle s'effrite. Quelques heures non prévues ici, un achat de pièce en urgence là, un imprévu technique qui ajoute deux jours. Pris isolément, rien d'alarmant. Cumulés sur un projet de plusieurs mois, ils transforment un chantier rentable en chantier à perte.</p>
 
-<h2>Pourquoi la vitesse de réponse décide qui signe le mandat</h2>
-<p>Un vendeur qui met son bien sur le marché contacte en moyenne 3 à 4 agences le même jour. La première qui répond dans les minutes qui suivent crée un avantage décisif : elle est présente quand l'intention est maximale, avant que le doute s'installe ou qu'un concurrent prenne la parole.</p>
-<p>Les études sont formelles : un lead contacté dans les 5 premières minutes a <strong>21 fois plus de chances de convertir</strong> qu'un lead contacté après 30 minutes. Dans l'immobilier, où chaque mandat représente plusieurs milliers d'euros de commission, cette statistique prend une dimension concrète et mesurable.</p>
+<h2>Le vrai problème : vous le découvrez à la facture finale</h2>
+<p>La plupart des dirigeants d'atelier ne manquent pas de rigueur. Ils manquent de visibilité <em>au bon moment</em>. Les heures sont notées sur des feuilles, les achats arrivent par email, les imprévus sont gérés sur le terrain. L'information existe — mais elle n'est consolidée qu'en fin de chantier, quand le comptable assemble les pièces.</p>
+<p>À ce moment-là, il est trop tard. Le dépassement est consommé. Vous ne pouvez plus renégocier l'avenant, réaffecter une équipe ou ajuster le planning. Vous constatez les dégâts.</p>
 
-<h2>Le problème : vos agents ne peuvent pas être disponibles 24h/24</h2>
-<p>C'est mathématiquement impossible. Vos agents font des visites, sont en négociation, dorment, partent en week-end. Les leads arrivent le soir, le samedi à 21h, pendant les congés scolaires — précisément quand personne n'est disponible pour décrocher.</p>
-<p>Les solutions traditionnelles envoient toutes un signal négatif au prospect :</p>
+<h2>Pourquoi le suivi sur Excel ne suffit pas</h2>
+<p>Excel est un excellent outil de constat, un mauvais outil d'alerte. Il faut quelqu'un pour le remplir, quelqu'un pour le mettre à jour, et quelqu'un pour le regarder au bon moment. Dans un atelier où tout le monde est sur le terrain, ces trois conditions sont rarement réunies en même temps.</p>
+<p>Résultat : le tableau est à jour le lundi, périmé le mercredi, et plus personne ne l'ouvre le vendredi.</p>
+
+<h2>Ce qui change avec un suivi en temps réel</h2>
+<p>L'idée n'est pas d'ajouter un outil de plus. C'est de connecter ceux que vous avez déjà pour que la donnée remonte automatiquement :</p>
 <ul>
-<li>Le répondeur : <em>"Laissez un message"</em> — le vendeur rappelle la concurrence</li>
-<li>Le formulaire "nous vous rappellerons" — trop impersonnel, délai trop long</li>
-<li>La permanence externalisée — coûteuse et sans connaissance de votre portefeuille</li>
+<li>Les <strong>heures terrain</strong> saisies une fois, rattachées au bon chantier et au bon poste</li>
+<li>Les <strong>achats de pièces</strong> rattachés automatiquement au projet concerné</li>
+<li>Un <strong>seuil de budget</strong> par chantier qui déclenche une alerte quand on s'en approche</li>
+<li>Une <strong>vue marge</strong> consultable depuis le téléphone, à jour en permanence</li>
 </ul>
+<p>Vous ne pilotez plus à la facture finale. Vous pilotez pendant le chantier, quand vous pouvez encore agir.</p>
 
-<h2>La solution : un système IA de qualification automatique</h2>
-<p>Un système d'automatisation IA connecté à vos canaux de contact peut gérer l'intégralité des premiers échanges, 24h/24 et 7j/7, avec la qualité d'un collaborateur expérimenté :</p>
-<ul>
-<li>Répondre instantanément à chaque nouveau contact</li>
-<li>Qualifier le lead en posant les bonnes questions (type de bien, budget, délai, localisation)</li>
-<li>Planifier automatiquement un rappel ou une visite dans l'agenda de l'agent disponible</li>
-<li>Notifier l'agent avec un résumé structuré du lead qualifié</li>
-</ul>
-
-<h3>Comment ça fonctionne concrètement</h3>
-<p>Voici le flux exact déployé pour une agence de la Côte d'Azur en janvier 2026 :</p>
-<ol>
-<li><strong>Lead entrant</strong> via WhatsApp, email ou formulaire site — détecté en quelques secondes</li>
-<li><strong>Réponse automatique personnalisée</strong> envoyée en moins de 4 minutes, depuis votre numéro WhatsApp Business habituel</li>
-<li><strong>Qualification conversationnelle</strong> : 3 à 5 questions naturelles pour cerner le projet du vendeur</li>
-<li><strong>Enrichissement CRM automatique</strong> : fiche contact créée dans Airtable avec toutes les informations collectées</li>
-<li><strong>Notification agent</strong> : résumé du lead envoyé sur Slack avec suggestion de créneau de rappel</li>
-</ol>
-
-<h2>Les résultats mesurables</h2>
-<p>Sur l'agence Côte d'Azur déployée en janvier 2026, après 60 jours de fonctionnement :</p>
-<ul>
-<li><strong>-82%</strong> sur le délai de réponse moyen</li>
-<li><strong>+35%</strong> de mandats signés sur la même période année précédente</li>
-<li><strong>0 lead perdu</strong> la nuit ou le week-end depuis le déploiement</li>
-<li>Agents libérés de toute permanence téléphonique de routine</li>
-</ul>
-
-<h2>FAQ — Questions fréquentes</h2>
-<h3>Est-ce compatible avec WhatsApp Business ?</h3>
-<p>Oui. Le système s'intègre via l'API officielle WhatsApp Business. Vos clients écrivent sur votre numéro habituel, l'IA répond depuis ce même numéro. Aucun changement visible du côté client.</p>
-
-<h3>Faut-il changer de logiciel immobilier ou de CRM ?</h3>
-<p>Non. Le système se connecte à vos outils existants : Apimo, Hektor, Périclès, Airtable, Notion, Google Workspace... Nous nous adaptons à votre stack, pas l'inverse.</p>
-
-<h3>Mes clients vont-ils réaliser qu'ils parlent à une IA ?</h3>
-<p>Le ton est calibré sur votre agence, vos formulations habituelles, le prénom de votre assistante si vous en avez une. Dans la grande majorité des cas, les prospects pensent parler à un collaborateur humain jusqu'à la prise de rendez-vous avec l'agent.</p>
-
-<h3>Quel est le délai de déploiement ?</h3>
-<p>30 jours. C'est notre délai garanti : système opérationnel et rodé en 30 jours suivant le kick-off — ou vous ne payez rien.</p>`,
-
-      en: `<p>In real estate, <strong>78% of mandates are signed with the first agency to respond</strong>. Yet the average response time of French agencies exceeds 2 hours 30 minutes. This contradiction costs mandates every week — and most agency directors don't realize the scale of the problem.</p>
-
-<h2>Why response speed decides who gets the mandate</h2>
-<p>A seller listing their property typically contacts 3 to 4 agencies on the same day. The first to respond in the following minutes creates a decisive advantage: they're present when intent is at its peak, before doubt sets in or a competitor takes the floor.</p>
-<p>Studies are clear: a lead contacted within the first 5 minutes is <strong>21 times more likely to convert</strong> than one contacted after 30 minutes. In real estate, where each mandate represents thousands of euros in commission, this statistic has concrete, measurable implications.</p>
-
-<h2>The problem: your agents can't be available 24/7</h2>
-<p>It's mathematically impossible. Your agents are doing viewings, negotiating, sleeping, taking weekends off. Leads arrive in the evening, Saturday at 9pm, during school holidays — precisely when no one is available to pick up.</p>
-
-<h2>The solution: an AI automatic qualification system</h2>
-<p>An AI automation system connected to your contact channels can handle all first interactions, 24/7, with the quality of an experienced team member:</p>
-<ul>
-<li>Respond instantly to every new contact</li>
-<li>Qualify the lead by asking the right questions (property type, budget, timeline, location)</li>
-<li>Automatically schedule a callback or viewing in the available agent's calendar</li>
-<li>Notify the agent with a structured lead summary</li>
-</ul>
-
-<h3>How it works in practice</h3>
-<p>Here's the exact flow deployed for a Côte d'Azur agency in January 2026:</p>
-<ol>
-<li><strong>Incoming lead</strong> via WhatsApp, email or website form — detected within seconds</li>
-<li><strong>Personalized automatic response</strong> sent in under 4 minutes, from your usual WhatsApp Business number</li>
-<li><strong>Conversational qualification</strong>: 3 to 5 natural questions to understand the seller's project</li>
-<li><strong>Automatic CRM enrichment</strong>: contact record created in Airtable with all collected information</li>
-<li><strong>Agent notification</strong>: lead summary sent on Slack with callback slot suggestion</li>
-</ol>
-
-<h2>Measurable results</h2>
-<p>For the Côte d'Azur agency deployed in January 2026, after 60 days of operation:</p>
-<ul>
-<li><strong>-82%</strong> on average response time</li>
-<li><strong>+35%</strong> mandates signed versus same period previous year</li>
-<li><strong>0 leads lost</strong> at night or on weekends since deployment</li>
-<li>Agents freed from routine phone duty</li>
-</ul>
+<h3>Concrètement, sur un refit de yacht</h3>
+<p>Chaque heure passée par un technicien est rattachée au chantier en direct. Dès que les heures consommées dépassent 80% du budget prévu sur un poste, une alerte part. Vous décidez : avenant, réaffectation, ou simple vigilance. La décision se prend sur des chiffres du jour, pas sur un constat du mois suivant.</p>
 
 <h2>FAQ</h2>
-<h3>Is it compatible with WhatsApp Business?</h3>
-<p>Yes. The system integrates via the official WhatsApp Business API. Your clients write to your usual number, the AI responds from that same number. No visible change on the client side.</p>
+<h3>Faut-il changer notre logiciel de gestion ?</h3>
+<p>Non. On connecte vos outils existants — logiciel de chantier, facturation, tableurs — sur un système central. Aucun remplacement, aucune migration douloureuse.</p>
 
-<h3>Do I need to change my real estate software or CRM?</h3>
-<p>No. The system connects to your existing tools: Apimo, Hektor, Airtable, Notion, Google Workspace... We adapt to your stack, not the other way around.</p>
+<h3>Combien de temps pour mettre ça en place ?</h3>
+<p>Une infrastructure connectée se déploie en 4 à 6 semaines. Tout commence par un Diagnostic Rentabilité de 2 heures qui chiffre précisément où part votre argent.</p>
 
-<h3>Will clients realize they're talking to an AI?</h3>
-<p>The tone is calibrated to your agency's style and usual phrasing. In the vast majority of cases, prospects believe they're talking to a human team member until the appointment with the agent.</p>
+<h3>Mes techniciens vont-ils devoir saisir plus de choses ?</h3>
+<p>Au contraire. On supprime la double saisie : ils encodent une fois, sur mobile, et l'information remonte partout automatiquement. Fini le carnet ressaisi le lendemain.</p>`,
+      en: `<p>In a high-end restoration workshop — yacht, classic car, bespoke furniture — margin is almost never lost all at once. It erodes. A few unplanned hours here, an urgent parts purchase there, a technical surprise that adds two days. Taken alone, nothing alarming. Added up over a project that runs for months, they turn a profitable job into a loss.</p>
 
-<h3>What's the deployment timeline?</h3>
-<p>30 days. That's our guaranteed timeline: operational system within 30 days of kick-off — or you pay nothing.</p>`
+<h2>The real problem: you discover it on the final invoice</h2>
+<p>Most workshop owners don't lack rigor. They lack visibility <em>at the right moment</em>. Hours are noted on sheets, purchases arrive by email, surprises are handled on the floor. The information exists — but it's only consolidated at the end of the project, when the accountant assembles the pieces.</p>
+<p>By then, it's too late. The overrun is spent. You can no longer renegotiate the change order, reassign a team or adjust the schedule. You're left counting the damage.</p>
+
+<h2>Why tracking on Excel isn't enough</h2>
+<p>Excel is a great tool for recording, a poor tool for alerting. Someone has to fill it in, someone has to update it, and someone has to look at it at the right time. In a workshop where everyone is on the floor, those three conditions rarely line up.</p>
+
+<h2>What changes with real-time tracking</h2>
+<p>The idea isn't to add yet another tool. It's to connect the ones you already have so the data flows up automatically:</p>
+<ul>
+<li><strong>Field hours</strong> entered once, tied to the right project and line item</li>
+<li><strong>Parts purchases</strong> automatically tied to the relevant project</li>
+<li>A <strong>budget threshold</strong> per project that triggers an alert as you approach it</li>
+<li>A <strong>margin view</strong> available from your phone, always up to date</li>
+</ul>
+<p>You no longer pilot at the final invoice. You pilot during the project, while you can still act.</p>
+
+<h2>FAQ</h2>
+<h3>Do we have to change our management software?</h3>
+<p>No. We connect your existing tools — project software, invoicing, spreadsheets — into a central system. No replacement, no painful migration.</p>
+
+<h3>How long does it take to set up?</h3>
+<p>A connected infrastructure is deployed in 4 to 6 weeks. It all starts with a 2-hour Profitability Diagnostic that pinpoints exactly where your money goes.</p>`
     }
   },
 
   {
-    slug: "5-automatisations-agence-immobiliere-cette-semaine",
-    category: { fr: "Automatisation pratique", en: "Practical Automation" },
-    categoryKey: "automation",
-    date: "2026-04-30",
+    slug: "connecter-vos-outils-sans-les-remplacer",
+    category: { fr: "Infrastructure", en: "Infrastructure" },
+    categoryKey: "infrastructure",
+    date: "2026-05-18",
     readTime: 7,
     title: {
-      fr: "5 tâches que votre agence immobilière peut automatiser cette semaine",
-      en: "5 tasks your real estate agency can automate this week"
+      fr: "Connecter vos outils plutôt que les remplacer : la bonne approche pour un atelier",
+      en: "Connect your tools instead of replacing them: the right approach for a workshop"
     },
     excerpt: {
-      fr: "Pas besoin d'une transformation digitale complète. Ces 5 automatisations sont déployables en 30 jours et génèrent un gain de temps mesurable dès la première semaine.",
-      en: "No need for a complete digital transformation. These 5 automations can be deployed in 30 days and deliver measurable time savings from week one."
+      fr: "Vous n'avez pas besoin d'un nouveau logiciel. Vous avez besoin que ceux que vous utilisez déjà se parlent. Voici comment une infrastructure centrale fait circuler l'information.",
+      en: "You don't need new software. You need the ones you already use to talk to each other. Here's how a central infrastructure makes information flow."
     },
     seoTitle: {
-      fr: "5 automatisations pour agence immobilière | Optialys",
-      en: "5 Real Estate Agency Automations to Deploy Now | Optialys"
+      fr: "Connecter ses outils sans tout remplacer | Infrastructure atelier | Optialys",
+      en: "Connect your tools without replacing everything | Workshop infrastructure | Optialys"
     },
     seoDescription: {
-      fr: "Réponse leads, planification visites, relances mandats, comptes-rendus, LinkedIn : 5 automatisations IA concrètes pour gagner 15h par semaine dans votre agence immobilière.",
-      en: "Lead response, visit scheduling, mandate follow-up, visit reports, LinkedIn: 5 concrete AI automations to save 15h per week in your real estate agency."
+      fr: "Automatisation des processus d'atelier : pourquoi connecter vos outils existants (CRM, chantier, facturation) vaut mieux qu'un nouveau logiciel, et comment Optialys le fait.",
+      en: "Workshop process automation: why connecting your existing tools (CRM, project software, invoicing) beats new software, and how Optialys does it."
     },
     keywords: [
-      "automatisation agence immobilière", "gain de temps immobilier", "n8n immobilier",
-      "IA immobilier France", "automatiser relances mandats", "CRM automatique immobilier"
+      "connecter outils atelier", "automatisation processus atelier rénovation", "système central PME",
+      "intégration CRM facturation", "infrastructure opérationnelle sur mesure", "éviter migration logiciel"
     ],
     content: {
-      fr: `<p>Vous n'avez pas besoin d'une transformation digitale complète pour commencer à regagner du temps. Ces 5 automatisations peuvent être opérationnelles dans votre agence en 30 jours — et chacune génère un gain mesurable dès les premiers jours de déploiement.</p>
+      fr: `<p>Quand un atelier décide enfin de « se digitaliser », le réflexe est souvent le mauvais : chercher LE logiciel qui fera tout. C'est une erreur coûteuse. Vous y passez des mois, vous formez l'équipe à un nouvel outil, et six mois plus tard la moitié des gens est revenue à ses anciennes habitudes — parce que le nouvel outil ne colle pas à la réalité du métier.</p>
 
-<h2>1. La réponse automatique aux leads entrants</h2>
-<p>C'est l'automatisation au ROI le plus immédiat, et la plus impactante. Chaque lead qui arrive via votre site, SeLoger, Leboncoin, PAP ou WhatsApp reçoit une réponse personnalisée en moins de 4 minutes — même à 23h un dimanche.</p>
-<p>Le système ne se contente pas de répondre : il pose les questions de qualification (type de bien, budget, délai de vente, localisation), crée automatiquement la fiche contact dans votre CRM et notifie l'agent disponible avec un résumé complet.</p>
-<p><strong>Outils :</strong> n8n + Claude AI + WhatsApp Business API + Airtable<br/>
-<strong>Temps gagné :</strong> 45 min/jour sur la permanence téléphonique de routine<br/>
-<strong>Impact métier :</strong> Zéro lead perdu la nuit ou le week-end</p>
+<h2>Le problème n'est pas le manque d'outils</h2>
+<p>La plupart des ateliers haut de gamme ont déjà tout ce qu'il faut : un CRM pour les clients, un logiciel de chantier, un outil de facturation, des tableurs, une messagerie d'équipe. Le problème, c'est qu'aucun de ces outils ne parle aux autres. L'information est là — mais elle reste prisonnière de chaque silo.</p>
+<p>Un client signe dans le CRM, mais le chantier se crée à la main dans un autre outil. Les heures sont sur papier. La facture est ressaisie depuis zéro. Chaque transition entre deux outils est une perte de temps et une source d'erreur.</p>
 
-<h2>2. La planification automatique des visites</h2>
-<p>Après qualification du lead, le système propose directement des créneaux disponibles dans l'agenda de l'agent concerné, sans aller-retour. Le prospect choisit son créneau, la confirmation part automatiquement par SMS et email — côté prospect ET côté agent.</p>
-<p>Fini les échanges de messages du type "Je suis disponible jeudi ?" / "Ah non, j'avais vendredi en tête" qui peuvent durer des jours.</p>
-<p><strong>Outils :</strong> n8n + Google Calendar API + SMS automatique<br/>
-<strong>Temps gagné :</strong> 20 min par visite planifiée<br/>
-<strong>Impact métier :</strong> Expérience client perçue comme plus professionnelle</p>
+<h2>La bonne approche : un système central qui orchestre</h2>
+<p>Plutôt que de tout remplacer, on installe une couche de connexion au-dessus de l'existant. Chaque outil garde son rôle, mais l'information circule automatiquement entre eux :</p>
+<ul>
+<li>Un client validé dans le CRM crée automatiquement le chantier dans le bon outil</li>
+<li>Les heures saisies sur le terrain remontent dans le suivi de marge sans ressaisie</li>
+<li>Une fin de chantier déclenche la préparation de la facture, pré-remplie</li>
+<li>Un tableau de bord central agrège tout : marge, avancement, alertes</li>
+</ul>
+<p>Personne ne change ses habitudes. On supprime juste les ponts manuels entre les outils.</p>
 
-<h2>3. Les relances de mandats automatisées</h2>
-<p>Pour chaque mandat actif dans votre portefeuille, le système envoie automatiquement un point de situation hebdomadaire aux vendeurs : nombre de demandes de visite, profils des visiteurs, retours collectés, tendance du marché local. Les vendeurs se sentent suivis sans que vos agents passent leur vendredi à les appeler un par un.</p>
-<p>Bonus : les alertes automatiques quand un mandat approche de son expiration, avec suggestion de réunion de renouvellement.</p>
-<p><strong>Outils :</strong> n8n + Airtable + Gmail<br/>
-<strong>Temps gagné :</strong> 2h/semaine pour un portefeuille de 20 mandats<br/>
-<strong>Impact métier :</strong> Taux de renouvellement des mandats en hausse</p>
+<h3>Pourquoi c'est plus rapide et moins risqué</h3>
+<p>Remplacer un logiciel central, c'est un projet à haut risque : migration de données, formation lourde, résistance au changement. Connecter l'existant, c'est l'inverse : déploiement en 4 à 6 semaines, aucune donnée à migrer, et l'équipe continue de travailler avec les outils qu'elle maîtrise déjà.</p>
 
-<h2>4. La génération de comptes-rendus de visite</h2>
-<p>Après chaque visite, l'agent dicte une note vocale de 2 minutes sur son téléphone (pendant le trajet retour). L'IA transcrit, structure et envoie automatiquement le compte-rendu formaté au vendeur, archive les retours dans votre CRM, et met à jour le statut de la fiche bien.</p>
-<p>Résultat : le vendeur est informé le soir même de la visite — ce niveau de réactivité est rare et très apprécié.</p>
-<p><strong>Outils :</strong> n8n + Whisper (transcription IA) + Claude AI + Airtable<br/>
-<strong>Temps gagné :</strong> 15 min par visite sur la rédaction administrative<br/>
-<strong>Impact métier :</strong> Satisfaction vendeur en hausse, différenciation vis-à-vis des concurrents</p>
-
-<h2>5. Le pipeline de contenu LinkedIn automatisé</h2>
-<p>3 à 5 posts LinkedIn par semaine sur l'actualité immobilière de votre secteur, les tendances du marché local, vos biens en exclusivité, vos transactions récentes. L'IA génère les drafts basés sur votre actualité, vous les validez en 2 clics dans un tableau Airtable, la publication se fait automatiquement à l'heure optimale.</p>
-<p>Votre présence LinkedIn reste active même quand vous avez une semaine chargée — ce qui est toujours le cas dans l'immobilier.</p>
-<p><strong>Outils :</strong> n8n + Claude AI + Airtable + LinkedIn API<br/>
-<strong>Temps gagné :</strong> 3h/semaine sur la création et la publication de contenu<br/>
-<strong>Impact métier :</strong> Notoriété locale, sourcing de mandats par la marque personnelle</p>
-
-<h2>Par où commencer ?</h2>
-<p>La bonne approche n'est pas de tout déployer en même temps. Commencez par l'automatisation qui vous coûte le plus de mandats perdus — en général, c'est la réponse aux leads. Une fois ce système rodé (2 à 3 semaines), ajoutez la couche suivante selon vos priorités.</p>
-<p>Un diagnostic gratuit de 72h permet d'identifier précisément laquelle de ces 5 automatisations a le ROI le plus fort pour votre agence en particulier.</p>
+<h2>Ce que vous gagnez vraiment</h2>
+<p>Au-delà du temps économisé sur la saisie, vous gagnez quelque chose de plus rare : une <strong>source unique de vérité</strong>. Quand toutes vos données convergent vers un même endroit, vous arrêtez de prendre des décisions sur des chiffres contradictoires. Vous savez, à tout moment, où vous en êtes.</p>
 
 <h2>FAQ</h2>
-<h3>Faut-il des compétences techniques pour gérer ces automatisations au quotidien ?</h3>
-<p>Non. Une fois déployé, le système tourne seul. Vous intervenez uniquement pour valider les contenus LinkedIn ou ajuster des paramètres si votre activité évolue. La formation lors du handover dure environ 2 heures.</p>
+<h3>Et si un de nos outils est vraiment trop ancien ?</h3>
+<p>On l'évalue pendant le diagnostic. Dans la grande majorité des cas, même un outil ancien peut être connecté. Quand ce n'est vraiment pas possible, on vous le dit clairement et on propose l'alternative la plus légère.</p>
 
-<h3>Ces automatisations sont-elles conformes au RGPD ?</h3>
-<p>Oui. Tous les systèmes déployés sont conformes RGPD. Les données clients sont stockées dans votre propre Airtable (votre compte, votre propriété), les emails sont envoyés depuis votre propre compte Gmail professionnel. Aucune donnée ne transite par des serveurs tiers non conformes.</p>
+<h3>Qui est propriétaire du système à la fin ?</h3>
+<p>Vous. Tout est documenté, votre équipe est formée, et le système vous appartient. Aucune dépendance forcée.</p>
 
-<h3>Cela fonctionne-t-il avec les portails immobiliers comme SeLoger ou Leboncoin ?</h3>
-<p>Oui, via les emails de notification envoyés par ces portails lors de chaque nouveau contact. Le système les intercepte automatiquement et déclenche le workflow de réponse, comme si le lead était arrivé directement sur votre site.</p>
+<h3>Par où commence-t-on ?</h3>
+<p>Par un Diagnostic Rentabilité de 2 heures. On cartographie vos outils et vos flux, on identifie les connexions qui rapportent le plus, et on vous remet un plan d'action chiffré.</p>`,
+      en: `<p>When a workshop finally decides to "go digital," the instinct is often wrong: look for THE software that does everything. It's a costly mistake. You spend months on it, you train the team on a new tool, and six months later half the people are back to their old habits — because the new tool doesn't fit the reality of the trade.</p>
 
-<h3>Quel est l'investissement pour déployer ces 5 automatisations ?</h3>
-<p>Cela dépend du scope choisi. Nous proposons un déploiement Core™ à scope fixe en 30 jours, avec garantie de livraison. Le diagnostic gratuit permet d'établir un devis précis selon vos besoins.</p>`,
+<h2>The problem isn't a lack of tools</h2>
+<p>Most high-end workshops already have everything they need: a CRM for clients, project software, an invoicing tool, spreadsheets, a team messenger. The problem is that none of these tools talk to each other. The information is there — but it stays trapped in each silo.</p>
 
-      en: `<p>You don't need a complete digital transformation to start saving time. These 5 automations can be operational in your agency within 30 days — and each delivers measurable time savings from the first days of deployment.</p>
+<h2>The right approach: a central system that orchestrates</h2>
+<p>Rather than replacing everything, we install a connection layer on top of what exists. Each tool keeps its role, but information flows automatically between them:</p>
+<ul>
+<li>A client confirmed in the CRM automatically creates the project in the right tool</li>
+<li>Hours entered on the floor flow into margin tracking with no re-entry</li>
+<li>A project closing triggers a pre-filled invoice</li>
+<li>A central dashboard aggregates everything: margin, progress, alerts</li>
+</ul>
+<p>No one changes their habits. We just remove the manual bridges between tools.</p>
 
-<h2>1. Automatic lead response</h2>
-<p>This is the highest-ROI automation, and the most impactful. Every lead arriving via your website, property portals, or WhatsApp gets a personalized response in under 4 minutes — even at 11pm on a Sunday.</p>
-<p>The system doesn't just respond: it asks qualification questions (property type, budget, sale timeline, location), automatically creates the contact record in your CRM, and notifies the available agent with a complete summary.</p>
-<p><strong>Tools:</strong> n8n + Claude AI + WhatsApp Business API + Airtable<br/>
-<strong>Time saved:</strong> 45 min/day on routine phone coverage<br/>
-<strong>Business impact:</strong> Zero leads lost at night or on weekends</p>
-
-<h2>2. Automatic visit scheduling</h2>
-<p>After lead qualification, the system directly offers available slots in the relevant agent's calendar, without back-and-forth. The prospect chooses their slot, confirmation goes out automatically by SMS and email — to both sides.</p>
-<p><strong>Tools:</strong> n8n + Google Calendar API + Automatic SMS<br/>
-<strong>Time saved:</strong> 20 min per scheduled visit<br/>
-<strong>Business impact:</strong> Client experience perceived as more professional</p>
-
-<h2>3. Automated mandate follow-up</h2>
-<p>For each active mandate in your portfolio, the system automatically sends a weekly status update to sellers: number of viewing requests, visitor profiles, collected feedback, local market trends. Sellers feel taken care of — without your agents spending their Friday calling them one by one.</p>
-<p><strong>Tools:</strong> n8n + Airtable + Gmail<br/>
-<strong>Time saved:</strong> 2h/week for a portfolio of 20 mandates<br/>
-<strong>Business impact:</strong> Higher mandate renewal rate</p>
-
-<h2>4. Automatic visit report generation</h2>
-<p>After each viewing, the agent dictates a 2-minute voice note on their phone (on the way back). The AI transcribes, structures, and automatically sends the formatted report to the seller, archives feedback in your CRM, and updates the property file status.</p>
-<p><strong>Tools:</strong> n8n + Whisper (AI transcription) + Claude AI + Airtable<br/>
-<strong>Time saved:</strong> 15 min per visit on administrative writing<br/>
-<strong>Business impact:</strong> Higher seller satisfaction, differentiation vs. competitors</p>
-
-<h2>5. Automated LinkedIn content pipeline</h2>
-<p>3 to 5 LinkedIn posts per week on local real estate market news, exclusive listings, recent transactions. AI generates drafts based on your activity, you approve in 2 clicks in an Airtable table, publication happens automatically at the optimal time.</p>
-<p><strong>Tools:</strong> n8n + Claude AI + Airtable + LinkedIn API<br/>
-<strong>Time saved:</strong> 3h/week on content creation and publication<br/>
-<strong>Business impact:</strong> Local visibility, mandate sourcing through personal brand</p>
-
-<h2>Where to start?</h2>
-<p>The right approach is not to deploy everything at once. Start with the automation costing you the most in lost mandates — usually, that's lead response. Once this system is running smoothly (2 to 3 weeks), add the next layer based on your priorities.</p>
+<h3>Why it's faster and lower-risk</h3>
+<p>Replacing a core piece of software is a high-risk project: data migration, heavy training, resistance to change. Connecting what exists is the opposite: deployment in 4 to 6 weeks, no data to migrate, and the team keeps working with the tools they already know.</p>
 
 <h2>FAQ</h2>
-<h3>Do I need technical skills to manage these automations daily?</h3>
-<p>No. Once deployed, the system runs on its own. You only intervene to approve LinkedIn content or adjust parameters if your activity changes. Handover training takes about 2 hours.</p>
+<h3>What if one of our tools is really too old?</h3>
+<p>We assess it during the diagnostic. In the vast majority of cases, even an old tool can be connected. When it truly can't, we tell you plainly and propose the lightest alternative.</p>
 
-<h3>Are these automations GDPR compliant?</h3>
-<p>Yes. All deployed systems are GDPR compliant. Client data is stored in your own Airtable (your account, your property), emails are sent from your own professional Gmail account.</p>
-
-<h3>Does this work with property portals like SeLoger or Leboncoin?</h3>
-<p>Yes, via the notification emails sent by these portals for each new contact. The system intercepts them automatically and triggers the response workflow.</p>`
+<h3>Who owns the system in the end?</h3>
+<p>You do. Everything is documented, your team is trained, and the system is yours. No forced dependency.</p>`
     }
   },
 
   {
-    slug: "pourquoi-agents-perdent-3h-par-jour",
-    category: { fr: "Croissance agence", en: "Agency Growth" },
-    categoryKey: "growth",
-    date: "2026-05-02",
+    slug: "fin-du-papier-donnees-terrain-temps-reel",
+    category: { fr: "Terrain", en: "On the floor" },
+    categoryKey: "terrain",
+    date: "2026-05-24",
     readTime: 5,
     title: {
-      fr: "Pourquoi vos agents perdent 3h par jour (et comment y remédier avec l'IA)",
-      en: "Why your agents lose 3 hours a day (and how to fix it with AI)"
+      fr: "La fin du carnet papier : faire remonter la donnée terrain en temps réel",
+      en: "The end of the paper notebook: getting field data to flow up in real time"
     },
     excerpt: {
-      fr: "Une étude menée sur 12 agents révèle que 58% de leur journée est consacrée à de l'administratif pur. Voici l'audit détaillé — et comment récupérer ces heures.",
-      en: "A study of 12 agents reveals that 58% of their day is spent on pure admin. Here's the detailed audit — and how to get those hours back."
+      fr: "Vos techniciens notent leurs heures sur papier, quelqu'un les encode le lendemain. Vous décidez sur des données d'hier. Voici comment supprimer ce décalage.",
+      en: "Your technicians note their hours on paper, someone keys them in the next day. You decide on yesterday's data. Here's how to remove that lag."
     },
     seoTitle: {
-      fr: "Agents immobiliers : 3h perdues par jour en admin | Optialys",
-      en: "Real Estate Agents: 3 Hours Lost Per Day on Admin | Optialys"
+      fr: "Saisie terrain en temps réel pour ateliers | Fin du papier | Optialys",
+      en: "Real-time field entry for workshops | End of paper | Optialys"
     },
     seoDescription: {
-      fr: "Audit complet du temps des agents immobiliers : emails, CRM, comptes-rendus, relances. Comment l'IA permet de récupérer 15h/semaine et d'augmenter le nombre de mandats signés.",
-      en: "Complete real estate agent time audit: emails, CRM, reports, follow-ups. How AI recovers 15h/week and increases mandates signed."
+      fr: "Comment digitaliser la saisie des heures et relevés terrain dans un atelier haut de gamme pour piloter sur des données du jour plutôt que des données de la veille.",
+      en: "How to digitize hours and field readings in a high-end workshop so you pilot on today's data instead of yesterday's."
     },
     keywords: [
-      "productivité agent immobilier", "gain de temps agence immobilière", "automatisation tâches immobilier",
-      "ROI IA immobilier", "agent immobilier admin", "optimisation agence immobilière"
+      "saisie terrain temps réel", "pointage heures atelier", "fin du papier atelier",
+      "données chantier mobile", "double saisie automatisation", "suivi temps technicien"
     ],
     content: {
-      fr: `<p>Une étude interne menée sur 12 agents immobiliers indépendants et en agence révèle que <strong>58% de leur journée est consacrée à des tâches administratives</strong> : emails, WhatsApp, comptes-rendus, mises à jour CRM, relances manuelles. Soit près de 5 heures sur une journée de 8h30. Voici l'audit détaillé — et comment l'IA permet de récupérer la majorité de ces heures.</p>
+      fr: `<p>Voici une scène que tout dirigeant d'atelier connaît. Un technicien termine sa journée, note ses heures et ses relevés sur un carnet ou une feuille. Le lendemain, quelqu'un — souvent une personne précieuse dont ce n'est pas le métier — ressaisit tout dans le système. Entre les deux : un jour de décalage, et des erreurs de recopie.</p>
 
-<h2>L'audit d'une journée type d'un agent immobilier</h2>
-<p>En chronométrant les activités sur une semaine complète, voici ce qui ressort de façon constante :</p>
+<h2>Le coût caché du décalage d'un jour</h2>
+<p>Ce décalage paraît anodin. Il ne l'est pas. Quand vous regardez l'avancement d'un chantier, vous voyez l'état d'hier, pas celui de maintenant. Si une dérive a commencé ce matin, vous ne la verrez que demain — au mieux. Multiplié par dix chantiers, ce flou permanent vous empêche de piloter.</p>
+<p>Et la double saisie a un deuxième coût : le temps de la personne qui ressaisit. C'est plusieurs heures par semaine consacrées à recopier des chiffres qui existaient déjà.</p>
+
+<h2>Saisir une fois, partout</h2>
+<p>La solution n'est pas de demander plus d'efforts aux techniciens. C'est de leur permettre de saisir <strong>une seule fois</strong>, simplement, depuis leur téléphone — et que cette saisie remonte automatiquement dans le suivi de marge, le planning et la facturation.</p>
 <ul>
-<li><strong>47 min</strong> — Répondre aux emails et messages WhatsApp entrants (leads, clients, notaires, banques)</li>
-<li><strong>38 min</strong> — Mettre à jour les fiches CRM après chaque interaction ou visite</li>
-<li><strong>32 min</strong> — Rédiger les comptes-rendus de visite à envoyer aux vendeurs</li>
-<li><strong>28 min</strong> — Planifier et confirmer les rendez-vous de visite (allers-retours messages)</li>
-<li><strong>25 min</strong> — Relancer les mandats en cours (appels et emails hebdomadaires)</li>
-<li><strong>21 min</strong> — Préparer les documents de présentation et les dossiers acheteurs</li>
+<li>Le technicien pointe ses heures sur mobile, en deux gestes, rattachées au bon chantier</li>
+<li>Une photo d'une pièce ou d'un relevé est horodatée et classée automatiquement</li>
+<li>L'information est disponible <em>immédiatement</em> dans le tableau de bord du dirigeant</li>
+<li>Plus personne ne ressaisit quoi que ce soit le lendemain</li>
 </ul>
-<p><strong>Total : 3h11 de tâches purement administratives</strong>, répétées chaque jour, cinq jours par semaine. C'est 15h45 par semaine — presque deux journées entières — consacrées à de l'admin plutôt qu'à des signatures et des prises de mandat.</p>
 
-<h2>Ce que ça coûte réellement à votre agence</h2>
-<p>Un agent immobilier expérimenté génère en moyenne 60 à 80€ de valeur par heure d'activité commerciale (prospection, estimation, négociation, signature). Si 15h par semaine sont consacrées à l'admin au lieu du commercial, le manque à gagner est considérable.</p>
-<p>Pour une agence de 4 agents :</p>
-<ul>
-<li>15h d'admin/semaine × 4 agents = <strong>60h de temps commercial perdu chaque semaine</strong></li>
-<li>À 60€/h de valeur produite = <strong>3 600€/semaine de potentiel non activé</strong></li>
-<li>Sur 47 semaines travaillées = <strong>169 200€/an de CA potentiel manqué</strong></li>
-</ul>
-<p>Ces chiffres sont conservateurs. En réalité, l'agent fatigué par l'admin en fin de journée est aussi moins performant sur les activités commerciales qu'il reste à faire.</p>
+<h3>Pourquoi ça marche vraiment</h3>
+<p>Les outils de saisie terrain échouent quand ils sont plus lourds que le papier. Le carnet gagne toujours s'il est plus rapide. La clé est donc une saisie mobile pensée pour le terrain : minimale, robuste, utilisable avec des gants ou les mains sales, sans connexion permanente. Quand c'est plus simple que le papier, l'adoption se fait toute seule.</p>
 
-<h2>Les 3 postes à automatiser en priorité</h2>
-
-<h3>1. La gestion des leads entrants (47 min/jour → 5 min/jour)</h3>
-<p>C'est le poste le plus chronophage ET le plus stratégique. Un système IA gère 100% des premiers contacts : réponse immédiate, qualification conversationnelle, prise de RDV automatique. L'agent n'intervient que sur les leads déjà qualifiés et chauds, avec un résumé complet disponible avant même de décrocher.</p>
-
-<h3>2. La mise à jour CRM (38 min/jour → 5 min/jour)</h3>
-<p>Chaque visite, chaque appel, chaque échange crée une mise à jour manuelle dans le logiciel. Un système d'automatisation peut écouter les emails entrants, transcrire les notes vocales dictées par l'agent et mettre à jour automatiquement les fiches dans votre CRM ou Airtable — sans aucune saisie manuelle.</p>
-
-<h3>3. Les comptes-rendus de visite (32 min/jour → 3 min/jour)</h3>
-<p>Après chaque visite, l'agent dicte 2 minutes sur son téléphone pendant le trajet retour. L'IA transcrit, structure et envoie automatiquement un compte-rendu professionnel au vendeur le soir même. Le vendeur reçoit les retours du visiteur dans les heures qui suivent — un niveau de service que la grande majorité des agences n'atteint jamais.</p>
-
-<h2>Le calcul ROI d'un déploiement IA</h2>
-<p>En automatisant ces 3 postes prioritaires pour une agence de 3 agents :</p>
-<ul>
-<li>Temps récupéré : environ 10h/semaine/agent × 3 = 30h/semaine</li>
-<li>Dont 60% réinvesti en prospection et prises de mandat = 18h/semaine de valeur commerciale</li>
-<li>À 65€/h de valeur produite moyenne = <strong>+1 170€/semaine</strong></li>
-<li>Sur l'année = <strong>+54 990€ de CA potentiel supplémentaire</strong></li>
-</ul>
-<p>Le coût d'un déploiement Optialys Core™ ? Une fraction de ce montant, avec résultats visibles dès les premières semaines.</p>
+<h2>Le résultat</h2>
+<p>Vous passez d'un pilotage « à la semaine » à un pilotage « au jour ». Vos décisions reposent sur ce qui se passe maintenant. Et vous récupérez les heures que quelqu'un passait à recopier des carnets.</p>
 
 <h2>FAQ</h2>
-<h3>Comment savoir combien de temps mes agents passent vraiment en admin ?</h3>
-<p>Notre diagnostic gratuit inclut un audit de 72h de vos processus. Nous identifions les 3 postes les plus chronophages et vous fournissons un plan d'action priorisé avec estimation de ROI pour votre agence spécifiquement.</p>
+<h3>Nos techniciens ne sont pas à l'aise avec la technologie.</h3>
+<p>C'est justement pour ça que la saisie est réduite au strict minimum : deux gestes, pas de formation longue. On conçoit l'outil autour du terrain, pas l'inverse.</p>
 
-<h3>Est-ce que les agents vont résister au changement ?</h3>
-<p>Dans notre expérience, rarement — à condition de bien cadrer les choses. L'IA ne remplace pas l'agent, elle lui retire les tâches qu'il déteste faire. La plupart des agents sont soulagés dès la première semaine, notamment sur la permanence téléphonique de routine.</p>
+<h3>Et sans réseau dans l'atelier ou sur le port ?</h3>
+<p>La saisie fonctionne hors connexion et se synchronise dès que le réseau revient. Aucune donnée perdue.</p>
 
-<h3>Quel est le délai avant de voir les premiers résultats ?</h3>
-<p>Les premiers gains de temps sont visibles dès J+3 après le déploiement. Les gains sur les mandats signés apparaissent généralement entre J+30 et J+60, le temps que le système soit rodé et que les leads qualifiés par l'IA se transforment en signatures.</p>
+<h3>Combien de temps pour déployer ?</h3>
+<p>C'est inclus dans l'infrastructure sur mesure, déployée en 4 à 6 semaines. On commence par un Diagnostic Rentabilité pour cadrer précisément vos besoins.</p>`,
+      en: `<p>Here's a scene every workshop owner knows. A technician finishes the day, notes hours and readings in a notebook or on a sheet. The next day, someone — often a valuable person whose job this isn't — re-keys everything into the system. In between: a day of lag, and copy errors.</p>
 
-<h3>Faut-il former les agents à utiliser les nouveaux outils ?</h3>
-<p>La formation lors du handover dure environ 2h. L'objectif est que chaque agent comprenne ce que le système fait pour lui, comment lire les résumés de leads, et comment ajuster ses préférences de notification. Le système est conçu pour être transparent, pas pour ajouter une nouvelle complexité.</p>`,
+<h2>The hidden cost of a one-day lag</h2>
+<p>That lag seems harmless. It isn't. When you look at a project's progress, you see yesterday's state, not now's. If a drift started this morning, you won't see it until tomorrow — at best. Multiplied across ten projects, this permanent blur stops you from piloting.</p>
+<p>And double entry has a second cost: the time of the person re-keying. That's several hours a week spent re-copying numbers that already existed.</p>
 
-      en: `<p>An internal study of 12 independent and agency real estate agents reveals that <strong>58% of their day is spent on administrative tasks</strong>: emails, WhatsApp, visit reports, CRM updates, manual follow-ups. That's nearly 5 hours out of an 8.5-hour day. Here's the detailed audit — and how AI recovers most of those hours.</p>
-
-<h2>The daily time audit of a real estate agent</h2>
-<p>By timing activities over a full week, here's what consistently emerges:</p>
+<h2>Enter once, everywhere</h2>
+<p>The solution isn't to ask more effort from technicians. It's to let them enter data <strong>once</strong>, simply, from their phone — and have that entry flow automatically into margin tracking, scheduling and invoicing.</p>
 <ul>
-<li><strong>47 min</strong> — Responding to incoming emails and WhatsApp messages (leads, clients, notaries, banks)</li>
-<li><strong>38 min</strong> — Updating CRM records after each interaction or viewing</li>
-<li><strong>32 min</strong> — Writing visit reports to send to sellers</li>
-<li><strong>28 min</strong> — Scheduling and confirming viewing appointments (message back-and-forth)</li>
-<li><strong>25 min</strong> — Following up on active mandates (weekly calls and emails)</li>
-<li><strong>21 min</strong> — Preparing presentation documents and buyer files</li>
-</ul>
-<p><strong>Total: 3h11 of purely administrative tasks</strong>, repeated every day, five days a week. That's 15h45 per week — almost two full days — spent on admin rather than signings and mandate acquisitions.</p>
-
-<h2>What this actually costs your agency</h2>
-<p>An experienced real estate agent generates on average 60 to 80€ of value per hour of commercial activity (prospecting, valuation, negotiation, signing). If 15 hours per week go to admin instead of commercial work, the opportunity cost is substantial.</p>
-<p>For a 4-agent agency:</p>
-<ul>
-<li>15h admin/week × 4 agents = <strong>60h of commercial time lost every week</strong></li>
-<li>At 60€/h of value produced = <strong>€3,600/week of unrealized potential</strong></li>
-<li>Over 47 working weeks = <strong>€169,200/year in missed revenue potential</strong></li>
+<li>The technician logs hours on mobile, in two taps, tied to the right project</li>
+<li>A photo of a part or a reading is timestamped and filed automatically</li>
+<li>The information is available <em>immediately</em> on the owner's dashboard</li>
+<li>No one re-keys anything the next day</li>
 </ul>
 
-<h2>The 3 highest-priority automations</h2>
-
-<h3>1. Incoming lead management (47 min/day → 5 min/day)</h3>
-<p>This is the most time-consuming AND most strategic item. An AI system handles 100% of first contacts: immediate response, conversational qualification, automatic appointment booking. The agent only intervenes on already-qualified, warm leads, with a complete summary ready before they even pick up the phone.</p>
-
-<h3>2. CRM updates (38 min/day → 5 min/day)</h3>
-<p>Every visit, every call, every exchange creates a manual update in the software. An automation system can listen to incoming emails, transcribe voice notes dictated by the agent, and automatically update records in your CRM or Airtable — with zero manual input.</p>
-
-<h3>3. Visit reports (32 min/day → 3 min/day)</h3>
-<p>After each viewing, the agent dictates 2 minutes on their phone on the way back. The AI transcribes, structures, and automatically sends a professional report to the seller that same evening. A level of service that the vast majority of agencies never achieve.</p>
-
-<h2>The ROI calculation</h2>
-<p>By automating these 3 priority items for a 3-agent agency:</p>
-<ul>
-<li>Time recovered: approximately 10h/week/agent × 3 = 30h/week</li>
-<li>60% reinvested in prospecting and mandate acquisition = 18h/week of commercial value</li>
-<li>At 65€/h average value produced = <strong>+€1,170/week</strong></li>
-<li>Over the year = <strong>+€54,990 in additional revenue potential</strong></li>
-</ul>
+<h3>Why it actually works</h3>
+<p>Field-entry tools fail when they're heavier than paper. The notebook always wins if it's faster. So the key is mobile entry designed for the floor: minimal, robust, usable with gloves or dirty hands, no permanent connection. When it's simpler than paper, adoption takes care of itself.</p>
 
 <h2>FAQ</h2>
-<h3>How do I know how much time my agents really spend on admin?</h3>
-<p>Our free diagnostic includes a 72-hour process audit. We identify the 3 most time-consuming items and provide a prioritized action plan with ROI estimates specific to your agency.</p>
+<h3>Our technicians aren't comfortable with technology.</h3>
+<p>That's exactly why entry is reduced to the bare minimum: two taps, no long training. We design the tool around the floor, not the other way around.</p>
 
-<h3>Will agents resist the change?</h3>
-<p>In our experience, rarely — if framed correctly. AI doesn't replace the agent, it removes the tasks they hate doing. Most agents feel relief within the first week, especially regarding routine phone coverage.</p>
-
-<h3>How long before seeing the first results?</h3>
-<p>First time gains are visible from Day 3 after deployment. Gains in mandates signed typically appear between Day 30 and Day 60, as the system settles and AI-qualified leads convert to signatures.</p>`
+<h3>What about no signal in the workshop or on the dock?</h3>
+<p>Entry works offline and syncs as soon as the network is back. No data lost.</p>`
     }
   }
 ];
 
 export const getCategoryColor = (key: BlogArticle['categoryKey']) => {
   const colors: Record<BlogArticle['categoryKey'], string> = {
-    'real-estate-ai': 'bg-accent-coral/10 text-accent-coral border-accent-coral/20',
-    'automation': 'bg-accent-electric/10 text-accent-electric border-accent-electric/20',
-    'growth': 'bg-accent-green/10 text-accent-green border-accent-green/20',
+    'pilotage': 'bg-accent-coral/10 text-accent-coral border-accent-coral/20',
+    'infrastructure': 'bg-ink-navy/10 text-ink-navy border-ink-navy/20',
+    'terrain': 'bg-accent-green/10 text-accent-green border-accent-green/20',
   };
   return colors[key];
 };

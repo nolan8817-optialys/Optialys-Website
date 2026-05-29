@@ -72,52 +72,40 @@ export const GlowButton = ({ children, className = '', variant = 'primary', ...p
   disabled?: boolean;
   onClick?: () => void;
 }) => {
-  const base = 'relative inline-flex items-center gap-2 rounded-full font-semibold text-sm px-6 py-3 cursor-pointer transition-all duration-200 overflow-hidden';
+  const base = 'relative inline-flex items-center justify-center gap-2 rounded-sm font-bold text-sm px-6 py-3 cursor-pointer transition-colors duration-200';
   const variants = {
-    primary: 'bg-accent-coral text-white hover:bg-accent-coral/90',
-    electric: 'bg-accent-electric text-ink-navy hover:bg-accent-electric/90',
-    outline: 'border border-ink-navy/20 text-ink-navy hover:bg-ink-navy/5 bg-transparent',
+    primary: 'bg-accent-coral text-white hover:bg-[#cf4a22]',
+    electric: 'bg-accent-coral text-white hover:bg-[#cf4a22]',
+    outline: 'border border-ink-navy text-ink-navy hover:bg-ink-navy hover:text-white bg-transparent',
     dark: 'bg-ink-navy text-white hover:bg-ink-navy/90',
-  };
-  const shadows = {
-    primary: '0 4px 20px rgba(232,93,60,0.3)',
-    electric: '0 4px 20px rgba(0,194,255,0.3)',
-    outline: 'none',
-    dark: '0 4px 20px rgba(10,22,40,0.25)',
   };
 
   return (
-    <Magnetic>
-      <button
-        className={`${base} ${variants[variant]} ${className}`}
-        style={{ boxShadow: shadows[variant] }}
-        {...props}
-      >
-        {variant === 'primary' && (
-          <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full animate-[shimmer_2s_infinite] pointer-events-none" />
-        )}
-        {children}
-      </button>
-    </Magnetic>
+    <button
+      className={`${base} ${variants[variant]} ${className}`}
+      {...props}
+    >
+      {children}
+    </button>
   );
 };
 
-// Highlight block — mot(s) sur fond coral-soft
+// Highlight block — mot(s) sur fond orange
 export const HighlightBlock = ({ children, className = '' }: { children: React.ReactNode; className?: string }) => (
   <span className={`highlight-coral font-semibold ${className}`}>{children}</span>
 );
 
-// Pill badge coral — labels de section
+// Pill badge — labels de section (carré, sobre)
 export const PillBadge = ({ children, className = '' }: { children: React.ReactNode; className?: string }) => (
-  <span className={`inline-flex items-center px-3 py-1 rounded-full bg-accent-coral text-white text-xs font-bold tracking-wider uppercase ${className}`}>
+  <span className={`inline-flex items-center px-3 py-1 rounded-sm bg-accent-coral text-white text-xs font-bold tracking-wider uppercase ${className}`}>
     {children}
   </span>
 );
 
-// Asterisk decoratif coral 8 branches
+// Asterisk decoratif orange 8 branches
 export const AsteriskDecor = ({ size = 24, className = '' }: { size?: number; className?: string }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
-    <g fill="#E85D3C">
+    <g fill="#E8562A">
       <rect x="11" y="1" width="2" height="22" rx="1"/>
       <rect x="1" y="11" width="22" height="2" rx="1"/>
       <rect x="3.515" y="3.515" width="2" height="17" rx="1" transform="rotate(45 3.515 3.515)"/>

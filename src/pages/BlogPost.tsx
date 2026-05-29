@@ -8,109 +8,71 @@ import { blogArticles, getCategoryColor } from '../data/blog';
 
 // ─── SVG Visuals per article ───────────────────────────────────────────────
 
-const VisualLeadResponse = () => (
-  <div className="my-10 p-8 bg-surface-white border border-border-cream rounded-2xl">
-    <p className="text-xs font-bold text-ink-gray uppercase tracking-widest mb-6 text-center">Comparaison délai de réponse</p>
-    <svg viewBox="0 0 500 160" className="w-full max-w-lg mx-auto block" aria-hidden="true">
-      {/* Traditional - slow bar */}
-      <text x="0" y="28" fontSize="11" fill="#6B6B6B" fontFamily="monospace">Sans IA</text>
-      <rect x="0" y="36" width="420" height="28" rx="6" fill="#0A1628" opacity="0.08" />
-      <rect x="0" y="36" width="420" height="28" rx="6" fill="#E85D3C" opacity="0.15" />
-      <text x="426" y="56" fontSize="12" fontWeight="bold" fill="#E85D3C" fontFamily="sans-serif">2h47</text>
-
-      {/* With AI - fast bar */}
-      <text x="0" y="100" fontSize="11" fill="#6B6B6B" fontFamily="monospace">Avec IA</text>
-      <rect x="0" y="108" width="420" height="28" rx="6" fill="#0A1628" opacity="0.05" />
-      <rect x="0" y="108" width="26" height="28" rx="6" fill="#00C2FF" opacity="0.8" />
-      <text x="32" y="128" fontSize="12" fontWeight="bold" fill="#00C2FF" fontFamily="sans-serif">4 min</text>
-
-      {/* Labels */}
-      <text x="0" y="155" fontSize="10" fill="#6B6B6B" fontFamily="monospace">0 min</text>
-      <text x="390" y="155" fontSize="10" fill="#6B6B6B" fontFamily="monospace">3h</text>
+const VisualBudgetAlert = () => (
+  <div className="my-10 p-8 bg-surface-white border border-border-cream">
+    <p className="text-xs font-bold text-ink-gray uppercase tracking-widest mb-6">Budget consommé sur un chantier</p>
+    <svg viewBox="0 0 500 120" className="w-full max-w-lg mx-auto block" aria-hidden="true">
+      {/* Track */}
+      <rect x="0" y="40" width="460" height="26" fill="#1A1A2E" opacity="0.06" />
+      {/* Consumed */}
+      <motion.rect x="0" y="40" height="26" fill="#E8562A"
+        initial={{ width: 0 }} whileInView={{ width: 386 }} viewport={{ once: true }} transition={{ duration: 1 }} />
+      {/* Threshold marker at 80% */}
+      <line x1="368" y1="30" x2="368" y2="76" stroke="#1A1A2E" strokeWidth="2" strokeDasharray="3 3" />
+      <text x="368" y="22" fontSize="10" fill="#1A1A2E" fontFamily="monospace" textAnchor="middle">seuil 80%</text>
+      <text x="0" y="96" fontSize="11" fill="#5A5A66" fontFamily="monospace">0 €</text>
+      <text x="430" y="96" fontSize="11" fill="#5A5A66" fontFamily="monospace">budget</text>
     </svg>
-    <div className="flex justify-center gap-8 mt-4">
-      <div className="text-center">
-        <div className="text-2xl font-black text-accent-coral">-82%</div>
-        <div className="text-xs text-ink-gray">délai de réponse</div>
-      </div>
-      <div className="text-center">
-        <div className="text-2xl font-black text-accent-electric">+35%</div>
-        <div className="text-xs text-ink-gray">mandats signés</div>
-      </div>
-      <div className="text-center">
-        <div className="text-2xl font-black text-ink-navy">24/7</div>
-        <div className="text-xs text-ink-gray">disponibilité</div>
-      </div>
+    <div className="flex items-center gap-3 mt-4 p-3 bg-accent-coral/10 border border-accent-coral/20">
+      <span className="text-xl">⚠️</span>
+      <span className="text-sm font-bold text-ink-navy">Alerte automatique : 84% du budget consommé — il reste 3 semaines de chantier.</span>
     </div>
   </div>
 );
 
-const VisualAutomations = () => {
-  const items = [
-    { icon: '⚡', label: 'Réponse leads', time: '45 min/j', color: '#E85D3C' },
-    { icon: '📅', label: 'Planif. visites', time: '20 min/rdv', color: '#00C2FF' },
-    { icon: '📋', label: 'Relances mandats', time: '2h/sem', color: '#4A7B5C' },
-    { icon: '🎙️', label: 'CR de visite', time: '15 min/visite', color: '#E85D3C' },
-    { icon: '📱', label: 'LinkedIn auto', time: '3h/sem', color: '#00C2FF' },
-  ];
+const VisualConnect = () => {
+  const tools = ['CRM', 'Chantier', 'Facturation', 'Excel', 'Agenda', 'Terrain'];
   return (
-    <div className="my-10 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
-      {items.map((item, i) => (
-        <div key={i} className="p-5 bg-surface-white border border-border-cream rounded-xl text-center hover:border-accent-coral/30 transition-colors">
-          <div className="text-3xl mb-2">{item.icon}</div>
-          <div className="text-xs font-bold text-ink-navy mb-1">{item.label}</div>
-          <div className="text-xs font-mono" style={{ color: item.color }}>
-            -{item.time} économisées
-          </div>
-        </div>
-      ))}
-    </div>
-  );
-};
-
-const VisualTimeAudit = () => {
-  const tasks = [
-    { label: 'Emails & WhatsApp', min: 47, color: '#E85D3C' },
-    { label: 'Mise à jour CRM', min: 38, color: '#00C2FF' },
-    { label: 'Comptes-rendus', min: 32, color: '#4A7B5C' },
-    { label: 'Planification', min: 28, color: '#E85D3C' },
-    { label: 'Relances mandats', min: 25, color: '#00C2FF' },
-    { label: 'Documents', min: 21, color: '#4A7B5C' },
-  ];
-  const maxMin = 47;
-  return (
-    <div className="my-10 p-8 bg-surface-white border border-border-cream rounded-2xl">
-      <p className="text-xs font-bold text-ink-gray uppercase tracking-widest mb-6">Audit temps journalier — tâches administratives</p>
-      <div className="space-y-4">
-        {tasks.map((task, i) => (
-          <div key={i} className="flex items-center gap-4">
-            <div className="w-36 text-xs text-ink-gray shrink-0">{task.label}</div>
-            <div className="flex-1 h-6 bg-bg-cream rounded-full overflow-hidden">
-              <motion.div
-                initial={{ width: 0 }}
-                whileInView={{ width: `${(task.min / maxMin) * 100}%` }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: i * 0.1 }}
-                className="h-full rounded-full"
-                style={{ backgroundColor: task.color, opacity: 0.7 }}
-              />
-            </div>
-            <div className="text-sm font-bold text-ink-navy w-14 text-right">{task.min} min</div>
+    <div className="my-10 p-8 bg-surface-white border border-border-cream">
+      <p className="text-xs font-bold text-ink-gray uppercase tracking-widest mb-8 text-center">Vos outils → un système central</p>
+      <div className="grid grid-cols-3 gap-3 max-w-md mx-auto mb-6">
+        {tools.map((tool, i) => (
+          <div key={i} className="py-3 text-center bg-bg-cream border border-border-cream text-xs font-bold text-ink-navy">
+            {tool}
           </div>
         ))}
       </div>
-      <div className="mt-6 pt-6 border-t border-border-cream flex items-center justify-between">
-        <span className="text-sm text-ink-gray">Total admin/jour</span>
-        <span className="text-xl font-black text-accent-coral">3h11</span>
+      <div className="flex justify-center mb-6">
+        <svg width="20" height="28" viewBox="0 0 20 28" aria-hidden="true">
+          <path d="M10 0 V20 M2 14 L10 22 L18 14" stroke="#E8562A" strokeWidth="2.5" fill="none" />
+        </svg>
+      </div>
+      <div className="max-w-md mx-auto py-5 text-center bg-ink-navy text-white font-bold tracking-tight">
+        Système central · vision temps réel
       </div>
     </div>
   );
 };
 
+const VisualPaperVsLive = () => (
+  <div className="my-10 grid grid-cols-1 sm:grid-cols-2 gap-4">
+    <div className="p-6 bg-surface-white border border-border-cream">
+      <div className="text-xs font-bold text-ink-gray uppercase tracking-widest mb-3">Carnet papier</div>
+      <div className="text-4xl font-black text-ink-gray mb-1">+1 jour</div>
+      <p className="text-sm text-ink-gray">Saisie le soir, encodée le lendemain. Vous décidez sur les chiffres d'hier.</p>
+    </div>
+    <div className="p-6 bg-surface-white border border-accent-coral">
+      <div className="text-xs font-bold text-accent-coral uppercase tracking-widest mb-3">Saisie mobile</div>
+      <div className="text-4xl font-black text-accent-coral mb-1">temps réel</div>
+      <p className="text-sm text-ink-navy">Saisie une fois sur le terrain. L'information remonte immédiatement partout.</p>
+    </div>
+  </div>
+);
+
 const visuals: Record<string, React.FC> = {
-  'repondre-leads-immobilier-4-minutes-ia': VisualLeadResponse,
-  '5-automatisations-agence-immobiliere-cette-semaine': VisualAutomations,
-  'pourquoi-agents-perdent-3h-par-jour': VisualTimeAudit,
+  'chantiers-depassent-budget-sans-alerte': VisualBudgetAlert,
+  'connecter-vos-outils-sans-les-remplacer': VisualConnect,
+  'fin-du-papier-donnees-terrain-temps-reel': VisualPaperVsLive,
 };
 
 // ─── Main Component ────────────────────────────────────────────────────────
@@ -170,7 +132,7 @@ export const BlogPost = () => {
     scriptTag.textContent = JSON.stringify(schema);
 
     return () => {
-      document.title = 'Optialys — Automatisation IA pour Agences Immobilières';
+      document.title = 'Optialys — Infrastructure opérationnelle pour ateliers haut de gamme';
       document.getElementById('blog-schema')?.remove();
     };
   }, [article, fr]);
@@ -254,8 +216,8 @@ export const BlogPost = () => {
             <div className="font-bold text-ink-navy">Nolan Prayagsing</div>
             <div className="text-sm text-ink-gray">
               {fr
-                ? 'Fondateur Optialys · Consultant IA pour agences immobilières'
-                : 'Founder Optialys · AI Consultant for Real Estate Agencies'}
+                ? 'Fondateur Optialys · Infrastructure opérationnelle pour ateliers haut de gamme'
+                : 'Founder Optialys · Operational infrastructure for high-end workshops'}
             </div>
           </div>
           <a
@@ -271,30 +233,27 @@ export const BlogPost = () => {
 
       {/* CTA */}
       <div className="max-w-3xl mx-auto px-6 mt-12">
-        <div className="p-10 rounded-3xl bg-ink-navy text-center relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-40 h-40 bg-accent-coral/10 blur-[50px] rounded-full pointer-events-none" />
-          <div className="relative z-10">
-            <h2 className="text-2xl font-bold text-white mb-4">
-              {fr
-                ? 'Prêt à automatiser votre agence ?'
-                : 'Ready to automate your agency?'}
-            </h2>
-            <p className="text-white/70 mb-8 text-sm leading-relaxed max-w-md mx-auto">
-              {fr
-                ? 'Diagnostic gratuit de 72h — on identifie vos meilleures opportunités et on vous dit exactement ce qu\'on ferait en premier.'
-                : 'Free 72h diagnostic — we identify your best opportunities and tell you exactly what we\'d do first.'}
-            </p>
-            <a
-              href="https://calendly.com/nolprayagsing/automation-strategy-audit"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <GlowButton variant="primary">
-                {fr ? 'Réserver le diagnostic gratuit' : 'Book the free diagnostic'}
-                <ArrowRight className="w-4 h-4 ml-2" />
-              </GlowButton>
-            </a>
-          </div>
+        <div className="p-10 bg-ink-navy text-center">
+          <h2 className="text-2xl font-extrabold tracking-tight text-white mb-4">
+            {fr
+              ? 'Prêt à piloter votre marge en temps réel ?'
+              : 'Ready to pilot your margin in real time?'}
+          </h2>
+          <p className="text-white/70 mb-8 text-sm leading-relaxed max-w-md mx-auto">
+            {fr
+              ? 'Diagnostic Rentabilité de 2h — on chiffre vos pertes concrètes et on vous remet un plan d\'action.'
+              : 'A 2-hour Profitability Diagnostic — we quantify your concrete leaks and hand you an action plan.'}
+          </p>
+          <a
+            href="https://calendly.com/nolprayagsing/automation-strategy-audit"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <GlowButton variant="primary">
+              {fr ? 'Réserver le Diagnostic — 500 €' : 'Book the Diagnostic — €500'}
+              <ArrowRight className="w-4 h-4 ml-2" />
+            </GlowButton>
+          </a>
         </div>
       </div>
 

@@ -1,154 +1,149 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
-import { GlowButton, PillBadge } from '../components/ui';
+import { GlowButton } from '../components/ui';
 import { useLanguage } from '../i18n/LanguageContext';
 import { useSEO } from '../hooks/useSEO';
+
+const CALENDLY = 'https://calendly.com/nolprayagsing/automation-strategy-audit';
 
 export const Diagnostic = () => {
   const { lang } = useLanguage();
   const fr = lang === 'fr';
   useSEO({
     title: fr
-      ? 'Diagnostic Gratuit — Automatisation IA pour votre Agence | Optialys'
-      : 'Free Diagnostic — AI Automation for Your Agency | Optialys',
+      ? 'Diagnostic — Où part votre marge ? | Optialys'
+      : 'Diagnostic — Where does your margin go? | Optialys',
     description: fr
-      ? 'Répondez à 5 questions et recevez votre diagnostic personnalisé : les 3 automatisations les plus rentables pour votre agence immobilière, identifiées en 72h.'
-      : 'Answer 5 questions and receive your personalised diagnostic: the 3 most profitable automations for your real estate agency, identified within 72h.',
+      ? 'Répondez à 4 questions et découvrez votre potentiel de pilotage : où vos outils déconnectés vous font perdre de l\'argent, et par quoi commencer.'
+      : 'Answer 4 questions and discover your piloting potential: where your disconnected tools are costing you money, and where to start.',
     canonical: 'https://optialys.com/diagnostic',
   });
 
   const questions = fr ? [
     {
       id: 1,
-      question: "Combien d'heures par semaine votre équipe passe-t-elle sur des tâches répétitives ? (saisie, relances, rapports…)",
+      question: "Comment savez-vous, en cours de chantier, si vous tenez votre budget ?",
       options: [
-        { id: 'A', text: "Moins de 2h — nous sommes plutôt efficaces", score: 0 },
-        { id: 'B', text: "Entre 2h et 5h — c'est gérable mais améliorable", score: 0 },
-        { id: 'C', text: "Entre 5h et 15h — c'est un vrai problème", score: 1 },
-        { id: 'D', text: "Plus de 15h — on perd beaucoup de temps", score: 1 }
+        { id: 'A', text: "On le voit en temps réel, outil à l'appui", score: 0 },
+        { id: 'B', text: "On fait un point manuel de temps en temps", score: 1 },
+        { id: 'C', text: "On le découvre surtout à la facture finale", score: 1 },
+        { id: 'D', text: "Honnêtement, on navigue à vue", score: 1 }
       ]
     },
     {
       id: 2,
-      question: "Avez-vous déjà essayé d'automatiser un process dans votre entreprise ?",
+      question: "Vos techniciens, comment remontent-ils leurs heures et leurs relevés terrain ?",
       options: [
-        { id: 'A', text: "Non, jamais essayé", score: 0 },
-        { id: 'B', text: "Essayé mais ça n'a pas vraiment marché", score: 1 },
-        { id: 'C', text: "On utilise quelques outils basiques (ex : emails auto)", score: 0 },
-        { id: 'D', text: "Oui, nous avons déjà des automatisations en place", score: 0 }
+        { id: 'A', text: "Saisie directe dans un outil centralisé", score: 0 },
+        { id: 'B', text: "Sur papier, ressaisi plus tard", score: 1 },
+        { id: 'C', text: "Par SMS / WhatsApp, compilé à la main", score: 1 },
+        { id: 'D', text: "C'est très variable d'une personne à l'autre", score: 1 }
       ]
     },
     {
       id: 3,
-      question: "Quel est votre plus gros problème opérationnel actuel ?",
+      question: "Combien d'outils différents utilisez-vous pour piloter votre activité ?",
       options: [
-        { id: 'A', text: "On perd des leads parce qu'on répond trop lentement", score: 1 },
-        { id: 'B', text: "Notre CRM est en désordre — données manquantes, doublons", score: 1 },
-        { id: 'C', text: "On passe trop de temps sur les rapports et la saisie", score: 1 },
-        { id: 'D', text: "On manque de visibilité temps réel sur notre activité", score: 0 }
+        { id: 'A', text: "Un système unique, tout est connecté", score: 0 },
+        { id: 'B', text: "2 ou 3 outils qui communiquent à peu près", score: 0 },
+        { id: 'C', text: "Plusieurs outils qui ne se parlent pas", score: 1 },
+        { id: 'D', text: "Beaucoup d'outils + énormément d'Excel", score: 1 }
       ]
     },
     {
       id: 4,
-      question: "Quelle est la taille de votre équipe ?",
+      question: "Quelle est la taille de votre équipe terrain ?",
       options: [
-        { id: 'A', text: "1 à 5 personnes", score: 0 },
-        { id: 'B', text: "6 à 15 personnes", score: 0 },
-        { id: 'C', text: "16 à 50 personnes", score: 1 },
-        { id: 'D', text: "Plus de 50 personnes", score: 1 }
+        { id: 'A', text: "Moins de 10 collaborateurs", score: 0 },
+        { id: 'B', text: "10 à 20 collaborateurs", score: 1 },
+        { id: 'C', text: "20 à 40 collaborateurs", score: 1 },
+        { id: 'D', text: "Plus de 40 collaborateurs", score: 1 }
       ]
     }
   ] : [
     {
       id: 1,
-      question: "How many hours per week does your team spend on repetitive tasks? (data entry, follow-ups, reports...)",
+      question: "How do you know, mid-project, whether you're holding your budget?",
       options: [
-        { id: 'A', text: "Less than 2h — we are quite efficient", score: 0 },
-        { id: 'B', text: "Between 2h and 5h — it's manageable but could be better", score: 0 },
-        { id: 'C', text: "Between 5h and 15h — it's a real problem", score: 1 },
-        { id: 'D', text: "More than 15h — we lose a lot of time", score: 1 }
+        { id: 'A', text: "We see it in real time, with a tool", score: 0 },
+        { id: 'B', text: "We do a manual check now and then", score: 1 },
+        { id: 'C', text: "We mostly find out on the final invoice", score: 1 },
+        { id: 'D', text: "Honestly, we're flying blind", score: 1 }
       ]
     },
     {
       id: 2,
-      question: "Have you ever tried to automate a process in your company?",
+      question: "How do your technicians report their hours and field readings?",
       options: [
-        { id: 'A', text: "No, we never tried", score: 0 },
-        { id: 'B', text: "We tried but it didn't really work", score: 1 },
-        { id: 'C', text: "We use some basic tools (e.g., automated emails)", score: 0 },
-        { id: 'D', text: "Yes, we already have automations in place", score: 0 }
+        { id: 'A', text: "Direct entry into a central tool", score: 0 },
+        { id: 'B', text: "On paper, re-keyed later", score: 1 },
+        { id: 'C', text: "By SMS / WhatsApp, compiled by hand", score: 1 },
+        { id: 'D', text: "It varies a lot from person to person", score: 1 }
       ]
     },
     {
       id: 3,
-      question: "What is your biggest operational problem right now?",
+      question: "How many different tools do you use to run your business?",
       options: [
-        { id: 'A', text: "We lose leads because we respond too slowly", score: 1 },
-        { id: 'B', text: "Our CRM is a mess — missing data, duplicates", score: 1 },
-        { id: 'C', text: "We spend too much time on reports and data entry", score: 1 },
-        { id: 'D', text: "We lack real-time visibility on our activity", score: 0 }
+        { id: 'A', text: "One system, everything connected", score: 0 },
+        { id: 'B', text: "2 or 3 tools that roughly communicate", score: 0 },
+        { id: 'C', text: "Several tools that don't talk to each other", score: 1 },
+        { id: 'D', text: "Many tools + a lot of Excel", score: 1 }
       ]
     },
     {
       id: 4,
-      question: "How many people are in your team?",
+      question: "How big is your field team?",
       options: [
-        { id: 'A', text: "1 to 5 people", score: 0 },
-        { id: 'B', text: "6 to 15 people", score: 0 },
-        { id: 'C', text: "16 to 50 people", score: 1 },
-        { id: 'D', text: "More than 50 people", score: 1 }
+        { id: 'A', text: "Fewer than 10 people", score: 0 },
+        { id: 'B', text: "10 to 20 people", score: 1 },
+        { id: 'C', text: "20 to 40 people", score: 1 },
+        { id: 'D', text: "More than 40 people", score: 1 }
       ]
     }
   ];
 
   const T = {
     questionOf: fr ? (i: number, n: number) => `Question ${i} sur ${n}` : (i: number, n: number) => `Question ${i} of ${n}`,
-    formTitle: fr ? "Où souhaitez-vous recevoir votre diagnostic personnalisé ?" : "Where would you like to receive your personalized diagnostic?",
-    formSub: fr ? "Vos résultats sont prêts. Entrez vos coordonnées pour les découvrir immédiatement." : "Your results are ready. Enter your details to discover them immediately.",
+    formTitle: fr ? "Où souhaitez-vous recevoir votre diagnostic ?" : "Where would you like to receive your diagnostic?",
+    formSub: fr ? "Vos résultats sont prêts. Entrez vos coordonnées pour les découvrir." : "Your results are ready. Enter your details to see them.",
     firstName: fr ? "Prénom" : "First Name",
     profEmail: fr ? "Email professionnel" : "Professional Email",
     company: fr ? "Entreprise" : "Company",
-    sector: fr ? "Secteur" : "Sector",
-    selectSector: fr ? "Choisir un secteur" : "Select a sector",
-    secRe: fr ? "Immobilier" : "Real Estate",
-    secFid: fr ? "Fiduciaire" : "Fiduciary",
-    secCons: fr ? "Conseil" : "Consulting",
-    secHr: fr ? "RH" : "HR",
+    sector: fr ? "Activité" : "Activity",
+    selectSector: fr ? "Choisir votre activité" : "Select your activity",
+    secRe: fr ? "Rénovation de yachts" : "Yacht refit",
+    secFid: fr ? "Voitures de collection" : "Classic cars",
+    secCons: fr ? "Conciergerie / services" : "Concierge / services",
+    secHr: fr ? "Atelier sur mesure" : "Bespoke workshop",
     secOther: fr ? "Autre" : "Other",
     analyzing: fr ? "Analyse…" : "Analyzing...",
-    getDiag: fr ? "Obtenir mon diagnostic" : "Get my diagnostic",
-    privacy: fr ? "🔒 Vos données sont confidentielles.\nRésultats envoyés immédiatement par email." : "🔒 Your data is confidential.\nResults sent immediately by email.",
-    high: fr ? "🔥 Fort potentiel d'automatisation" : "🔥 High automation potential",
-    highTitle: fr ? "Votre société a un fort potentiel d'automatisation IA" : "Your company has a strong AI automation potential",
-    highText: fr ? "D'après vos réponses, votre équipe perd probablement entre 10 et 20 heures par semaine sur des tâches que l'IA pourrait gérer. C'est exactement le type de situation où Optialys intervient." : "Based on your answers, your team probably loses between 10 and 20 hours per week on tasks that AI could handle. This is exactly the kind of situation where Optialys intervenes.",
-    highCta: fr ? "Réserver mon diagnostic gratuit" : "Book my free diagnostic",
-    mid: fr ? "⚡ Potentiel d'automatisation modéré" : "⚡ Moderate automation potential",
-    midTitle: fr ? "Vous avez des quick wins à aller chercher" : "You have quick wins to achieve",
-    midText: fr ? "Votre équipe gère bien ses opérations, mais il existe des automatisations simples qui pourraient libérer plusieurs heures par semaine immédiatement." : "Your team manages its operations well, but there are simple automations that could free up several hours per week immediately.",
-    midCta: fr ? "Voir ce que nous pouvons automatiser" : "Discover what we can automate",
-    low: fr ? "✅ Bonne base opérationnelle" : "✅ Good operational base",
-    lowTitle: fr ? "Vous êtes bien organisés — et c'est le meilleur moment pour automatiser" : "You are well organized — and it's the best time to automate",
-    lowText: fr ? "Les meilleures sociétés à automatiser sont celles qui ont déjà des process clairs. Vous êtes dans la situation idéale pour déployer des automatisations à fort impact." : "The best companies to automate are those that already have clear processes. You are in the ideal situation to deploy high-impact automations.",
-    lowCta: fr ? "Voir ce qu'on peut construire ensemble" : "See what we can build together",
+    getDiag: fr ? "Voir mon diagnostic" : "See my diagnostic",
+    privacy: fr ? "🔒 Vos données restent confidentielles." : "🔒 Your data stays confidential.",
+    high: fr ? "Forte fuite de marge" : "High margin leak",
+    highTitle: fr ? "Vous perdez probablement de l'argent chaque semaine" : "You're probably losing money every week",
+    highText: fr ? "D'après vos réponses, vos outils ne se parlent pas et vos budgets se découvrent trop tard. C'est exactement la situation où une infrastructure centrale change tout. Commençons par chiffrer ces pertes." : "Based on your answers, your tools don't talk to each other and your budgets surface too late. This is exactly where a central infrastructure changes everything. Let's start by quantifying those leaks.",
+    highCta: fr ? "Réserver mon Diagnostic — 500 €" : "Book my Diagnostic — €500",
+    mid: fr ? "Marge à sécuriser" : "Margin to secure",
+    midTitle: fr ? "Quelques connexions vous feraient gagner gros" : "A few connections would gain you a lot",
+    midText: fr ? "Vous êtes plutôt organisés, mais certaines informations circulent encore mal. Quelques connexions ciblées vous donneraient une vraie visibilité temps réel." : "You're fairly organized, but some information still flows poorly. A few targeted connections would give you real real-time visibility.",
+    midCta: fr ? "Voir l'infrastructure" : "See the infrastructure",
+    low: fr ? "Bonne base" : "Good base",
+    lowTitle: fr ? "Vous êtes bien structurés — le moment idéal pour aller plus loin" : "You're well structured — the ideal time to go further",
+    lowText: fr ? "Les ateliers les mieux organisés sont ceux qui tirent le plus d'une infrastructure connectée. Voyons ce qu'on peut construire sur vos bases." : "The best-organized workshops get the most out of a connected infrastructure. Let's see what we can build on your foundations.",
+    lowCta: fr ? "On en parle" : "Let's talk",
   };
 
   const [currentStep, setCurrentStep] = useState(0);
   const [answers, setAnswers] = useState<Record<number, { id: string, text: string, score: number }>>({});
   const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
 
-  const [formData, setFormData] = useState({
-    firstName: '',
-    email: '',
-    company: '',
-    sector: ''
-  });
+  const [formData, setFormData] = useState({ firstName: '', email: '', company: '', sector: '' });
 
   const handleAnswer = (questionId: number, option: { id: string, text: string, score: number }) => {
     setAnswers(prev => ({ ...prev, [questionId]: option }));
-    setTimeout(() => {
-      setCurrentStep(prev => prev + 1);
-    }, 400);
+    setTimeout(() => setCurrentStep(prev => prev + 1), 400);
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -159,7 +154,6 @@ export const Diagnostic = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setFormStatus('submitting');
-
     try {
       const payload = {
         ...formData,
@@ -174,13 +168,11 @@ export const Diagnostic = () => {
         timestamp: new Date().toISOString(),
         lang
       };
-
       await fetch('https://nolanprayagsing.app.n8n.cloud/webhook/Diagnostic', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
       });
-
       setFormStatus('success');
     } catch (error) {
       console.error('Error submitting form:', error);
@@ -192,32 +184,11 @@ export const Diagnostic = () => {
 
   const getResult = () => {
     if (totalScore >= 3) {
-      return {
-        color: 'text-accent-coral',
-        badge: T.high,
-        title: T.highTitle,
-        text: T.highText,
-        ctaText: T.highCta,
-        ctaLink: 'https://calendly.com/nolprayagsing/automation-strategy-audit'
-      };
+      return { color: 'text-accent-coral', badge: T.high, title: T.highTitle, text: T.highText, ctaText: T.highCta, ctaLink: CALENDLY };
     } else if (totalScore >= 1) {
-      return {
-        color: 'text-accent-electric',
-        badge: T.mid,
-        title: T.midTitle,
-        text: T.midText,
-        ctaText: T.midCta,
-        ctaLink: '/optialys-core'
-      };
+      return { color: 'text-accent-coral', badge: T.mid, title: T.midTitle, text: T.midText, ctaText: T.midCta, ctaLink: '/optialys-core' };
     } else {
-      return {
-        color: 'text-accent-green',
-        badge: T.low,
-        title: T.lowTitle,
-        text: T.lowText,
-        ctaText: T.lowCta,
-        ctaLink: '/contact'
-      };
+      return { color: 'text-accent-green', badge: T.low, title: T.lowTitle, text: T.lowText, ctaText: T.lowCta, ctaLink: '/contact' };
     }
   };
 
@@ -246,10 +217,10 @@ export const Diagnostic = () => {
               transition={{ duration: 0.4 }}
               className="w-full"
             >
-              <div className="text-accent-coral font-bold text-sm mb-4">
+              <div className="text-accent-coral font-bold text-sm mb-4 uppercase tracking-wider">
                 {T.questionOf(currentStep + 1, questions.length)}
               </div>
-              <h2 className="text-3xl md:text-3xl font-bold text-ink-navy mb-10 leading-tight">
+              <h2 className="text-3xl font-extrabold tracking-tight text-ink-navy mb-10 leading-tight">
                 {questions[currentStep].question}
               </h2>
 
@@ -258,12 +229,12 @@ export const Diagnostic = () => {
                   <button
                     key={option.id}
                     onClick={() => handleAnswer(questions[currentStep].id, option)}
-                    className="w-full text-left p-4 md:p-6 rounded-2xl bg-surface-white border border-border-cream hover:border-accent-coral hover:bg-accent-coral/5 transition-all duration-300 group flex items-center min-h-[48px]"
+                    className="w-full text-left p-4 md:p-6 rounded-sm bg-surface-white border border-border-cream hover:border-accent-coral hover:bg-accent-coral/5 transition-all duration-200 group flex items-center min-h-[48px]"
                   >
-                    <div className="w-8 h-8 rounded-full bg-bg-cream border border-border-cream flex items-center justify-center text-ink-navy font-bold mr-4 group-hover:bg-accent-coral group-hover:text-white group-hover:border-accent-coral transition-colors">
+                    <div className="w-8 h-8 rounded-sm bg-bg-cream border border-border-cream flex items-center justify-center text-ink-navy font-bold mr-4 group-hover:bg-accent-coral group-hover:text-white group-hover:border-accent-coral transition-colors">
                       {option.id}
                     </div>
-                    <span className="text-ink-black font-medium text-lg">{option.text}</span>
+                    <span className="text-ink-navy font-medium text-lg">{option.text}</span>
                   </button>
                 ))}
               </div>
@@ -272,7 +243,7 @@ export const Diagnostic = () => {
 
           {currentStep === questions.length && formStatus !== 'success' && (
             <motion.div
-              key="lead-capture"
+              key="capture"
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -50 }}
@@ -280,85 +251,51 @@ export const Diagnostic = () => {
               className="w-full"
             >
               <div className="text-center mb-10">
-                <h2 className="text-3xl md:text-3xl font-bold text-ink-navy mb-4">
-                  {T.formTitle}
-                </h2>
-                <p className="text-ink-gray">
-                  {T.formSub}
-                </p>
+                <h2 className="text-3xl font-extrabold tracking-tight text-ink-navy mb-4">{T.formTitle}</h2>
+                <p className="text-ink-gray">{T.formSub}</p>
               </div>
 
-              <div className="p-4 md:p-6 rounded-3xl bg-surface-white border border-border-cream">
+              <div className="p-4 md:p-8 bg-surface-white border border-border-cream">
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
                       <label htmlFor="firstName" className="text-sm font-bold text-ink-gray">{T.firstName} *</label>
-                      <input
-                        type="text"
-                        id="firstName"
-                        required
-                        value={formData.firstName}
-                        onChange={handleInputChange}
-                        className="w-full bg-bg-cream border border-border-cream rounded-xl px-4 py-3 text-ink-navy focus:outline-none focus:border-accent-coral transition-colors"
-                      />
+                      <input type="text" id="firstName" required value={formData.firstName} onChange={handleInputChange}
+                        className="w-full bg-bg-cream border border-border-cream rounded-sm px-4 py-3 text-ink-navy focus:outline-none focus:border-accent-coral transition-colors" />
                     </div>
                     <div className="space-y-2">
                       <label htmlFor="email" className="text-sm font-bold text-ink-gray">{T.profEmail} *</label>
-                      <input
-                        type="email"
-                        id="email"
-                        required
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        className="w-full bg-bg-cream border border-border-cream rounded-xl px-4 py-3 text-ink-navy focus:outline-none focus:border-accent-coral transition-colors"
-                      />
+                      <input type="email" id="email" required value={formData.email} onChange={handleInputChange}
+                        className="w-full bg-bg-cream border border-border-cream rounded-sm px-4 py-3 text-ink-navy focus:outline-none focus:border-accent-coral transition-colors" />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
                       <label htmlFor="company" className="text-sm font-bold text-ink-gray">{T.company} *</label>
-                      <input
-                        type="text"
-                        id="company"
-                        required
-                        value={formData.company}
-                        onChange={handleInputChange}
-                        className="w-full bg-bg-cream border border-border-cream rounded-xl px-4 py-3 text-ink-navy focus:outline-none focus:border-accent-coral transition-colors"
-                      />
+                      <input type="text" id="company" required value={formData.company} onChange={handleInputChange}
+                        className="w-full bg-bg-cream border border-border-cream rounded-sm px-4 py-3 text-ink-navy focus:outline-none focus:border-accent-coral transition-colors" />
                     </div>
                     <div className="space-y-2">
                       <label htmlFor="sector" className="text-sm font-bold text-ink-gray">{T.sector} *</label>
-                      <select
-                        id="sector"
-                        required
-                        value={formData.sector}
-                        onChange={handleInputChange}
-                        className="w-full bg-bg-cream border border-border-cream rounded-xl px-4 py-3 text-ink-navy focus:outline-none focus:border-accent-coral transition-colors appearance-none"
-                      >
+                      <select id="sector" required value={formData.sector} onChange={handleInputChange}
+                        className="w-full bg-bg-cream border border-border-cream rounded-sm px-4 py-3 text-ink-navy focus:outline-none focus:border-accent-coral transition-colors appearance-none">
                         <option value="">{T.selectSector}</option>
-                        <option value="Real Estate">{T.secRe}</option>
-                        <option value="Fiduciary">{T.secFid}</option>
-                        <option value="Consulting">{T.secCons}</option>
-                        <option value="HR">{T.secHr}</option>
-                        <option value="Other">{T.secOther}</option>
+                        <option value="yacht">{T.secRe}</option>
+                        <option value="classic-cars">{T.secFid}</option>
+                        <option value="concierge">{T.secCons}</option>
+                        <option value="workshop">{T.secHr}</option>
+                        <option value="other">{T.secOther}</option>
                       </select>
                     </div>
                   </div>
 
-                  <GlowButton
-                    type="submit"
-                    variant="primary"
-                    className="w-full justify-center"
-                    disabled={formStatus === 'submitting'}
-                  >
+                  <GlowButton type="submit" variant="primary" className="w-full" disabled={formStatus === 'submitting'}>
                     {formStatus === 'submitting' ? T.analyzing : T.getDiag}
                     {formStatus === 'idle' && <ArrowRight className="w-4 h-4 ml-2" />}
                   </GlowButton>
 
-                  <p className="text-center text-xs text-ink-gray mt-4 whitespace-pre-line">
-                    {T.privacy}
-                  </p>
+                  <p className="text-center text-xs text-ink-gray mt-4">{T.privacy}</p>
                 </form>
               </div>
             </motion.div>
@@ -372,11 +309,11 @@ export const Diagnostic = () => {
               transition={{ duration: 0.5 }}
               className="w-full text-center"
             >
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface-white border border-border-cream font-bold text-sm mb-8">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-sm bg-surface-white border border-border-cream font-bold text-sm mb-8 uppercase tracking-wider">
                 <span className={getResult().color}>{getResult().badge}</span>
               </div>
 
-              <h2 className="text-3xl md:text-3xl font-extrabold text-ink-navy mb-6 leading-tight">
+              <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-ink-navy mb-6 leading-tight">
                 {getResult().title}
               </h2>
 
@@ -385,7 +322,7 @@ export const Diagnostic = () => {
               </p>
 
               <a href={getResult().ctaLink} target={getResult().ctaLink.startsWith('http') ? "_blank" : "_self"} rel="noopener noreferrer">
-                <GlowButton variant="primary" className="text-lg px-8 py-4">
+                <GlowButton variant="primary" className="text-base px-8 py-4">
                   {getResult().ctaText} <ArrowRight className="w-5 h-5 ml-2" />
                 </GlowButton>
               </a>

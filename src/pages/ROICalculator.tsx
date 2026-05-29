@@ -13,8 +13,8 @@ export const ROICalculator = () => {
       ? 'Calculateur ROI Automatisation — Combien vous coûte l\'inaction ? | Optialys'
       : 'Automation ROI Calculator — What Does Inaction Cost You? | Optialys',
     description: fr
-      ? 'Calculez en 2 minutes le ROI exact d\'une automatisation IA pour votre agence immobilière : temps récupéré, mandats supplémentaires et retour sur investissement estimé.'
-      : 'Calculate in 2 minutes the exact ROI of AI automation for your real estate agency: time recovered, additional mandates and estimated return on investment.',
+      ? 'Calculez en 2 minutes ce que la saisie manuelle et les outils déconnectés coûtent à votre atelier chaque année : temps perdu, euros, et retour sur investissement estimé.'
+      : 'Calculate in 2 minutes what manual entry and disconnected tools cost your workshop each year: time lost, euros, and estimated return on investment.',
     canonical: 'https://optialys.com/roi-calculator',
   });
 
@@ -66,7 +66,7 @@ export const ROICalculator = () => {
     hrs: fr ? "Combien d'heures par semaine chacun y consacre ?" : "How many hours per week does each spend on these tasks?",
     rate: fr ? "Quel est le coût horaire moyen de vos collaborateurs ? (salaire + charges)" : "What is the average hourly cost of your employees? (salary + taxes)",
     auto: fr ? "Quelle part de ces tâches pourrait être automatisée ?" : "What portion of these tasks could be automated?",
-    autoNote: fr ? "En moyenne, Optialys automatise 50 à 70% des tâches répétitives identifiées pendant le diagnostic." : "On average, Optialys automates 50 to 70% of repetitive tasks identified during the diagnostic.",
+    autoNote: fr ? "En moyenne, en connectant vos outils, Optialys élimine 50 à 70% de la saisie et de la ressaisie identifiées pendant le diagnostic." : "On average, by connecting your tools, Optialys removes 50 to 70% of the entry and re-entry identified during the diagnostic.",
     cost: fr ? "Ce que ces tâches vous coûtent chaque année" : "What these tasks cost you every year",
     year: fr ? "/ an" : "/ year",
     recover: fr ? "Ce que vous pourriez récupérer avec l'IA" : "What you could recover with AI",
@@ -80,21 +80,21 @@ export const ROICalculator = () => {
     firstName: fr ? "Prénom" : "First Name",
     profEmail: fr ? "Email professionnel" : "Professional Email",
     company: fr ? "Entreprise" : "Company",
-    sector: fr ? "Secteur" : "Sector",
-    selectSector: fr ? "Choisir un secteur" : "Select a sector",
-    secRe: fr ? "Immobilier" : "Real Estate",
-    secFid: fr ? "Fiduciaire" : "Fiduciary",
-    secCons: fr ? "Conseil" : "Consulting",
-    secHr: fr ? "RH" : "HR",
+    sector: fr ? "Activité" : "Activity",
+    selectSector: fr ? "Choisir votre activité" : "Select your activity",
+    secRe: fr ? "Rénovation de yachts" : "Yacht refit",
+    secFid: fr ? "Voitures de collection" : "Classic cars",
+    secCons: fr ? "Conciergerie / services" : "Concierge / services",
+    secHr: fr ? "Atelier sur mesure" : "Bespoke workshop",
     secOther: fr ? "Autre" : "Other",
     sending: fr ? "Envoi…" : "Sending...",
     submitReport: fr ? "Recevoir mon rapport ROI gratuit" : "Receive my free ROI report",
     noSpam: fr ? "🔒 Pas de spam. Votre rapport arrive sous 24h." : "🔒 No spam. Your report arrives within 24h.",
     successTitle: fr ? "✅ Votre rapport ROI est en route." : "✅ Your ROI report is on the way.",
     successSub: fr ? "Vous le recevrez dans les 24h par email." : "You will receive it in the next 24h by email.",
-    meantimeTitle: fr ? "En attendant — réservez votre diagnostic gratuit" : "In the meantime — book your free diagnostic",
-    meantimeSub: fr ? "pour transformer cette simulation en plan d'action réel." : "to transform this simulation into a real action plan.",
-    bookSlot: fr ? "Réserver mon créneau" : "Book my slot",
+    meantimeTitle: fr ? "En attendant — réservez votre Diagnostic Rentabilité" : "In the meantime — book your Profitability Diagnostic",
+    meantimeSub: fr ? "pour transformer cette simulation en plan d'action chiffré." : "to turn this simulation into a quantified action plan.",
+    bookSlot: fr ? "Réserver — 500 €" : "Book — €500",
   };
 
   return (
@@ -179,7 +179,7 @@ export const ROICalculator = () => {
 
           <div className="flex-1 lg:sticky lg:top-24 h-fit">
             <FadeIn direction="right">
-              <div className="p-8 rounded-3xl bg-ink-navy border-2 border-accent-coral/30 shadow-[0_0_40px_rgba(232,93,60,0.1)] flex flex-col h-full">
+              <div className="p-8 rounded-sm bg-ink-navy border border-accent-coral flex flex-col h-full">
                 <div className="space-y-8 flex-1">
                   <div>
                     <p className="text-white/60 font-bold text-sm uppercase tracking-wider mb-2">{T.cost}</p>
@@ -290,11 +290,11 @@ export const ROICalculator = () => {
                       <select id="sector" required
                         className="w-full bg-bg-cream border border-border-cream rounded-xl px-4 py-3 text-ink-navy focus:outline-none focus:border-accent-coral transition-colors appearance-none">
                         <option value="">{T.selectSector}</option>
-                        <option value="Real Estate">{T.secRe}</option>
-                        <option value="Fiduciary">{T.secFid}</option>
-                        <option value="Consulting">{T.secCons}</option>
-                        <option value="HR">{T.secHr}</option>
-                        <option value="Other">{T.secOther}</option>
+                        <option value="yacht">{T.secRe}</option>
+                        <option value="classic-cars">{T.secFid}</option>
+                        <option value="concierge">{T.secCons}</option>
+                        <option value="workshop">{T.secHr}</option>
+                        <option value="other">{T.secOther}</option>
                       </select>
                     </div>
                   </div>

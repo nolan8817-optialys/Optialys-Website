@@ -252,17 +252,17 @@ const Footer = () => {
               {t('footer.tagline')}
             </p>
             <div className="text-sm text-ink-gray space-y-2">
-              <p>🇫🇷 Nice, France</p>
-              <a href="mailto:nolan@optialys.com" className="text-accent-electric hover:underline block mt-4 mb-6">
-                nolan@optialys.com
+              <p>🇫🇷 France</p>
+              <a href="mailto:nolprayagsing@gmail.com" className="text-accent-coral hover:underline block mt-4 mb-6">
+                nolprayagsing@gmail.com
               </a>
               <div className="pt-4">
                 <a
                   href="https://www.linkedin.com/in/nolan-prayagsing-a70815278/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-accent-coral/10 text-accent-coral border border-accent-coral/20 hover:bg-accent-coral hover:text-white transition-colors duration-300"
-                  aria-label="Optialys on LinkedIn"
+                  className="inline-flex items-center justify-center w-10 h-10 rounded-sm bg-accent-coral/10 text-accent-coral border border-accent-coral/20 hover:bg-accent-coral hover:text-white transition-colors duration-300"
+                  aria-label="Optialys sur LinkedIn"
                 >
                   <Linkedin className="w-4 h-4" />
                 </a>

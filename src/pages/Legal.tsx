@@ -84,7 +84,7 @@ export const Legal = () => {
                 <p>{T.s1p1}</p>
                 <p className="font-bold text-ink-navy mt-4">Optialys</p>
                 <p>{T.s1p2}</p>
-                <p>{T.s1email} <a href="mailto:nolan@optialys.com" className="text-accent-electric hover:underline">nolan@optialys.com</a></p>
+                <p>{T.s1email} <a href="mailto:nolprayagsing@gmail.com" className="text-accent-electric hover:underline">nolprayagsing@gmail.com</a></p>
               </div>
             </div>
 
@@ -113,7 +113,7 @@ export const Legal = () => {
                 <p>{T.s4p1}</p>
                 <p>{T.s4p2}</p>
                 <p>
-                  {T.s4p3a} <a href="mailto:nolan@optialys.com" className="text-accent-electric hover:underline">nolan@optialys.com</a>.
+                  {T.s4p3a} <a href="mailto:nolprayagsing@gmail.com" className="text-accent-electric hover:underline">nolprayagsing@gmail.com</a>.
                 </p>
               </div>
             </div>
