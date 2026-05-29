@@ -192,11 +192,11 @@ export const BlogPost = () => {
             </span>
           </div>
 
-          <h1 className="text-3xl md:text-4xl font-extrabold text-ink-navy leading-tight mb-6">
+          <h1 className="text-xl md:text-2xl font-extrabold text-ink-navy leading-tight mb-6">
             {fr ? article.title.fr : article.title.en}
           </h1>
 
-          <p className="text-xl text-ink-gray leading-relaxed border-l-4 border-accent-coral pl-5">
+          <p className="text-base text-ink-gray leading-relaxed border-l-4 border-accent-coral pl-5">
             {fr ? article.excerpt.fr : article.excerpt.en}
           </p>
         </motion.div>
@@ -263,7 +263,7 @@ export const BlogPost = () => {
             rel="noopener noreferrer"
           >
             <GlowButton variant="primary">
-              {fr ? 'Réserver le Diagnostic — 500 €' : 'Book the Diagnostic — €500'}
+              {fr ? 'Réserver un Diagnostic' : 'Book a Diagnostic'}
               <ArrowRight className="w-4 h-4 ml-2" />
             </GlowButton>
           </a>

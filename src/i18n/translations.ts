@@ -32,7 +32,7 @@ const en: Dict = {
   "home.hero.title.line1": "Your projects are costing you money.",
   "home.hero.title.line2": "You'll find out too late.",
   "home.hero.body": "Your tools don't talk to each other. Budget overruns are spotted too late. Optialys connects everything and gives you the visibility to act before it's too late.",
-  "home.hero.cta.primary": "Book a Diagnostic — €500",
+  "home.hero.cta.primary": "Book a Diagnostic",
   "home.hero.cta.secondary": "See how it works",
 
   // Home — Problem
@@ -55,15 +55,12 @@ const en: Dict = {
   "home.offer.title": "Three steps. One system that holds.",
   "home.offer.1.step": "Step 1",
   "home.offer.1.name": "Profitability Diagnostic",
-  "home.offer.1.price": "€500",
-  "home.offer.1.desc": "2 hours. We audit your tools and your flows. We identify 3 to 5 concrete, quantified financial leaks. You leave with an action plan. If you start the setup within 30 days, the €500 is deducted.",
+  "home.offer.1.desc": "2 hours. We audit your tools and your flows. We identify 3 to 5 concrete, quantified financial leaks. You leave with an action plan.",
   "home.offer.2.step": "Step 2",
   "home.offer.2.name": "Custom infrastructure",
-  "home.offer.2.price": "€6,000 to €15,000",
   "home.offer.2.desc": "4 to 6 weeks. We connect your existing tools into one central system. Real-time dashboard, automatic budget alerts, weekly reports. Team training included.",
   "home.offer.3.step": "Step 3",
   "home.offer.3.name": "Monthly partnership",
-  "home.offer.3.price": "€1,500 to €2,500 / month",
   "home.offer.3.desc": "Maintenance and evolution of the system. Monthly analysis of your data. One new automation per month. Growth advice based on your indicators. Priority support within 24h.",
 
   // Home — For whom
@@ -74,7 +71,7 @@ const en: Dict = {
   // Home — Final CTA
   "home.final.title": "You lose money every week.",
   "home.final.body": "Not because you work badly. Because no one has ever connected your tools together.",
-  "home.final.cta": "Book your Diagnostic — €500",
+  "home.final.cta": "Book your Diagnostic",
 
   // Services page
   "services.hero.eyebrow": "Our approach",
@@ -94,9 +91,9 @@ const en: Dict = {
   "services.partner.inc.2": "One new automation every month",
   "services.partner.inc.3": "Priority support within 24h",
   "services.partner.cta": "Discover the partnership",
-  "services.custom.badge": "Step 1 · €500",
+  "services.custom.badge": "Step 1",
   "services.custom.title": "Profitability Diagnostic",
-  "services.custom.desc": "2 hours. We audit your tools and flows, identify 3 to 5 concrete financial leaks, and hand you an action plan. Deducted from the setup if you start within 30 days.",
+  "services.custom.desc": "2 hours. We audit your tools and flows, identify 3 to 5 concrete financial leaks, and hand you an action plan.",
   "services.custom.cta": "Book the diagnostic",
   "services.custom.label": "FIRST STEP",
   "services.stack.title": "The tools we connect",
@@ -157,7 +154,7 @@ const fr: Dict = {
   "home.hero.title.line1": "Tes chantiers te coûtent de l'argent.",
   "home.hero.title.line2": "Tu l'apprendras trop tard.",
   "home.hero.body": "Vos outils ne se parlent pas. Les dépassements de budget se détectent trop tard. Optialys connecte tout et vous donne la visibilité pour agir avant.",
-  "home.hero.cta.primary": "Réserver un Diagnostic — 500 €",
+  "home.hero.cta.primary": "Réserver un Diagnostic",
   "home.hero.cta.secondary": "Voir comment ça marche",
 
   // Home — Problème
@@ -180,15 +177,12 @@ const fr: Dict = {
   "home.offer.title": "Trois étapes. Un système qui tient.",
   "home.offer.1.step": "Étape 1",
   "home.offer.1.name": "Diagnostic Rentabilité",
-  "home.offer.1.price": "500 €",
-  "home.offer.1.desc": "2 heures. On audite vos outils et vos flux. On identifie 3 à 5 pertes financières concrètes et chiffrées. Vous repartez avec un plan d'action. Si vous démarrez le setup dans les 30 jours, les 500 € sont déduits.",
+  "home.offer.1.desc": "2 heures. On audite vos outils et vos flux. On identifie 3 à 5 pertes financières concrètes et chiffrées. Vous repartez avec un plan d'action.",
   "home.offer.2.step": "Étape 2",
   "home.offer.2.name": "Infrastructure sur mesure",
-  "home.offer.2.price": "6 000 € à 15 000 €",
   "home.offer.2.desc": "4 à 6 semaines. On connecte vos outils existants dans un système central. Tableau de bord temps réel, alertes budget automatiques, rapports hebdomadaires. Formation de l'équipe incluse.",
   "home.offer.3.step": "Étape 3",
   "home.offer.3.name": "Partenariat mensuel",
-  "home.offer.3.price": "1 500 € à 2 500 € / mois",
   "home.offer.3.desc": "Maintenance et évolution du système. Analyse mensuelle de vos données. 1 automatisation nouvelle par mois. Conseil croissance basé sur vos indicateurs. Support prioritaire sous 24h.",
 
   // Home — Pour qui
@@ -199,7 +193,7 @@ const fr: Dict = {
   // Home — CTA final
   "home.final.title": "Vous perdez de l'argent chaque semaine.",
   "home.final.body": "Pas parce que vous travaillez mal. Parce que personne n'a jamais connecté vos outils ensemble.",
-  "home.final.cta": "Réserver votre Diagnostic — 500 €",
+  "home.final.cta": "Réserver votre Diagnostic",
 
   // Services page
   "services.hero.eyebrow": "Notre méthode",
@@ -219,9 +213,9 @@ const fr: Dict = {
   "services.partner.inc.2": "1 automatisation nouvelle chaque mois",
   "services.partner.inc.3": "Support prioritaire sous 24h",
   "services.partner.cta": "Découvrir le partenariat",
-  "services.custom.badge": "Étape 1 · 500 €",
+  "services.custom.badge": "Étape 1",
   "services.custom.title": "Diagnostic Rentabilité",
-  "services.custom.desc": "2 heures. On audite vos outils et vos flux, on identifie 3 à 5 pertes financières concrètes, et on vous remet un plan d'action. Déduit du setup si vous démarrez dans les 30 jours.",
+  "services.custom.desc": "2 heures. On audite vos outils et vos flux, on identifie 3 à 5 pertes financières concrètes, et on vous remet un plan d'action.",
   "services.custom.cta": "Réserver le diagnostic",
   "services.custom.label": "PREMIÈRE ÉTAPE",
   "services.stack.title": "Les outils qu'on connecte",

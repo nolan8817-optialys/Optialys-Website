@@ -27,7 +27,7 @@ export const CalendlyEmbed: React.FC<CalendlyEmbedProps> = ({
     <div className="w-full bg-ink-navy border border-accent-coral/30 overflow-hidden flex flex-col">
       <div className="p-8 text-center border-b border-white/10">
         <h3 className="text-2xl font-bold text-white mb-2">{fr ? 'Choisissez votre créneau' : 'Choose your slot'}</h3>
-        <p className="text-accent-coral font-medium mb-6">{fr ? '30 minutes · Diagnostic Rentabilité — 500 €' : '30 minutes · Profitability Diagnostic — €500'}</p>
+        <p className="text-accent-coral font-medium mb-6">{fr ? '30 minutes · Diagnostic Rentabilité' : '30 minutes · Profitability Diagnostic'}</p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-sm text-white/60">
           <div className="flex items-center gap-2">

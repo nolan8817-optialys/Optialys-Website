@@ -37,10 +37,10 @@ export const Contact = () => {
           transition={{ duration: 0.6 }}
         >
           <PillBadge className="mb-6">{t('contact.title')}</PillBadge>
-          <h1 className="text-4xl md:text-4xl font-extrabold tracking-tight text-ink-navy mb-6">
+          <h1 className="text-xl md:text-2xl font-extrabold tracking-tight text-ink-navy mb-6">
             {t('contact.title')}
           </h1>
-          <p className="text-xl text-ink-gray leading-relaxed max-w-2xl mx-auto">
+          <p className="text-base text-ink-gray leading-relaxed max-w-2xl mx-auto">
             {t('contact.subtitle')}
           </p>
         </motion.div>
@@ -53,7 +53,7 @@ export const Contact = () => {
           <div className="flex-1">
             <FadeIn direction="left" className="h-full">
               <div className="p-8 md:p-10 rounded-3xl bg-surface-white border border-border-cream h-full flex flex-col">
-                <h2 className="text-3xl font-bold text-ink-navy mb-2">{t('contact.form.heading')}</h2>
+                <h2 className="text-xl font-bold text-ink-navy mb-2">{t('contact.form.heading')}</h2>
                 <p className="text-ink-gray mb-8">{t('contact.form.tagline')}</p>
 
                 {formStatus === 'success' ? (
@@ -167,7 +167,7 @@ export const Contact = () => {
           <div className="flex-1">
             <FadeIn direction="right" className="h-full">
               <div className="h-full flex flex-col">
-                <h2 className="text-3xl font-bold text-ink-navy mb-2">{t('contact.calendly.heading')}</h2>
+                <h2 className="text-xl font-bold text-ink-navy mb-2">{t('contact.calendly.heading')}</h2>
                 <p className="text-ink-gray mb-8">{t('contact.calendly.tagline')}</p>
                 <div className="flex-1">
                   <CalendlyEmbed />

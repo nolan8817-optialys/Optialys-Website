@@ -68,10 +68,10 @@ export const Services = () => {
           transition={{ duration: 0.6 }}
         >
           <PillBadge className="mb-6">{t('services.hero.eyebrow')}</PillBadge>
-          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-ink-navy mb-6">
+          <h1 className="text-2xl md:text-xl font-extrabold tracking-tight text-ink-navy mb-6">
             {t('services.page.title')}
           </h1>
-          <p className="text-xl text-ink-gray leading-relaxed max-w-2xl">
+          <p className="text-base text-ink-gray leading-relaxed max-w-2xl">
             {t('services.page.subtitle')}
           </p>
         </motion.div>
@@ -125,7 +125,7 @@ export const Services = () => {
       <section className="mt-32 py-24 bg-surface-white border-y border-border-cream">
         <div className="max-w-5xl mx-auto px-6 text-center">
           <FadeIn>
-            <h2 className="text-3xl font-extrabold tracking-tight text-ink-navy mb-4">{t('services.stack.title')}</h2>
+            <h2 className="text-xl font-extrabold tracking-tight text-ink-navy mb-4">{t('services.stack.title')}</h2>
             <p className="text-ink-gray mb-12">{t('services.stack.subtitle')}</p>
 
             <div className="flex flex-wrap justify-center gap-3">
@@ -141,7 +141,7 @@ export const Services = () => {
 
       <section className="py-24 px-6 text-center">
         <FadeIn>
-          <h2 className="text-3xl font-extrabold tracking-tight text-ink-navy mb-8">{t('services.cta.book')}</h2>
+          <h2 className="text-xl font-extrabold tracking-tight text-ink-navy mb-8">{t('services.cta.book')}</h2>
           <a href={CALENDLY} target="_blank" rel="noopener noreferrer">
             <GlowButton variant="primary" className="text-base px-8 py-4">
               {t('home.hero.cta.primary')} <ArrowRight className="w-5 h-5" />

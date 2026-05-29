@@ -65,7 +65,7 @@ export const CaseStudies = () => {
     before: fr ? "Avant" : "Before",
     after: fr ? "Après" : "After",
     ctaTitle: fr ? "Votre atelier est dans la liste ?" : "Is your workshop on the list?",
-    ctaBtn: fr ? "Réserver un Diagnostic — 500 €" : "Book a Diagnostic — €500",
+    ctaBtn: fr ? "Réserver un Diagnostic" : "Book a Diagnostic",
   };
 
   return (
@@ -77,14 +77,14 @@ export const CaseStudies = () => {
           transition={{ duration: 0.6 }}
         >
           <PillBadge className="mb-6">{T.eyebrow}</PillBadge>
-          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-ink-navy mb-6">{T.title}</h1>
-          <p className="text-xl text-ink-gray leading-relaxed max-w-2xl">{T.subtitle}</p>
+          <h1 className="text-lg md:text-xl font-extrabold tracking-tight text-ink-navy mb-6">{T.title}</h1>
+          <p className="text-base text-ink-gray leading-relaxed max-w-2xl">{T.subtitle}</p>
         </motion.div>
       </section>
 
       {/* Segments */}
       <section className="px-6 max-w-6xl mx-auto mb-28">
-        <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight text-ink-navy mb-12">{T.segmentsTitle}</h2>
+        <h2 className="text-lg md:text-xl font-extrabold tracking-tight text-ink-navy mb-12">{T.segmentsTitle}</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-t border-l border-border-cream">
           {segments.map((seg, i) => (
             <FadeIn key={i} delay={i * 0.06}>
@@ -109,7 +109,7 @@ export const CaseStudies = () => {
 
       {/* Profile */}
       <section className="px-6 max-w-5xl mx-auto mb-28">
-        <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight text-ink-navy mb-12">{T.profileTitle}</h2>
+        <h2 className="text-lg md:text-xl font-extrabold tracking-tight text-ink-navy mb-12">{T.profileTitle}</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {profile.map((p, i) => (
             <FadeIn key={i} delay={i * 0.08}>
@@ -125,7 +125,7 @@ export const CaseStudies = () => {
       {/* Transformation */}
       <section className="py-24 px-6 bg-surface-white border-y border-border-cream">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight text-ink-navy mb-12">{T.transfoTitle}</h2>
+          <h2 className="text-lg md:text-xl font-extrabold tracking-tight text-ink-navy mb-12">{T.transfoTitle}</h2>
           <div className="space-y-4">
             {transformation.map((row, i) => (
               <FadeIn key={i} delay={i * 0.06}>
@@ -151,7 +151,7 @@ export const CaseStudies = () => {
 
       <section className="py-24 px-6 text-center">
         <FadeIn>
-          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-ink-navy mb-8">{T.ctaTitle}</h2>
+          <h2 className="text-xl md:text-2xl font-extrabold tracking-tight text-ink-navy mb-8">{T.ctaTitle}</h2>
           <a href={CALENDLY} target="_blank" rel="noopener noreferrer">
             <GlowButton variant="primary" className="text-base px-8 py-4">
               {T.ctaBtn} <ArrowRight className="w-5 h-5" />

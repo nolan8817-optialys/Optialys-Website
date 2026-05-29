@@ -82,8 +82,7 @@ export const OptialysPartner = () => {
     heroTitle1: fr ? "Votre système ne s'arrête pas" : "Your system doesn't stop",
     heroTitle2: fr ? "à la livraison." : "at delivery.",
     heroSub: fr ? "Chaque mois : analyse de vos données, une automatisation nouvelle, conseil croissance basé sur vos indicateurs, support prioritaire sous 24h. Votre infrastructure devient un avantage qui se renforce, pas un outil qui vieillit." : "Every month: analysis of your data, one new automation, growth advice based on your indicators, priority support within 24h. Your infrastructure becomes an advantage that compounds, not a tool that ages.",
-    heroCta: fr ? "Réserver un Diagnostic — 500 €" : "Book a Diagnostic — €500",
-    price: fr ? "1 500 € à 2 500 € / mois · Sans engagement long terme" : "€1,500 to €2,500 / month · No long-term commitment",
+    heroCta: fr ? "Réserver un Diagnostic" : "Book a Diagnostic",
     monthlyTitle: fr ? "Ce que vous recevez chaque mois" : "What you get every month",
     monthlySub: fr ? "Un partenariat actif — pas de la maintenance passive." : "An active partnership — not passive maintenance.",
     compareTitle: fr ? "Sans le partenariat vs avec" : "Without the partnership vs with",
@@ -100,25 +99,24 @@ export const OptialysPartner = () => {
       {/* Hero */}
       <section className="px-6 max-w-4xl mx-auto mb-28">
         <PillBadge className="mb-8">{T.eyebrow}</PillBadge>
-        <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-ink-navy mb-8 leading-[1.05]">
+        <h1 className="text-2xl md:text-3xl font-extrabold tracking-tight text-ink-navy mb-6 leading-[1.1]">
           {T.heroTitle1}<br />
           <span className="text-accent-coral">{T.heroTitle2}</span>
         </h1>
-        <p className="text-xl text-ink-gray leading-relaxed max-w-2xl mb-10">{T.heroSub}</p>
+        <p className="text-base text-ink-gray leading-relaxed max-w-2xl mb-10">{T.heroSub}</p>
         <a href={CALENDLY} target="_blank" rel="noopener noreferrer">
           <GlowButton variant="primary" className="text-base px-7 py-4">
             {T.heroCta} <ArrowRight className="w-5 h-5" />
           </GlowButton>
         </a>
-        <p className="mt-5 text-sm font-medium text-ink-gray">{T.price}</p>
       </section>
 
       {/* Monthly features */}
       <section className="py-24 px-6 bg-surface-white border-y border-border-cream">
         <div className="max-w-6xl mx-auto">
           <div className="mb-16">
-            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-ink-navy mb-4">{T.monthlyTitle}</h2>
-            <p className="text-xl text-ink-gray">{T.monthlySub}</p>
+            <h2 className="text-xl md:text-2xl font-extrabold tracking-tight text-ink-navy mb-4">{T.monthlyTitle}</h2>
+            <p className="text-base text-ink-gray">{T.monthlySub}</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 border-t border-l border-border-cream">
             {monthlyFeatures.map((feature, i) => (
@@ -139,7 +137,7 @@ export const OptialysPartner = () => {
       {/* Comparison */}
       <section className="py-24 px-6">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-ink-navy mb-16">{T.compareTitle}</h2>
+          <h2 className="text-xl md:text-2xl font-extrabold tracking-tight text-ink-navy mb-16">{T.compareTitle}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <FadeIn>
               <div className="p-8 bg-surface-white border border-border-cream h-full">
@@ -174,7 +172,7 @@ export const OptialysPartner = () => {
       {/* For you */}
       <section className="py-24 px-6 bg-surface-white border-y border-border-cream">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-ink-navy mb-12">{T.forYouTitle}</h2>
+          <h2 className="text-xl md:text-2xl font-extrabold tracking-tight text-ink-navy mb-12">{T.forYouTitle}</h2>
           <div className="space-y-4">
             {forYou.map((item, i) => (
               <FadeIn key={i} delay={i * 0.05}>
@@ -194,7 +192,7 @@ export const OptialysPartner = () => {
           <div className="text-center mb-14">
             <AsteriskDecor size={20} className="mx-auto mb-6" />
             <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-ink-navy mb-6">{T.finalTitle}</h2>
-            <p className="text-xl text-ink-gray leading-relaxed max-w-2xl mx-auto">
+            <p className="text-base text-ink-gray leading-relaxed max-w-2xl mx-auto">
               {T.finalP1}<br /><br />
               <span className="text-ink-navy font-medium">{T.finalP2}</span>
             </p>

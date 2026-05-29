@@ -139,8 +139,7 @@ export const OptialysCore = () => {
     heroTitle1: fr ? "Vos outils, connectés." : "Your tools, connected.",
     heroTitle2: fr ? "Votre marge, en temps réel." : "Your margin, in real time.",
     heroSub: fr ? "En 4 à 6 semaines, on connecte vos outils existants dans un système central. Tableau de bord temps réel, alertes budget automatiques, rapports hebdomadaires. On ne remplace rien — on fait enfin parler ce que vous avez déjà." : "In 4 to 6 weeks, we connect your existing tools into one central system. Real-time dashboard, automatic budget alerts, weekly reports. We replace nothing — we finally make what you already have talk to each other.",
-    price: fr ? "6 000 € à 15 000 € · Formation de l'équipe incluse" : "€6,000 to €15,000 · Team training included",
-    ctaDiag: fr ? "Réserver un Diagnostic — 500 €" : "Book a Diagnostic — €500",
+    ctaDiag: fr ? "Réserver un Diagnostic" : "Book a Diagnostic",
     problemsTitle: fr ? "Ce que vivent les ateliers aujourd'hui" : "What workshops live through today",
     stepsTitle: fr ? "Comment on s'y prend" : "How we do it",
     stepsSub: fr ? "Trois temps. Quatre à six semaines. Zéro gestion technique de votre côté." : "Three phases. Four to six weeks. Zero technical management on your side.",
@@ -168,11 +167,11 @@ export const OptialysCore = () => {
       {/* Hero */}
       <section className="px-6 max-w-4xl mx-auto mb-28">
         <PillBadge className="mb-8">{T.eyebrow}</PillBadge>
-        <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-ink-navy mb-8 leading-[1.05]">
+        <h1 className="text-lg md:text-xl font-extrabold tracking-tight text-ink-navy mb-6 leading-[1.1]">
           {T.heroTitle1}<br />
           <span className="text-accent-coral">{T.heroTitle2}</span>
         </h1>
-        <p className="text-xl text-ink-gray leading-relaxed max-w-2xl mb-10">
+        <p className="text-base text-ink-gray leading-relaxed max-w-2xl mb-8">
           {T.heroSub}
         </p>
         <div className="flex flex-col sm:flex-row items-start gap-4">
@@ -182,13 +181,12 @@ export const OptialysCore = () => {
             </GlowButton>
           </a>
         </div>
-        <p className="mt-5 text-sm font-medium text-ink-gray">{T.price}</p>
       </section>
 
       {/* Problem */}
       <section className="py-24 px-6 bg-surface-white border-y border-border-cream">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-ink-navy mb-16 max-w-2xl">
+          <h2 className="text-xl md:text-2xl font-extrabold tracking-tight text-ink-navy mb-16 max-w-2xl">
             {T.problemsTitle}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 border-t border-l border-border-cream">
@@ -211,8 +209,8 @@ export const OptialysCore = () => {
       <section className="py-24 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="mb-16">
-            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-ink-navy mb-4">{T.stepsTitle}</h2>
-            <p className="text-xl text-ink-gray">{T.stepsSub}</p>
+            <h2 className="text-xl md:text-2xl font-extrabold tracking-tight text-ink-navy mb-4">{T.stepsTitle}</h2>
+            <p className="text-base text-ink-gray">{T.stepsSub}</p>
           </div>
 
           <div className="space-y-6">
@@ -252,7 +250,7 @@ export const OptialysCore = () => {
             <div className="p-10 md:p-14 border border-accent-coral bg-bg-cream">
               <div className="flex items-center gap-4 mb-8">
                 <Shield className="w-9 h-9 text-accent-coral" />
-                <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight text-ink-navy">{T.guaranteeTitle}</h2>
+                <h2 className="text-lg md:text-xl font-extrabold tracking-tight text-ink-navy">{T.guaranteeTitle}</h2>
               </div>
               <div className="space-y-5 text-lg text-ink-navy leading-relaxed mb-10">
                 <p className="font-medium">{T.guaranteeP1}</p>
@@ -274,8 +272,8 @@ export const OptialysCore = () => {
       <section className="py-24 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="mb-16">
-            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-ink-navy mb-4">{T.examplesTitle}</h2>
-            <p className="text-xl text-ink-gray">{T.examplesSub}</p>
+            <h2 className="text-xl md:text-2xl font-extrabold tracking-tight text-ink-navy mb-4">{T.examplesTitle}</h2>
+            <p className="text-base text-ink-gray">{T.examplesSub}</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -312,7 +310,7 @@ export const OptialysCore = () => {
           <FadeIn>
             <AsteriskDecor size={20} className="mx-auto mb-6" />
             <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-white mb-6">{T.afterTitle}</h2>
-            <p className="text-xl text-white/70 leading-relaxed mb-10 max-w-2xl mx-auto">{T.afterSub}</p>
+            <p className="text-base text-white/70 leading-relaxed mb-8 max-w-2xl mx-auto">{T.afterSub}</p>
             <Link to="/optialys-partner">
               <GlowButton variant="primary" className="text-base px-7 py-4">
                 {T.discoverPartner} <ArrowRight className="w-5 h-5" />
@@ -327,7 +325,7 @@ export const OptialysCore = () => {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-14">
             <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-ink-navy mb-6">{T.finalTitle}</h2>
-            <p className="text-xl text-ink-gray leading-relaxed max-w-2xl mx-auto">{T.finalSub}</p>
+            <p className="text-base text-ink-gray leading-relaxed max-w-2xl mx-auto">{T.finalSub}</p>
           </div>
           <FadeIn>
             <CalendlyEmbed />

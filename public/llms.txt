@@ -15,9 +15,9 @@ Dans les ateliers haut de gamme, les outils ne se parlent pas (CRM, logiciel de 
 
 ## Offre (3 étapes)
 
-- **Diagnostic Rentabilité — 500 €** : 2 heures d'audit des outils et des flux. Identification de 3 à 5 pertes financières concrètes et chiffrées, avec plan d'action. Déduit du setup si démarrage dans les 30 jours.
-- **Infrastructure sur mesure — 6 000 € à 15 000 €** : 4 à 6 semaines. Connexion des outils existants dans un système central, tableau de bord temps réel, alertes budget automatiques, rapports hebdomadaires, formation incluse.
-- **Partenariat mensuel — 1 500 € à 2 500 € / mois** : maintenance et évolution du système, analyse mensuelle des données, 1 automatisation nouvelle par mois, conseil croissance, support prioritaire sous 24h.
+- **Diagnostic Rentabilité** : 2 heures d'audit des outils et des flux. Identification de 3 à 5 pertes financières concrètes et chiffrées, avec plan d'action.
+- **Infrastructure sur mesure** : 4 à 6 semaines. Connexion des outils existants dans un système central, tableau de bord temps réel, alertes budget automatiques, rapports hebdomadaires, formation incluse.
+- **Partenariat mensuel** : maintenance et évolution du système, analyse mensuelle des données, 1 automatisation nouvelle par mois, conseil croissance, support prioritaire sous 24h.
 
 ## Pages clés
 

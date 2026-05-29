@@ -65,10 +65,10 @@ export const Legal = () => {
           transition={{ duration: 0.6 }}
         >
           <PillBadge className="mb-6">{T.title}</PillBadge>
-          <h1 className="text-4xl md:text-4xl font-extrabold tracking-tight text-ink-navy mb-6">
+          <h1 className="text-xl md:text-2xl font-extrabold tracking-tight text-ink-navy mb-6">
             {T.title}
           </h1>
-          <p className="text-xl text-ink-gray leading-relaxed max-w-2xl mx-auto">
+          <p className="text-base text-ink-gray leading-relaxed max-w-2xl mx-auto">
             {T.updated}
           </p>
         </motion.div>
@@ -79,7 +79,7 @@ export const Legal = () => {
           <div className="p-8 md:p-12 rounded-3xl bg-surface-white border border-border-cream space-y-12">
 
             <div>
-              <h2 className="text-2xl font-bold text-ink-navy mb-4">{T.s1t}</h2>
+              <h2 className="text-lg font-bold text-ink-navy mb-4">{T.s1t}</h2>
               <div className="text-ink-gray space-y-2 leading-relaxed">
                 <p>{T.s1p1}</p>
                 <p className="font-bold text-ink-navy mt-4">Optialys</p>
@@ -89,7 +89,7 @@ export const Legal = () => {
             </div>
 
             <div>
-              <h2 className="text-2xl font-bold text-ink-navy mb-4">{T.s2t}</h2>
+              <h2 className="text-lg font-bold text-ink-navy mb-4">{T.s2t}</h2>
               <div className="text-ink-gray space-y-2 leading-relaxed">
                 <p>{T.s2p1}</p>
                 <p className="font-bold text-ink-navy mt-4">Vercel Inc.</p>
@@ -100,7 +100,7 @@ export const Legal = () => {
             </div>
 
             <div>
-              <h2 className="text-2xl font-bold text-ink-navy mb-4">{T.s3t}</h2>
+              <h2 className="text-lg font-bold text-ink-navy mb-4">{T.s3t}</h2>
               <div className="text-ink-gray space-y-4 leading-relaxed">
                 <p>{T.s3p1}</p>
                 <p>{T.s3p2}</p>
@@ -108,7 +108,7 @@ export const Legal = () => {
             </div>
 
             <div>
-              <h2 className="text-2xl font-bold text-ink-navy mb-4">{T.s4t}</h2>
+              <h2 className="text-lg font-bold text-ink-navy mb-4">{T.s4t}</h2>
               <div className="text-ink-gray space-y-4 leading-relaxed">
                 <p>{T.s4p1}</p>
                 <p>{T.s4p2}</p>
@@ -119,7 +119,7 @@ export const Legal = () => {
             </div>
 
             <div>
-              <h2 className="text-2xl font-bold text-ink-navy mb-4">{T.s5t}</h2>
+              <h2 className="text-lg font-bold text-ink-navy mb-4">{T.s5t}</h2>
               <div className="text-ink-gray space-y-4 leading-relaxed">
                 <p>{T.s5p1}</p>
                 <p>{T.s5p2}</p>
@@ -127,7 +127,7 @@ export const Legal = () => {
             </div>
 
             <div>
-              <h2 className="text-2xl font-bold text-ink-navy mb-4">{T.s6t}</h2>
+              <h2 className="text-lg font-bold text-ink-navy mb-4">{T.s6t}</h2>
               <div className="text-ink-gray space-y-4 leading-relaxed">
                 <p>{T.s6p1}</p>
                 <p>{T.s6p2}</p>

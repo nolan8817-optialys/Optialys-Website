@@ -113,10 +113,10 @@ export const Blog = () => {
           <PillBadge className="mb-6">
             {fr ? 'Ressources' : 'Resources'}
           </PillBadge>
-          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-ink-navy mb-6">
+          <h1 className="text-2xl md:text-3xl font-extrabold tracking-tight text-ink-navy mb-6">
             {fr ? 'Piloter un atelier haut de gamme' : 'Running a high-end workshop'}
           </h1>
-          <p className="text-xl text-ink-gray leading-relaxed max-w-2xl mx-auto">
+          <p className="text-base text-ink-gray leading-relaxed max-w-2xl mx-auto">
             {fr
               ? 'Guides concrets sur le pilotage de marge, l\'infrastructure opérationnelle et le suivi terrain pour ateliers et services haut de gamme.'
               : 'Practical guides on margin piloting, operational infrastructure and field tracking for high-end workshops and services.'}
@@ -163,7 +163,7 @@ export const Blog = () => {
         <section className="px-6 max-w-3xl mx-auto mt-24">
           <div className="p-10 bg-ink-navy text-center">
             <AsteriskDecor size={20} className="mx-auto mb-4" />
-            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight text-white mb-4">
+            <h2 className="text-lg md:text-xl font-extrabold tracking-tight text-white mb-4">
               {fr
                 ? 'Vous perdez de l\'argent chaque semaine.'
                 : 'You lose money every week.'}
@@ -179,7 +179,7 @@ export const Blog = () => {
               rel="noopener noreferrer"
             >
               <GlowButton variant="primary">
-                {fr ? 'Réserver le Diagnostic — 500 €' : 'Book the Diagnostic — €500'}
+                {fr ? 'Réserver un Diagnostic' : 'Book a Diagnostic'}
                 <ArrowRight className="w-4 h-4 ml-2" />
               </GlowButton>
             </a>

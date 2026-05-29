@@ -124,7 +124,7 @@ export const Diagnostic = () => {
     high: fr ? "Forte fuite de marge" : "High margin leak",
     highTitle: fr ? "Vous perdez probablement de l'argent chaque semaine" : "You're probably losing money every week",
     highText: fr ? "D'après vos réponses, vos outils ne se parlent pas et vos budgets se découvrent trop tard. C'est exactement la situation où une infrastructure centrale change tout. Commençons par chiffrer ces pertes." : "Based on your answers, your tools don't talk to each other and your budgets surface too late. This is exactly where a central infrastructure changes everything. Let's start by quantifying those leaks.",
-    highCta: fr ? "Réserver mon Diagnostic — 500 €" : "Book my Diagnostic — €500",
+    highCta: fr ? "Réserver mon Diagnostic" : "Book my Diagnostic",
     mid: fr ? "Marge à sécuriser" : "Margin to secure",
     midTitle: fr ? "Quelques connexions vous feraient gagner gros" : "A few connections would gain you a lot",
     midText: fr ? "Vous êtes plutôt organisés, mais certaines informations circulent encore mal. Quelques connexions ciblées vous donneraient une vraie visibilité temps réel." : "You're fairly organized, but some information still flows poorly. A few targeted connections would give you real real-time visibility.",
@@ -220,7 +220,7 @@ export const Diagnostic = () => {
               <div className="text-accent-coral font-bold text-sm mb-4 uppercase tracking-wider">
                 {T.questionOf(currentStep + 1, questions.length)}
               </div>
-              <h2 className="text-3xl font-extrabold tracking-tight text-ink-navy mb-10 leading-tight">
+              <h2 className="text-xl font-extrabold tracking-tight text-ink-navy mb-10 leading-tight">
                 {questions[currentStep].question}
               </h2>
 
@@ -251,7 +251,7 @@ export const Diagnostic = () => {
               className="w-full"
             >
               <div className="text-center mb-10">
-                <h2 className="text-3xl font-extrabold tracking-tight text-ink-navy mb-4">{T.formTitle}</h2>
+                <h2 className="text-xl font-extrabold tracking-tight text-ink-navy mb-4">{T.formTitle}</h2>
                 <p className="text-ink-gray">{T.formSub}</p>
               </div>
 
@@ -313,11 +313,11 @@ export const Diagnostic = () => {
                 <span className={getResult().color}>{getResult().badge}</span>
               </div>
 
-              <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-ink-navy mb-6 leading-tight">
+              <h2 className="text-xl md:text-2xl font-extrabold tracking-tight text-ink-navy mb-6 leading-tight">
                 {getResult().title}
               </h2>
 
-              <p className="text-xl text-ink-gray leading-relaxed mb-12 max-w-2xl mx-auto">
+              <p className="text-base text-ink-gray leading-relaxed mb-12 max-w-2xl mx-auto">
                 {getResult().text}
               </p>
 
