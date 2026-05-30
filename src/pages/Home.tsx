@@ -13,7 +13,7 @@ const ORGANIZATION_SCHEMA = {
   "logo": "https://optialys.com/optialys-logo.webp",
   "description": "Infrastructure opérationnelle sur mesure pour ateliers et services haut de gamme. On connecte vos outils existants pour piloter votre marge en temps réel.",
   "serviceType": "Infrastructure opérationnelle et automatisation",
-  "email": "nolprayagsing@gmail.com",
+  "email": "nolan@optialys.com",
   "founder": {
     "@type": "Person",
     "name": "Nolan Prayagsing",
@@ -104,6 +104,10 @@ const Hero = () => {
             </GlowButton>
           </Link>
         </div>
+
+        <p className="mt-5 text-xs text-ink-gray tracking-wide">
+          {t('home.hero.cta.reassure')}
+        </p>
       </div>
     </section>
   );
@@ -238,9 +242,12 @@ const FinalCTA = () => {
             {t('home.final.cta')} <ArrowRight className="w-4 h-4" />
           </GlowButton>
         </a>
+        <p className="mt-5 text-xs text-ink-gray tracking-wide">
+          {t('home.hero.cta.reassure')}
+        </p>
         <p className="mt-8 text-sm text-ink-gray">
-          <a href="mailto:nolprayagsing@gmail.com" className="text-accent-coral hover:underline font-medium">
-            nolprayagsing@gmail.com
+          <a href="mailto:nolan@optialys.com" className="text-accent-coral hover:underline font-medium">
+            nolan@optialys.com
           </a>
         </p>
       </div>

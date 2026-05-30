@@ -34,6 +34,7 @@ const en: Dict = {
   "home.hero.body": "Your tools don't talk to each other. Budget overruns are spotted too late. Optialys connects everything and gives you the visibility to act before it's too late.",
   "home.hero.cta.primary": "Book a Diagnostic",
   "home.hero.cta.secondary": "See how it works",
+  "home.hero.cta.reassure": "15 min · video call · no commitment",
 
   // Home — Problem
   "home.problem.eyebrow": "The problem",
@@ -151,11 +152,12 @@ const fr: Dict = {
 
   // Home — Hero
   "home.hero.eyebrow": "Infrastructure opérationnelle pour ateliers haut de gamme",
-  "home.hero.title.line1": "Tes chantiers te coûtent de l'argent.",
-  "home.hero.title.line2": "Tu l'apprendras trop tard.",
+  "home.hero.title.line1": "Vos chantiers vous coûtent de l'argent.",
+  "home.hero.title.line2": "Vous l'apprenez trop tard.",
   "home.hero.body": "Vos outils ne se parlent pas. Les dépassements de budget se détectent trop tard. Optialys connecte tout et vous donne la visibilité pour agir avant.",
   "home.hero.cta.primary": "Réserver un Diagnostic",
   "home.hero.cta.secondary": "Voir comment ça marche",
+  "home.hero.cta.reassure": "15 min · en visio · sans engagement",
 
   // Home — Problème
   "home.problem.eyebrow": "Le problème",

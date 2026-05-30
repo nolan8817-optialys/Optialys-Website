@@ -5,7 +5,7 @@ Les tarifs sont fournis sur demande lors du Diagnostic Rentabilité.
 Dernière mise à jour : 2026-05-29.
 
 ## Étape 1 — Diagnostic Rentabilité
-- Sur devis (contact : nolprayagsing@gmail.com)
+- Sur devis (contact : nolan@optialys.com)
 - Durée : 2 heures
 - Inclus : audit de vos outils et de vos flux, identification de 3 à 5 pertes financières concrètes et chiffrées, plan d'action
 
@@ -20,4 +20,4 @@ Dernière mise à jour : 2026-05-29.
 
 ## Contact
 - Réserver un Diagnostic : https://optialys.com/contact
-- Email : nolprayagsing@gmail.com
+- Email : nolan@optialys.com

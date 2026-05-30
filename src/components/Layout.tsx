@@ -253,8 +253,8 @@ const Footer = () => {
             </p>
             <div className="text-sm text-ink-gray space-y-2">
               <p>🇫🇷 France</p>
-              <a href="mailto:nolprayagsing@gmail.com" className="text-accent-coral hover:underline block mt-4 mb-6">
-                nolprayagsing@gmail.com
+              <a href="mailto:nolan@optialys.com" className="text-accent-coral hover:underline block mt-4 mb-6">
+                nolan@optialys.com
               </a>
               <div className="pt-4">
                 <a
