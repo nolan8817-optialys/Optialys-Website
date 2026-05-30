@@ -35,8 +35,8 @@ export const ROICalculator = () => {
 
   if (annualCost >= 60000) {
     urgencyLevel = fr ? 'CRITIQUE' : 'CRITICAL';
-    urgencyColor = 'bg-red-500';
-    urgencyText = 'text-red-500';
+    urgencyColor = 'bg-accent-coral';
+    urgencyText = 'text-accent-coral';
   } else if (annualCost >= 30000) {
     urgencyLevel = fr ? 'ÉLEVÉ' : 'HIGH';
     urgencyColor = 'bg-accent-coral';
@@ -109,7 +109,7 @@ export const ROICalculator = () => {
             <Calculator className="w-4 h-4 mr-1" />
             {T.tool}
           </PillBadge>
-          <h1 className="text-xl md:text-2xl font-extrabold tracking-tight text-ink-navy mb-6">
+          <h1 className="text-xl md:text-2xl font-serif font-normal text-ink-navy mb-6">
             {T.title}
           </h1>
           <p className="text-base text-ink-gray leading-relaxed max-w-2xl mx-auto mb-10">
@@ -137,7 +137,7 @@ export const ROICalculator = () => {
                 <div className="space-y-4">
                   <div className="flex justify-between items-end">
                     <label className="text-ink-navy font-bold block">{T.emp}</label>
-                    <span className="text-2xl font-black text-accent-electric">{employees}</span>
+                    <span className="text-2xl font-serif font-normal text-accent-electric">{employees}</span>
                   </div>
                   <input type="range" min="1" max="50" value={employees} onChange={(e) => setEmployees(Number(e.target.value))}
                     className="w-full h-2 bg-bg-cream rounded-lg appearance-none cursor-pointer accent-accent-coral" />
@@ -146,7 +146,7 @@ export const ROICalculator = () => {
                 <div className="space-y-4">
                   <div className="flex justify-between items-end">
                     <label className="text-ink-navy font-bold block">{T.hrs}</label>
-                    <span className="text-2xl font-black text-accent-electric">{hours}h</span>
+                    <span className="text-2xl font-serif font-normal text-accent-electric">{hours}h</span>
                   </div>
                   <input type="range" min="1" max="30" value={hours} onChange={(e) => setHours(Number(e.target.value))}
                     className="w-full h-2 bg-bg-cream rounded-lg appearance-none cursor-pointer accent-accent-coral" />
@@ -155,7 +155,7 @@ export const ROICalculator = () => {
                 <div className="space-y-4">
                   <div className="flex justify-between items-end">
                     <label className="text-ink-navy font-bold block">{T.rate}</label>
-                    <span className="text-2xl font-black text-accent-electric">{rate}€</span>
+                    <span className="text-2xl font-serif font-normal text-accent-electric">{rate}€</span>
                   </div>
                   <input type="range" min="20" max="80" value={rate} onChange={(e) => setRate(Number(e.target.value))}
                     className="w-full h-2 bg-bg-cream rounded-lg appearance-none cursor-pointer accent-accent-coral" />
@@ -167,7 +167,7 @@ export const ROICalculator = () => {
                       <label className="text-ink-navy font-bold block">{T.auto}</label>
                       <p className="text-xs text-ink-gray mt-1">{T.autoNote}</p>
                     </div>
-                    <span className="text-2xl font-black text-accent-electric">{automationRate}%</span>
+                    <span className="text-2xl font-serif font-normal text-accent-electric">{automationRate}%</span>
                   </div>
                   <input type="range" min="20" max="80" step="5" value={automationRate} onChange={(e) => setAutomationRate(Number(e.target.value))}
                     className="w-full h-2 bg-bg-cream rounded-lg appearance-none cursor-pointer accent-accent-coral" />
@@ -183,7 +183,7 @@ export const ROICalculator = () => {
                 <div className="space-y-8 flex-1">
                   <div>
                     <p className="text-white/60 font-bold text-sm uppercase tracking-wider mb-2">{T.cost}</p>
-                    <div className="text-xl md:text-2xl font-black text-red-400">
+                    <div className="text-xl md:text-2xl font-serif font-normal text-white">
                       {formatCurrency(annualCost)} <span className="text-2xl text-white/50 font-medium">{T.year}</span>
                     </div>
                   </div>
@@ -192,7 +192,7 @@ export const ROICalculator = () => {
 
                   <div>
                     <p className="text-white/60 font-bold text-sm uppercase tracking-wider mb-2">{T.recover}</p>
-                    <div className="text-xl md:text-2xl font-black text-accent-electric">
+                    <div className="text-xl md:text-2xl font-serif font-normal text-accent-electric">
                       {formatCurrency(potentialSavings)} <span className="text-xl text-white/50 font-medium">{T.savedYear}</span>
                     </div>
                   </div>
@@ -200,13 +200,13 @@ export const ROICalculator = () => {
                   <div className="grid grid-cols-2 gap-6">
                     <div>
                       <p className="text-white/60 font-bold text-xs uppercase tracking-wider mb-2">{T.hoursFreed}</p>
-                      <div className="text-2xl font-black text-accent-electric">
+                      <div className="text-2xl font-serif font-normal text-accent-electric">
                         {timeSaved.toFixed(0)}h <span className="text-sm text-white/50 font-medium">{T.week}</span>
                       </div>
                     </div>
                     <div>
                       <p className="text-white/60 font-bold text-xs uppercase tracking-wider mb-2">{T.fte}</p>
-                      <div className="text-2xl font-black text-white">
+                      <div className="text-2xl font-serif font-normal text-white">
                         {fteSaved.toFixed(1)} {fr ? 'ETP' : 'FTE'}
                       </div>
                     </div>

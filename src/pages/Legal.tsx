@@ -65,7 +65,7 @@ export const Legal = () => {
           transition={{ duration: 0.6 }}
         >
           <PillBadge className="mb-6">{T.title}</PillBadge>
-          <h1 className="text-xl md:text-2xl font-extrabold tracking-tight text-ink-navy mb-6">
+          <h1 className="text-xl md:text-2xl font-serif font-normal text-ink-navy mb-6">
             {T.title}
           </h1>
           <p className="text-base text-ink-gray leading-relaxed max-w-2xl mx-auto">

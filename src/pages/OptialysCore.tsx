@@ -167,7 +167,7 @@ export const OptialysCore = () => {
       {/* Hero */}
       <section className="px-6 max-w-4xl mx-auto mb-28">
         <PillBadge className="mb-8">{T.eyebrow}</PillBadge>
-        <h1 className="text-lg md:text-xl font-extrabold tracking-tight text-ink-navy mb-6 leading-[1.1]">
+        <h1 className="text-lg md:text-xl font-serif font-normal text-ink-navy mb-6 leading-[1.1]">
           {T.heroTitle1}<br />
           <span className="text-accent-coral">{T.heroTitle2}</span>
         </h1>
@@ -186,7 +186,7 @@ export const OptialysCore = () => {
       {/* Problem */}
       <section className="py-24 px-6 bg-surface-white border-y border-border-cream">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-xl md:text-2xl font-extrabold tracking-tight text-ink-navy mb-16 max-w-2xl">
+          <h2 className="text-xl md:text-2xl font-serif font-normal text-ink-navy mb-16 max-w-2xl">
             {T.problemsTitle}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 border-t border-l border-border-cream">
@@ -209,7 +209,7 @@ export const OptialysCore = () => {
       <section className="py-24 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="mb-16">
-            <h2 className="text-xl md:text-2xl font-extrabold tracking-tight text-ink-navy mb-4">{T.stepsTitle}</h2>
+            <h2 className="text-xl md:text-2xl font-serif font-normal text-ink-navy mb-4">{T.stepsTitle}</h2>
             <p className="text-base text-ink-gray">{T.stepsSub}</p>
           </div>
 
@@ -250,7 +250,7 @@ export const OptialysCore = () => {
             <div className="p-10 md:p-14 border border-accent-coral bg-bg-cream">
               <div className="flex items-center gap-4 mb-8">
                 <Shield className="w-9 h-9 text-accent-coral" />
-                <h2 className="text-lg md:text-xl font-extrabold tracking-tight text-ink-navy">{T.guaranteeTitle}</h2>
+                <h2 className="text-lg md:text-xl font-serif font-normal text-ink-navy">{T.guaranteeTitle}</h2>
               </div>
               <div className="space-y-5 text-lg text-ink-navy leading-relaxed mb-10">
                 <p className="font-medium">{T.guaranteeP1}</p>
@@ -272,7 +272,7 @@ export const OptialysCore = () => {
       <section className="py-24 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="mb-16">
-            <h2 className="text-xl md:text-2xl font-extrabold tracking-tight text-ink-navy mb-4">{T.examplesTitle}</h2>
+            <h2 className="text-xl md:text-2xl font-serif font-normal text-ink-navy mb-4">{T.examplesTitle}</h2>
             <p className="text-base text-ink-gray">{T.examplesSub}</p>
           </div>
 
@@ -309,7 +309,7 @@ export const OptialysCore = () => {
         <div className="max-w-4xl mx-auto text-center">
           <FadeIn>
             <AsteriskDecor size={20} className="mx-auto mb-6" />
-            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-white mb-6">{T.afterTitle}</h2>
+            <h2 className="text-3xl md:text-4xl font-serif font-normal text-white mb-6">{T.afterTitle}</h2>
             <p className="text-base text-white/70 leading-relaxed mb-8 max-w-2xl mx-auto">{T.afterSub}</p>
             <Link to="/optialys-partner">
               <GlowButton variant="primary" className="text-base px-7 py-4">
@@ -324,7 +324,7 @@ export const OptialysCore = () => {
       <section className="py-28 px-6 bg-bg-cream">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-14">
-            <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-ink-navy mb-6">{T.finalTitle}</h2>
+            <h2 className="text-3xl md:text-5xl font-serif font-normal text-ink-navy mb-6">{T.finalTitle}</h2>
             <p className="text-base text-ink-gray leading-relaxed max-w-2xl mx-auto">{T.finalSub}</p>
           </div>
           <FadeIn>

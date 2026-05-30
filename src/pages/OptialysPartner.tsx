@@ -99,7 +99,7 @@ export const OptialysPartner = () => {
       {/* Hero */}
       <section className="px-6 max-w-4xl mx-auto mb-28">
         <PillBadge className="mb-8">{T.eyebrow}</PillBadge>
-        <h1 className="text-2xl md:text-3xl font-extrabold tracking-tight text-ink-navy mb-6 leading-[1.1]">
+        <h1 className="text-2xl md:text-3xl font-serif font-normal text-ink-navy mb-6 leading-[1.1]">
           {T.heroTitle1}<br />
           <span className="text-accent-coral">{T.heroTitle2}</span>
         </h1>
@@ -115,7 +115,7 @@ export const OptialysPartner = () => {
       <section className="py-24 px-6 bg-surface-white border-y border-border-cream">
         <div className="max-w-6xl mx-auto">
           <div className="mb-16">
-            <h2 className="text-xl md:text-2xl font-extrabold tracking-tight text-ink-navy mb-4">{T.monthlyTitle}</h2>
+            <h2 className="text-xl md:text-2xl font-serif font-normal text-ink-navy mb-4">{T.monthlyTitle}</h2>
             <p className="text-base text-ink-gray">{T.monthlySub}</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 border-t border-l border-border-cream">
@@ -137,7 +137,7 @@ export const OptialysPartner = () => {
       {/* Comparison */}
       <section className="py-24 px-6">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-xl md:text-2xl font-extrabold tracking-tight text-ink-navy mb-16">{T.compareTitle}</h2>
+          <h2 className="text-xl md:text-2xl font-serif font-normal text-ink-navy mb-16">{T.compareTitle}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <FadeIn>
               <div className="p-8 bg-surface-white border border-border-cream h-full">
@@ -172,7 +172,7 @@ export const OptialysPartner = () => {
       {/* For you */}
       <section className="py-24 px-6 bg-surface-white border-y border-border-cream">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-xl md:text-2xl font-extrabold tracking-tight text-ink-navy mb-12">{T.forYouTitle}</h2>
+          <h2 className="text-xl md:text-2xl font-serif font-normal text-ink-navy mb-12">{T.forYouTitle}</h2>
           <div className="space-y-4">
             {forYou.map((item, i) => (
               <FadeIn key={i} delay={i * 0.05}>
@@ -191,7 +191,7 @@ export const OptialysPartner = () => {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-14">
             <AsteriskDecor size={20} className="mx-auto mb-6" />
-            <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-ink-navy mb-6">{T.finalTitle}</h2>
+            <h2 className="text-3xl md:text-5xl font-serif font-normal text-ink-navy mb-6">{T.finalTitle}</h2>
             <p className="text-base text-ink-gray leading-relaxed max-w-2xl mx-auto">
               {T.finalP1}<br /><br />
               <span className="text-ink-navy font-medium">{T.finalP2}</span>

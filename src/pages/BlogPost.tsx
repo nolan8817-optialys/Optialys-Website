@@ -13,15 +13,15 @@ const VisualBudgetAlert = () => (
     <p className="text-xs font-bold text-ink-gray uppercase tracking-widest mb-6">Budget consommé sur un chantier</p>
     <svg viewBox="0 0 500 120" className="w-full max-w-lg mx-auto block" aria-hidden="true">
       {/* Track */}
-      <rect x="0" y="40" width="460" height="26" fill="#1A1A2E" opacity="0.06" />
+      <rect x="0" y="40" width="460" height="26" fill="#1A1A1A" opacity="0.06" />
       {/* Consumed */}
-      <motion.rect x="0" y="40" height="26" fill="#E8562A"
+      <motion.rect x="0" y="40" height="26" fill="#D4A017"
         initial={{ width: 0 }} whileInView={{ width: 386 }} viewport={{ once: true }} transition={{ duration: 1 }} />
       {/* Threshold marker at 80% */}
-      <line x1="368" y1="30" x2="368" y2="76" stroke="#1A1A2E" strokeWidth="2" strokeDasharray="3 3" />
-      <text x="368" y="22" fontSize="10" fill="#1A1A2E" fontFamily="monospace" textAnchor="middle">seuil 80%</text>
-      <text x="0" y="96" fontSize="11" fill="#5A5A66" fontFamily="monospace">0 €</text>
-      <text x="430" y="96" fontSize="11" fill="#5A5A66" fontFamily="monospace">budget</text>
+      <line x1="368" y1="30" x2="368" y2="76" stroke="#1A1A1A" strokeWidth="2" strokeDasharray="3 3" />
+      <text x="368" y="22" fontSize="10" fill="#1A1A1A" fontFamily="monospace" textAnchor="middle">seuil 80%</text>
+      <text x="0" y="96" fontSize="11" fill="#5A5A55" fontFamily="monospace">0 €</text>
+      <text x="430" y="96" fontSize="11" fill="#5A5A55" fontFamily="monospace">budget</text>
     </svg>
     <div className="flex items-center gap-3 mt-4 p-3 bg-accent-coral/10 border border-accent-coral/20">
       <span className="text-xl">⚠️</span>
@@ -44,7 +44,7 @@ const VisualConnect = () => {
       </div>
       <div className="flex justify-center mb-6">
         <svg width="20" height="28" viewBox="0 0 20 28" aria-hidden="true">
-          <path d="M10 0 V20 M2 14 L10 22 L18 14" stroke="#E8562A" strokeWidth="2.5" fill="none" />
+          <path d="M10 0 V20 M2 14 L10 22 L18 14" stroke="#D4A017" strokeWidth="2.5" fill="none" />
         </svg>
       </div>
       <div className="max-w-md mx-auto py-5 text-center bg-ink-navy text-white font-bold tracking-tight">
@@ -58,12 +58,12 @@ const VisualPaperVsLive = () => (
   <div className="my-10 grid grid-cols-1 sm:grid-cols-2 gap-4">
     <div className="p-6 bg-surface-white border border-border-cream">
       <div className="text-xs font-bold text-ink-gray uppercase tracking-widest mb-3">Carnet papier</div>
-      <div className="text-4xl font-black text-ink-gray mb-1">+1 jour</div>
+      <div className="text-4xl font-serif font-normal text-ink-gray mb-1">+1 jour</div>
       <p className="text-sm text-ink-gray">Saisie le soir, encodée le lendemain. Vous décidez sur les chiffres d'hier.</p>
     </div>
     <div className="p-6 bg-surface-white border border-accent-coral">
       <div className="text-xs font-bold text-accent-coral uppercase tracking-widest mb-3">Saisie mobile</div>
-      <div className="text-4xl font-black text-accent-coral mb-1">temps réel</div>
+      <div className="text-4xl font-serif font-normal text-accent-coral mb-1">temps réel</div>
       <p className="text-sm text-ink-navy">Saisie une fois sur le terrain. L'information remonte immédiatement partout.</p>
     </div>
   </div>
@@ -192,7 +192,7 @@ export const BlogPost = () => {
             </span>
           </div>
 
-          <h1 className="text-xl md:text-2xl font-extrabold text-ink-navy leading-tight mb-6">
+          <h1 className="text-2xl md:text-3xl font-serif font-normal text-ink-navy leading-tight mb-6">
             {fr ? article.title.fr : article.title.en}
           </h1>
 
@@ -247,7 +247,7 @@ export const BlogPost = () => {
       {/* CTA */}
       <div className="max-w-3xl mx-auto px-6 mt-12">
         <div className="p-10 bg-ink-navy text-center">
-          <h2 className="text-2xl font-extrabold tracking-tight text-white mb-4">
+          <h2 className="text-2xl font-serif font-normal text-white mb-4">
             {fr
               ? 'Prêt à piloter votre marge en temps réel ?'
               : 'Ready to pilot your margin in real time?'}

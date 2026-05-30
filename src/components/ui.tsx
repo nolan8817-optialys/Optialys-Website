@@ -4,7 +4,7 @@ import { motion } from 'motion/react';
 export const Logo = ({ className = "" }: { className?: string }) => (
   <a href="/" className={`flex items-center gap-3 group ${className}`}>
     <img src="/optialys-logo.webp" alt="Optialys monogram" className="h-10 w-10 object-contain" />
-    <span className="font-sans font-bold text-xl tracking-tight text-ink-navy">
+    <span className="font-serif font-normal text-2xl tracking-tight text-ink-navy leading-none">
       Optialys
     </span>
   </a>
@@ -67,17 +67,19 @@ export const FadeIn = ({ children, delay = 0, className = "", direction = "up", 
 export const GlowButton = ({ children, className = '', variant = 'primary', ...props }: {
   children: React.ReactNode;
   className?: string;
-  variant?: 'primary' | 'electric' | 'outline' | 'dark';
+  variant?: 'primary' | 'electric' | 'outline' | 'dark' | 'gold';
   type?: 'button' | 'submit' | 'reset';
   disabled?: boolean;
   onClick?: () => void;
 }) => {
-  const base = 'relative inline-flex items-center justify-center gap-2 rounded-sm font-bold text-sm px-6 py-3 cursor-pointer transition-colors duration-200';
+  const base = 'relative inline-flex items-center justify-center gap-2 rounded-sm font-semibold text-sm px-6 py-3 cursor-pointer transition-colors duration-200';
   const variants = {
-    primary: 'bg-accent-coral text-white hover:bg-[#cf4a22]',
-    electric: 'bg-accent-coral text-white hover:bg-[#cf4a22]',
-    outline: 'border border-ink-navy text-ink-navy hover:bg-ink-navy hover:text-white bg-transparent',
-    dark: 'bg-ink-navy text-white hover:bg-ink-navy/90',
+    // CTA principal — sombre, l'or réservé aux détails (Charte)
+    primary: 'bg-ink-navy text-bg-cream hover:bg-ink-navy/90',
+    electric: 'bg-ink-navy text-bg-cream hover:bg-ink-navy/90',
+    outline: 'border border-accent-coral text-ink-navy hover:bg-accent-peach bg-transparent',
+    dark: 'bg-ink-navy text-bg-cream hover:bg-ink-navy/90',
+    gold: 'bg-accent-coral text-ink-navy hover:bg-accent-coral/90',
   };
 
   return (
@@ -90,28 +92,81 @@ export const GlowButton = ({ children, className = '', variant = 'primary', ...p
   );
 };
 
-// Highlight block — mot(s) sur fond orange
+// Highlight block — mot(s) surlignés en Or Ambré
 export const HighlightBlock = ({ children, className = '' }: { children: React.ReactNode; className?: string }) => (
   <span className={`highlight-coral font-semibold ${className}`}>{children}</span>
 );
 
-// Pill badge — labels de section (carré, sobre)
+// Tag de section (Charte) — Inter Bold UPPERCASE espacé, Or Ambré, sans fond
 export const PillBadge = ({ children, className = '' }: { children: React.ReactNode; className?: string }) => (
-  <span className={`inline-flex items-center px-3 py-1 rounded-sm bg-accent-coral text-white text-xs font-bold tracking-wider uppercase ${className}`}>
+  <span className={`tag-optialys inline-flex items-center ${className}`}>
     {children}
   </span>
 );
 
-// Asterisk decoratif orange 8 branches
+// Asterisk decoratif Or Ambré 8 branches
 export const AsteriskDecor = ({ size = 24, className = '' }: { size?: number; className?: string }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
-    <g fill="#E8562A">
+    <g fill="#D4A017">
       <rect x="11" y="1" width="2" height="22" rx="1"/>
       <rect x="1" y="11" width="22" height="2" rx="1"/>
       <rect x="3.515" y="3.515" width="2" height="17" rx="1" transform="rotate(45 3.515 3.515)"/>
       <rect x="3.515" y="17.485" width="2" height="17" rx="1" transform="rotate(-45 3.515 17.485)"/>
     </g>
   </svg>
+);
+
+// Citation encadrée (Charte) — fond Noir Encre, bordure gauche Or, Cormorant italic
+export const QuoteBlock = ({
+  children,
+  attribution,
+  className = '',
+}: {
+  children: React.ReactNode;
+  attribution?: string;
+  className?: string;
+}) => (
+  <figure className={`bg-ink-navy border-l-4 border-accent-coral px-8 py-7 ${className}`}>
+    <blockquote className="font-serif italic text-xl md:text-2xl leading-snug text-bg-cream">
+      {children}
+    </blockquote>
+    {attribution && (
+      <figcaption className="mt-4 text-xs font-bold uppercase tracking-[0.2em] text-accent-coral">
+        {attribution}
+      </figcaption>
+    )}
+  </figure>
+);
+
+// Module numéroté (Charte) — numéro Cormorant Or, fond Beige Chaud
+export const NumberedModule = ({
+  number,
+  title,
+  children,
+  dark = false,
+  className = '',
+}: {
+  number: string | number;
+  title: string;
+  children?: React.ReactNode;
+  dark?: boolean;
+  className?: string;
+}) => (
+  <div className={`${dark ? 'bg-ink-navy' : 'bg-bg-cream-alt'} p-8 md:p-10 h-full ${className}`}>
+    <span className="block font-serif text-5xl leading-none text-accent-coral mb-4">{number}</span>
+    <h3 className={`text-lg font-semibold mb-2 ${dark ? 'text-bg-cream' : 'text-ink-navy'}`}>{title}</h3>
+    {children && (
+      <p className={`leading-relaxed ${dark ? 'text-bg-cream/70' : 'text-ink-gray'}`}>{children}</p>
+    )}
+  </div>
+);
+
+// Indicateur de timing / jalon (Charte) — Vert Forêt, usage interne
+export const TimingIndicator = ({ children, className = '' }: { children: React.ReactNode; className?: string }) => (
+  <span className={`inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.1em] text-accent-green ${className}`}>
+    <span aria-hidden="true">→</span>
+    {children}
+  </span>
 );
 
 // Byline signature NP

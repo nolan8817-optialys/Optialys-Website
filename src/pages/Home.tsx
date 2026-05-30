@@ -76,8 +76,8 @@ const Hero = () => {
   return (
     <section className="pt-40 pb-24 px-6 border-b border-border-cream">
       <div className="max-w-5xl mx-auto">
-        <h1 className="font-extrabold tracking-tight text-ink-navy">
-          <span className="block text-xs sm:text-sm font-bold tracking-[0.2em] uppercase text-accent-coral mb-8">
+        <h1 className="font-serif font-normal text-ink-navy">
+          <span className="block font-sans text-xs sm:text-sm font-bold tracking-[0.25em] uppercase text-accent-coral mb-8">
             {t('home.hero.eyebrow')}
           </span>
           <span className="block text-2xl sm:text-3xl md:text-4xl leading-[1.1]">
@@ -120,7 +120,7 @@ const Problem = () => {
     <section className="py-24 px-6 bg-bg-cream">
       <div className="max-w-6xl mx-auto">
         <SectionLabel>{t('home.problem.eyebrow')}</SectionLabel>
-        <h2 className="text-xl md:text-2xl font-extrabold tracking-tight text-ink-navy mb-12 max-w-2xl">
+        <h2 className="text-xl md:text-2xl font-serif font-normal text-ink-navy mb-12 max-w-2xl">
           {t('home.problem.title')}
         </h2>
 
@@ -148,7 +148,7 @@ const Solution = () => {
     <section className="py-28 px-6 bg-ink-navy">
       <div className="max-w-4xl mx-auto">
         <SectionLabel>{t('home.solution.eyebrow')}</SectionLabel>
-        <h2 className="text-xl md:text-2xl font-extrabold tracking-tight text-white mb-6">
+        <h2 className="text-xl md:text-2xl font-serif font-normal text-white mb-6">
           {t('home.solution.title')}
         </h2>
         <p className="text-sm md:text-base text-white/80 leading-relaxed">
@@ -170,7 +170,7 @@ const Offer = () => {
     <section className="py-24 px-6 bg-bg-cream">
       <div className="max-w-6xl mx-auto">
         <SectionLabel>{t('home.offer.eyebrow')}</SectionLabel>
-        <h2 className="text-xl md:text-2xl font-extrabold tracking-tight text-ink-navy mb-12 max-w-2xl">
+        <h2 className="text-xl md:text-2xl font-serif font-normal text-ink-navy mb-12 max-w-2xl">
           {t('home.offer.title')}
         </h2>
 
@@ -210,7 +210,7 @@ const ForWhom = () => {
     <section className="py-24 px-6 bg-surface-white border-y border-border-cream">
       <div className="max-w-4xl mx-auto">
         <SectionLabel>{t('home.forwho.eyebrow')}</SectionLabel>
-        <h2 className="text-xl md:text-2xl font-extrabold tracking-tight text-ink-navy mb-6">
+        <h2 className="text-xl md:text-2xl font-serif font-normal text-ink-navy mb-6">
           {t('home.forwho.title')}
         </h2>
         <p className="text-sm md:text-base text-ink-gray leading-relaxed">
@@ -227,7 +227,7 @@ const FinalCTA = () => {
     <section className="py-28 px-6 bg-bg-cream">
       <div className="max-w-3xl mx-auto text-center">
         <Minus className="w-8 h-8 text-accent-coral mx-auto mb-6" strokeWidth={3} />
-        <h2 className="text-xl md:text-2xl font-extrabold tracking-tight text-ink-navy mb-6">
+        <h2 className="text-xl md:text-2xl font-serif font-normal text-ink-navy mb-6">
           {t('home.final.title')}
         </h2>
         <p className="text-sm md:text-base text-ink-gray leading-relaxed mb-8">

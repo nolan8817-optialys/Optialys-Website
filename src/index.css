@@ -1,36 +1,37 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap');
 
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Montserrat", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "Space Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --font-mono: "Inter", ui-monospace, SFMono-Regular, monospace;
 
-  /* Foundation — Optialys palette */
-  --color-bg-cream:         #F5EFE0;
-  --color-bg-cream-alt:     #FFFFFF;
-  --color-bg-cream-light:   #FAF6EC;
-  --color-surface-white:    #FFFFFF;
-  --color-ink-navy:         #1A1A2E;
-  --color-ink-black:        #1A1A2E;
-  --color-ink-gray:         #5A5A66;
+  /* Foundation — Optialys palette (Charte v1.0) */
+  --color-bg-cream:         #FAF8F3;   /* Blanc Crème — fond principal */
+  --color-bg-cream-alt:     #F1EDE4;   /* Beige Chaud — fond secondaire / encadrés */
+  --color-bg-cream-light:   #FAF8F3;
+  --color-surface-white:    #FFFFFF;   /* cartes */
+  --color-ink-navy:         #1A1A1A;   /* Noir Encre */
+  --color-ink-black:        #1A1A1A;
+  --color-ink-gray:         #5A5A55;   /* Gris Chaud */
 
-  /* Accent — single brand orange */
-  --color-accent-coral:     #E8562A;
-  --color-accent-coral-soft:#E8562A;
-  --color-accent-peach:     #F5D4B8;
-  --color-accent-electric:  #E8562A;
-  --color-accent-green:     #2F6B4F;
+  /* Accent — Or Ambré, accent unique */
+  --color-accent-coral:     #D4A017;   /* Or Ambré */
+  --color-accent-coral-soft:#D4A017;
+  --color-accent-peach:     #F5E9C0;   /* Or Doux — highlights */
+  --color-accent-electric:  #D4A017;
+  --color-accent-green:     #4A6B3A;   /* Vert Forêt — statuts internes uniquement */
 
   /* Borders */
-  --color-border-cream:     #E8DFD0;
+  --color-border-cream:     #D8D4C8;   /* Sable Clair */
 
   /* Legacy aliases (some pages still use brand-* classes) */
-  --color-brand-navy:       #1A1A2E;
-  --color-brand-blue:       #E8562A;
-  --color-brand-gray:       #5A5A66;
+  --color-brand-navy:       #1A1A1A;
+  --color-brand-blue:       #D4A017;
+  --color-brand-gray:       #5A5A55;
   --color-brand-card:       #FFFFFF;
-  --color-brand-light:      #F5EFE0;
+  --color-brand-light:      #FAF8F3;
 
   /* Square, consultancy-grade corners */
   --radius-xs:   1px;
@@ -45,69 +46,86 @@
 
 @layer base {
   body {
-    background-color: #F5EFE0;
-    color: #1A1A2E;
-    font-family: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+    background-color: #FAF8F3;
+    color: #1A1A1A;
+    font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+  }
+  /* Grands titres en Cormorant Garamond Regular (Charte) — un poids/famille
+     explicite sur un élément l'emporte sur cette base. */
+  h1, h2 {
+    font-family: var(--font-serif);
+    font-weight: 400;
   }
   ::selection {
-    background-color: rgba(232, 86, 42, 0.2);
-    color: #1A1A2E;
+    background-color: rgba(212, 160, 23, 0.18);
+    color: #1A1A1A;
   }
 }
 
 @layer utilities {
   /* Subtle dot-grid texture */
   .bg-dot-grid {
-    background-image: radial-gradient(circle, rgba(26, 26, 46, 0.05) 1px, transparent 1px);
+    background-image: radial-gradient(circle, rgba(26, 26, 26, 0.05) 1px, transparent 1px);
     background-size: 26px 26px;
   }
   /* Warm paper texture */
   .bg-paper-texture {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Crect width='4' height='4' fill='%23F5EFE0'/%3E%3Ccircle cx='1' cy='1' r='0.5' fill='%231A1A2E' opacity='0.03'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Crect width='4' height='4' fill='%23FAF8F3'/%3E%3Ccircle cx='1' cy='1' r='0.5' fill='%231A1A1A' opacity='0.03'/%3E%3C/svg%3E");
   }
-  /* Orange highlight block */
+  /* Or highlight block — mot(s) surlignés (or + texte encre) */
   .highlight-coral {
-    background-color: #E8562A;
+    background-color: #D4A017;
     padding: 2px 6px;
     border-radius: 2px;
-    color: #FFFFFF;
+    color: #1A1A1A;
     display: inline;
   }
-  /* Solid accent text (no gradient) */
+  /* Solid accent text (Or Ambré) */
   .text-gradient-electric {
-    color: #E8562A;
+    color: #D4A017;
   }
   /* Card */
   .cream-card {
     background-color: #FFFFFF;
-    border: 1px solid #E8DFD0;
+    border: 1px solid #D8D4C8;
     border-radius: 4px;
+  }
+  /* Tag / étiquette de section (Charte) — Inter Bold UPPERCASE espacé, Or Ambré */
+  .tag-optialys {
+    font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+    font-weight: 700;
+    font-size: 0.6875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    color: #D4A017;
   }
 }
 
 /* ─── Blog article prose styles ─────────────────────────────────────────── */
 .prose-optialys {
-  color: #1A1A2E;
+  color: #1A1A1A;
   line-height: 1.8;
   font-size: 1.0625rem;
 }
 .prose-optialys p {
   margin-bottom: 1.25rem;
-  color: #3A3A45;
+  color: #3A3A38;
 }
 .prose-optialys h2 {
-  font-size: 1.6rem;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  color: #1A1A2E;
+  font-family: var(--font-serif);
+  font-size: 1.9rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  color: #1A1A1A;
   margin-top: 2.5rem;
   margin-bottom: 1rem;
-  line-height: 1.25;
+  line-height: 1.2;
 }
 .prose-optialys h3 {
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: #1A1A2E;
+  font-family: var(--font-serif);
+  font-size: 1.45rem;
+  font-weight: 500;
+  color: #1A1A1A;
   margin-top: 1.75rem;
   margin-bottom: 0.75rem;
 }
@@ -115,7 +133,7 @@
 .prose-optialys ol {
   padding-left: 1.5rem;
   margin-bottom: 1.25rem;
-  color: #3A3A45;
+  color: #3A3A38;
 }
 .prose-optialys ul {
   list-style-type: square;
@@ -129,9 +147,9 @@
 }
 .prose-optialys strong {
   font-weight: 700;
-  color: #1A1A2E;
+  color: #1A1A1A;
 }
 .prose-optialys em {
   font-style: italic;
-  color: #5A5A66;
+  color: #5A5A55;
 }

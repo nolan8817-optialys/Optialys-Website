@@ -81,7 +81,7 @@ export const SolutionDetail = () => {
           <Icon className="w-8 h-8" />
         </div>
         <PillBadge className="mb-6">{fr ? 'Pour qui' : 'For whom'}</PillBadge>
-        <h1 className="text-2xl md:text-3xl font-extrabold tracking-tight text-ink-navy mb-6 leading-[1.08]">
+        <h1 className="text-2xl md:text-3xl font-serif font-normal text-ink-navy mb-6 leading-[1.08]">
           {fr ? solution.h1.fr : solution.h1.en}
         </h1>
         <p className="text-base text-ink-gray leading-relaxed max-w-2xl mb-10">
@@ -97,7 +97,7 @@ export const SolutionDetail = () => {
       {/* Pains */}
       <section className="py-24 px-6 bg-surface-white border-y border-border-cream">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-xl md:text-2xl font-extrabold tracking-tight text-ink-navy mb-16 max-w-2xl">
+          <h2 className="text-xl md:text-2xl font-serif font-normal text-ink-navy mb-16 max-w-2xl">
             {fr ? `Ce qui vous fait perdre de l'argent en ${solution.metier.fr}` : `What's costing you money in ${solution.metier.en}`}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 border-t border-l border-border-cream">
@@ -119,7 +119,7 @@ export const SolutionDetail = () => {
       {/* What we connect */}
       <section className="py-24 px-6">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-xl md:text-2xl font-extrabold tracking-tight text-ink-navy mb-10">
+          <h2 className="text-xl md:text-2xl font-serif font-normal text-ink-navy mb-10">
             {fr ? 'Ce qu\'on connecte' : 'What we connect'}
           </h2>
           <div className="space-y-4">
@@ -138,7 +138,7 @@ export const SolutionDetail = () => {
       {/* Example */}
       <section className="py-24 px-6 bg-surface-white border-y border-border-cream">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-xl md:text-2xl font-extrabold tracking-tight text-ink-navy mb-12">
+          <h2 className="text-xl md:text-2xl font-serif font-normal text-ink-navy mb-12">
             {fr ? 'Un exemple concret' : 'A concrete example'}
           </h2>
           <div className="grid grid-cols-1 gap-px bg-border-cream border border-border-cream">
@@ -159,7 +159,7 @@ export const SolutionDetail = () => {
       {/* FAQ */}
       <section className="py-24 px-6">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-xl md:text-2xl font-extrabold tracking-tight text-ink-navy mb-12">FAQ</h2>
+          <h2 className="text-xl md:text-2xl font-serif font-normal text-ink-navy mb-12">FAQ</h2>
           <div className="space-y-6">
             {faq.map((f, i) => (
               <FadeIn key={i} delay={i * 0.05}>
@@ -176,7 +176,7 @@ export const SolutionDetail = () => {
       {/* Other trades — internal linking */}
       <section className="py-20 px-6 bg-surface-white border-t border-border-cream">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-2xl font-extrabold tracking-tight text-ink-navy mb-8">
+          <h2 className="text-2xl font-serif font-normal text-ink-navy mb-8">
             {fr ? 'Autres métiers que nous accompagnons' : 'Other trades we work with'}
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -205,7 +205,7 @@ export const SolutionDetail = () => {
       <section className="py-28 px-6 bg-bg-cream">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-14">
-            <h2 className="text-xl md:text-2xl font-extrabold tracking-tight text-ink-navy mb-6">
+            <h2 className="text-xl md:text-2xl font-serif font-normal text-ink-navy mb-6">
               {fr ? 'Commencez par le diagnostic.' : 'Start with the diagnostic.'}
             </h2>
             <p className="text-base text-ink-gray leading-relaxed max-w-2xl mx-auto">

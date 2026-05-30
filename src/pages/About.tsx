@@ -60,7 +60,7 @@ export const About = () => {
           transition={{ duration: 0.6 }}
         >
           <PillBadge className="mb-6">{T.title}</PillBadge>
-          <h1 className="text-2xl md:text-xl font-extrabold tracking-tight text-ink-navy mb-6">{T.title}</h1>
+          <h1 className="text-2xl md:text-xl font-serif font-normal text-ink-navy mb-6">{T.title}</h1>
           <p className="text-base text-ink-gray leading-relaxed max-w-2xl">{T.subtitle}</p>
         </motion.div>
       </section>
@@ -80,7 +80,7 @@ export const About = () => {
 
             <div className="w-full md:w-7/12 flex flex-col">
               <div className="mb-8">
-                <h2 className="text-xl font-extrabold tracking-tight text-ink-navy mb-2">Nolan Prayagsing</h2>
+                <h2 className="text-xl font-serif font-normal text-ink-navy mb-2">Nolan Prayagsing</h2>
                 <p className="text-xl font-medium text-accent-coral mb-4">{T.role}</p>
                 <div className="flex flex-wrap gap-2 text-sm font-bold text-ink-gray">
                   <span className="px-3 py-1 rounded-sm bg-surface-white border border-border-cream">{T.badge1}</span>
@@ -96,7 +96,7 @@ export const About = () => {
                 <p>{T.p4}</p>
               </div>
 
-              <div className="text-ink-navy text-lg md:text-xl font-extrabold tracking-tight leading-tight mb-10">
+              <div className="text-ink-navy text-lg md:text-xl font-serif font-normal leading-tight mb-10">
                 <p>{T.tagline1}</p>
                 <p className="text-accent-coral">{T.tagline2}</p>
               </div>
@@ -118,7 +118,7 @@ export const About = () => {
         </FadeIn>
 
         <FadeIn direction="up">
-          <h2 className="text-xl font-extrabold tracking-tight text-ink-navy mb-12">{T.dna}</h2>
+          <h2 className="text-xl font-serif font-normal text-ink-navy mb-12">{T.dna}</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 border-t border-l border-border-cream">
             {values.map((v, i) => (
               <div key={i} className="p-8 border-b border-r border-border-cream bg-surface-white">
@@ -136,7 +136,7 @@ export const About = () => {
       <section className="mt-32 py-24 bg-surface-white border-y border-border-cream">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <FadeIn>
-            <h2 className="text-xl font-extrabold tracking-tight text-ink-navy mb-6">{T.ctaTitle}</h2>
+            <h2 className="text-xl font-serif font-normal text-ink-navy mb-6">{T.ctaTitle}</h2>
             <p className="text-base text-ink-gray mb-12">{T.ctaSub}</p>
             <a href={CALENDLY} target="_blank" rel="noopener noreferrer">
               <GlowButton variant="primary" className="text-base px-8 py-4">
