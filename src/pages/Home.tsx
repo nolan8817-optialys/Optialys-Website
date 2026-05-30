@@ -75,39 +75,52 @@ const Hero = () => {
   const { t } = useLanguage();
   return (
     <section className="pt-40 pb-24 px-6 border-b border-border-cream">
-      <div className="max-w-5xl mx-auto">
-        <h1 className="font-serif font-normal text-ink-navy">
-          <span className="block font-sans text-xs sm:text-sm font-bold tracking-[0.25em] uppercase text-accent-coral mb-8">
-            {t('home.hero.eyebrow')}
-          </span>
-          <span className="block text-2xl sm:text-3xl md:text-4xl leading-[1.1]">
-            {t('home.hero.title.line1')}
-          </span>
-          <span className="block text-2xl sm:text-3xl md:text-4xl leading-[1.1] text-accent-coral mt-1">
-            {t('home.hero.title.line2')}
-          </span>
-        </h1>
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div>
+          <h1 className="font-serif font-normal text-ink-navy">
+            <span className="block font-sans text-xs sm:text-sm font-bold tracking-[0.25em] uppercase text-accent-coral mb-8">
+              {t('home.hero.eyebrow')}
+            </span>
+            <span className="block text-2xl sm:text-3xl md:text-4xl leading-[1.1]">
+              {t('home.hero.title.line1')}
+            </span>
+            <span className="block text-2xl sm:text-3xl md:text-4xl leading-[1.1] text-accent-coral mt-1">
+              {t('home.hero.title.line2')}
+            </span>
+          </h1>
 
-        <p className="mt-8 max-w-2xl text-sm md:text-base text-ink-gray leading-relaxed">
-          {t('home.hero.body')}
-        </p>
+          <p className="mt-8 max-w-2xl text-sm md:text-base text-ink-gray leading-relaxed">
+            {t('home.hero.body')}
+          </p>
 
-        <div className="mt-10 flex flex-col sm:flex-row items-start gap-4">
-          <a href={CALENDLY} target="_blank" rel="noopener noreferrer">
-            <GlowButton variant="primary" className="px-7 py-4 text-base">
-              {t('home.hero.cta.primary')} <ArrowRight className="w-4 h-4" />
-            </GlowButton>
-          </a>
-          <Link to="/services">
-            <GlowButton variant="outline" className="px-7 py-4 text-base">
-              {t('home.hero.cta.secondary')}
-            </GlowButton>
-          </Link>
+          <div className="mt-10 flex flex-col sm:flex-row items-start gap-4">
+            <a href={CALENDLY} target="_blank" rel="noopener noreferrer">
+              <GlowButton variant="primary" className="px-7 py-4 text-base">
+                {t('home.hero.cta.primary')} <ArrowRight className="w-4 h-4" />
+              </GlowButton>
+            </a>
+            <Link to="/services">
+              <GlowButton variant="outline" className="px-7 py-4 text-base">
+                {t('home.hero.cta.secondary')}
+              </GlowButton>
+            </Link>
+          </div>
+
+          <p className="mt-5 text-xs text-ink-gray tracking-wide">
+            {t('home.hero.cta.reassure')}
+          </p>
         </div>
 
-        <p className="mt-5 text-xs text-ink-gray tracking-wide">
-          {t('home.hero.cta.reassure')}
-        </p>
+        <FadeIn direction="right" className="w-full">
+          <div className="visual-3d-wrapper">
+            <img
+              src="/visuals/hero.jpg"
+              alt="Alertes budget temps réel Optialys sur iPhone"
+              className="visual-3d tilt-right"
+              loading="eager"
+            />
+          </div>
+        </FadeIn>
       </div>
     </section>
   );
@@ -127,6 +140,18 @@ const Problem = () => {
         <h2 className="text-xl md:text-2xl font-serif font-normal text-ink-navy mb-12 max-w-2xl">
           {t('home.problem.title')}
         </h2>
+
+        <FadeIn className="w-full">
+          <div className="visual-3d-wrapper mb-16">
+            <img
+              src="/visuals/problem.jpg"
+              alt="Les 3 problèmes opérationnels — budget, délai, outils déconnectés"
+              className="visual-3d tilt-center"
+              style={{ maxWidth: '1100px' }}
+              loading="lazy"
+            />
+          </div>
+        </FadeIn>
 
         <div className="grid grid-cols-1 md:grid-cols-3 border-t border-l border-border-cream">
           {items.map((item, i) => (
@@ -258,6 +283,21 @@ const Offer = () => {
           {t('home.offer.title')}
         </h2>
 
+        <FadeIn className="w-full">
+          <div className="text-center mb-16">
+            <span className="visual-badge">{t('home.visual.methodology.badge')}</span>
+            <div className="visual-3d-wrapper">
+              <img
+                src="/visuals/methodology.jpg"
+                alt="Méthodologie Optialys — Diagnostic, Infrastructure, Partenariat"
+                className="visual-3d tilt-center"
+                style={{ maxWidth: '1100px' }}
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </FadeIn>
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {steps.map((s, i) => (
             <FadeIn key={i} delay={i * 0.08}>
@@ -292,14 +332,26 @@ const ForWhom = () => {
   const { t } = useLanguage();
   return (
     <section className="py-24 px-6 bg-surface-white border-y border-border-cream">
-      <div className="max-w-4xl mx-auto">
-        <SectionLabel>{t('home.forwho.eyebrow')}</SectionLabel>
-        <h2 className="text-xl md:text-2xl font-serif font-normal text-ink-navy mb-6">
-          {t('home.forwho.title')}
-        </h2>
-        <p className="text-sm md:text-base text-ink-gray leading-relaxed">
-          {t('home.forwho.body')}
-        </p>
+      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-[55%_45%] gap-12 lg:gap-16 items-center">
+        <FadeIn direction="left" className="w-full">
+          <div className="visual-3d-wrapper">
+            <img
+              src="/visuals/for-whom.jpg"
+              alt="Atelier de restauration Bentley — système Optialys en temps réel"
+              className="visual-3d tilt-left"
+              loading="lazy"
+            />
+          </div>
+        </FadeIn>
+        <div>
+          <SectionLabel>{t('home.forwho.eyebrow')}</SectionLabel>
+          <h2 className="text-xl md:text-2xl font-serif font-normal text-ink-navy mb-6">
+            {t('home.forwho.title')}
+          </h2>
+          <p className="text-sm md:text-base text-ink-gray leading-relaxed">
+            {t('home.forwho.body')}
+          </p>
+        </div>
       </div>
     </section>
   );
