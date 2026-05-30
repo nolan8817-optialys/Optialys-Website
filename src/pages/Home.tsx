@@ -150,14 +150,94 @@ const Solution = () => {
   const { t } = useLanguage();
   return (
     <section className="py-28 px-6 bg-ink-navy">
-      <div className="max-w-4xl mx-auto">
-        <SectionLabel>{t('home.solution.eyebrow')}</SectionLabel>
-        <h2 className="text-xl md:text-2xl font-serif font-normal text-white mb-6">
-          {t('home.solution.title')}
-        </h2>
-        <p className="text-sm md:text-base text-white/80 leading-relaxed">
-          {t('home.solution.body')}
-        </p>
+      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div>
+          <SectionLabel>{t('home.solution.eyebrow')}</SectionLabel>
+          <h2 className="text-xl md:text-2xl font-serif font-normal text-white mb-6">
+            {t('home.solution.title')}
+          </h2>
+          <p className="text-sm md:text-base text-white/80 leading-relaxed">
+            {t('home.solution.body')}
+          </p>
+        </div>
+        <FadeIn direction="right" className="w-full">
+          <div className="visual-mockup-wrapper">
+            <img
+              src="/visuals/dashboard.jpg"
+              alt="Tableau de bord temps réel Optialys — Suivi budget chantiers"
+              loading="lazy"
+              className="visual-mockup mirror"
+            />
+          </div>
+        </FadeIn>
+      </div>
+    </section>
+  );
+};
+
+// Ligne texte + mockup 3D (alternance gauche/droite)
+const MockupRow = ({
+  src,
+  alt,
+  badge,
+  title,
+  desc,
+  imageSide,
+}: {
+  src: string;
+  alt: string;
+  badge?: string;
+  title: string;
+  desc: string;
+  imageSide: 'left' | 'right';
+}) => {
+  const imageCol = (
+    <FadeIn direction={imageSide === 'left' ? 'left' : 'right'} className="w-full">
+      {badge && <p className="visual-badge mb-3">{badge}</p>}
+      <div className="visual-mockup-wrapper">
+        <img
+          src={src}
+          alt={alt}
+          loading="lazy"
+          className={`visual-mockup${imageSide === 'right' ? ' mirror' : ''}`}
+        />
+      </div>
+    </FadeIn>
+  );
+  const textCol = (
+    <FadeIn direction="up">
+      <h3 className="text-xl md:text-2xl font-serif font-normal text-ink-navy mb-4">{title}</h3>
+      <p className="text-sm md:text-base text-ink-gray leading-relaxed">{desc}</p>
+    </FadeIn>
+  );
+  return (
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      {imageSide === 'left' ? <>{imageCol}{textCol}</> : <>{textCol}{imageCol}</>}
+    </div>
+  );
+};
+
+const ProductVisuals = () => {
+  const { t } = useLanguage();
+  return (
+    <section className="px-6 bg-bg-cream border-t border-border-cream">
+      <div className="max-w-6xl mx-auto py-20 space-y-24">
+        <MockupRow
+          imageSide="left"
+          src="/visuals/workflow.jpg"
+          alt="Système d'automatisation n8n Optialys — Flux d'alerte budget"
+          badge={t('home.visual.workflow.badge')}
+          title={t('home.offer.2.name')}
+          desc={t('home.offer.2.desc')}
+        />
+        <MockupRow
+          imageSide="right"
+          src="/visuals/rapport.jpg"
+          alt="Rapport hebdomadaire automatique Optialys — Analyse rentabilité"
+          badge={t('home.visual.report.badge')}
+          title={t('home.offer.3.name')}
+          desc={t('home.offer.3.desc')}
+        />
       </div>
     </section>
   );
@@ -274,6 +354,7 @@ export const Home = () => {
       <Problem />
       <Solution />
       <Offer />
+      <ProductVisuals />
       <ForWhom />
       <FinalCTA />
     </>

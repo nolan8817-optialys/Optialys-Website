@@ -35,6 +35,8 @@ const en: Dict = {
   "home.hero.cta.primary": "Book a Diagnostic",
   "home.hero.cta.secondary": "See how it works",
   "home.hero.cta.reassure": "15 min · video call · no commitment",
+  "home.visual.workflow.badge": "REAL SYSTEM — OPTIALYS AUTOMATED WORKFLOW",
+  "home.visual.report.badge": "AUTO-GENERATED REPORT EVERY MONDAY AT 08:00",
 
   // Home — Problem
   "home.problem.eyebrow": "The problem",
@@ -158,6 +160,8 @@ const fr: Dict = {
   "home.hero.cta.primary": "Réserver un Diagnostic",
   "home.hero.cta.secondary": "Voir comment ça marche",
   "home.hero.cta.reassure": "15 min · en visio · sans engagement",
+  "home.visual.workflow.badge": "SYSTÈME RÉEL — WORKFLOW AUTOMATISÉ OPTIALYS",
+  "home.visual.report.badge": "RAPPORT AUTO-GÉNÉRÉ CHAQUE LUNDI À 08H00",
 
   // Home — Problème
   "home.problem.eyebrow": "Le problème",
