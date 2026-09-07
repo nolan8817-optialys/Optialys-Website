@@ -6,13 +6,14 @@ import { CalendlyEmbed } from '../components/CalendlyEmbed';
 import { useLanguage } from '../i18n/LanguageContext';
 import { useSEO } from '../hooks/useSEO';
 
-/* Clé Web3Forms — sans elle le formulaire n'a aucun moyen d'envoyer quoi que
-   ce soit. On ne simule JAMAIS un envoi réussi : si la clé manque, on affiche
-   l'erreur et l'adresse email. */
+/* Clé Web3Forms. Avec elle, le formulaire poste vers Web3Forms. Sans elle, il
+   bascule sur un mailto pré-rempli — le message part quand même.
+   On ne simule JAMAIS un envoi réussi : c'est ce que faisait la version
+   précédente (setTimeout puis « message envoyé »), et aucun lead n'arrivait. */
 const WEB3FORMS_KEY = import.meta.env.VITE_WEB3FORMS_KEY as string | undefined;
 const WEB3FORMS_ENDPOINT = 'https://api.web3forms.com/submit';
 
-type Status = 'idle' | 'submitting' | 'success' | 'error';
+type Status = 'idle' | 'submitting' | 'success' | 'error' | 'mailto';
 
 const fieldClass =
   'w-full rounded-lg border border-border-cream bg-bg-cream px-4 py-3 text-ink-navy transition-colors focus:border-accent-coral focus:outline-none';
@@ -33,13 +34,28 @@ export const Contact = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+
+    /* Pas de cle => on n'echoue pas et on ne ment pas : on bascule sur un
+       vrai email pre-rempli. Le message part quand meme. */
     if (!WEB3FORMS_KEY) {
-      setStatus('error');
+      const get = (k: string) => String(formData.get(k) ?? '');
+      const body = [
+        `Nom : ${get('name')}`,
+        `Email : ${get('email')}`,
+        `Atelier : ${get('company')}`,
+        `Activite : ${get('sector')}`,
+        '',
+        get('message'),
+      ].join('\n');
+      window.location.href =
+        `mailto:nolan@optialys.com?subject=${encodeURIComponent('Demande depuis le site Optialys')}` +
+        `&body=${encodeURIComponent(body)}`;
+      setStatus('mailto');
       return;
     }
 
     setStatus('submitting');
-    const formData = new FormData(e.currentTarget);
     formData.append('access_key', WEB3FORMS_KEY);
     formData.append('subject', 'Optialys — nouvelle demande depuis le site');
     formData.append('from_name', 'Site Optialys');
@@ -177,15 +193,23 @@ export const Contact = () => {
                       />
                     </div>
 
-                    {status === 'error' && (
+                    {(status === 'error' || status === 'mailto') && (
                       <div
                         role="alert"
                         className="flex gap-3 rounded-lg border border-accent-coral/40 bg-accent-peach/40 p-4"
                       >
                         <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-accent-coral" />
                         <div className="text-sm text-ink-navy">
-                          <p className="font-semibold">{t('contact.form.errorTitle')}</p>
-                          <p className="mt-1 text-ink-gray">{t('contact.form.errorBody')}</p>
+                          <p className="font-semibold">
+                            {status === 'mailto'
+                              ? t('contact.form.mailtoTitle')
+                              : t('contact.form.errorTitle')}
+                          </p>
+                          <p className="mt-1 text-ink-gray">
+                            {status === 'mailto'
+                              ? t('contact.form.mailtoBody')
+                              : t('contact.form.errorBody')}
+                          </p>
                         </div>
                       </div>
                     )}
