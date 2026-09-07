@@ -6,12 +6,13 @@ interface SEOProps {
   canonical?: string;
   ogImage?: string;
   schema?: Record<string, unknown>;
+  noindex?: boolean;
 }
 
 const DEFAULT_OG_IMAGE = 'https://optialys.com/optialys-logo.webp';
 const DEFAULT_TITLE_SUFFIX = ' | Optialys';
 
-export function useSEO({ title, description, canonical, ogImage, schema }: SEOProps) {
+export function useSEO({ title, description, canonical, ogImage, schema, noindex }: SEOProps) {
   useEffect(() => {
     const fullTitle = title.includes('Optialys') ? title : title + DEFAULT_TITLE_SUFFIX;
     document.title = fullTitle;
@@ -34,6 +35,7 @@ export function useSEO({ title, description, canonical, ogImage, schema }: SEOPr
     const canonicalUrl = canonical ?? `https://optialys.com${window.location.pathname}`;
 
     setMeta('meta[name="description"]', 'content', description);
+    setMeta('meta[name="robots"]', 'content', noindex ? 'noindex, follow' : 'index, follow');
     setMeta('meta[property="og:title"]', 'content', fullTitle);
     setMeta('meta[property="og:description"]', 'content', description);
     setMeta('meta[property="og:image"]', 'content', image);
@@ -65,12 +67,13 @@ export function useSEO({ title, description, canonical, ogImage, schema }: SEOPr
     }
 
     return () => {
-      document.title = 'Optialys — Infrastructure opérationnelle pour ateliers haut de gamme';
+      document.title = 'Optialys — Je m’occupe de votre marge';
       document.querySelector('meta[name="description"]')?.setAttribute(
         'content',
-        'Vos outils déconnectés vous font perdre de l\'argent. Optialys connecte votre infrastructure et vous donne une vision temps réel de vos chantiers et de votre marge.'
+        'Vous devisez 400 heures, le chantier en prend 650, et personne ne le voit avant la facture. Optialys mesure l’écart en continu et pilote la marge des ateliers haut de gamme.'
       );
+      document.querySelector('meta[name="robots"]')?.setAttribute('content', 'index, follow');
       document.getElementById(SCHEMA_ID)?.remove();
     };
-  }, [title, description, canonical, ogImage, schema]);
+  }, [title, description, canonical, ogImage, schema, noindex]);
 }

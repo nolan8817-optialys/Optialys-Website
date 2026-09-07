@@ -1,147 +1,207 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { ArrowRight, CheckCircle2 } from 'lucide-react';
-import { FadeIn, GlowButton, PillBadge } from '../components/ui';
+import { ArrowRight, CheckCircle2, AlertTriangle } from 'lucide-react';
+import { FadeIn, GlowButton, EyebrowRule } from '../components/ui';
 import { CalendlyEmbed } from '../components/CalendlyEmbed';
 import { useLanguage } from '../i18n/LanguageContext';
 import { useSEO } from '../hooks/useSEO';
 
+/* Clé Web3Forms — sans elle le formulaire n'a aucun moyen d'envoyer quoi que
+   ce soit. On ne simule JAMAIS un envoi réussi : si la clé manque, on affiche
+   l'erreur et l'adresse email. */
+const WEB3FORMS_KEY = import.meta.env.VITE_WEB3FORMS_KEY as string | undefined;
+const WEB3FORMS_ENDPOINT = 'https://api.web3forms.com/submit';
+
+type Status = 'idle' | 'submitting' | 'success' | 'error';
+
+const fieldClass =
+  'w-full rounded-lg border border-border-cream bg-bg-cream px-4 py-3 text-ink-navy transition-colors focus:border-accent-coral focus:outline-none';
+const labelClass = 'text-sm font-semibold text-ink-gray';
+
 export const Contact = () => {
   const { t, lang } = useLanguage();
   const fr = lang === 'fr';
+  const [status, setStatus] = useState<Status>('idle');
+
   useSEO({
-    title: fr
-      ? 'Contact — Réserver un Diagnostic Rentabilité | Optialys'
-      : 'Contact — Book a Profitability Diagnostic | Optialys',
+    title: fr ? 'Contact — Optialys' : 'Contact — Optialys',
     description: fr
-      ? 'Réservez votre Diagnostic Rentabilité de 2h avec Optialys. On chiffre où part votre argent et on vous remet un plan d\'action pour piloter votre marge.'
-      : 'Book your 2-hour Profitability Diagnostic with Optialys. We pinpoint where your money goes and hand you an action plan to pilot your margin.',
+      ? 'Quinze minutes en visio. Vous décrivez un chantier récent, je vous dis où je regarderais en premier.'
+      : 'Fifteen minutes on a video call. You describe a recent job, I tell you where I would look first.',
     canonical: 'https://optialys.com/contact',
   });
-  const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setFormStatus('submitting');
-    setTimeout(() => {
-      setFormStatus('success');
-    }, 1500);
+    if (!WEB3FORMS_KEY) {
+      setStatus('error');
+      return;
+    }
+
+    setStatus('submitting');
+    const formData = new FormData(e.currentTarget);
+    formData.append('access_key', WEB3FORMS_KEY);
+    formData.append('subject', 'Optialys — nouvelle demande depuis le site');
+    formData.append('from_name', 'Site Optialys');
+
+    try {
+      const res = await fetch(WEB3FORMS_ENDPOINT, {
+        method: 'POST',
+        body: formData,
+      });
+      const data = await res.json();
+      setStatus(res.ok && data.success ? 'success' : 'error');
+    } catch {
+      setStatus('error');
+    }
   };
 
   return (
-    <div className="pt-32 pb-20 bg-bg-cream">
-      <section className="px-6 max-w-4xl mx-auto text-center mb-24">
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <PillBadge className="mb-6">{t('contact.title')}</PillBadge>
-          <h1 className="text-xl md:text-2xl font-serif font-normal text-ink-navy mb-6">
-            {t('contact.title')}
+    <div className="bg-bg-cream">
+      <section className="hero-halo border-b border-border-cream px-6 pt-36 pb-20 md:pt-44">
+        <div className="mx-auto max-w-3xl text-center">
+          <EyebrowRule align="center" className="mb-10">
+            {t('contact.eyebrow')}
+          </EyebrowRule>
+          <h1 className="display-1 text-ink-navy">
+            <span className="block">{t('contact.title.line1')}</span>
+            <span className="display-accent block">{t('contact.title.line2')}</span>
           </h1>
-          <p className="text-base text-ink-gray leading-relaxed max-w-2xl mx-auto">
-            {t('contact.subtitle')}
-          </p>
-        </motion.div>
+          <p className="lead mx-auto mt-9 max-w-xl">{t('contact.subtitle')}</p>
+        </div>
       </section>
 
-      <section className="px-6 max-w-7xl mx-auto">
-        <div className="flex flex-col lg:flex-row gap-12 relative">
-
-          {/* Left Column - Form */}
+      <section className="mx-auto max-w-7xl px-6 py-24">
+        <div className="relative flex flex-col gap-12 lg:flex-row">
+          {/* Formulaire */}
           <div className="flex-1">
             <FadeIn direction="left" className="h-full">
-              <div className="p-8 md:p-10 rounded-3xl bg-surface-white border border-border-cream h-full flex flex-col">
-                <h2 className="text-xl font-bold text-ink-navy mb-2">{t('contact.form.heading')}</h2>
-                <p className="text-ink-gray mb-8">{t('contact.form.tagline')}</p>
+              <div className="flex h-full flex-col rounded-2xl border border-border-cream bg-surface-white p-8 md:p-10">
+                <h2 className="display-3 mb-2 text-ink-navy">{t('contact.form.heading')}</h2>
+                <p className="mb-8 text-ink-gray">{t('contact.form.tagline')}</p>
 
-                {formStatus === 'success' ? (
+                {status === 'success' ? (
                   <motion.div
-                    initial={{ opacity: 0, scale: 0.9 }}
+                    initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    className="flex flex-col items-center justify-center text-center py-12 flex-1"
+                    className="flex flex-1 flex-col items-center justify-center py-12 text-center"
                   >
-                    <div className="w-20 h-20 rounded-full bg-accent-green/10 flex items-center justify-center text-accent-green mb-6">
-                      <CheckCircle2 className="w-10 h-10" />
+                    <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-accent-green/10 text-accent-green">
+                      <CheckCircle2 className="h-10 w-10" />
                     </div>
-                    <h3 className="text-2xl font-bold text-ink-navy mb-2">{t('contact.form.sentTitle')}</h3>
-                    <p className="text-ink-gray">
-                      {t('contact.form.sentBody')}
-                    </p>
+                    <h3 className="display-3 mb-2 text-ink-navy">
+                      {t('contact.form.sentTitle')}
+                    </h3>
+                    <p className="text-ink-gray">{t('contact.form.sentBody')}</p>
                   </motion.div>
                 ) : (
-                  <form onSubmit={handleSubmit} className="space-y-6 flex-1 flex flex-col">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <form onSubmit={handleSubmit} className="flex flex-1 flex-col space-y-6">
+                    {/* Anti-spam Web3Forms */}
+                    <input
+                      type="checkbox"
+                      name="botcheck"
+                      className="hidden"
+                      style={{ display: 'none' }}
+                      tabIndex={-1}
+                      autoComplete="off"
+                    />
+
+                    <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                       <div className="space-y-2">
-                        <label htmlFor="name" className="text-sm font-bold text-ink-gray">{t('contact.form.firstName')} *</label>
-                        <input
-                          type="text"
-                          id="name"
-                          required
-                          className="w-full bg-bg-cream border border-border-cream rounded-xl px-4 py-3 text-ink-navy focus:outline-none focus:border-accent-coral transition-colors"
-                          placeholder="John Doe"
-                        />
+                        <label htmlFor="name" className={labelClass}>
+                          {t('contact.form.firstName')} *
+                        </label>
+                        <input type="text" id="name" name="name" required className={fieldClass} />
                       </div>
                       <div className="space-y-2">
-                        <label htmlFor="email" className="text-sm font-bold text-ink-gray">{t('contact.form.profEmail')} *</label>
+                        <label htmlFor="email" className={labelClass}>
+                          {t('contact.form.profEmail')} *
+                        </label>
                         <input
                           type="email"
                           id="email"
+                          name="email"
                           required
-                          className="w-full bg-bg-cream border border-border-cream rounded-xl px-4 py-3 text-ink-navy focus:outline-none focus:border-accent-coral transition-colors"
-                          placeholder="john@company.com"
+                          className={fieldClass}
                         />
                       </div>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                       <div className="space-y-2">
-                        <label htmlFor="company" className="text-sm font-bold text-ink-gray">{t('contact.form.company')} *</label>
+                        <label htmlFor="company" className={labelClass}>
+                          {t('contact.form.company')} *
+                        </label>
                         <input
                           type="text"
                           id="company"
+                          name="company"
                           required
-                          className="w-full bg-bg-cream border border-border-cream rounded-xl px-4 py-3 text-ink-navy focus:outline-none focus:border-accent-coral transition-colors"
-                          placeholder="Your company"
+                          className={fieldClass}
                         />
                       </div>
                       <div className="space-y-2">
-                        <label htmlFor="sector" className="text-sm font-bold text-ink-gray">{t('contact.form.sector')} *</label>
+                        <label htmlFor="sector" className={labelClass}>
+                          {t('contact.form.sector')} *
+                        </label>
                         <select
                           id="sector"
+                          name="sector"
                           required
-                          className="w-full bg-bg-cream border border-border-cream rounded-xl px-4 py-3 text-ink-navy focus:outline-none focus:border-accent-coral transition-colors appearance-none"
+                          defaultValue=""
+                          className={`${fieldClass} appearance-none`}
                         >
-                          <option value="">{t('contact.form.selectSector')}</option>
-                          <option value="yacht">{t('contact.form.sector.realEstate')}</option>
-                          <option value="classic-cars">{t('contact.form.sector.fiduciary')}</option>
-                          <option value="concierge">{t('contact.form.sector.consulting')}</option>
-                          <option value="workshop">{t('contact.form.sector.hr')}</option>
-                          <option value="other">{t('contact.form.sector.other')}</option>
+                          <option value="" disabled>
+                            {t('contact.form.selectSector')}
+                          </option>
+                          <option>{t('contact.form.sector.classicCars')}</option>
+                          <option>{t('contact.form.sector.bodywork')}</option>
+                          <option>{t('contact.form.sector.furniture')}</option>
+                          <option>{t('contact.form.sector.otherWorkshop')}</option>
+                          <option>{t('contact.form.sector.other')}</option>
                         </select>
                       </div>
                     </div>
 
-                    <div className="space-y-2 flex-1">
-                      <label htmlFor="message" className="text-sm font-bold text-ink-gray">{t('contact.form.project')}</label>
+                    <div className="flex-1 space-y-2">
+                      <label htmlFor="message" className={labelClass}>
+                        {t('contact.form.project')}
+                      </label>
                       <textarea
                         id="message"
+                        name="message"
                         required
                         rows={5}
-                        className="w-full h-full min-h-[120px] bg-bg-cream border border-border-cream rounded-xl px-4 py-3 text-ink-navy focus:outline-none focus:border-accent-coral transition-colors resize-none"
+                        className={`${fieldClass} h-full min-h-[130px] resize-none`}
                         placeholder={t('contact.form.projectPlaceholder')}
-                      ></textarea>
+                      />
                     </div>
+
+                    {status === 'error' && (
+                      <div
+                        role="alert"
+                        className="flex gap-3 rounded-lg border border-accent-coral/40 bg-accent-peach/40 p-4"
+                      >
+                        <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-accent-coral" />
+                        <div className="text-sm text-ink-navy">
+                          <p className="font-semibold">{t('contact.form.errorTitle')}</p>
+                          <p className="mt-1 text-ink-gray">{t('contact.form.errorBody')}</p>
+                        </div>
+                      </div>
+                    )}
 
                     <GlowButton
                       type="submit"
                       variant="primary"
-                      className="w-full justify-center mt-auto"
-                      disabled={formStatus === 'submitting'}
+                      className="mt-auto w-full justify-center"
+                      disabled={status === 'submitting'}
                     >
-                      {formStatus === 'submitting' ? t('contact.form.sending') : t('contact.form.send')}
-                      {formStatus === 'idle' && <ArrowRight className="w-4 h-4 ml-2" />}
+                      {status === 'submitting'
+                        ? t('contact.form.sending')
+                        : status === 'error'
+                          ? t('contact.form.retry')
+                          : t('contact.form.send')}
+                      {status === 'idle' && <ArrowRight className="ml-2 h-4 w-4" />}
                     </GlowButton>
                   </form>
                 )}
@@ -149,33 +209,34 @@ export const Contact = () => {
             </FadeIn>
           </div>
 
-          {/* Separator */}
-          <div className="hidden lg:flex flex-col items-center justify-center relative w-12">
-            <div className="absolute inset-y-0 w-px bg-border-cream"></div>
-            <div className="relative z-10 bg-bg-cream w-10 h-10 rounded-full border border-border-cream flex items-center justify-center text-ink-navy font-bold text-sm">
+          {/* Séparateur */}
+          <div className="relative hidden w-12 flex-col items-center justify-center lg:flex">
+            <div className="absolute inset-y-0 w-px bg-border-cream" />
+            <div className="relative z-10 flex h-10 w-10 items-center justify-center rounded-full border border-border-cream bg-bg-cream text-sm font-bold text-ink-navy">
               {t('contact.or')}
             </div>
           </div>
-          <div className="lg:hidden flex items-center justify-center relative h-12">
-            <div className="absolute inset-x-0 h-px bg-border-cream"></div>
-            <div className="relative z-10 bg-bg-cream px-4 py-1 rounded-full border border-border-cream text-ink-navy font-bold text-sm">
+          <div className="relative flex h-12 items-center justify-center lg:hidden">
+            <div className="absolute inset-x-0 h-px bg-border-cream" />
+            <div className="relative z-10 rounded-full border border-border-cream bg-bg-cream px-4 py-1 text-sm font-bold text-ink-navy">
               {t('contact.or')}
             </div>
           </div>
 
-          {/* Right Column - Calendly */}
+          {/* Calendly */}
           <div className="flex-1">
             <FadeIn direction="right" className="h-full">
-              <div className="h-full flex flex-col">
-                <h2 className="text-xl font-bold text-ink-navy mb-2">{t('contact.calendly.heading')}</h2>
-                <p className="text-ink-gray mb-8">{t('contact.calendly.tagline')}</p>
+              <div className="flex h-full flex-col">
+                <h2 className="display-3 mb-2 text-ink-navy">
+                  {t('contact.calendly.heading')}
+                </h2>
+                <p className="mb-8 text-ink-gray">{t('contact.calendly.tagline')}</p>
                 <div className="flex-1">
                   <CalendlyEmbed />
                 </div>
               </div>
             </FadeIn>
           </div>
-
         </div>
       </section>
     </div>

@@ -2,256 +2,397 @@ export type Lang = 'fr' | 'en';
 
 type Dict = Record<string, string>;
 
-const en: Dict = {
-  // Nav
-  "nav.home": "Home",
-  "nav.services": "Approach",
-  "nav.core": "Infrastructure",
-  "nav.partner": "Monthly Partnership",
-  "nav.caseStudies": "For Whom",
-  "nav.diagnostic": "Diagnostic",
-  "nav.about": "About",
-  "nav.contact": "Contact",
-  "nav.freeAudit": "Book a Diagnostic",
-
-  // Footer
-  "footer.tagline": "Operational infrastructure for high-end workshops and services.",
-  "footer.navigation": "Navigation",
-  "footer.services": "Offer",
-  "footer.legal": "Legal",
-  "footer.legalNotice": "Legal Notice",
-  "footer.privacy": "Privacy Policy",
-  "footer.aiAudit": "Profitability Diagnostic",
-  "footer.roiCalc": "Margin Calculator",
-  "footer.maintenance": "Monthly Partnership",
-  "footer.customDev": "Custom Infrastructure",
-  "footer.copyright": "Optialys — Operational infrastructure for high-end workshops and services.",
-
-  // Home — Hero
-  "home.hero.eyebrow": "Operational infrastructure for high-end workshops",
-  "home.hero.title.line1": "Your projects are costing you money.",
-  "home.hero.title.line2": "You'll find out too late.",
-  "home.hero.body": "Your tools don't talk to each other. Budget overruns are spotted too late. Optialys connects everything and gives you the visibility to act before it's too late.",
-  "home.hero.cta.primary": "Book a Diagnostic",
-  "home.hero.cta.secondary": "See how it works",
-  "home.hero.cta.reassure": "15 min · video call · no commitment",
-  "home.visual.workflow.badge": "REAL SYSTEM — OPTIALYS AUTOMATED WORKFLOW",
-  "home.visual.report.badge": "AUTO-GENERATED REPORT EVERY MONDAY AT 08:00",
-  "home.visual.methodology.badge": "3-STEP METHODOLOGY",
-
-  // Home — Problem
-  "home.problem.eyebrow": "The problem",
-  "home.problem.title": "Where the money quietly leaks out",
-  "home.problem.1.title": "Your projects run over budget",
-  "home.problem.1.desc": "The problem shows up at the end of the week. Sometimes at the end of the month. Never in time to react.",
-  "home.problem.2.title": "Your data arrives a day late",
-  "home.problem.2.desc": "Your technicians fill in notebooks. Someone keys them in the next day. You make decisions based on what happened yesterday.",
-  "home.problem.3.title": "Your tools don't talk to each other",
-  "home.problem.3.desc": "CRM, project software, invoicing, Excel. Each in its own corner. Information doesn't flow.",
-
-  // Home — Solution
-  "home.solution.eyebrow": "The solution",
-  "home.solution.title": "What Optialys does",
-  "home.solution.body": "We don't replace your tools. We connect them. Everything flows into one central system. You see what's happening tonight, not next week.",
-
-  // Home — Offer
-  "home.offer.eyebrow": "The offer",
-  "home.offer.title": "Three steps. One system that holds.",
-  "home.offer.1.step": "Step 1",
-  "home.offer.1.name": "Profitability Diagnostic",
-  "home.offer.1.desc": "2 hours. We audit your tools and your flows. We identify 3 to 5 concrete, quantified financial leaks. You leave with an action plan.",
-  "home.offer.2.step": "Step 2",
-  "home.offer.2.name": "Custom infrastructure",
-  "home.offer.2.desc": "4 to 6 weeks. We connect your existing tools into one central system. Real-time dashboard, automatic budget alerts, weekly reports. Team training included.",
-  "home.offer.3.step": "Step 3",
-  "home.offer.3.name": "Monthly partnership",
-  "home.offer.3.desc": "Maintenance and evolution of the system. Monthly analysis of your data. One new automation per month. Growth advice based on your indicators. Priority support within 24h.",
-
-  // Home — For whom
-  "home.forwho.eyebrow": "For whom",
-  "home.forwho.title": "Who is it for?",
-  "home.forwho.body": "Restoration workshops (yachts, classic cars, jets, bespoke furniture), premium concierge and services, businesses with field teams of 10 to 40 people, projects between €30k and €500k.",
-
-  // Home — Final CTA
-  "home.final.title": "You lose money every week.",
-  "home.final.body": "Not because you work badly. Because no one has ever connected your tools together.",
-  "home.final.cta": "Book your Diagnostic",
-
-  // Services page
-  "services.hero.eyebrow": "Our approach",
-  "services.page.title": "From diagnostic to real-time piloting",
-  "services.page.subtitle": "Three steps that build on each other. Start with the diagnostic — then go as far as you need.",
-  "services.cta.book": "Book a diagnostic",
-  "services.keyPoints": "What's included:",
-  "services.core.badge": "Step 2 · 4 to 6 weeks",
-  "services.core.desc": "We connect your existing tools into one central system — real-time dashboard, automatic budget alerts, weekly reports. We build around your tools, not the other way around.",
-  "services.core.inc.1": "Profitability diagnostic included",
-  "services.core.inc.2": "Your existing tools connected — no replacement",
-  "services.core.inc.3": "Real-time dashboard + budget alerts",
-  "services.core.cta": "Discover the infrastructure",
-  "services.partner.badge": "Step 3 · Monthly",
-  "services.partner.desc": "Maintenance and evolution of your system. Monthly data analysis, one new automation per month, growth advice based on your indicators, priority support within 24h.",
-  "services.partner.inc.1": "Monthly analysis of your data",
-  "services.partner.inc.2": "One new automation every month",
-  "services.partner.inc.3": "Priority support within 24h",
-  "services.partner.cta": "Discover the partnership",
-  "services.custom.badge": "Step 1",
-  "services.custom.title": "Profitability Diagnostic",
-  "services.custom.desc": "2 hours. We audit your tools and flows, identify 3 to 5 concrete financial leaks, and hand you an action plan.",
-  "services.custom.cta": "Book the diagnostic",
-  "services.custom.label": "FIRST STEP",
-  "services.stack.title": "The tools we connect",
-  "services.stack.subtitle": "We integrate the software you already use — no rip-and-replace.",
-
-  // Contact
-  "contact.title": "Talk to Optialys",
-  "contact.subtitle": "Want to stop losing money on disconnected tools? Let's look at your operations.",
-  "contact.form.heading": "Prefer to write?",
-  "contact.form.tagline": "Send us a message and we will reply within one business day.",
-  "contact.form.firstName": "First Name",
-  "contact.form.profEmail": "Professional Email",
-  "contact.form.company": "Company",
-  "contact.form.sector": "Activity",
-  "contact.form.selectSector": "Select your activity",
-  "contact.form.sector.realEstate": "Yacht / boat refit",
-  "contact.form.sector.fiduciary": "Classic car restoration",
-  "contact.form.sector.consulting": "Luxury concierge / services",
-  "contact.form.sector.hr": "Bespoke workshop",
-  "contact.form.sector.other": "Other",
-  "contact.form.project": "Your situation",
-  "contact.form.projectPlaceholder": "Briefly describe your tools, your projects and where you lose time or visibility...",
-  "contact.form.send": "Send message",
-  "contact.form.sentTitle": "Message sent!",
-  "contact.form.sentBody": "We will get back to you within one business day.",
-  "contact.or": "or",
-  "contact.calendly.heading": "Prefer to book directly?",
-  "contact.calendly.tagline": "Pick a slot for your Profitability Diagnostic.",
-};
+/* ───────────────────────────────────────────────────────────────────────────
+   Refonte 2026-09-07 — offre v3 « opérateur de marge ».
+   Règles de copie :
+   - Aucun prix, nulle part. La valeur se justifie au premier appel.
+   - Le lecteur doit reconnaître SON atelier, pas comprendre notre produit.
+     → vocabulaire natif : chantier, compagnon, avenant, faisceau, tôlerie,
+       chrome, rectification, encours, situation, matching numbers.
+   - On vend une fonction assurée, pas un objet livré.
+   ─────────────────────────────────────────────────────────────────────────── */
 
 const fr: Dict = {
-  // Nav
-  "nav.home": "Accueil",
-  "nav.services": "La méthode",
-  "nav.core": "Infrastructure",
-  "nav.partner": "Partenariat mensuel",
-  "nav.caseStudies": "Pour qui",
-  "nav.diagnostic": "Diagnostic",
-  "nav.about": "À propos",
-  "nav.contact": "Contact",
-  "nav.freeAudit": "Réserver un Diagnostic",
+  // ─── Nav ───────────────────────────────────────────────────────────────
+  'nav.home': 'Accueil',
+  'nav.methode': 'La méthode',
+  'nav.about': 'À propos',
+  'nav.contact': 'Contact',
+  'nav.cta': 'Réserver un appel',
 
-  // Footer
-  "footer.tagline": "Infrastructure opérationnelle pour ateliers et services haut de gamme.",
-  "footer.navigation": "Navigation",
-  "footer.services": "L'offre",
-  "footer.legal": "Mentions légales",
-  "footer.legalNotice": "Mentions légales",
-  "footer.privacy": "Politique de confidentialité",
-  "footer.aiAudit": "Diagnostic Rentabilité",
-  "footer.roiCalc": "Calculateur de marge",
-  "footer.maintenance": "Partenariat mensuel",
-  "footer.customDev": "Infrastructure sur mesure",
-  "footer.copyright": "Optialys — Infrastructure opérationnelle pour ateliers et services haut de gamme.",
+  // ─── Footer ────────────────────────────────────────────────────────────
+  'footer.tagline': 'Le contrôle de gestion opérationnel des ateliers haut de gamme.',
+  'footer.navigation': 'Navigation',
+  'footer.resources': 'Ressources',
+  'footer.legal': 'Légal',
+  'footer.legalNotice': 'Mentions légales',
+  'footer.privacy': 'Politique de confidentialité',
+  'footer.sectors': 'Secteurs',
+  'footer.blog': 'Écrits',
+  'footer.copyright': 'Optialys — Le contrôle de gestion opérationnel des ateliers haut de gamme.',
 
-  // Home — Hero
-  "home.hero.eyebrow": "Infrastructure opérationnelle pour ateliers haut de gamme",
-  "home.hero.title.line1": "Vos chantiers vous coûtent de l'argent.",
-  "home.hero.title.line2": "Vous l'apprenez trop tard.",
-  "home.hero.body": "Vos outils ne se parlent pas. Les dépassements de budget se détectent trop tard. Optialys connecte tout et vous donne la visibilité pour agir avant.",
-  "home.hero.cta.primary": "Réserver un Diagnostic",
-  "home.hero.cta.secondary": "Voir comment ça marche",
-  "home.hero.cta.reassure": "15 min · en visio · sans engagement",
-  "home.visual.workflow.badge": "SYSTÈME RÉEL — WORKFLOW AUTOMATISÉ OPTIALYS",
-  "home.visual.report.badge": "RAPPORT AUTO-GÉNÉRÉ CHAQUE LUNDI À 08H00",
-  "home.visual.methodology.badge": "MÉTHODOLOGIE EN 3 ÉTAPES",
+  // ─── Home · Hero ───────────────────────────────────────────────────────
+  'home.hero.eyebrow': 'Ateliers à l’affaire · Contrôle de gestion',
+  'home.hero.title.line1': 'Je m’occupe de',
+  'home.hero.title.line2': 'votre marge.',
+  'home.hero.body':
+    'Vous devisez 400 heures. Le chantier en prend 650. Personne ne s’en aperçoit avant la facture finale.',
+  'home.hero.body.highlight': 'Mon travail, c’est de le voir à la 200ᵉ.',
+  'home.hero.cta.primary': 'Réserver un appel',
+  'home.hero.cta.secondary': 'Voir comment je travaille',
+  'home.hero.cta.reassure': '15 minutes · en visio · sans engagement',
+  'home.hero.pill.1': 'Diagnostic',
+  'home.hero.pill.2': 'Installation',
+  'home.hero.pill.3': 'Pilotage',
 
-  // Home — Problème
-  "home.problem.eyebrow": "Le problème",
-  "home.problem.title": "Là où l'argent s'échappe en silence",
-  "home.problem.1.title": "Vos chantiers dépassent leur budget",
-  "home.problem.1.desc": "Le problème est visible en fin de semaine. Parfois en fin de mois. Jamais à temps pour réagir.",
-  "home.problem.2.title": "Vos données arrivent avec un jour de retard",
-  "home.problem.2.desc": "Vos techniciens remplissent des carnets. Quelqu'un les encode le lendemain. Vous prenez des décisions sur ce qui s'est passé hier.",
-  "home.problem.3.title": "Vos outils ne se parlent pas",
-  "home.problem.3.desc": "CRM, logiciel de chantier, facturation, Excel. Chacun dans son coin. L'information ne circule pas.",
+  // ─── Home · Le constat ─────────────────────────────────────────────────
+  'home.problem.eyebrow': 'Le constat',
+  'home.problem.title': 'Un carnet plein ne dit rien de votre marge.',
+  'home.problem.intro':
+    'Trois fuites reviennent dans presque tous les ateliers que je regarde. Aucune n’est une question de sérieux : ce sont des trous de mesure.',
+  'home.problem.1.title': 'Les heures n’appartiennent à personne',
+  'home.problem.1.desc':
+    'Un compagnon passe l’après-midi sur une aile qui n’était pas au devis. Le soir, l’heure finit sur un tableau blanc, un carnet, ou nulle part. À la clôture, elle n’est imputée à aucune voiture — donc elle n’a coûté à personne.',
+  'home.problem.2.title': 'Les avenants ne sont jamais chiffrés',
+  'home.problem.2.desc':
+    '« Tant qu’on y est, on refait le faisceau. » Le client dit oui, l’atelier le fait, et le devis complémentaire n’est jamais établi. Le travail est réel. La facture, non.',
+  'home.problem.3.title': 'La sous-traitance part au coût',
+  'home.problem.3.desc':
+    'Le chrome, la rectification, la sellerie partent à l’extérieur et reviennent refacturés à l’euro près. Vous avez avancé la trésorerie, porté le délai et pris le risque — sans un point de marge.',
+  'home.problem.close':
+    'Cause commune : la voiture est unique, le devis est une estimation, et rien ne mesure l’écart pendant qu’il se creuse. La marge se découvre à la fin, quand il est trop tard pour la corriger.',
 
-  // Home — Solution
-  "home.solution.eyebrow": "La solution",
-  "home.solution.title": "Ce que fait Optialys",
-  "home.solution.body": "On ne remplace pas vos outils. On les connecte. Tout remonte dans un système central. Vous voyez ce qui se passe ce soir, pas la semaine prochaine.",
+  // ─── Home · Le retournement ────────────────────────────────────────────
+  'home.turn.eyebrow': 'Le retournement',
+  'home.turn.title': 'Vous n’avez pas besoin d’un tableau de bord de plus.',
+  'home.turn.quote':
+    'Vous n’achetez pas un outil. Vous achetez que quelqu’un réponde de votre chiffre.',
+  'home.turn.attribution': 'Nolan Prayagsing · Optialys',
+  'home.turn.body':
+    'La plupart des prestataires livrent un système et vous souhaitent bonne chance. À vous de l’apprendre, de le faire adopter par l’atelier, de l’alimenter tous les jours. C’est très exactement là que ces projets meurent.',
+  'home.turn.body2':
+    'Ici, l’outil est le mien. C’est moi qui m’en sers. Vous, vous recevez un résultat : où en est chaque chantier, lesquels dérapent, ce que ça coûte, et quoi décider cette semaine.',
 
-  // Home — Offre
-  "home.offer.eyebrow": "L'offre",
-  "home.offer.title": "Trois étapes. Un système qui tient.",
-  "home.offer.1.step": "Étape 1",
-  "home.offer.1.name": "Diagnostic Rentabilité",
-  "home.offer.1.desc": "2 heures. On audite vos outils et vos flux. On identifie 3 à 5 pertes financières concrètes et chiffrées. Vous repartez avec un plan d'action.",
-  "home.offer.2.step": "Étape 2",
-  "home.offer.2.name": "Infrastructure sur mesure",
-  "home.offer.2.desc": "4 à 6 semaines. On connecte vos outils existants dans un système central. Tableau de bord temps réel, alertes budget automatiques, rapports hebdomadaires. Formation de l'équipe incluse.",
-  "home.offer.3.step": "Étape 3",
-  "home.offer.3.name": "Partenariat mensuel",
-  "home.offer.3.desc": "Maintenance et évolution du système. Analyse mensuelle de vos données. 1 automatisation nouvelle par mois. Conseil croissance basé sur vos indicateurs. Support prioritaire sous 24h.",
+  // ─── Home · La méthode ─────────────────────────────────────────────────
+  'home.offer.eyebrow': 'La méthode',
+  'home.offer.title': 'Trois temps. Le troisième est le seul qui compte.',
+  'home.offer.1.label': 'Le diagnostic',
+  'home.offer.1.kicker': '2 à 3 semaines',
+  'home.offer.1.body':
+    'Je passe une demi-journée dans l’atelier et je regarde comment la donnée entre vraiment : qui note quoi, sur quel support, à quel moment. Puis je reconstitue le prévu et le réel sur trois à cinq chantiers déjà terminés, à partir de vos propres fichiers.',
+  'home.offer.1.p1': 'Une demi-journée sur site, à observer le flux réel',
+  'home.offer.1.p2': 'L’extraction de vos outils existants — je ne remplace rien, je lis',
+  'home.offer.1.p3': 'L’écart devis / réel reconstitué sur des chantiers terminés',
+  'home.offer.1.p4': 'Le chiffrage de ce que cet écart vous coûte sur un an',
+  'home.offer.1.p5': 'Une restitution d’une heure, et un document que vous gardez',
+  'home.offer.2.label': 'L’installation',
+  'home.offer.2.kicker': '3 à 6 semaines',
+  'home.offer.2.body':
+    'L’infrastructure qui rend le pilotage possible. Ce n’est pas un logiciel de plus à apprendre : c’est mon instrument de travail, installé chez vous. Votre logiciel métier reste en place.',
+  'home.offer.2.p1': 'La base opérationnelle : chantiers, heures, avenants, sous-traitance, coûts',
+  'home.offer.2.p2': 'La saisie terrain — le seul endroit où votre équipe intervient',
+  'home.offer.2.p3': 'Les connexions à ce qui tourne déjà, sans rien remplacer',
+  'home.offer.2.p4': 'Le moteur d’écart prévu / réel et les alertes de dérive',
+  'home.offer.2.p5': 'Les vues de direction',
+  'home.offer.3.label': 'Le pilotage',
+  'home.offer.3.kicker': 'Le produit',
+  'home.offer.3.body':
+    'Chaque mois, une heure avec vous : les chantiers qui dérapent, le chiffre, trois décisions. Entre deux revues, vous êtes alerté quand un chantier sort de sa trajectoire — pas quand il a fini de la quitter.',
+  'home.offer.3.p1': 'La revue de marge mensuelle — une heure, trois décisions',
+  'home.offer.3.p2': 'Le rapport écrit, relu et commenté ligne à ligne',
+  'home.offer.3.p3': 'Les alertes : dépassement, avenant non chiffré, sous-traitance sans marge',
+  'home.offer.3.p4': 'Le système évolue en continu, sans facture supplémentaire',
 
-  // Home — Pour qui
-  "home.forwho.eyebrow": "Pour qui",
-  "home.forwho.title": "Pour qui ?",
-  "home.forwho.body": "Ateliers de rénovation (yachts, voitures de collection, jets, mobilier sur mesure), conciergeries et services premium, entreprises avec équipes terrain entre 10 et 40 collaborateurs, projets entre 30k et 500k€.",
+  // ─── Home · L'ancrage ──────────────────────────────────────────────────
+  'home.anchor.eyebrow': 'Ce que ça remplace',
+  'home.anchor.title': 'Comparez-moi à une embauche, pas à un prestataire.',
+  'home.anchor.body':
+    'Un contrôleur de gestion à mi-temps, c’est trois à quatre mille euros par mois, chargés. Il ne connaît pas la restauration, il travaillera sur Excel, et un jour il partira.',
+  'home.anchor.body2':
+    'Moi, je connais vos chantiers. Et le système, lui, ne part pas.',
 
-  // Home — CTA final
-  "home.final.title": "Vous perdez de l'argent chaque semaine.",
-  "home.final.body": "Pas parce que vous travaillez mal. Parce que personne n'a jamais connecté vos outils ensemble.",
-  "home.final.cta": "Réserver votre Diagnostic",
+  // ─── Home · Pour qui ───────────────────────────────────────────────────
+  'home.forwho.eyebrow': 'Pour qui',
+  'home.forwho.title': 'Les ateliers qui vendent des heures sur des chantiers longs.',
+  'home.forwho.body':
+    'La restauration et la préparation de voitures de collection, d’abord. Plus largement : les ateliers haut de gamme qui travaillent à l’affaire, dont le devis est une estimation et dont la marge se joue sur l’écart. Dix à quarante personnes, des chantiers de douze à trente-six mois, une trésorerie qui se tend l’hiver.',
+  'home.forwho.not.title': 'Ce n’est pas pour vous si',
+  'home.forwho.not.1': 'Vous facturez le temps passé, sans devis engageant.',
+  'home.forwho.not.2': 'Vos chantiers se comptent en jours.',
+  'home.forwho.not.3': 'Vous cherchez un logiciel à acheter et à administrer vous-même.',
 
-  // Services page
-  "services.hero.eyebrow": "Notre méthode",
-  "services.page.title": "Du diagnostic au pilotage temps réel",
-  "services.page.subtitle": "Trois étapes qui s'enchaînent. On commence par le diagnostic — puis on va aussi loin que nécessaire.",
-  "services.cta.book": "Réserver un diagnostic",
-  "services.keyPoints": "Ce qui est inclus :",
-  "services.core.badge": "Étape 2 · 4 à 6 semaines",
-  "services.core.desc": "On connecte vos outils existants dans un système central — tableau de bord temps réel, alertes budget automatiques, rapports hebdomadaires. On s'adapte à vos outils, pas l'inverse.",
-  "services.core.inc.1": "Diagnostic rentabilité inclus",
-  "services.core.inc.2": "Vos outils existants connectés — sans remplacement",
-  "services.core.inc.3": "Tableau de bord temps réel + alertes budget",
-  "services.core.cta": "Découvrir l'infrastructure",
-  "services.partner.badge": "Étape 3 · Mensuel",
-  "services.partner.desc": "Maintenance et évolution de votre système. Analyse mensuelle de vos données, 1 automatisation nouvelle par mois, conseil croissance basé sur vos indicateurs, support prioritaire sous 24h.",
-  "services.partner.inc.1": "Analyse mensuelle de vos données",
-  "services.partner.inc.2": "1 automatisation nouvelle chaque mois",
-  "services.partner.inc.3": "Support prioritaire sous 24h",
-  "services.partner.cta": "Découvrir le partenariat",
-  "services.custom.badge": "Étape 1",
-  "services.custom.title": "Diagnostic Rentabilité",
-  "services.custom.desc": "2 heures. On audite vos outils et vos flux, on identifie 3 à 5 pertes financières concrètes, et on vous remet un plan d'action.",
-  "services.custom.cta": "Réserver le diagnostic",
-  "services.custom.label": "PREMIÈRE ÉTAPE",
-  "services.stack.title": "Les outils qu'on connecte",
-  "services.stack.subtitle": "On intègre les logiciels que vous utilisez déjà — sans tout remplacer.",
+  // ─── Home · CTA final ──────────────────────────────────────────────────
+  'home.final.eyebrow': 'La suite',
+  'home.final.title': 'Prenons quinze minutes.',
+  'home.final.body':
+    'Vous me décrivez un chantier récent — celui qui vous a laissé un doute. Je vous dis où je regarderais en premier, et pourquoi. S’il n’y a rien à trouver, je vous le dis aussi.',
+  'home.final.cta': 'Réserver un appel',
 
-  // Contact
-  "contact.title": "Contacter Optialys",
-  "contact.subtitle": "Envie d'arrêter de perdre de l'argent sur des outils déconnectés ? Regardons vos opérations ensemble.",
-  "contact.form.heading": "Vous préférez écrire ?",
-  "contact.form.tagline": "Envoyez-nous un message, nous répondons sous un jour ouvré.",
-  "contact.form.firstName": "Prénom",
-  "contact.form.profEmail": "Email professionnel",
-  "contact.form.company": "Entreprise",
-  "contact.form.sector": "Activité",
-  "contact.form.selectSector": "Choisir votre activité",
-  "contact.form.sector.realEstate": "Rénovation de yachts / bateaux",
-  "contact.form.sector.fiduciary": "Voitures de collection",
-  "contact.form.sector.consulting": "Conciergerie / services de luxe",
-  "contact.form.sector.hr": "Atelier sur mesure",
-  "contact.form.sector.other": "Autre",
-  "contact.form.project": "Votre situation",
-  "contact.form.projectPlaceholder": "Décrivez brièvement vos outils, vos chantiers et là où vous perdez du temps ou de la visibilité...",
-  "contact.form.send": "Envoyer le message",
-  "contact.form.sentTitle": "Message envoyé !",
-  "contact.form.sentBody": "Nous revenons vers vous sous un jour ouvré.",
-  "contact.or": "ou",
-  "contact.calendly.heading": "Vous préférez réserver directement ?",
-  "contact.calendly.tagline": "Choisissez un créneau pour votre Diagnostic Rentabilité.",
+  // ─── Page méthode ──────────────────────────────────────────────────────
+  'methode.eyebrow': 'La méthode',
+  'methode.title.line1': 'Comment on passe de',
+  'methode.title.line2': '« je crois » à « je sais ».',
+  'methode.intro':
+    'Trois temps, dans cet ordre, sans raccourci possible. Le diagnostic établit le chiffre. L’installation rend le chiffre disponible en continu. Le pilotage, c’est quelqu’un qui s’en occupe à votre place — et c’est le seul des trois qui ne s’arrête jamais.',
+  'methode.rule.eyebrow': 'La règle',
+  'methode.rule.title': 'Je ne remplace jamais votre logiciel métier.',
+  'methode.rule.body':
+    'Votre EBP, votre Sage, vos tableurs, vos carnets : tout reste. Je lis ce qui existe et je comble ce qui manque — c’est-à-dire, presque toujours, l’imputation des heures au bon chantier. Un atelier qui doit changer d’outil ne change pas d’outil : il arrête le projet.',
+  'methode.adoption.eyebrow': 'L’adoption',
+  'methode.adoption.title': 'Votre équipe a une seule chose à faire.',
+  'methode.adoption.body':
+    'Pointer les heures sur la bonne voiture, tous les jours, en quelques secondes, avec les mains sales. C’est le seul geste demandé à l’atelier — et c’est celui sur lequel tout repose. Le reste du système est mon problème, pas le vôtre.',
+  'methode.cta.title': 'On commence par regarder un chantier.',
+  'methode.cta.body':
+    'Un seul, terminé, que vous avez encore en tête. C’est suffisant pour savoir s’il y a quelque chose à aller chercher chez vous.',
+
+  // ─── Page à propos ─────────────────────────────────────────────────────
+  'about.eyebrow': 'À propos',
+  'about.title.line1': 'Je m’appelle Nolan,',
+  'about.title.line2': 'et je fais un métier ennuyeux.',
+  'about.body1':
+    'Le contrôle de gestion des entreprises à l’affaire. Prix de revient, coût horaire chargé, marge sur coût direct, comptabilisation à l’avancement. Un métier centenaire, normé, enseigné — et parfaitement ennuyeux. C’est précisément ce qui le rend libre.',
+  'about.body2':
+    'Aujourd’hui, des dizaines de milliers de gens savent construire une automatisation. Quelques milliers savent lire la rentabilité d’un chantier d’atelier. À peu près personne ne sait faire les deux. Je me suis installé à cette intersection, et je n’ai pas l’intention d’en bouger.',
+  'about.body3':
+    'Concrètement : je construis le système qui mesure l’écart entre ce qui a été devisé et ce qui a été consommé, je le fais tourner moi-même, et je viens vous dire chaque mois ce qu’il raconte. Vous ne voyez jamais la machine. Vous voyez un chiffre, et trois décisions à prendre.',
+  'about.why.eyebrow': 'Pourquoi les ateliers',
+  'about.why.title': 'Parce que le problème y est net.',
+  'about.why.body':
+    'Une voiture de collection est unique. Le devis est une estimation faite avant d’avoir ouvert la caisse. Entre le devis et la livraison, il y a dix-huit mois, quatre corps de métier, des pièces qui n’arrivent pas et des travaux ajoutés en cours de route. La marge ne se perd pas d’un coup : elle s’érode, semaine après semaine, sans que rien ne l’affiche. C’est un problème mesurable, et c’est rare.',
+  'about.principles.eyebrow': 'Comment je travaille',
+  'about.principles.1.title': 'Je ne promets pas de chiffre avant de l’avoir vu',
+  'about.principles.1.desc':
+    'Aucune estimation de gain avant d’avoir lu vos données. Les pourcentages annoncés à l’avance ne valent rien, et vous le savez.',
+  'about.principles.2.title': 'Ce que je construis vous appartient',
+  'about.principles.2.desc':
+    'Vos données restent les vôtres, le système est réversible, et vous partez avec si vous partez. Pas d’otage.',
+  'about.principles.3.title': 'Je dis quand il n’y a rien à faire',
+  'about.principles.3.desc':
+    'Certains ateliers pilotent déjà correctement. Dans ce cas je le dis, et l’histoire s’arrête là.',
+
+  // ─── Page contact ──────────────────────────────────────────────────────
+  'contact.eyebrow': 'Contact',
+  'contact.title.line1': 'Un appel de',
+  'contact.title.line2': 'quinze minutes.',
+  'contact.subtitle':
+    'Pas une démonstration, pas de présentation. Vous décrivez un chantier récent, je vous dis où je regarderais en premier.',
+  'contact.form.heading': 'Écrire',
+  'contact.form.tagline': 'Réponse sous 24 heures ouvrées, par moi, pas par un formulaire.',
+  'contact.form.firstName': 'Nom',
+  'contact.form.profEmail': 'Email professionnel',
+  'contact.form.company': 'Atelier',
+  'contact.form.sector': 'Activité',
+  'contact.form.selectSector': 'Choisir…',
+  'contact.form.sector.classicCars': 'Restauration / préparation de voitures de collection',
+  'contact.form.sector.bodywork': 'Carrosserie, tôlerie, peinture haut de gamme',
+  'contact.form.sector.furniture': 'Mobilier d’art, agencement, artisanat haut de gamme',
+  'contact.form.sector.otherWorkshop': 'Autre atelier travaillant à l’affaire',
+  'contact.form.sector.other': 'Autre',
+  'contact.form.project': 'Le chantier dont vous voulez parler',
+  'contact.form.projectPlaceholder':
+    'Ex : une resto complète devisée 400 h, livrée à 650, et je n’ai jamais su où était parti l’écart.',
+  'contact.form.send': 'Envoyer',
+  'contact.form.sending': 'Envoi…',
+  'contact.form.sentTitle': 'Message reçu.',
+  'contact.form.sentBody': 'Je réponds sous 24 heures ouvrées, à l’adresse que vous avez indiquée.',
+  'contact.form.errorTitle': 'L’envoi a échoué.',
+  'contact.form.errorBody': 'Écrivez-moi directement à nolan@optialys.com — je réponds aussi vite.',
+  'contact.form.retry': 'Réessayer',
+  'contact.or': 'ou',
+  'contact.calendly.heading': 'Réserver directement',
+  'contact.calendly.tagline': 'Choisissez un créneau. Quinze minutes, en visio, sans engagement.',
 };
 
-export const translations: Record<Lang, Dict> = { en, fr };
+const en: Dict = {
+  // ─── Nav ───────────────────────────────────────────────────────────────
+  'nav.home': 'Home',
+  'nav.methode': 'The method',
+  'nav.about': 'About',
+  'nav.contact': 'Contact',
+  'nav.cta': 'Book a call',
+
+  // ─── Footer ────────────────────────────────────────────────────────────
+  'footer.tagline': 'Operational management accounting for high-end workshops.',
+  'footer.navigation': 'Navigation',
+  'footer.resources': 'Resources',
+  'footer.legal': 'Legal',
+  'footer.legalNotice': 'Legal notice',
+  'footer.privacy': 'Privacy policy',
+  'footer.sectors': 'Sectors',
+  'footer.blog': 'Writing',
+  'footer.copyright': 'Optialys — Operational management accounting for high-end workshops.',
+
+  // ─── Home · Hero ───────────────────────────────────────────────────────
+  'home.hero.eyebrow': 'Project-based workshops · Management accounting',
+  'home.hero.title.line1': 'I take care of',
+  'home.hero.title.line2': 'your margin.',
+  'home.hero.body':
+    'You quote 400 hours. The job takes 650. Nobody notices before the final invoice.',
+  'home.hero.body.highlight': 'My job is to see it at hour 200.',
+  'home.hero.cta.primary': 'Book a call',
+  'home.hero.cta.secondary': 'See how I work',
+  'home.hero.cta.reassure': '15 minutes · video call · no commitment',
+  'home.hero.pill.1': 'Diagnostic',
+  'home.hero.pill.2': 'Installation',
+  'home.hero.pill.3': 'Steering',
+
+  // ─── Home · The observation ────────────────────────────────────────────
+  'home.problem.eyebrow': 'The observation',
+  'home.problem.title': 'A full order book tells you nothing about your margin.',
+  'home.problem.intro':
+    'Three leaks show up in almost every workshop I look at. None of them is about carelessness — they are measurement gaps.',
+  'home.problem.1.title': 'Hours belong to nobody',
+  'home.problem.1.desc':
+    'A craftsman spends the afternoon on a wing that was never quoted. That evening the hour ends up on a whiteboard, in a notebook, or nowhere. At closing it is charged to no car — so it cost no one anything.',
+  'home.problem.2.title': 'Change orders are never priced',
+  'home.problem.2.desc':
+    '“While we are at it, let us redo the loom.” The client says yes, the workshop does it, and the supplementary quote is never issued. The work is real. The invoice is not.',
+  'home.problem.3.title': 'Subcontracting goes out at cost',
+  'home.problem.3.desc':
+    'Chrome, machining and upholstery go out and come back re-invoiced to the cent. You fronted the cash, carried the delay and took the risk — without a single point of margin.',
+  'home.problem.close':
+    'One shared cause: every car is unique, the quote is an estimate, and nothing measures the gap while it widens. Margin is discovered at the end, too late to correct it.',
+
+  // ─── Home · The reversal ───────────────────────────────────────────────
+  'home.turn.eyebrow': 'The reversal',
+  'home.turn.title': 'You do not need one more dashboard.',
+  'home.turn.quote':
+    'You are not buying a tool. You are buying someone who answers for your numbers.',
+  'home.turn.attribution': 'Nolan Prayagsing · Optialys',
+  'home.turn.body':
+    'Most providers deliver a system and wish you luck. You have to learn it, get the workshop to adopt it, and feed it every day. That is precisely where these projects die.',
+  'home.turn.body2':
+    'Here, the tool is mine. I am the one who uses it. You receive a result: where every job stands, which ones are drifting, what it costs, and what to decide this week.',
+
+  // ─── Home · The method ─────────────────────────────────────────────────
+  'home.offer.eyebrow': 'The method',
+  'home.offer.title': 'Three stages. Only the third one matters.',
+  'home.offer.1.label': 'The diagnostic',
+  'home.offer.1.kicker': '2 to 3 weeks',
+  'home.offer.1.body':
+    'I spend half a day in the workshop watching how data actually enters: who writes what, on which support, at what moment. Then I reconstruct planned versus actual on three to five completed jobs, from your own files.',
+  'home.offer.1.p1': 'Half a day on site, observing the real flow',
+  'home.offer.1.p2': 'Extraction from your existing tools — I replace nothing, I read',
+  'home.offer.1.p3': 'Quoted versus actual, reconstructed on completed jobs',
+  'home.offer.1.p4': 'What that gap costs you over a year, in figures',
+  'home.offer.1.p5': 'A one-hour debrief, and a document you keep',
+  'home.offer.2.label': 'The installation',
+  'home.offer.2.kicker': '3 to 6 weeks',
+  'home.offer.2.body':
+    'The infrastructure that makes steering possible. Not one more piece of software to learn: it is my working instrument, installed at your place. Your trade software stays exactly where it is.',
+  'home.offer.2.p1': 'The operational base: jobs, hours, change orders, subcontracting, costs',
+  'home.offer.2.p2': 'Shop-floor entry — the only place your team is involved',
+  'home.offer.2.p3': 'Connections to what already runs, replacing nothing',
+  'home.offer.2.p4': 'The planned-versus-actual engine and drift alerts',
+  'home.offer.2.p5': 'Management views',
+  'home.offer.3.label': 'The steering',
+  'home.offer.3.kicker': 'The product',
+  'home.offer.3.body':
+    'Every month, one hour with you: the jobs that are drifting, the number, three decisions. Between reviews you are alerted when a job leaves its trajectory — not once it has finished leaving it.',
+  'home.offer.3.p1': 'The monthly margin review — one hour, three decisions',
+  'home.offer.3.p2': 'The written report, read and annotated line by line',
+  'home.offer.3.p3': 'Alerts: overrun, unpriced change order, subcontracting without margin',
+  'home.offer.3.p4': 'The system keeps evolving, at no extra invoice',
+
+  // ─── Home · The anchor ─────────────────────────────────────────────────
+  'home.anchor.eyebrow': 'What it replaces',
+  'home.anchor.title': 'Compare me to a hire, not to a provider.',
+  'home.anchor.body':
+    'A part-time management accountant costs three to four thousand euros a month, fully loaded. They will not know restoration, they will work in Excel, and one day they will leave.',
+  'home.anchor.body2': 'I know your jobs. And the system does not leave.',
+
+  // ─── Home · Who for ────────────────────────────────────────────────────
+  'home.forwho.eyebrow': 'Who it is for',
+  'home.forwho.title': 'Workshops that sell hours on long jobs.',
+  'home.forwho.body':
+    'Classic car restoration and preparation, first of all. More broadly: high-end workshops working project by project, where the quote is an estimate and the margin is decided by the gap. Ten to forty people, jobs running twelve to thirty-six months, cash that tightens in winter.',
+  'home.forwho.not.title': 'It is not for you if',
+  'home.forwho.not.1': 'You bill time spent, with no binding quote.',
+  'home.forwho.not.2': 'Your jobs are measured in days.',
+  'home.forwho.not.3': 'You are looking for software to buy and administer yourself.',
+
+  // ─── Home · Final CTA ──────────────────────────────────────────────────
+  'home.final.eyebrow': 'Next',
+  'home.final.title': 'Let us take fifteen minutes.',
+  'home.final.body':
+    'Describe a recent job — the one that left you with a doubt. I will tell you where I would look first, and why. If there is nothing to find, I will tell you that too.',
+  'home.final.cta': 'Book a call',
+
+  // ─── Method page ───────────────────────────────────────────────────────
+  'methode.eyebrow': 'The method',
+  'methode.title.line1': 'How you get from',
+  'methode.title.line2': '“I think” to “I know”.',
+  'methode.intro':
+    'Three stages, in this order, with no shortcut. The diagnostic establishes the number. The installation makes that number available continuously. The steering is someone taking care of it for you — and it is the only one of the three that never ends.',
+  'methode.rule.eyebrow': 'The rule',
+  'methode.rule.title': 'I never replace your trade software.',
+  'methode.rule.body':
+    'Your accounting package, your spreadsheets, your notebooks: everything stays. I read what exists and fill what is missing — which, almost always, means charging hours to the right job. A workshop asked to change tools does not change tools: it stops the project.',
+  'methode.adoption.eyebrow': 'Adoption',
+  'methode.adoption.title': 'Your team has exactly one thing to do.',
+  'methode.adoption.body':
+    'Log hours against the right car, every day, in a few seconds, with dirty hands. That is the only gesture asked of the workshop — and everything rests on it. The rest of the system is my problem, not yours.',
+  'methode.cta.title': 'We start by looking at one job.',
+  'methode.cta.body':
+    'A single completed one you still remember. That is enough to know whether there is anything worth going after.',
+
+  // ─── About page ────────────────────────────────────────────────────────
+  'about.eyebrow': 'About',
+  'about.title.line1': 'My name is Nolan,',
+  'about.title.line2': 'and my trade is a boring one.',
+  'about.body1':
+    'Management accounting for project-based businesses. Cost price, loaded hourly rate, margin on direct cost, percentage-of-completion accounting. A century-old trade, standardised, taught — and thoroughly boring. That is exactly what makes it open.',
+  'about.body2':
+    'Tens of thousands of people can now build an automation. A few thousand can read the profitability of a workshop job. Almost nobody does both. I set up at that intersection and I do not intend to move.',
+  'about.body3':
+    'In practice: I build the system that measures the gap between what was quoted and what was consumed, I run it myself, and each month I come and tell you what it says. You never see the machine. You see a number, and three decisions to make.',
+  'about.why.eyebrow': 'Why workshops',
+  'about.why.title': 'Because the problem is clean there.',
+  'about.why.body':
+    'A collector car is unique. The quote is an estimate made before the shell was opened. Between quote and delivery there are eighteen months, four trades, parts that do not arrive and work added along the way. Margin is not lost in one go: it erodes, week after week, with nothing displaying it. That is a measurable problem, and measurable problems are rare.',
+  'about.principles.eyebrow': 'How I work',
+  'about.principles.1.title': 'I promise no number before seeing it',
+  'about.principles.1.desc':
+    'No estimate of gains before I have read your data. Percentages announced in advance are worth nothing, and you know it.',
+  'about.principles.2.title': 'What I build belongs to you',
+  'about.principles.2.desc':
+    'Your data stays yours, the system is reversible, and you leave with it if you leave. No hostages.',
+  'about.principles.3.title': 'I say when there is nothing to do',
+  'about.principles.3.desc':
+    'Some workshops already steer properly. In that case I say so, and the story ends there.',
+
+  // ─── Contact page ──────────────────────────────────────────────────────
+  'contact.eyebrow': 'Contact',
+  'contact.title.line1': 'A fifteen-minute',
+  'contact.title.line2': 'conversation.',
+  'contact.subtitle':
+    'No demo, no deck. You describe a recent job, I tell you where I would look first.',
+  'contact.form.heading': 'Write',
+  'contact.form.tagline': 'Answered within one working day, by me, not by a form.',
+  'contact.form.firstName': 'Name',
+  'contact.form.profEmail': 'Work email',
+  'contact.form.company': 'Workshop',
+  'contact.form.sector': 'Activity',
+  'contact.form.selectSector': 'Choose…',
+  'contact.form.sector.classicCars': 'Classic car restoration / preparation',
+  'contact.form.sector.bodywork': 'High-end bodywork, panel beating, paint',
+  'contact.form.sector.furniture': 'Fine furniture, fit-out, high-end craft',
+  'contact.form.sector.otherWorkshop': 'Another project-based workshop',
+  'contact.form.sector.other': 'Other',
+  'contact.form.project': 'The job you want to talk about',
+  'contact.form.projectPlaceholder':
+    'e.g. a full restoration quoted at 400 h, delivered at 650, and I never found out where the gap went.',
+  'contact.form.send': 'Send',
+  'contact.form.sending': 'Sending…',
+  'contact.form.sentTitle': 'Message received.',
+  'contact.form.sentBody': 'I reply within one working day, to the address you gave.',
+  'contact.form.errorTitle': 'Sending failed.',
+  'contact.form.errorBody': 'Write to me directly at nolan@optialys.com — I answer just as fast.',
+  'contact.form.retry': 'Try again',
+  'contact.or': 'or',
+  'contact.calendly.heading': 'Book directly',
+  'contact.calendly.tagline': 'Pick a slot. Fifteen minutes, video call, no commitment.',
+};
+
+export const translations: Record<Lang, Dict> = { fr, en };

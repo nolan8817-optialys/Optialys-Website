@@ -1,4 +1,13 @@
 {
+  "redirects": [
+    { "source": "/optialys-core", "destination": "/methode", "permanent": true },
+    { "source": "/optialys-partner", "destination": "/methode", "permanent": true },
+    { "source": "/services", "destination": "/methode", "permanent": true },
+    { "source": "/diagnostic", "destination": "/methode", "permanent": true },
+    { "source": "/roi-calculator", "destination": "/methode", "permanent": true },
+    { "source": "/case-studies", "destination": "/", "permanent": true },
+    { "source": "/about", "destination": "/a-propos", "permanent": true }
+  ],
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ]

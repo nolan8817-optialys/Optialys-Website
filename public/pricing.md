@@ -1,23 +1,33 @@
-# Pricing — Optialys
+# Tarifs — Optialys
 
-Optialys — Infrastructure opérationnelle pour ateliers et services haut de gamme.
-Les tarifs sont fournis sur demande lors du Diagnostic Rentabilité.
-Dernière mise à jour : 2026-05-29.
+Optialys — le contrôle de gestion opérationnel des ateliers haut de gamme.
+Dernière mise à jour : 2026-09-07.
 
-## Étape 1 — Diagnostic Rentabilité
-- Sur devis (contact : nolan@optialys.com)
-- Durée : 2 heures
-- Inclus : audit de vos outils et de vos flux, identification de 3 à 5 pertes financières concrètes et chiffrées, plan d'action
+## Politique tarifaire
 
-## Étape 2 — Infrastructure sur mesure
-- Sur devis, selon périmètre
-- Durée : 4 à 6 semaines
-- Inclus : connexion de vos outils existants dans un système central (aucun remplacement), tableau de bord temps réel, alertes budget automatiques, rapports hebdomadaires, formation de l'équipe, documentation complète
+**Aucun tarif n'est publié sur ce site.** Ce n'est pas un oubli : les conditions
+dépendent du périmètre réel de l'atelier (nombre de chantiers ouverts, nombre de
+corps de métier, outils déjà en place, nombre de sociétés), et elles sont
+présentées lors du premier appel avec le détail de ce qui les justifie.
 
-## Étape 3 — Partenariat mensuel
-- Sur devis mensuel (sans engagement long terme)
-- Inclus : maintenance et évolution du système, analyse mensuelle de vos données, 1 automatisation nouvelle par mois, conseil croissance, support prioritaire sous 24h
+## Ce qui est facturé
+
+- **Le diagnostic de marge** — prestation autonome, payante, sans suite
+  obligatoire. Le client peut repartir avec son rapport et ne rien faire.
+- **L'installation** — coût de mise en place de l'infrastructure. Deux modalités :
+  comptant, ou amortie sur la durée d'engagement.
+- **Le pilotage de marge** — abonnement mensuel. C'est le produit. Plusieurs
+  niveaux selon la fréquence des revues et le nombre de périmètres suivis.
+  Engagement de douze mois, révision annuelle.
+
+Tout élément hors du périmètre convenu fait l'objet d'un bon de commande distinct.
+
+## Le bon point de comparaison
+
+Pas une autre prestation, mais une embauche : un contrôleur de gestion à mi-temps
+représente trois à quatre mille euros par mois, chargés, en France.
 
 ## Contact
-- Réserver un Diagnostic : https://optialys.com/contact
+
+- Réserver un appel : https://optialys.com/contact
 - Email : nolan@optialys.com

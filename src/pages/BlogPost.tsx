@@ -110,7 +110,7 @@ export const BlogPost = () => {
       "author": {
         "@type": "Person",
         "name": "Nolan Prayagsing",
-        "url": "https://optialys.com/about"
+        "url": "https://optialys.com/a-propos"
       },
       "publisher": {
         "@type": "Organization",
@@ -145,7 +145,7 @@ export const BlogPost = () => {
     scriptTag.textContent = JSON.stringify(graph.length === 1 ? schema : graph);
 
     return () => {
-      document.title = 'Optialys — Infrastructure opérationnelle pour ateliers haut de gamme';
+      document.title = 'Optialys — Je m’occupe de votre marge';
       document.getElementById('blog-schema')?.remove();
     };
   }, [article, fr]);
@@ -229,8 +229,8 @@ export const BlogPost = () => {
             <div className="font-bold text-ink-navy">Nolan Prayagsing</div>
             <div className="text-sm text-ink-gray">
               {fr
-                ? 'Fondateur Optialys · Infrastructure opérationnelle pour ateliers haut de gamme'
-                : 'Founder Optialys · Operational infrastructure for high-end workshops'}
+                ? 'Fondateur Optialys · Contrôle de gestion opérationnel des ateliers haut de gamme'
+                : 'Founder Optialys · Operational management accounting for high-end workshops'}
             </div>
           </div>
           <a
@@ -254,8 +254,8 @@ export const BlogPost = () => {
           </h2>
           <p className="text-white/70 mb-8 text-sm leading-relaxed max-w-md mx-auto">
             {fr
-              ? 'Diagnostic Rentabilité de 2h — on chiffre vos pertes concrètes et on vous remet un plan d\'action.'
-              : 'A 2-hour Profitability Diagnostic — we quantify your concrete leaks and hand you an action plan.'}
+              ? 'Quinze minutes en visio. Vous décrivez un chantier récent, je vous dis où je regarderais en premier.'
+              : 'Fifteen minutes on a video call. You describe a recent job, I tell you where I would look first.'}
           </p>
           <a
             href="https://calendly.com/nolprayagsing/automation-strategy-audit"

@@ -88,8 +88,8 @@ export const Blog = () => {
       ? 'Blog — Piloter un atelier haut de gamme | Optialys'
       : 'Blog — Running a high-end workshop | Optialys',
     description: fr
-      ? 'Guides concrets sur le pilotage de marge, l\'infrastructure opérationnelle et le suivi terrain pour ateliers et services haut de gamme.'
-      : 'Practical guides on margin piloting, operational infrastructure and field tracking for high-end workshops and services.',
+      ? 'Écrits sur la marge des ateliers à l’affaire : écart devis / réel, imputation des heures, avenants non chiffrés et sous-traitance sans marge.'
+      : 'Writing on the margin of project-based workshops: quoted versus actual, hour allocation, unpriced change orders and subcontracting without margin.',
     canonical: 'https://optialys.com/blog',
   });
   const [activeFilter, setActiveFilter] = useState(fr ? 'Tous' : 'All');
@@ -118,8 +118,8 @@ export const Blog = () => {
           </h1>
           <p className="text-base text-ink-gray leading-relaxed max-w-2xl mx-auto">
             {fr
-              ? 'Guides concrets sur le pilotage de marge, l\'infrastructure opérationnelle et le suivi terrain pour ateliers et services haut de gamme.'
-              : 'Practical guides on margin piloting, operational infrastructure and field tracking for high-end workshops and services.'}
+              ? 'Écrits sur la marge des ateliers à l’affaire : écart devis / réel, imputation des heures, avenants non chiffrés et sous-traitance sans marge.'
+              : 'Writing on the margin of project-based workshops: quoted versus actual, hour allocation, unpriced change orders and subcontracting without margin.'}
           </p>
         </motion.div>
       </section>
@@ -170,8 +170,8 @@ export const Blog = () => {
             </h2>
             <p className="text-white/70 mb-8 leading-relaxed">
               {fr
-                ? 'Diagnostic Rentabilité de 2h — on chiffre 3 à 5 pertes concrètes et on vous remet un plan d\'action.'
-                : 'A 2-hour Profitability Diagnostic — we quantify 3 to 5 concrete leaks and hand you an action plan.'}
+                ? 'Quinze minutes en visio. Vous décrivez un chantier récent, je vous dis où je regarderais en premier.'
+                : 'Fifteen minutes on a video call. You describe a recent job, I tell you where I would look first.'}
             </p>
             <a
               href="https://calendly.com/nolprayagsing/automation-strategy-audit"

@@ -24,10 +24,10 @@ export const CalendlyEmbed: React.FC<CalendlyEmbedProps> = ({
   }, []);
 
   return (
-    <div className="w-full bg-ink-navy border border-accent-coral/30 overflow-hidden flex flex-col">
+    <div className="flex w-full flex-col overflow-hidden rounded-2xl border border-accent-coral/25 bg-ink-navy">
       <div className="p-8 text-center border-b border-white/10">
-        <h3 className="text-2xl font-bold text-white mb-2">{fr ? 'Choisissez votre créneau' : 'Choose your slot'}</h3>
-        <p className="text-accent-coral font-medium mb-6">{fr ? '30 minutes · Diagnostic Rentabilité' : '30 minutes · Profitability Diagnostic'}</p>
+        <h3 className="display-3 mb-2 text-bg-cream">{fr ? 'Choisissez votre créneau' : 'Choose your slot'}</h3>
+        <p className="text-accent-coral font-medium mb-6">{fr ? '15 minutes · Appel de découverte' : '15 minutes · Discovery call'}</p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-sm text-white/60">
           <div className="flex items-center gap-2">
@@ -48,7 +48,7 @@ export const CalendlyEmbed: React.FC<CalendlyEmbedProps> = ({
       <div className="w-full bg-ink-navy">
         <div
           className="calendly-inline-widget w-full"
-          data-url={`${url}?hide_landing_page_details=1&hide_gdpr_banner=1&background_color=1A1A2E&text_color=ffffff&primary_color=E8562A`}
+          data-url={`${url}?hide_landing_page_details=1&hide_gdpr_banner=1&background_color=1A1A1A&text_color=FAF8F3&primary_color=D4A017`}
           style={{ minWidth: '320px', height: '700px' }}
         />
       </div>

@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { motion } from 'motion/react';
+import { motion, AnimatePresence } from 'motion/react';
 
 export const Logo = ({ className = "" }: { className?: string }) => (
   <a href="/" className={`flex items-center gap-3 group ${className}`}>
@@ -72,12 +72,12 @@ export const GlowButton = ({ children, className = '', variant = 'primary', ...p
   disabled?: boolean;
   onClick?: () => void;
 }) => {
-  const base = 'relative inline-flex items-center justify-center gap-2 rounded-sm font-semibold text-sm px-6 py-3 cursor-pointer transition-colors duration-200';
+  const base = 'relative inline-flex items-center justify-center gap-2 rounded-full font-semibold text-sm px-7 py-3.5 cursor-pointer transition-colors duration-200';
   const variants = {
     // CTA principal — sombre, l'or réservé aux détails (Charte)
     primary: 'bg-ink-navy text-bg-cream hover:bg-ink-navy/90',
     electric: 'bg-ink-navy text-bg-cream hover:bg-ink-navy/90',
-    outline: 'border border-accent-coral text-ink-navy hover:bg-accent-peach bg-transparent',
+    outline: 'border border-border-cream text-ink-navy hover:border-accent-coral hover:text-accent-coral bg-transparent',
     dark: 'bg-ink-navy text-bg-cream hover:bg-ink-navy/90',
     gold: 'bg-accent-coral text-ink-navy hover:bg-accent-coral/90',
   };
@@ -178,3 +178,175 @@ export const NPByline = ({ className = '' }: { className?: string }) => (
     <span className="text-sm text-ink-gray font-medium">Nolan Prayagsing · Optialys</span>
   </div>
 );
+
+// ─── Grammaire typographique (refonte 2026-09-07) ────────────────────────
+
+// Eyebrow encadré de deux filets — « — DOSSIER · MARGE — »
+export const EyebrowRule = ({
+  children,
+  align = 'left',
+  className = '',
+}: {
+  children: React.ReactNode;
+  align?: 'left' | 'center';
+  className?: string;
+}) => (
+  <div
+    className={`flex items-center gap-3 ${align === 'center' ? 'justify-center' : ''} ${className}`}
+  >
+    <span className="h-px w-8 bg-accent-coral/50" aria-hidden="true" />
+    <span className="tag-optialys whitespace-nowrap">{children}</span>
+    <span className="h-px w-8 bg-accent-coral/50" aria-hidden="true" />
+  </div>
+);
+
+// Séquence de l'offre en pilules — volontairement sans chiffre ni prix
+export const SequencePills = ({
+  items,
+  className = '',
+}: {
+  items: string[];
+  className?: string;
+}) => (
+  <ul className={`flex flex-wrap items-center gap-2.5 ${className}`}>
+    {items.map((item, i) => (
+      <li
+        key={item}
+        className="inline-flex items-center gap-2.5 rounded-full border border-border-cream bg-surface-white/60 px-4 py-2"
+      >
+        <span className="text-[10px] font-bold tabular-nums text-accent-coral">
+          {String(i + 1).padStart(2, '0')}
+        </span>
+        <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-ink-gray">
+          {item}
+        </span>
+      </li>
+    ))}
+  </ul>
+);
+
+// Carte à index — le « · 01 » en haut à droite
+export const IndexCard = ({
+  index,
+  title,
+  children,
+  className = '',
+}: {
+  index: number;
+  title: string;
+  children: React.ReactNode;
+  className?: string;
+}) => (
+  <div
+    className={`flex h-full flex-col rounded-xl border border-border-cream bg-surface-white p-8 md:p-9 ${className}`}
+  >
+    <div className="mb-6 flex items-start justify-between gap-4">
+      <AsteriskDecor size={18} className="mt-1 shrink-0" />
+      <span className="text-[11px] font-bold tabular-nums tracking-[0.2em] text-accent-coral">
+        · {String(index).padStart(2, '0')}
+      </span>
+    </div>
+    <h3 className="display-3 mb-3 text-ink-navy">{title}</h3>
+    <p className="leading-relaxed text-ink-gray">{children}</p>
+  </div>
+);
+
+// Accordéon — lignes atténuées, ligne ouverte en encre
+export type AccordionItem = {
+  label: string;
+  kicker?: string;
+  body: string;
+  points?: string[];
+};
+
+export const Accordion = ({
+  items,
+  defaultOpen = 0,
+  className = '',
+}: {
+  items: AccordionItem[];
+  defaultOpen?: number | null;
+  className?: string;
+}) => {
+  const [open, setOpen] = useState<number | null>(defaultOpen);
+
+  return (
+    <div className={className}>
+      {items.map((item, i) => {
+        const isOpen = open === i;
+        return (
+          <div key={item.label} className="accordion-row">
+            <h3>
+              <button
+                type="button"
+                onClick={() => setOpen(isOpen ? null : i)}
+                aria-expanded={isOpen}
+                aria-controls={`accordion-panel-${i}`}
+                id={`accordion-trigger-${i}`}
+                className="flex w-full cursor-pointer items-center justify-between gap-6 py-7 text-left"
+              >
+                <span className="flex items-baseline gap-4 md:gap-6">
+                  <span
+                    className={`text-[11px] font-bold tabular-nums tracking-[0.2em] transition-colors ${
+                      isOpen ? 'text-accent-coral' : 'text-ink-gray/50'
+                    }`}
+                  >
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <span
+                    className={`display-3 transition-colors ${
+                      isOpen ? 'text-ink-navy' : 'text-ink-gray/55'
+                    }`}
+                  >
+                    {item.label}
+                  </span>
+                </span>
+                <span
+                  className={`shrink-0 text-2xl leading-none transition-all duration-300 ${
+                    isOpen ? 'rotate-45 text-accent-coral' : 'text-ink-gray/50'
+                  }`}
+                  aria-hidden="true"
+                >
+                  +
+                </span>
+              </button>
+            </h3>
+
+            <AnimatePresence initial={false}>
+              {isOpen && (
+                <motion.div
+                  key="panel"
+                  id={`accordion-panel-${i}`}
+                  role="region"
+                  aria-labelledby={`accordion-trigger-${i}`}
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: 'auto', opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.32, ease: [0.4, 0, 0.2, 1] }}
+                  className="overflow-hidden"
+                >
+                  <div className="max-w-2xl pb-9 md:pl-[3.4rem]">
+                    {item.kicker && (
+                      <p className="tag-optialys mb-3">{item.kicker}</p>
+                    )}
+                    <p className="lead">{item.body}</p>
+                    {item.points && (
+                      <ul className="mt-6 space-y-3">
+                        {item.points.map((p) => (
+                          <li key={p} className="flex gap-3 text-ink-gray leading-relaxed">
+                            <span className="mt-2.5 h-1 w-1 shrink-0 rounded-full bg-accent-coral" />
+                            <span>{p}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+        );
+      })}
+    </div>
+  );
+};

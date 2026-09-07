@@ -1,40 +1,72 @@
 # Optialys
 
-> Optialys est une infrastructure opérationnelle sur mesure pour ateliers et services haut de gamme (rénovation de yachts, voitures de collection, jets, mobilier sur mesure, conciergeries de luxe). Nous ne remplaçons pas vos outils : nous les connectons dans un système central pour vous donner une vision temps réel de vos chantiers et de votre marge, depuis votre téléphone.
+> Optialys est le contrôle de gestion opérationnel des ateliers haut de gamme
+> travaillant à l'affaire — au premier chef la restauration et la préparation de
+> voitures de collection. Optialys ne vend pas un logiciel : Optialys prend en
+> charge une fonction. Le système mesure l'écart entre les heures devisées et les
+> heures réellement consommées, chantier par chantier ; c'est Optialys qui
+> l'exploite, et le dirigeant reçoit un résultat, pas un outil de plus à apprendre.
 
-## Le problème que nous adressons
+## Le problème traité
 
-Dans les ateliers haut de gamme, les outils ne se parlent pas (CRM, logiciel de chantier, facturation, Excel). Les dépassements de budget se découvrent à la facture finale, trop tard pour réagir. Les techniciens encodent sur papier, les décisions se prennent sur des données de la veille. Résultat : de l'argent perdu chaque semaine, sans alerte.
+Dans un atelier à l'affaire, chaque chantier est unique et le devis est une
+estimation faite avant d'avoir ouvert la caisse. Entre le devis et la livraison
+il s'écoule douze à trente-six mois. Trois fuites reviennent presque partout :
+
+1. Les heures ne sont pas imputées au bon chantier — elles finissent sur un
+   tableau blanc, un carnet, ou nulle part.
+2. Les travaux ajoutés en cours de route ne donnent jamais lieu à un devis
+   complémentaire : le travail est réel, la facture ne l'est pas.
+3. La sous-traitance (chrome, rectification, sellerie) est refacturée au coût,
+   sans marge, alors que l'atelier a avancé la trésorerie et porté le risque.
+
+Cause commune : rien ne mesure l'écart pendant qu'il se creuse. La marge se
+découvre à la fin, trop tard pour être corrigée.
 
 ## Cible
 
-- Ateliers de rénovation : yachts, voitures de collection, jets, mobilier sur mesure
-- Conciergeries et services premium
-- Équipes terrain de 10 à 40 collaborateurs
-- Projets de 30 000 € à 500 000 €
+- Ateliers de restauration et de préparation de voitures de collection
+- Plus largement, ateliers haut de gamme travaillant à l'affaire (carrosserie et
+  peinture haut de gamme, mobilier d'art, agencement, artisanat d'art)
+- Dix à quarante personnes
+- Chantiers longs, de douze à trente-six mois
 
-## Offre (3 étapes)
+Ce n'est pas adapté aux entreprises qui facturent le temps passé sans devis
+engageant, dont les chantiers se comptent en jours, ou qui cherchent un logiciel
+à acheter et à administrer elles-mêmes.
 
-- **Diagnostic Rentabilité** : 2 heures d'audit des outils et des flux. Identification de 3 à 5 pertes financières concrètes et chiffrées, avec plan d'action.
-- **Infrastructure sur mesure** : 4 à 6 semaines. Connexion des outils existants dans un système central, tableau de bord temps réel, alertes budget automatiques, rapports hebdomadaires, formation incluse.
-- **Partenariat mensuel** : maintenance et évolution du système, analyse mensuelle des données, 1 automatisation nouvelle par mois, conseil croissance, support prioritaire sous 24h.
+## La méthode (trois temps)
 
-## Pages clés
+- **Le diagnostic** (2 à 3 semaines) : une demi-journée sur site à observer
+  comment la donnée entre réellement, l'extraction des outils existants sans rien
+  remplacer, la reconstitution de l'écart devis/réel sur trois à cinq chantiers
+  terminés, le chiffrage de ce que cet écart coûte sur un an, une restitution
+  d'une heure et un document que le client garde.
+- **L'installation** (3 à 6 semaines) : la base opérationnelle (chantiers, heures,
+  avenants, sous-traitance, coûts), la saisie terrain, les connexions à l'existant,
+  le moteur d'écart prévu/réel et ses alertes, les vues de direction. Le logiciel
+  métier du client n'est jamais remplacé.
+- **Le pilotage** (le produit, récurrent) : une revue de marge mensuelle d'une
+  heure avec le dirigeant — les chantiers qui dérapent, le chiffre, trois
+  décisions — un rapport écrit commenté, des alertes en continu, et l'évolution
+  du système sans facture supplémentaire.
 
-- [Accueil](https://optialys.com/): positionnement et offre complète
-- [La méthode](https://optialys.com/services): les 3 étapes en détail
-- [Infrastructure sur mesure](https://optialys.com/optialys-core): comment on connecte vos outils
-- [Partenariat mensuel](https://optialys.com/optialys-partner): suivi et évolution
-- [Pour qui](https://optialys.com/case-studies): métiers et profils accompagnés
-- [Diagnostic](https://optialys.com/diagnostic): auto-évaluation en 4 questions
-- [Calculateur de marge](https://optialys.com/roi-calculator): estimation du coût des outils déconnectés
-- [À propos](https://optialys.com/about): Nolan Prayagsing, fondateur
-- [Contact](https://optialys.com/contact): réserver un Diagnostic Rentabilité
+## Tarifs
 
-## Pricing lisible par agent
+Aucun tarif n'est publié. Les conditions sont présentées lors du premier appel,
+avec le détail de ce qui les justifie. Le point de comparaison pertinent n'est pas
+une autre prestation, c'est le coût d'un contrôleur de gestion à mi-temps (trois à
+quatre mille euros par mois, chargés, en France).
 
-- [pricing.md](https://optialys.com/pricing.md)
+## Pages
+
+- [Accueil](https://optialys.com/) : le positionnement et le constat
+- [La méthode](https://optialys.com/methode) : les trois temps en détail
+- [À propos](https://optialys.com/a-propos) : Nolan Prayagsing, fondateur
+- [Contact](https://optialys.com/contact) : formulaire et prise de rendez-vous
+- [Voitures de collection](https://optialys.com/solutions/voitures-collection) : le secteur de référence
 
 ## Contact
 
 - Email : nolan@optialys.com
+- Premier échange : quinze minutes, en visio, sans engagement

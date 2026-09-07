@@ -33,15 +33,15 @@
   --color-brand-card:       #FFFFFF;
   --color-brand-light:      #FAF8F3;
 
-  /* Square, consultancy-grade corners */
-  --radius-xs:   1px;
-  --radius-sm:   2px;
-  --radius-md:   3px;
-  --radius-lg:   4px;
-  --radius-xl:   4px;
-  --radius-2xl:  5px;
-  --radius-3xl:  6px;
-  --radius-4xl:  6px;
+  /* Formes arrondies, epurees (amendement charte 2026-09-07) */
+  --radius-xs:   4px;
+  --radius-sm:   6px;
+  --radius-md:   8px;
+  --radius-lg:   12px;
+  --radius-xl:   14px;
+  --radius-2xl:  16px;
+  --radius-3xl:  20px;
+  --radius-4xl:  24px;
 }
 
 @layer base {
@@ -75,10 +75,12 @@
   /* Or highlight block — mot(s) surlignés (or + texte encre) */
   .highlight-coral {
     background-color: #D4A017;
-    padding: 2px 6px;
-    border-radius: 2px;
+    padding: 2px 7px;
+    border-radius: 6px;
     color: #1A1A1A;
     display: inline;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
   }
   /* Solid accent text (Or Ambré) */
   .text-gradient-electric {
@@ -88,7 +90,7 @@
   .cream-card {
     background-color: #FFFFFF;
     border: 1px solid #D8D4C8;
-    border-radius: 4px;
+    border-radius: 12px;
   }
   /* Tag / étiquette de section (Charte) — Inter Bold UPPERCASE espacé, Or Ambré */
   .tag-optialys {
@@ -154,97 +156,67 @@
   color: #5A5A55;
 }
 
-/* ─── 3D floating device mockups ────────────────────────────────────────── */
-.visual-mockup-wrapper {
-  perspective: 1200px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+
+/* ─── Échelle display ────────────────────────────────────────────────────
+   Sans image, la typographie porte la page seule : le titre doit occuper
+   l'écran. Fluide, donc pas de palier cassé entre mobile et desktop.       */
+.display-1 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(2.05rem, 6vw, 5rem);
+  line-height: 1.03;
+  letter-spacing: -0.02em;
 }
-.visual-mockup {
-  transform: perspective(1200px) rotateY(-8deg) rotateX(-5deg) scale(0.92);
-  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.25), 0 20px 40px rgba(0, 0, 0, 0.15);
-  border-radius: 12px;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-  width: 100%;
-  max-width: 720px;
-  display: block;
+.display-2 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(1.7rem, 3.8vw, 3rem);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
 }
-.visual-mockup:hover {
-  transform: perspective(1200px) rotateY(-4deg) rotateX(-2deg) translateY(-8px) scale(0.94);
-  box-shadow: 0 60px 100px rgba(0, 0, 0, 0.3), 0 30px 60px rgba(0, 0, 0, 0.2);
+.display-3 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(1.35rem, 2.2vw, 1.75rem);
+  line-height: 1.2;
 }
-.visual-mockup.mirror {
-  transform: perspective(1200px) rotateY(8deg) rotateX(-5deg) scale(0.92);
-}
-.visual-mockup.mirror:hover {
-  transform: perspective(1200px) rotateY(4deg) rotateX(-2deg) translateY(-8px) scale(0.94);
-}
-.visual-badge {
-  display: inline-block;
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 2px;
-  text-transform: uppercase;
+/* Seconde ligne du titre — Cormorant italique Or Ambré */
+.display-accent {
+  font-style: italic;
   color: #D4A017;
-  margin-bottom: 14px;
-}
-/* Mobile: annuler les transforms 3D (trop lourds), image pleine largeur */
-@media (max-width: 767px) {
-  .visual-mockup,
-  .visual-mockup.mirror,
-  .visual-mockup:hover,
-  .visual-mockup.mirror:hover {
-    transform: none;
-    max-width: 100%;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
-  }
 }
 
-/* === OPTIALYS VISUAL MOCKUPS (v2 — tilt-left/right/center) =============== */
-.visual-3d-wrapper {
-  perspective: 1400px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.lead {
+  font-size: clamp(1.0625rem, 1.25vw, 1.1875rem);
+  line-height: 1.75;
+  color: #3A3A38;
 }
-.visual-3d {
-  width: 100%;
-  max-width: 680px;
-  display: block;
-  border-radius: 14px;
-  transition: transform 0.45s ease, box-shadow 0.45s ease;
+
+/* Halo chaud très léger derrière le hero (équivalent crème du glow doré) */
+.hero-halo {
+  background-image: radial-gradient(
+    60% 55% at 50% 0%,
+    rgba(212, 160, 23, 0.09) 0%,
+    rgba(212, 160, 23, 0.03) 45%,
+    rgba(212, 160, 23, 0) 78%
+  );
 }
-.visual-3d.tilt-left {
-  transform: perspective(1400px) rotateY(-10deg) rotateX(-4deg) scale(0.93);
-  box-shadow: 0 50px 100px rgba(0, 0, 0, 0.22), 0 20px 40px rgba(0, 0, 0, 0.14), 0 0 0 1px rgba(0, 0, 0, 0.04);
+
+/* Accordéon — la ligne inactive s'efface, l'active revient à l'encre */
+.accordion-row {
+  border-top: 1px solid #D8D4C8;
+  transition: color 0.25s ease;
 }
-.visual-3d.tilt-right {
-  transform: perspective(1400px) rotateY(10deg) rotateX(-4deg) scale(0.93);
-  box-shadow: 0 50px 100px rgba(0, 0, 0, 0.22), 0 20px 40px rgba(0, 0, 0, 0.14), 0 0 0 1px rgba(0, 0, 0, 0.04);
+.accordion-row:last-child {
+  border-bottom: 1px solid #D8D4C8;
 }
-.visual-3d.tilt-left:hover {
-  transform: perspective(1400px) rotateY(-5deg) rotateX(-2deg) translateY(-10px) scale(0.95);
-  box-shadow: 0 70px 120px rgba(0, 0, 0, 0.28), 0 30px 60px rgba(0, 0, 0, 0.18);
-}
-.visual-3d.tilt-right:hover {
-  transform: perspective(1400px) rotateY(5deg) rotateX(-2deg) translateY(-10px) scale(0.95);
-  box-shadow: 0 70px 120px rgba(0, 0, 0, 0.28), 0 30px 60px rgba(0, 0, 0, 0.18);
-}
-.visual-3d.tilt-center {
-  max-width: 1000px;
-  transform: perspective(1400px) rotateX(-4deg) scale(0.95);
-  box-shadow: 0 60px 120px rgba(0, 0, 0, 0.20), 0 20px 40px rgba(0, 0, 0, 0.12);
-}
-.visual-3d.tilt-center:hover {
-  transform: perspective(1400px) rotateX(-2deg) translateY(-8px) scale(0.96);
-}
-@media (max-width: 768px) {
-  .visual-3d.tilt-left,
-  .visual-3d.tilt-right,
-  .visual-3d.tilt-center {
-    transform: none !important;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
-    max-width: 100%;
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

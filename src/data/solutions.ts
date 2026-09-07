@@ -3,6 +3,9 @@
 
 export interface Solution {
   slug: string;
+  /* La niche : seule la page focus est indexee. Les autres verticales
+     restent en ligne (les URLs vivent) mais sortent de l'index. */
+  focus?: boolean;
   icon: 'anchor' | 'car' | 'plane' | 'hammer' | 'sparkles';
   metier: { fr: string; en: string };
   seoTitle: { fr: string; en: string };
@@ -90,19 +93,20 @@ export const solutions: Solution[] = [
   },
   {
     slug: "voitures-collection",
+    focus: true,
     icon: "car",
     metier: { fr: "restauration de voitures de collection", en: "classic car restoration" },
     seoTitle: {
-      fr: "Suivi de restauration et budget pièces pour atelier de voitures de collection | Optialys",
-      en: "Restoration tracking and parts budget for classic car workshops | Optialys"
+      fr: "Pilotage de marge pour atelier de restauration de voitures de collection | Optialys",
+      en: "Margin steering for classic car restoration workshops | Optialys"
     },
     seoDescription: {
-      fr: "Restaurations longues, pièces rares, devis qui s'étalent : suivez chaque heure et chaque achat par véhicule, et pilotez votre marge en temps réel avec Optialys.",
-      en: "Long restorations, rare parts, quotes that stretch out: track every hour and purchase per vehicle, and pilot your margin in real time with Optialys."
+      fr: "Vous devisez 400 heures, la voiture en prend 650, et personne ne le voit avant la facture. Optialys mesure l'écart en continu, voiture par voiture.",
+      en: "You quote 400 hours, the car takes 650, and nobody sees it before the invoice. Optialys measures the gap continuously, car by car."
     },
     h1: {
-      fr: "Infrastructure opérationnelle pour ateliers de voitures de collection",
-      en: "Operational infrastructure for classic car workshops"
+      fr: "Je m'occupe de la marge des ateliers de restauration de voitures de collection",
+      en: "I take care of the margin of classic car restoration workshops"
     },
     intro: {
       fr: "Une restauration s'étale sur des mois, avec des pièces rares et des heures difficiles à estimer. Sans suivi rattaché au véhicule, la rentabilité d'un projet reste un mystère jusqu'au dernier jour. On connecte vos outils pour que tout — heures, achats, sous-traitance — soit lié à la bonne voiture.",

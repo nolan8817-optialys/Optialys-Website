@@ -46,7 +46,7 @@ export const blogArticles: BlogArticle[] = [
     faq: {
       fr: [
         { q: "Faut-il changer notre logiciel de gestion ?", a: "Non. On connecte vos outils existants — logiciel de chantier, facturation, tableurs — sur un système central. Aucun remplacement, aucune migration douloureuse." },
-        { q: "Combien de temps pour mettre ça en place ?", a: "Une infrastructure connectée se déploie en 4 à 6 semaines. Tout commence par un Diagnostic Rentabilité de 2 heures qui chiffre précisément où part votre argent." },
+        { q: "Combien de temps pour mettre ça en place ?", a: "Une infrastructure connectée se déploie en 4 à 6 semaines. Tout commence par un diagnostic de marge qui chiffre précisément où part votre argent." },
         { q: "Mes techniciens vont-ils devoir saisir plus de choses ?", a: "Au contraire. On supprime la double saisie : ils encodent une fois, sur mobile, et l'information remonte partout automatiquement." }
       ],
       en: [
@@ -83,7 +83,7 @@ export const blogArticles: BlogArticle[] = [
 <p>Non. On connecte vos outils existants — logiciel de chantier, facturation, tableurs — sur un système central. Aucun remplacement, aucune migration douloureuse.</p>
 
 <h3>Combien de temps pour mettre ça en place ?</h3>
-<p>Une infrastructure connectée se déploie en 4 à 6 semaines. Tout commence par un Diagnostic Rentabilité de 2 heures qui chiffre précisément où part votre argent.</p>
+<p>Une infrastructure connectée se déploie en 4 à 6 semaines. Tout commence par un diagnostic de marge qui chiffre précisément où part votre argent.</p>
 
 <h3>Mes techniciens vont-ils devoir saisir plus de choses ?</h3>
 <p>Au contraire. On supprime la double saisie : ils encodent une fois, sur mobile, et l'information remonte partout automatiquement. Fini le carnet ressaisi le lendemain.</p>`,
@@ -145,7 +145,7 @@ export const blogArticles: BlogArticle[] = [
       fr: [
         { q: "Et si un de nos outils est vraiment trop ancien ?", a: "On l'évalue pendant le diagnostic. Dans la grande majorité des cas, même un outil ancien peut être connecté. Quand ce n'est vraiment pas possible, on vous le dit clairement et on propose l'alternative la plus légère." },
         { q: "Qui est propriétaire du système à la fin ?", a: "Vous. Tout est documenté, votre équipe est formée, et le système vous appartient. Aucune dépendance forcée." },
-        { q: "Par où commence-t-on ?", a: "Par un Diagnostic Rentabilité de 2 heures. On cartographie vos outils et vos flux, on identifie les connexions qui rapportent le plus, et on vous remet un plan d'action chiffré." }
+        { q: "Par où commence-t-on ?", a: "Par un diagnostic de marge. On cartographie vos outils et vos flux, on identifie les connexions qui rapportent le plus, et on vous remet un plan d'action chiffré." }
       ],
       en: [
         { q: "What if one of our tools is really too old?", a: "We assess it during the diagnostic. In the vast majority of cases, even an old tool can be connected. When it truly can't, we tell you plainly and propose the lightest alternative." },
@@ -183,7 +183,7 @@ export const blogArticles: BlogArticle[] = [
 <p>Vous. Tout est documenté, votre équipe est formée, et le système vous appartient. Aucune dépendance forcée.</p>
 
 <h3>Par où commence-t-on ?</h3>
-<p>Par un Diagnostic Rentabilité de 2 heures. On cartographie vos outils et vos flux, on identifie les connexions qui rapportent le plus, et on vous remet un plan d'action chiffré.</p>`,
+<p>Par un diagnostic de marge. On cartographie vos outils et vos flux, on identifie les connexions qui rapportent le plus, et on vous remet un plan d'action chiffré.</p>`,
       en: `<p>When a workshop finally decides to "go digital," the instinct is often wrong: look for THE software that does everything. It's a costly mistake. You spend months on it, you train the team on a new tool, and six months later half the people are back to their old habits — because the new tool doesn't fit the reality of the trade.</p>
 
 <h2>The problem isn't a lack of tools</h2>
@@ -241,7 +241,7 @@ export const blogArticles: BlogArticle[] = [
       fr: [
         { q: "Nos techniciens ne sont pas à l'aise avec la technologie.", a: "C'est justement pour ça que la saisie est réduite au strict minimum : deux gestes, pas de formation longue. On conçoit l'outil autour du terrain, pas l'inverse." },
         { q: "Et sans réseau dans l'atelier ou sur le port ?", a: "La saisie fonctionne hors connexion et se synchronise dès que le réseau revient. Aucune donnée perdue." },
-        { q: "Combien de temps pour déployer ?", a: "C'est inclus dans l'infrastructure sur mesure, déployée en 4 à 6 semaines. On commence par un Diagnostic Rentabilité pour cadrer précisément vos besoins." }
+        { q: "Combien de temps pour déployer ?", a: "C'est inclus dans l'infrastructure sur mesure, déployée en 4 à 6 semaines. On commence par un diagnostic de marge pour cadrer précisément le périmètre." }
       ],
       en: [
         { q: "Our technicians aren't comfortable with technology.", a: "That's exactly why entry is reduced to the bare minimum: two taps, no long training. We design the tool around the floor, not the other way around." },
@@ -278,7 +278,7 @@ export const blogArticles: BlogArticle[] = [
 <p>La saisie fonctionne hors connexion et se synchronise dès que le réseau revient. Aucune donnée perdue.</p>
 
 <h3>Combien de temps pour déployer ?</h3>
-<p>C'est inclus dans l'infrastructure sur mesure, déployée en 4 à 6 semaines. On commence par un Diagnostic Rentabilité pour cadrer précisément vos besoins.</p>`,
+<p>C'est inclus dans l'infrastructure sur mesure, déployée en 4 à 6 semaines. On commence par un diagnostic de marge pour cadrer précisément le périmètre.</p>`,
       en: `<p>Here's a scene every workshop owner knows. A technician finishes the day, notes hours and readings in a notebook or on a sheet. The next day, someone — often a valuable person whose job this isn't — re-keys everything into the system. In between: a day of lag, and copy errors.</p>
 
 <h2>The hidden cost of a one-day lag</h2>

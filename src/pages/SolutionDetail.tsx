@@ -40,7 +40,7 @@ export const SolutionDetail = () => {
           "@type": "BreadcrumbList",
           "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "Optialys", "item": "https://optialys.com/" },
-            { "@type": "ListItem", "position": 2, "name": fr ? "Pour qui" : "For whom", "item": "https://optialys.com/case-studies" },
+            { "@type": "ListItem", "position": 2, "name": fr ? "La méthode" : "The method", "item": "https://optialys.com/methode" },
             { "@type": "ListItem", "position": 3, "name": fr ? solution.metier.fr : solution.metier.en, "item": url }
           ]
         },
@@ -54,9 +54,10 @@ export const SolutionDetail = () => {
         }
       ]
     } : undefined,
+    noindex: !solution?.focus,
   });
 
-  if (!solution) return <Navigate to="/case-studies" replace />;
+  if (!solution) return <Navigate to="/methode" replace />;
 
   const Icon = icons[solution.icon];
   const pains = fr ? solution.pains.fr : solution.pains.en;
@@ -69,7 +70,7 @@ export const SolutionDetail = () => {
     <div className="pt-32 pb-20 bg-bg-cream">
       {/* Breadcrumb */}
       <div className="max-w-4xl mx-auto px-6 mb-8">
-        <Link to="/case-studies" className="inline-flex items-center gap-2 text-sm text-ink-gray hover:text-accent-coral transition-colors">
+        <Link to="/methode" className="inline-flex items-center gap-2 text-sm text-ink-gray hover:text-accent-coral transition-colors">
           <ArrowLeft className="w-4 h-4" />
           {fr ? 'Tous les métiers' : 'All trades'}
         </Link>
