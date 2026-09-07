@@ -161,10 +161,10 @@ const Problem = () => {
   );
 };
 
-/* ── Déjà livré ─────────────────────────────────────────────────────────
-   Sans nom de société : aucun client n'a donné son accord écrit pour
-   figurer ici. Les noms se rajoutent un par un, une fois demandés.      */
+/* ── Déjà livré ───────────────────────────────────────────────────────── */
 const Proof = () => {
+  /* Koosmik est nomme avec l'accord de leur direction (07/09). Les deux
+     autres restent anonymes tant que l'accord n'a pas ete demande. */
   const { t } = useLanguage();
   const items = [1, 2, 3].map((i) => ({
     sector: t(`home.proof.${i}.sector`),
