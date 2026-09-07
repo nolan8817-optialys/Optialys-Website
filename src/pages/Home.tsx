@@ -161,6 +161,45 @@ const Problem = () => {
   );
 };
 
+/* ── Déjà livré ─────────────────────────────────────────────────────────
+   Sans nom de société : aucun client n'a donné son accord écrit pour
+   figurer ici. Les noms se rajoutent un par un, une fois demandés.      */
+const Proof = () => {
+  const { t } = useLanguage();
+  const items = [1, 2, 3].map((i) => ({
+    sector: t(`home.proof.${i}.sector`),
+    what: t(`home.proof.${i}.what`),
+    desc: t(`home.proof.${i}.desc`),
+  }));
+  return (
+    <section className="border-y border-border-cream bg-surface-white px-6 py-24 md:py-28">
+      <div className="mx-auto max-w-5xl">
+        <EyebrowRule className="mb-7">{t('home.proof.eyebrow')}</EyebrowRule>
+        <h2 className="display-2 mb-6 max-w-3xl text-ink-navy">{t('home.proof.title')}</h2>
+        <p className="lead mb-14 max-w-2xl">{t('home.proof.intro')}</p>
+
+        <ul>
+          {items.map((item, i) => (
+            <FadeIn key={item.what} delay={i * 0.06}>
+              <li className="accordion-row grid grid-cols-1 gap-3 py-8 md:grid-cols-[minmax(0,15rem)_1fr] md:gap-10">
+                <p className="tag-optialys pt-1">{item.sector}</p>
+                <div>
+                  <h3 className="display-3 mb-2 text-ink-navy">{item.what}</h3>
+                  <p className="leading-relaxed text-ink-gray">{item.desc}</p>
+                </div>
+              </li>
+            </FadeIn>
+          ))}
+        </ul>
+
+        <p className="lead mt-12 max-w-3xl border-l-2 border-accent-coral pl-6">
+          {t('home.proof.close')}
+        </p>
+      </div>
+    </section>
+  );
+};
+
 /* ── Le retournement ────────────────────────────────────────────────── */
 const Turn = () => {
   const { t } = useLanguage();
@@ -344,6 +383,7 @@ export const Home = () => {
     <>
       <Hero />
       <Problem />
+      <Proof />
       <Turn />
       <Offer />
       <Anchor />

@@ -62,6 +62,28 @@ const fr: Dict = {
   'home.problem.close':
     'Cause commune : la voiture est unique, le devis est une estimation, et rien ne mesure l’écart pendant qu’il se creuse. La marge se découvre à la fin, quand il est trop tard pour la corriger.',
 
+  // ─── Home · Déjà livré ─────────────────────────────────────────────────
+  // Volontairement sans nom de société : aucun client n'a donné son accord
+  // écrit pour figurer ici. Les noms se rajoutent au cas par cas.
+  'home.proof.eyebrow': 'Déjà livré',
+  'home.proof.title': 'Des systèmes en production, chez de vraies entreprises.',
+  'home.proof.intro':
+    'Avant les ateliers, j’ai construit et fait tourner des systèmes d’exploitation pour des sociétés qui avaient le même problème de fond : de la donnée éparpillée, et des décisions prises trop tard.',
+  'home.proof.1.sector': 'Fiduciaire · Luxembourg',
+  'home.proof.1.what': 'Un système de production de contenu',
+  'home.proof.1.desc':
+    'Quatre chaînes qui prennent une idée, la travaillent et la rendent prête à publier. En service depuis 2026, sous contrat de maintenance annuel.',
+  'home.proof.2.sector': 'Éditeur logiciel',
+  'home.proof.2.what': 'Un radar d’appels d’offres',
+  'home.proof.2.desc':
+    'Détection des opportunités, qualification automatique, notification de l’équipe et écriture directe dans le CRM. Livré, puis repris en interne par le client.',
+  'home.proof.3.sector': 'Deux sociétés d’un même groupe',
+  'home.proof.3.what': 'Le même moteur, dupliqué',
+  'home.proof.3.desc':
+    'Les chaînes de production adaptées à deux structures aux métiers différents, sans repartir de zéro. Révision régulière.',
+  'home.proof.close':
+    'Aucun de ces systèmes n’est un atelier : ils sont antérieurs. Le premier cockpit de marge d’atelier est en cours de déploiement — je vous en parle en appel.',
+
   // ─── Home · Le retournement ────────────────────────────────────────────
   'home.turn.eyebrow': 'Le retournement',
   'home.turn.title': 'Vous n’avez pas besoin d’un tableau de bord de plus.',
@@ -255,6 +277,26 @@ const en: Dict = {
     'Chrome, machining and upholstery go out and come back re-invoiced to the cent. You fronted the cash, carried the delay and took the risk — without a single point of margin.',
   'home.problem.close':
     'One shared cause: every car is unique, the quote is an estimate, and nothing measures the gap while it widens. Margin is discovered at the end, too late to correct it.',
+
+  // ─── Home · Already delivered ──────────────────────────────────────────
+  'home.proof.eyebrow': 'Already delivered',
+  'home.proof.title': 'Systems in production, at real companies.',
+  'home.proof.intro':
+    'Before workshops, I built and ran operating systems for companies with the same underlying problem: scattered data, and decisions taken too late.',
+  'home.proof.1.sector': 'Trust company · Luxembourg',
+  'home.proof.1.what': 'A content production system',
+  'home.proof.1.desc':
+    'Four chains that take an idea, work it, and hand it back ready to publish. Live since 2026, under an annual maintenance contract.',
+  'home.proof.2.sector': 'Software vendor',
+  'home.proof.2.what': 'A tender radar',
+  'home.proof.2.desc':
+    'Opportunity detection, automatic qualification, team notification and direct writing into the CRM. Delivered, then taken in-house by the client.',
+  'home.proof.3.sector': 'Two companies in one group',
+  'home.proof.3.what': 'The same engine, duplicated',
+  'home.proof.3.desc':
+    'The production chains adapted to two structures in different trades, without starting over. Under regular review.',
+  'home.proof.close':
+    'None of these is a workshop: they predate it. The first workshop margin cockpit is being deployed now — I will tell you about it on the call.',
 
   // ─── Home · The reversal ───────────────────────────────────────────────
   'home.turn.eyebrow': 'The reversal',
