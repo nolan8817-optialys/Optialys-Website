@@ -119,12 +119,50 @@ const Hero = () => {
   );
 };
 
-/*
-  ── Emplacement réservé pour la vidéo d'introduction ───────────────────
-  Rien n'est rendu tant que la vidéo n'existe pas : la page doit tenir
-  debout sans elle. Quand elle sera tournée, la section s'insère ici,
-  entre le Hero et le constat.
-*/
+/* ── La vidéo de présentation ─────────────────────────────────────────
+   preload="none" + poster : rien ne se télécharge tant que le visiteur
+   n'a pas cliqué. Le fichier fait ~40 Mo, on ne l'impose à personne.  */
+const IntroVideo = () => {
+  const { t } = useLanguage();
+  return (
+    <section className="border-b border-border-cream bg-bg-cream-alt px-6 py-20 md:py-24">
+      <div className="mx-auto max-w-4xl">
+        <EyebrowRule align="center" className="mb-7">
+          {t('home.video.eyebrow')}
+        </EyebrowRule>
+        <h2 className="display-2 mb-12 text-center text-ink-navy">
+          {t('home.video.title')}
+        </h2>
+
+        <FadeIn>
+          <div className="overflow-hidden rounded-2xl border border-border-cream bg-ink-navy shadow-[0_24px_60px_rgba(26,26,26,0.14)]">
+            <video
+              className="block h-auto w-full"
+              controls
+              preload="none"
+              playsInline
+              poster="/presentation-optialys-poster.jpg"
+              width={1920}
+              height={1080}
+            >
+              <source src="/presentation-optialys.mp4" type="video/mp4" />
+              <p className="p-6 text-bg-cream">
+                {t('home.video.fallback')}{' '}
+                <a href="/presentation-optialys.mp4" className="text-accent-coral underline">
+                  {t('home.video.download')}
+                </a>
+              </p>
+            </video>
+          </div>
+        </FadeIn>
+
+        <p className="mt-6 text-center text-xs uppercase tracking-[0.18em] text-ink-gray">
+          {t('home.video.caption')}
+        </p>
+      </div>
+    </section>
+  );
+};
 
 /* ── Le constat ─────────────────────────────────────────────────────── */
 const Problem = () => {
@@ -382,6 +420,7 @@ export const Home = () => {
   return (
     <>
       <Hero />
+      <IntroVideo />
       <Problem />
       <Proof />
       <Turn />

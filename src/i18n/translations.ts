@@ -45,6 +45,13 @@ const fr: Dict = {
   'home.hero.pill.2': 'Installation',
   'home.hero.pill.3': 'Pilotage',
 
+  // ─── Home · La vidéo de présentation ───────────────────────────────────
+  'home.video.eyebrow': 'La présentation',
+  'home.video.title': 'Deux minutes et demie. Vous saurez si c’est pour vous.',
+  'home.video.caption': '2 min 36 · Nolan Prayagsing, fondateur d’Optialys',
+  'home.video.fallback': 'Votre navigateur ne peut pas lire cette vidéo.',
+  'home.video.download': 'La télécharger',
+
   // ─── Home · Le constat ─────────────────────────────────────────────────
   'home.problem.eyebrow': 'Le constat',
   'home.problem.title': 'Un carnet plein ne dit rien de votre marge.',
@@ -261,6 +268,13 @@ const en: Dict = {
   'home.hero.pill.1': 'Diagnostic',
   'home.hero.pill.2': 'Installation',
   'home.hero.pill.3': 'Steering',
+
+  // ─── Home · The introduction video ─────────────────────────────────────
+  'home.video.eyebrow': 'The introduction',
+  'home.video.title': 'Two and a half minutes. You will know if this is for you.',
+  'home.video.caption': '2 min 36 · Nolan Prayagsing, founder of Optialys',
+  'home.video.fallback': 'Your browser cannot play this video.',
+  'home.video.download': 'Download it',
 
   // ─── Home · The observation ────────────────────────────────────────────
   'home.problem.eyebrow': 'The observation',
