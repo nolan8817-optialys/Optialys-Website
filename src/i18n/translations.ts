@@ -172,13 +172,13 @@ const fr: Dict = {
   // ─── Page à propos ─────────────────────────────────────────────────────
   'about.eyebrow': 'À propos',
   'about.title.line1': 'Je m’appelle Nolan,',
-  'about.title.line2': 'et je fais un métier ennuyeux.',
+  'about.title.line2': 'et je compte ce que personne ne compte.',
   'about.body1':
-    'Le contrôle de gestion des entreprises à l’affaire. Prix de revient, coût horaire chargé, marge sur coût direct, comptabilisation à l’avancement. Un métier centenaire, normé, enseigné — et parfaitement ennuyeux. C’est précisément ce qui le rend libre.',
+    'Les heures qui ne sont imputées à aucune voiture. Les avenants que personne ne chiffre. La sous-traitance qui repart au coût. Ce sont les trois endroits par où une marge d’atelier s’en va, et ce sont exactement les trois que personne ne mesure pendant que le chantier tourne.',
   'about.body2':
-    'Aujourd’hui, des dizaines de milliers de gens savent construire une automatisation. Quelques milliers savent lire la rentabilité d’un chantier d’atelier. À peu près personne ne sait faire les deux. Je me suis installé à cette intersection, et je n’ai pas l’intention d’en bouger.',
+    'Le métier qui sait faire ça s’appelle le contrôle de gestion des entreprises à l’affaire : prix de revient, coût horaire chargé, marge sur coût direct, comptabilisation à l’avancement. Une discipline centenaire, normée, enseignée — et que presque personne de ma génération ne va apprendre. C’est précisément ce qui la rend libre.',
   'about.body3':
-    'Concrètement : je construis le système qui mesure l’écart entre ce qui a été devisé et ce qui a été consommé, je le fais tourner moi-même, et je viens vous dire chaque mois ce qu’il raconte. Vous ne voyez jamais la machine. Vous voyez un chiffre, et trois décisions à prendre.',
+    'Des dizaines de milliers de gens savent construire une automatisation. Quelques milliers savent lire la rentabilité d’un chantier. À peu près personne ne sait faire les deux — je me suis installé à cette intersection et je n’ai pas l’intention d’en bouger. Concrètement : je construis le système qui mesure l’écart entre le devisé et le consommé, je le fais tourner moi-même, et chaque mois je viens vous dire ce qu’il raconte. Vous ne voyez jamais la machine. Vous voyez un chiffre, et trois décisions à prendre.',
   'about.why.eyebrow': 'Pourquoi les ateliers',
   'about.why.title': 'Parce que le problème y est net.',
   'about.why.body':
@@ -385,13 +385,13 @@ const en: Dict = {
   // ─── About page ────────────────────────────────────────────────────────
   'about.eyebrow': 'About',
   'about.title.line1': 'My name is Nolan,',
-  'about.title.line2': 'and my trade is a boring one.',
+  'about.title.line2': 'and I count what nobody counts.',
   'about.body1':
-    'Management accounting for project-based businesses. Cost price, loaded hourly rate, margin on direct cost, percentage-of-completion accounting. A century-old trade, standardised, taught — and thoroughly boring. That is exactly what makes it open.',
+    'The hours charged to no car. The change orders nobody prices. The subcontracting that goes back out at cost. Those are the three places a workshop margin leaves through, and they are exactly the three nobody measures while the job is still running.',
   'about.body2':
-    'Tens of thousands of people can now build an automation. A few thousand can read the profitability of a workshop job. Almost nobody does both. I set up at that intersection and I do not intend to move.',
+    'The trade that can do this is called management accounting for project-based businesses: cost price, loaded hourly rate, margin on direct cost, percentage-of-completion accounting. A century-old discipline, standardised, taught — and one almost nobody of my generation is going to learn. That is exactly what makes it open.',
   'about.body3':
-    'In practice: I build the system that measures the gap between what was quoted and what was consumed, I run it myself, and each month I come and tell you what it says. You never see the machine. You see a number, and three decisions to make.',
+    'Tens of thousands of people can build an automation. A few thousand can read the profitability of a job. Almost nobody does both — I set up at that intersection and I do not intend to move. In practice: I build the system that measures the gap between quoted and consumed, I run it myself, and each month I come and tell you what it says. You never see the machine. You see a number, and three decisions to make.',
   'about.why.eyebrow': 'Why workshops',
   'about.why.title': 'Because the problem is clean there.',
   'about.why.body':

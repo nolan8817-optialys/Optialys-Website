@@ -51,12 +51,24 @@ export const APropos = () => {
         </div>
       </section>
 
-      {/* Le récit */}
+      {/* Le récit — seule page du site qui porte une image */}
       <section className="px-6 py-24 md:py-28">
-        <div className="mx-auto max-w-2xl">
-          <p className="lead">{t('about.body1')}</p>
-          <p className="lead mt-6">{t('about.body2')}</p>
-          <p className="lead mt-6">{t('about.body3')}</p>
+        <div className="mx-auto grid max-w-5xl grid-cols-1 items-start gap-12 md:grid-cols-[minmax(0,17rem)_1fr] md:gap-16">
+          <figure className="mx-auto w-full max-w-[17rem] md:sticky md:top-32">
+            <img
+              src="/nolan-headshot.jpg"
+              alt="Nolan Prayagsing, fondateur d'Optialys"
+              width={768}
+              height={1365}
+              loading="lazy"
+              className="w-full rounded-2xl border border-border-cream object-cover"
+            />
+          </figure>
+
+          <div className="max-w-2xl">
+            <p className="lead">{t('about.body1')}</p>
+            <p className="lead mt-6">{t('about.body2')}</p>
+            <p className="lead mt-6">{t('about.body3')}</p>
 
           <div className="mt-12 flex items-center gap-4 border-t border-border-cream pt-8">
             <span className="text-sm font-medium text-ink-gray">
@@ -71,6 +83,7 @@ export const APropos = () => {
             >
               <Linkedin className="h-4 w-4" />
             </a>
+          </div>
           </div>
         </div>
       </section>
