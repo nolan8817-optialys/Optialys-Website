@@ -94,7 +94,7 @@ const fr: Dict = {
   'home.turn.body':
     'La plupart des prestataires livrent un système et vous souhaitent bonne chance. À vous de l’apprendre, de le faire adopter par l’atelier, de l’alimenter tous les jours. C’est très exactement là que ces projets meurent.',
   'home.turn.body2':
-    'Ici, l’outil est le mien. C’est moi qui m’en sers. Vous, vous recevez un résultat : où en est chaque chantier, lesquels dérapent, ce que ça coûte, et quoi décider cette semaine.',
+    'Ici, vous vous servez du système tous les jours : votre chef d’atelier voit où en est chaque voiture, et vous êtes alerté quand un chantier commence à déraper — pas quand il a fini. Ce que vous n’avez jamais à faire, c’est le maintenir, le corriger et le faire évoluer. Ça, c’est mon travail, et c’est moi qui réponds de ce qu’il raconte.',
 
   // ─── Home · La méthode ─────────────────────────────────────────────────
   'home.offer.eyebrow': 'La méthode',
@@ -111,7 +111,7 @@ const fr: Dict = {
   'home.offer.2.label': 'L’installation',
   'home.offer.2.kicker': '3 à 6 semaines',
   'home.offer.2.body':
-    'L’infrastructure qui rend le pilotage possible. Ce n’est pas un logiciel de plus à apprendre : c’est mon instrument de travail, installé chez vous. Votre logiciel métier reste en place.',
+    'L’infrastructure qui rend le pilotage possible. Vous vous en servez au quotidien — mais ce n’est pas un logiciel de plus à administrer : c’est moi qui le fais tourner. Votre logiciel métier reste en place.',
   'home.offer.2.p1': 'La base opérationnelle : chantiers, heures, avenants, sous-traitance, coûts',
   'home.offer.2.p2': 'La saisie terrain — le seul endroit où votre équipe intervient',
   'home.offer.2.p3': 'Les connexions à ce qui tourne déjà, sans rien remplacer',
@@ -308,7 +308,7 @@ const en: Dict = {
   'home.turn.body':
     'Most providers deliver a system and wish you luck. You have to learn it, get the workshop to adopt it, and feed it every day. That is precisely where these projects die.',
   'home.turn.body2':
-    'Here, the tool is mine. I am the one who uses it. You receive a result: where every job stands, which ones are drifting, what it costs, and what to decide this week.',
+    'Here, you use the system every day: your shop manager sees where every car stands, and you are alerted when a job starts to drift — not once it has finished drifting. What you never have to do is maintain it, fix it and keep it evolving. That is my job, and I am the one who answers for what it says.',
 
   // ─── Home · The method ─────────────────────────────────────────────────
   'home.offer.eyebrow': 'The method',
@@ -325,7 +325,7 @@ const en: Dict = {
   'home.offer.2.label': 'The installation',
   'home.offer.2.kicker': '3 to 6 weeks',
   'home.offer.2.body':
-    'The infrastructure that makes steering possible. Not one more piece of software to learn: it is my working instrument, installed at your place. Your trade software stays exactly where it is.',
+    'The infrastructure that makes steering possible. You use it daily — but it is not one more piece of software to administer: I am the one who runs it. Your trade software stays exactly where it is.',
   'home.offer.2.p1': 'The operational base: jobs, hours, change orders, subcontracting, costs',
   'home.offer.2.p2': 'Shop-floor entry — the only place your team is involved',
   'home.offer.2.p3': 'Connections to what already runs, replacing nothing',
