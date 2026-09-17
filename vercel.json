@@ -9,6 +9,7 @@
     { "source": "/about", "destination": "/a-propos", "permanent": true }
   ],
   "rewrites": [
+    { "source": "/demonstration", "destination": "/demo/index.html" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }

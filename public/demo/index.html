@@ -1,0 +1,1204 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, follow">
+<meta name="theme-color" content="#FAF8F3">
+<link rel="canonical" href="https://optialys.com/demonstration">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://optialys.com/demonstration">
+<meta property="og:title" content="L'Atelier Témoin · la démonstration Optialys">
+<meta property="og:description" content="Trois minutes dans un atelier de restauration fictif : ce que l'équipe saisit, ce que le dirigeant reçoit.">
+<meta property="og:image" content="https://optialys.com/optialys-logo.webp">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Optialys">
+<!-- Fichier généré depuis le second brain (assets/demo-atelier-temoin). Ne pas modifier ici. -->
+<title>L'Atelier Témoin · la démonstration Optialys</title>
+<meta name="description" content="Démonstration Optialys sur un atelier de restauration fictif : ce que l'équipe saisit, ce que le dirigeant reçoit.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+  /* Charte Optialys : crème, encre, un seul or. Page volontairement mono-thème (la marque est claire). */
+  :root {
+    --creme: #FAF8F3;
+    --beige: #F1EDE4;
+    --blanc: #FFFFFF;
+    --encre: #1A1A1A;
+    --gris: #5A5A55;
+    --prose: #3A3A38;
+    --or: #D4A017;
+    --or-doux: #F5E9C0;
+    --sable: #D8D4C8;
+    --sable-fin: #E7E3D8;
+    --ok: #4A6B3A;
+    --ok-fond: #E4EBDD;
+    --vigil: #8A5A12;
+    --vigil-fond: #F3E4C8;
+    --vigil-barre: #C18A2E;
+    --derive: #A3382A;
+    --derive-fond: #F3DDD7;
+    --serif: "Cormorant Garamond", "Iowan Old Style", Georgia, serif;
+    --sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    color-scheme: light;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  [hidden] { display: none !important; }
+  html, body { height: 100%; }
+  body {
+    background: var(--creme);
+    color: var(--encre);
+    font-family: var(--sans);
+    -webkit-font-smoothing: antialiased;
+    overflow: hidden;
+  }
+  ::selection { background: rgba(212,160,23,.18); }
+  .num { font-variant-numeric: tabular-nums; }
+
+  /* ---------- Scène 16:9 mise à l'échelle ---------- */
+  .viewport {
+    position: fixed; inset: 0;
+    display: grid; place-items: center;
+    background:
+      radial-gradient(rgba(26,26,26,.05) 1px, transparent 1px) 0 0 / 26px 26px,
+      var(--creme);
+  }
+  .stage-box { position: relative; }
+  .stage {
+    position: absolute; top: 0; left: 0;
+    width: 1600px; height: 900px;
+    transform-origin: top left;
+    display: grid;
+    grid-template-rows: 72px 1fr 64px;
+  }
+
+  .topbar {
+    display: flex; align-items: center; justify-content: space-between;
+    padding-inline: 56px;
+    border-bottom: 1px solid var(--sable-fin);
+  }
+  .wordmark { font-family: var(--serif); font-size: 30px; letter-spacing: .01em; }
+  .atelier-name { font-family: var(--serif); font-size: 22px; font-style: italic; color: var(--gris); }
+  .fictif {
+    font-size: 11px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase;
+    color: var(--gris); border: 1px solid var(--sable); border-radius: 999px; padding: 7px 14px;
+    background: var(--blanc);
+  }
+  .fictif b { color: var(--or); font-weight: 700; }
+
+  .scenes { position: relative; overflow: hidden; }
+  .scene {
+    position: absolute; inset: 0;
+    display: grid; grid-template-columns: 520px 1fr; gap: 64px;
+    align-items: center;
+    padding: 36px 56px;
+  }
+  .scene[hidden] { display: none !important; }
+  .scene.wide { grid-template-columns: 380px 1fr; }
+  .scene.enter .narr > * { animation: rise .6s cubic-bezier(.2,.7,.2,1) both; }
+  .scene.enter .narr > *:nth-child(2) { animation-delay: .06s; }
+  .scene.enter .narr > *:nth-child(3) { animation-delay: .12s; }
+  .scene.enter .narr > *:nth-child(4) { animation-delay: .18s; }
+  .scene.enter .device-wrap { animation: rise .7s .1s cubic-bezier(.2,.7,.2,1) both; }
+  @keyframes rise { from { opacity: .0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+
+  .eyebrow {
+    display: flex; align-items: center; gap: 14px;
+    font-size: 13px; font-weight: 700; letter-spacing: .25em; text-transform: uppercase; color: var(--or);
+  }
+  .eyebrow::before, .eyebrow::after { content: ""; height: 1px; width: 28px; background: var(--or); }
+  .eyebrow .idx { color: var(--gris); letter-spacing: .12em; }
+  h1, h2 {
+    font-family: var(--serif); font-weight: 400; margin: 18px 0 0;
+    font-size: 62px; line-height: 1.02; letter-spacing: -.01em; text-wrap: balance;
+  }
+  h2 em, h1 em { display: block; font-style: italic; color: var(--or); }
+  .lead { font-size: 21px; line-height: 1.55; color: var(--prose); margin: 26px 0 0; max-width: 30em; }
+  .aside {
+    margin-top: 26px; padding-top: 18px; border-top: 1px solid var(--sable);
+    font-size: 15px; line-height: 1.5; color: var(--gris); max-width: 32em;
+  }
+  .aside strong { color: var(--encre); font-weight: 600; }
+  .hl { background: var(--or); color: var(--encre); padding: 0 .25em; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+
+  .device-wrap { display: grid; place-items: center; height: 100%; min-height: 0; }
+
+  /* ---------- Contrôles ---------- */
+  .controls {
+    display: flex; align-items: center; gap: 24px;
+    padding-inline: 56px;
+    border-top: 1px solid var(--sable-fin);
+    transition: opacity .3s;
+  }
+  .controls.hide { opacity: 0; }
+  .progress { flex: 1; display: flex; gap: 6px; }
+  .progress button {
+    flex: 1; height: 26px; border: 0; background: transparent; cursor: pointer; padding: 0; position: relative;
+  }
+  .progress button::after {
+    content: ""; position: absolute; left: 0; right: 0; top: 12px; height: 3px; border-radius: 2px; background: var(--sable);
+  }
+  .progress button.done::after { background: var(--encre); }
+  .progress button.on::after { background: var(--or); }
+  .progress button::before { content: ""; position: absolute; left: 0; top: 12px; height: 3px; width: 0; border-radius: 2px; background: var(--or); z-index: 1; }
+  .progress button.on.run::after { background: var(--sable); }
+  .progress button.on.run::before { animation: fillbar var(--dur, 10s) linear forwards; }
+  @keyframes fillbar { from { width: 0; } to { width: 100%; } }
+  body.embed .keys { display: none; }
+  .progress button:focus-visible { outline: 2px solid var(--or); outline-offset: 2px; border-radius: 4px; }
+  .navbtn {
+    font: 600 14px var(--sans); color: var(--encre); background: var(--blanc);
+    border: 1px solid var(--sable); border-radius: 999px; padding: 10px 20px; cursor: pointer;
+  }
+  .navbtn.primary { background: var(--encre); color: var(--creme); border-color: var(--encre); }
+  .navbtn:disabled { opacity: .35; cursor: default; }
+  .navbtn.play { min-width: 128px; }
+  a.navbtn { text-decoration: none; display: inline-flex; align-items: center; }
+  .navbtn:focus-visible { outline: 2px solid var(--or); outline-offset: 2px; }
+  .counter { font-size: 13px; color: var(--gris); min-width: 64px; text-align: right; }
+  .keys { font-size: 12px; color: var(--gris); }
+  kbd { font: 600 11px var(--sans); border: 1px solid var(--sable); border-bottom-width: 2px; border-radius: 4px; padding: 1px 6px; background: var(--blanc); }
+
+  /* ---------- Éléments communs des écrans ---------- */
+  .card {
+    background: var(--blanc); border: 1px solid var(--sable); border-radius: 16px;
+    box-shadow: 0 30px 60px -30px rgba(26,26,26,.28), 0 2px 6px rgba(26,26,26,.04);
+  }
+  .chip {
+    display: inline-flex; align-items: center; gap: 6px; white-space: nowrap;
+    font-size: 12px; font-weight: 600; border-radius: 999px; padding: 4px 10px;
+    transition: background .35s, color .35s;
+  }
+  .chip::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+  .chip.ok { color: var(--ok); background: var(--ok-fond); }
+  .chip.vigil { color: var(--vigil); background: var(--vigil-fond); }
+  .chip.derive { color: var(--derive); background: var(--derive-fond); }
+  .chip.neutre { color: var(--gris); background: var(--beige); }
+  .chip.bloque { color: var(--derive); background: transparent; box-shadow: inset 0 0 0 1px var(--derive); }
+  .muted { color: var(--gris); }
+
+  /* ---------- Scène 0 : titre ---------- */
+  .s-title { grid-template-columns: 1fr; place-content: center; text-align: left; padding-inline: 160px; }
+  .s-title h1 { font-size: 100px; }
+  .s-title .lead { font-size: 24px; max-width: 34em; }
+  .facts { display: flex; gap: 0; margin-top: 44px; border-top: 1px solid var(--sable); border-bottom: 1px solid var(--sable); max-width: 1100px; }
+  .facts div { flex: 1; padding: 20px 24px; border-left: 1px solid var(--sable); }
+  .facts div:first-child { border-left: 0; padding-left: 0; }
+  .facts b { display: block; font-family: var(--serif); font-weight: 400; font-size: 44px; line-height: 1; }
+  .facts span { display: block; margin-top: 8px; font-size: 14px; color: var(--gris); }
+
+  /* ---------- Scène 1 : tablette ---------- */
+  .tablet {
+    width: 760px; height: 680px; border-radius: 34px; background: #2A2926; padding: 16px;
+    box-shadow: 0 40px 80px -30px rgba(26,26,26,.45);
+  }
+  .tablet-screen { height: 100%; border-radius: 20px; background: var(--creme); overflow: hidden; display: grid; grid-template-rows: auto 1fr; }
+  .form-head { padding: 22px 30px 16px; background: var(--blanc); border-bottom: 1px solid var(--sable-fin); display: flex; justify-content: space-between; align-items: baseline; }
+  .form-head h3 { margin: 0; font-family: var(--serif); font-weight: 400; font-size: 32px; }
+  .form-head span { font-size: 13px; color: var(--gris); }
+  .form { padding: 18px 30px 22px; display: grid; gap: 15px; align-content: start; }
+  .field label { display: block; font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--gris); margin-bottom: 7px; }
+  .pills { display: flex; flex-wrap: wrap; gap: 8px; }
+  .pill {
+    font-size: 14px; padding: 7px 13px; border-radius: 999px; background: var(--blanc); border: 1px solid var(--sable);
+    transition: background .25s, color .25s, border-color .25s, transform .25s;
+  }
+  .pill.sel { background: var(--encre); color: var(--creme); border-color: var(--encre); transform: scale(1.04); }
+  .input {
+    background: var(--blanc); border: 1px solid var(--sable); border-radius: 8px; padding: 11px 14px; font-size: 16px; min-height: 46px;
+    display: flex; align-items: center; justify-content: space-between; transition: border-color .25s, box-shadow .25s;
+  }
+  .input.focus { border-color: var(--or); box-shadow: 0 0 0 3px rgba(212,160,23,.22); }
+  .input .ph { color: #A8A499; }
+  .caret::after { content: ""; display: inline-block; width: 2px; height: 1.05em; background: var(--or); margin-left: 2px; vertical-align: -3px; animation: blink 1s steps(1) infinite; }
+  @keyframes blink { 50% { opacity: 0; } }
+  .row2 { display: grid; grid-template-columns: 200px 1fr; gap: 16px; align-items: end; }
+  .stepper { display: flex; align-items: center; gap: 0; background: var(--blanc); border: 1px solid var(--sable); border-radius: 8px; overflow: hidden; height: 46px; }
+  .stepper i { font-style: normal; width: 46px; text-align: center; font-size: 20px; color: var(--gris); }
+  .stepper b { flex: 1; text-align: center; font-size: 20px; font-weight: 600; border-inline: 1px solid var(--sable-fin); line-height: 46px; }
+  .toggle { display: flex; align-items: center; gap: 12px; height: 46px; font-size: 15px; }
+  .switch { width: 46px; height: 26px; border-radius: 999px; background: var(--sable); position: relative; transition: background .25s; flex: none; }
+  .switch::after { content: ""; position: absolute; top: 3px; left: 3px; width: 20px; height: 20px; border-radius: 50%; background: var(--blanc); transition: transform .25s; box-shadow: 0 1px 2px rgba(0,0,0,.2); }
+  .switch.on { background: var(--or); }
+  .switch.on::after { transform: translateX(20px); }
+  .note { min-height: 70px; align-items: flex-start; line-height: 1.4; }
+  .note-wrap { max-height: 0; overflow: hidden; transition: max-height .4s ease; }
+  .note-wrap.open { max-height: 130px; }
+  .submit {
+    margin-top: 2px; height: 54px; border-radius: 999px; background: var(--encre); color: var(--creme); font-size: 17px; font-weight: 600;
+    display: grid; place-items: center; transition: background .3s, transform .15s;
+  }
+  .submit.press { transform: scale(.97); }
+  .submit.done { background: var(--ok); }
+
+  /* ---------- Fiche voiture ---------- */
+  .fiche { width: 880px; padding: 30px 34px 26px; position: relative; }
+  .fiche-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; }
+  .fiche-head .ref { font-size: 13px; font-weight: 700; letter-spacing: .18em; color: var(--or); text-transform: uppercase; }
+  .fiche-head h3 { margin: 6px 0 0; font-family: var(--serif); font-weight: 400; font-size: 38px; line-height: 1.05; }
+  .fiche-head p { margin: 6px 0 0; font-size: 14px; color: var(--gris); }
+  .kpis { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 20px; border-top: 1px solid var(--sable-fin); border-bottom: 1px solid var(--sable-fin); }
+  .kpis div { padding: 14px 0 14px 18px; border-left: 1px solid var(--sable-fin); }
+  .kpis div:first-child { border-left: 0; padding-left: 0; }
+  .kpis span { display: block; font-size: 12px; color: var(--gris); letter-spacing: .04em; }
+  .kpis b { display: block; margin-top: 4px; font-size: 24px; font-weight: 600; transition: color .4s; }
+  .postes { margin-top: 14px; display: grid; }
+  .poste { display: grid; grid-template-columns: 170px 1fr 120px 130px; align-items: center; gap: 18px; padding: 11px 0; border-bottom: 1px solid var(--sable-fin); transition: background .4s; }
+  .poste:last-child { border-bottom: 0; }
+  .poste.flash { background: linear-gradient(90deg, transparent, rgba(212,160,23,.10), transparent); }
+  .poste .nom { font-size: 15px; font-weight: 600; }
+  .poste .h { font-size: 14px; color: var(--prose); text-align: right; }
+  .poste .h small { display: block; font-size: 12px; color: var(--gris); }
+  .poste .etat { text-align: right; }
+  .bar { position: relative; height: 12px; background: var(--beige); border-radius: 6px; }
+  .bar .fill { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 6px; background: var(--encre); transition: width .9s cubic-bezier(.3,.7,.2,1), background .4s; }
+  .bar .gap { position: absolute; top: 0; bottom: 0; border-radius: 0 6px 6px 0; transition: left .9s cubic-bezier(.3,.7,.2,1), width .9s cubic-bezier(.3,.7,.2,1), opacity .4s;
+    background: repeating-linear-gradient(135deg, var(--derive) 0 3px, transparent 3px 7px); opacity: .55; }
+  .bar .gap.vigil { background: repeating-linear-gradient(135deg, var(--vigil-barre) 0 3px, transparent 3px 7px); }
+  .bar .tick { position: absolute; top: -6px; bottom: -6px; width: 2px; background: var(--or); transition: left .9s cubic-bezier(.3,.7,.2,1); }
+  .legend { display: flex; gap: 22px; margin-top: 14px; font-size: 12px; color: var(--gris); }
+  .legend i { display: inline-block; vertical-align: middle; margin-right: 7px; }
+  .legend .lf { width: 18px; height: 8px; border-radius: 4px; background: var(--encre); }
+  .legend .lt { width: 2px; height: 14px; background: var(--or); }
+  .legend .lg { width: 18px; height: 8px; background: repeating-linear-gradient(135deg, var(--derive) 0 3px, transparent 3px 7px); opacity: .6; }
+  .toast {
+    position: absolute; top: -22px; right: 26px; background: var(--encre); color: var(--creme); border-radius: 12px;
+    padding: 12px 16px; font-size: 14px; display: flex; gap: 12px; align-items: center;
+    box-shadow: 0 16px 30px -12px rgba(26,26,26,.5);
+    transform: translateY(-10px); opacity: 0; transition: transform .45s cubic-bezier(.2,.8,.2,1), opacity .45s;
+  }
+  .toast.show { transform: none; opacity: 1; }
+  .toast .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--or); }
+  .toast small { color: #BDB8AA; }
+
+  /* ---------- Scène 3 : téléphone ---------- */
+  .phone-row { display: flex; align-items: center; gap: 44px; }
+  .phone { width: 380px; height: 680px; border-radius: 52px; background: #2A2926; padding: 14px; box-shadow: 0 40px 80px -30px rgba(26,26,26,.45); flex: none; }
+  .phone-screen { position: relative; height: 100%; border-radius: 40px; overflow: hidden; background: var(--blanc); display: grid; grid-template-rows: 44px 1fr; }
+  .status { display: flex; justify-content: space-between; align-items: center; padding: 0 28px; font-size: 14px; font-weight: 600; }
+  .mail-app { padding: 8px 22px 20px; overflow: hidden; }
+  .mail-from { display: flex; gap: 12px; align-items: center; padding: 10px 0 14px; border-bottom: 1px solid var(--sable-fin); }
+  .avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--encre); color: var(--or); font-family: var(--serif); font-size: 20px; display: grid; place-items: center; flex: none; }
+  .mail-from b { display: block; font-size: 15px; }
+  .mail-from span { font-size: 12px; color: var(--gris); }
+  .mail-subj { font-size: 19px; font-weight: 600; line-height: 1.3; margin: 16px 0 12px; }
+  .alert-box { border-radius: 12px; background: var(--derive-fond); padding: 14px 16px; }
+  .alert-box .t { font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--derive); }
+  .alert-box p { margin: 8px 0 0; font-size: 15px; line-height: 1.45; color: var(--encre); }
+  .proj { margin-top: 14px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .proj div { border: 1px solid var(--sable); border-radius: 12px; padding: 12px; }
+  .proj span { display: block; font-size: 12px; color: var(--gris); }
+  .proj b { display: block; font-size: 22px; margin-top: 4px; font-weight: 600; }
+  .proj b s { color: var(--gris); font-weight: 400; font-size: 16px; margin-right: 6px; }
+  .signal { margin-top: 14px; font-size: 14px; line-height: 1.45; color: var(--prose); border-left: 2px solid var(--or); padding-left: 12px; }
+  .banner {
+    position: absolute; top: 52px; left: 12px; right: 12px; background: rgba(250,248,243,.97); border: 1px solid var(--sable);
+    border-radius: 20px; padding: 12px 14px; display: grid; grid-template-columns: 34px 1fr; gap: 10px; align-items: center;
+    box-shadow: 0 18px 30px -14px rgba(26,26,26,.35);
+    transform: translateY(-140%); transition: transform .55s cubic-bezier(.2,.8,.2,1), opacity .4s;
+  }
+  .banner.show { transform: none; }
+  .banner.gone { opacity: 0; transform: translateY(-20px); }
+  .banner .ic { width: 34px; height: 34px; border-radius: 9px; background: var(--encre); color: var(--or); display: grid; place-items: center; font-family: var(--serif); font-size: 18px; }
+  .banner b { font-size: 13px; display: block; }
+  .banner span { font-size: 13px; color: var(--prose); }
+  .mail-body { opacity: 0; transform: translateY(10px); transition: opacity .5s, transform .5s; }
+  .mail-body.show { opacity: 1; transform: none; }
+  .compare { width: 420px; display: grid; gap: 14px; }
+  .compare .card { padding: 20px 22px; border-radius: 12px; box-shadow: none; }
+  .compare .k { font-size: 12px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--gris); }
+  .compare p { margin: 8px 0 0; font-size: 17px; line-height: 1.45; }
+  .compare .card.strong { border-color: var(--encre); }
+  .compare .card.strong .k { color: var(--or); }
+  .fade-late { opacity: 0; transform: translateY(8px); transition: opacity .5s, transform .5s; }
+  .fade-late.show { opacity: 1; transform: none; }
+
+  /* ---------- Scène 4 : avenant ---------- */
+  .aven-row { display: grid; grid-template-columns: 470px 400px; gap: 30px; align-items: center; }
+  .avenant { padding: 28px 30px; }
+  .avenant .ref { font-size: 13px; font-weight: 700; letter-spacing: .18em; color: var(--or); text-transform: uppercase; }
+  .avenant h3 { margin: 6px 0 4px; font-family: var(--serif); font-weight: 400; font-size: 34px; }
+  .avenant .src { font-size: 14px; color: var(--gris); }
+  .lines { margin-top: 18px; border-top: 1px solid var(--sable-fin); }
+  .line { display: grid; grid-template-columns: 1fr auto; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--sable-fin); font-size: 15px; }
+  .line small { display: block; color: var(--gris); font-size: 13px; margin-top: 2px; }
+  .line.total { font-weight: 700; font-size: 18px; border-bottom: 0; }
+  .steps { display: flex; margin-top: 18px; gap: 8px; }
+  .steps span { flex: 1; text-align: center; font-size: 13px; font-weight: 600; padding: 9px 6px; border-radius: 999px; background: var(--beige); color: var(--gris); transition: background .35s, color .35s; }
+  .steps span.done { background: var(--encre); color: var(--creme); }
+  .steps span.acc { background: var(--ok); color: var(--blanc); }
+  .avant-apres { padding: 24px 26px; }
+  .avant-apres h4 { margin: 0; font-size: 12px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--gris); }
+  .aa { display: grid; grid-template-columns: 1fr auto auto; gap: 8px 16px; align-items: center; margin-top: 14px; font-size: 15px; }
+  .aa .l { color: var(--gris); }
+  .aa .b { text-align: right; color: var(--gris); }
+  .aa .a { text-align: right; font-weight: 600; min-width: 96px; }
+  .aa .hdr { font-size: 12px; color: var(--gris); letter-spacing: .06em; text-transform: uppercase; text-align: right; }
+  .gain { margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--sable-fin); font-size: 15px; line-height: 1.45; }
+  .gain b { font-weight: 700; }
+
+  /* ---------- Scène 5 : email ---------- */
+  .mailwin { width: 880px; overflow: hidden; }
+  .mailbar { display: flex; gap: 8px; padding: 14px 18px; background: var(--beige); border-bottom: 1px solid var(--sable); }
+  .mailbar i { width: 11px; height: 11px; border-radius: 50%; background: var(--sable); }
+  .mailhdr { padding: 18px 34px 14px; border-bottom: 1px solid var(--sable-fin); display: grid; grid-template-columns: 70px 1fr auto; gap: 6px 10px; font-size: 14px; }
+  .mailhdr span { color: var(--gris); }
+  .mailhdr .subject { grid-column: 2 / 4; font-size: 20px; font-weight: 600; margin-top: 4px; }
+  .brief { padding: 22px 34px 26px; font-size: 16px; line-height: 1.5; color: var(--prose); }
+  .brief .hello { margin: 0 0 14px; }
+  .item { display: grid; grid-template-columns: 34px 1fr; gap: 6px 14px; padding: 13px 0; border-top: 1px solid var(--sable-fin);
+    opacity: 0; transform: translateY(8px); transition: opacity .45s, transform .45s; }
+  .item.show { opacity: 1; transform: none; }
+  .item .n { font-family: var(--serif); font-size: 30px; line-height: 1; color: var(--or); }
+  .item h5 { margin: 0; font-size: 16px; color: var(--encre); display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+  .item p { margin: 4px 0 0; }
+  .item .act { margin-top: 6px; font-size: 15px; color: var(--encre); }
+  .item .act::before { content: "→ "; color: var(--or); font-weight: 700; }
+  .brief .foot { margin: 14px 0 0; padding-top: 12px; border-top: 1px solid var(--sable-fin); font-size: 15px; color: var(--gris); opacity: 0; transition: opacity .5s; }
+  .brief .foot.show { opacity: 1; }
+
+  /* ---------- Scène 6 : tableau ---------- */
+  .table-card { width: 1040px; padding: 26px 30px 20px; }
+  .table-card .top { display: flex; justify-content: space-between; align-items: baseline; }
+  .table-card h3 { margin: 0; font-family: var(--serif); font-weight: 400; font-size: 32px; }
+  .table-card .top span { font-size: 14px; color: var(--gris); }
+  .scroll-x { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; margin-top: 14px; font: inherit; font-size: 15px; }
+  th { text-align: left; font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--gris); padding: 10px 8px; border-bottom: 1px solid var(--sable); white-space: nowrap; }
+  td { padding: 13px 8px; white-space: nowrap; border-bottom: 1px solid var(--sable-fin); vertical-align: middle; }
+  tr:last-child td { border-bottom: 0; }
+  td.r, th.r { text-align: right; }
+  td .car { font-weight: 600; color: var(--encre); display: block; }
+  td .sub { font-size: 13px; color: var(--gris); }
+  .mg { font-weight: 600; }
+  .mg.down { color: var(--derive); }
+  tbody tr { opacity: 0; transform: translateY(6px); transition: opacity .4s, transform .4s; }
+  tbody tr.show { opacity: 1; transform: none; }
+  .avc { display: flex; align-items: center; gap: 10px; }
+  .avc .mini { width: 56px; height: 6px; border-radius: 3px; background: var(--beige); position: relative; overflow: hidden; }
+  .avc .mini i { position: absolute; inset: 0 auto 0 0; background: var(--encre); border-radius: 3px; }
+
+  /* ---------- Scène 7 : bilan ---------- */
+  .bilan { display: grid; grid-template-columns: 590px 424px; gap: 26px; align-items: stretch; }
+  .bilan .card { padding: 24px 26px; }
+  .bilan h3 { margin: 0; font-family: var(--serif); font-weight: 400; font-size: 30px; }
+  .bilan .sub { font-size: 14px; color: var(--gris); margin-top: 4px; }
+  .res { display: grid; grid-template-columns: 1fr 1fr 1fr; margin-top: 16px; border-top: 1px solid var(--sable-fin); border-bottom: 1px solid var(--sable-fin); }
+  .res div { padding: 12px 0 12px 14px; border-left: 1px solid var(--sable-fin); }
+  .res div:first-child { border-left: 0; padding-left: 0; }
+  .res span { display: block; font-size: 12px; color: var(--gris); }
+  .res b { display: block; font-size: 24px; font-weight: 600; margin-top: 2px; }
+  .ecarts { margin-top: 10px; }
+  .ec { display: grid; grid-template-columns: 150px 92px 1fr 44px; gap: 12px; align-items: center; padding: 8px 0; font-size: 14px; border-bottom: 1px solid var(--sable-fin); }
+  .ec:last-child { border-bottom: 0; }
+  .ec .hh { color: var(--gris); text-align: right; }
+  .ec .track { position: relative; height: 10px; }
+  .ec .track::before { content: ""; position: absolute; left: 30%; top: -4px; bottom: -4px; width: 1px; background: var(--sable); }
+  .ec .track i { position: absolute; top: 0; bottom: 0; border-radius: 3px; transition: width .8s cubic-bezier(.3,.7,.2,1); width: 0; }
+  .ec .track i.plus { left: 30%; background: var(--derive); }
+  .ec .track i.moins { right: 70%; background: var(--ok); }
+  .ec .v { text-align: right; font-weight: 600; }
+  .ec .v.plus { color: var(--derive); }
+  .ec .v.moins { color: var(--ok); }
+  .where h4 { margin: 0; font-size: 12px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--gris); }
+  .why { display: grid; grid-template-columns: 30px 1fr auto; gap: 4px 12px; padding: 14px 0; border-bottom: 1px solid var(--sable-fin);
+    opacity: 0; transform: translateY(8px); transition: opacity .45s, transform .45s; }
+  .why.show { opacity: 1; transform: none; }
+  .why .n { font-family: var(--serif); font-size: 28px; line-height: 1; color: var(--or); }
+  .why b { font-size: 15px; }
+  .why .eur { font-weight: 700; color: var(--derive); white-space: nowrap; }
+  .why p { grid-column: 2 / 4; margin: 0; font-size: 14px; color: var(--gris); line-height: 1.4; }
+  .why.rest { grid-template-columns: 30px 1fr auto; border-bottom: 0; }
+  .st-note { margin-top: 8px; background: var(--or-doux); border-radius: 12px; padding: 14px 16px; font-size: 14px; line-height: 1.45; color: var(--encre);
+    opacity: 0; transition: opacity .5s; }
+  .st-note.show { opacity: 1; }
+
+  /* ---------- Scène 8 : fin ---------- */
+  .s-end { grid-template-columns: 1fr; place-content: center; padding-inline: 160px; }
+  .s-end h2 { font-size: 92px; }
+  .s-end .lead { font-size: 24px; max-width: 36em; }
+  .sig { margin-top: 44px; display: flex; gap: 40px; align-items: baseline; font-size: 16px; color: var(--gris); flex-wrap: wrap; }
+  .sig .wm { font-family: var(--serif); font-size: 40px; color: var(--encre); }
+  .sig .tag { font-family: var(--serif); font-style: italic; font-size: 26px; color: var(--encre); }
+  .cta-row { margin-top: 30px; display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+  .cta-row .navbtn { font-size: 16px; padding: 15px 28px; }
+  .cta-row .mail { font-size: 16px; color: var(--gris); margin-left: 8px; }
+
+  /* ---------- Mode lecture (écran étroit) : tout s'empile, état final ---------- */
+  body.flow { overflow: auto; }
+  body.flow .viewport { position: static; display: block; background: var(--creme); padding-inline: 16px; }
+  body.flow .stage-box { width: auto !important; height: auto !important; }
+  body.flow .stage { position: static; width: auto; height: auto; transform: none !important; display: block; }
+  body.flow .topbar { padding-inline: 0; padding-block: 16px; flex-wrap: wrap; gap: 10px; }
+  body.flow .atelier-name { display: none; }
+  body.flow .scenes { overflow: visible; }
+  body.flow .scene, body.flow .scene[hidden] { position: static; display: grid !important; grid-template-columns: minmax(0, 1fr); gap: 28px; padding: 44px 0; border-bottom: 1px solid var(--sable); }
+  body.flow .scene * { animation: none !important; }
+  body.flow .controls { display: none; }
+  body.flow h1, body.flow h2, body.flow .s-title h1, body.flow .s-end h2 { font-size: clamp(38px, 10vw, 56px); }
+  body.flow .lead, body.flow .s-title .lead, body.flow .s-end .lead { font-size: 18px; }
+  body.flow .s-title, body.flow .s-end { padding-inline: 0; }
+  body.flow .facts { flex-wrap: wrap; }
+  body.flow .facts div { flex: 1 1 40%; border-left: 0; padding-left: 0; }
+  body.flow .facts b { font-size: 34px; }
+  body.flow .device-wrap { display: block; }
+  body.flow .tablet { width: 100%; height: auto; padding: 10px; border-radius: 24px; }
+  body.flow .row2 { grid-template-columns: minmax(0, 1fr); }
+  body.flow .fiche, body.flow .mailwin, body.flow .table-card { width: 100%; }
+  body.flow .fiche { padding: 22px 18px; }
+  body.flow .poste { grid-template-columns: 1fr auto; gap: 8px 12px; }
+  body.flow .poste .bar { grid-column: 1 / -1; grid-row: 2; }
+  body.flow .poste .etat { grid-column: 2; grid-row: 1; }
+  body.flow .poste .h { grid-column: 1 / -1; text-align: left; }
+  body.flow .kpis b { font-size: 18px; }
+  body.flow .toast { position: static; margin-bottom: 14px; }
+  body.flow .phone-row, body.flow .aven-row, body.flow .bilan { display: grid; grid-template-columns: minmax(0, 1fr); gap: 20px; }
+  body.flow .device-wrap, body.flow .narr { min-width: 0; }
+  body.flow .phone { width: 100%; max-width: 380px; height: auto; margin-inline: auto; }
+  body.flow .phone-screen { height: auto; }
+  body.flow .banner { display: none; }
+  body.flow .compare { width: 100%; }
+  body.flow .mailhdr { padding-inline: 18px; grid-template-columns: 56px 1fr; }
+  body.flow .mailhdr .subject { grid-column: 1 / -1; }
+  body.flow .brief { padding-inline: 18px; }
+  body.flow .table-card { padding: 20px 16px; }
+  body.flow table { min-width: 720px; }
+  body.flow .ec { grid-template-columns: 1fr 70px 44px; }
+  body.flow .ec .track { display: none; }
+  body.flow .sig { gap: 16px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { transition-duration: 0s !important; animation-duration: 0s !important; }
+  }
+</style>
+</head>
+<body>
+<div class="viewport" id="viewport">
+  <div class="stage-box" id="stageBox">
+    <div class="stage" id="stage">
+
+      <header class="topbar">
+        <div class="wordmark">Optialys</div>
+        <div class="atelier-name">L'Atelier Témoin</div>
+        <div class="fictif"><b>Atelier fictif</b> · données inventées</div>
+      </header>
+
+      <main class="scenes" id="scenes">
+
+        <!-- 0 · Titre -->
+        <section class="scene s-title" data-scene="0" aria-label="Introduction">
+          <div class="narr">
+            <div class="eyebrow">Démonstration</div>
+            <h1>L'Atelier Témoin.<em>Ce que l'équipe saisit, ce que vous recevez.</em></h1>
+            <p class="lead">Un atelier de restauration fictif, construit pour vous montrer le dispositif sans exposer les chiffres d'un vrai client. Chaque voiture y est devisée poste par poste.</p>
+            <div class="facts">
+              <div><b class="num">6</b><span>personnes, dirigeant compris</span></div>
+              <div><b class="num">5</b><span>voitures en cours</span></div>
+              <div><b class="num">75&nbsp;€</b><span>de l'heure au devis</span></div>
+              <div><b class="num">42&nbsp;€</b><span>de coût horaire chargé</span></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 1 · Saisie -->
+        <section class="scene" data-scene="1" aria-label="La saisie" hidden>
+          <div class="narr">
+            <div class="eyebrow">L'équipe <span class="idx">· 01</span></div>
+            <h2>Karim finit sa matinée de tôlerie.<em>Il la saisit en dix secondes.</em></h2>
+            <p class="lead">Sur la tablette de l'atelier : qui, quelle voiture, quel poste, combien d'heures. Pas de compte à créer, rien à apprendre.</p>
+            <p class="aside"><strong>S'il découvre un travail que le devis n'avait pas prévu,</strong> il le signale au même endroit, en une phrase.</p>
+          </div>
+          <div class="device-wrap">
+            <div class="tablet">
+              <div class="tablet-screen">
+                <div class="form-head"><h3>Mes heures</h3><span>L'Atelier Témoin</span></div>
+                <div class="form">
+                  <div class="field">
+                    <label>Qui êtes-vous ?</label>
+                    <div class="pills" id="f-qui">
+                      <span class="pill">Léa</span><span class="pill" data-v="karim">Karim</span><span class="pill">Yanis</span><span class="pill">Théo</span><span class="pill">Manon</span>
+                    </div>
+                  </div>
+                  <div class="field">
+                    <label>Voiture</label>
+                    <div class="input" id="f-voiture"><span class="ph">Choisir une voiture</span><span class="muted">▾</span></div>
+                  </div>
+                  <div class="field">
+                    <label>Poste</label>
+                    <div class="pills" id="f-poste">
+                      <span class="pill">Démontage</span><span class="pill" data-v="tolerie">Tôlerie</span><span class="pill">Peinture</span><span class="pill">Mécanique</span><span class="pill">Électricité</span><span class="pill">Remontage</span>
+                    </div>
+                  </div>
+                  <div class="row2">
+                    <div class="field">
+                      <label>Heures</label>
+                      <div class="stepper"><i>−</i><b class="num" id="f-heures">0</b><i>+</i></div>
+                    </div>
+                    <div class="field">
+                      <label>&nbsp;</label>
+                      <div class="toggle"><span class="switch" id="f-switch"></span>Travail non prévu au devis</div>
+                    </div>
+                  </div>
+                  <div class="note-wrap" id="f-notewrap">
+                    <div class="field">
+                      <label>Ce que vous avez trouvé</label>
+                      <div class="input note" id="f-note"><span></span></div>
+                    </div>
+                  </div>
+                  <div class="submit" id="f-submit">Enregistrer</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 2 · Fiche voiture -->
+        <section class="scene" data-scene="2" aria-label="La fiche voiture" hidden>
+          <div class="narr">
+            <div class="eyebrow">Derrière <span class="idx">· 02</span></div>
+            <h2>La voiture se met à jour.<em>Poste par poste.</em></h2>
+            <p class="lead">Chaque poste compare les heures déjà passées et l'avancement réel du travail. Sur la tôlerie de la Giulia, <span class="hl">80&nbsp;% des heures sont parties pour 60&nbsp;% du travail.</span></p>
+            <p class="aside">Le trait doré marque où en est le travail. Les rayures, c'est l'écart : des heures consommées d'avance.</p>
+          </div>
+          <div class="device-wrap">
+            <div class="card fiche">
+              <div class="toast" id="toast2"><span class="dot"></span><span>Karim · Tôlerie · 3,5&nbsp;h <small>· à l'instant</small></span></div>
+              <div class="fiche-head">
+                <div>
+                  <div class="ref">N°112 · Restauration complète</div>
+                  <h3>Alfa Romeo Giulia Sprint GT, 1966</h3>
+                  <p>Client M. R. · entrée en juin · 420&nbsp;h devisées</p>
+                </div>
+                <span class="chip vigil" id="fiche-etat">Vigilance</span>
+              </div>
+              <div class="kpis">
+                <div><span>Devis</span><b class="num">45 100&nbsp;€ HT</b></div>
+                <div><span>Heures passées</span><b class="num" id="fiche-h">148,5&nbsp;h</b></div>
+                <div><span>Marge au devis</span><b class="num">38&nbsp;%</b></div>
+              </div>
+              <div class="postes" id="postes2"></div>
+              <div class="legend"><span><i class="lf"></i>Heures passées</span><span><i class="lt"></i>Avancement du travail</span><span><i class="lg"></i>Heures consommées d'avance</span></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 3 · Alerte -->
+        <section class="scene" data-scene="3" aria-label="L'alerte" hidden>
+          <div class="narr">
+            <div class="eyebrow">Ce que vous recevez <span class="idx">· 03</span></div>
+            <h2>L'alerte arrive<em>avant la facture.</em></h2>
+            <p class="lead">Pas quand le budget est dépassé : quand le rythme annonce qu'il le sera. À 60&nbsp;% du poste, il reste de quoi agir.</p>
+            <p class="aside"><strong>En parler à Karim, revoir la méthode, prévenir le client.</strong> Trois options qui n'existent plus une fois la voiture livrée.</p>
+          </div>
+          <div class="device-wrap">
+            <div class="phone-row">
+              <div class="phone">
+                <div class="phone-screen">
+                  <div class="status"><span class="num">11:52</span><span>●●● 5G</span></div>
+                  <div class="banner" id="banner3">
+                    <div class="ic">A</div>
+                    <div><b>Atelier Témoin · Alerte</b><span>Dérive sur la N°112 Giulia, tôlerie</span></div>
+                  </div>
+                  <div class="mail-app">
+                    <div class="mail-body" id="mail3">
+                      <div class="mail-from"><div class="avatar">A</div><div><b>Atelier Témoin</b><span>Alertes · à vous</span></div></div>
+                      <div class="mail-subj">Dérive · N°112 Alfa Romeo Giulia · tôlerie</div>
+                      <div class="alert-box">
+                        <div class="t">Dérive</div>
+                        <p><b class="num">80&nbsp;%</b> des heures de tôlerie passées pour <b class="num">60&nbsp;%</b> du travail.</p>
+                      </div>
+                      <div class="proj">
+                        <div><span>Tôlerie à ce rythme</span><b class="num"><s>140&nbsp;h</s>187&nbsp;h</b></div>
+                        <div><span>Marge de la voiture</span><b class="num"><s>38&nbsp;%</s>34&nbsp;%</b></div>
+                      </div>
+                      <div class="signal"><b>Signalé par Karim ce matin :</b> plancher passager perforé sous le mastic, longeron à reprendre. Non prévu au devis.</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="compare">
+                <div class="card fade-late" id="cmp3a"><div class="k">Une alerte classique</div><p>Se déclenche quand le poste dépasse 140 h. Il est trop tard : les heures sont passées.</p></div>
+                <div class="card strong fade-late" id="cmp3b"><div class="k">Cette alerte</div><p>Se déclenche à 112 h, parce que le rythme annonce 187 h. Il reste 28&nbsp;h de devis pour décider.</p></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 4 · Avenant -->
+        <section class="scene" data-scene="4" aria-label="L'avenant" hidden>
+          <div class="narr">
+            <div class="eyebrow">Le « tant qu'on y est » <span class="idx">· 04</span></div>
+            <h2>Ce qui est découvert<em>est chiffré avant d'être fait.</em></h2>
+            <p class="lead">Le plancher signalé par Karim devient un avenant prêt à envoyer. Une fois accepté par le client, il ajuste le budget de la voiture.</p>
+            <p class="aside">L'alerte redescend d'un cran, <strong>1 730&nbsp;€ sont facturés au lieu d'être offerts</strong>, et il reste un vrai écart à regarder avec Karim.</p>
+          </div>
+          <div class="device-wrap">
+            <div class="aven-row">
+              <div class="card avenant">
+                <div class="ref">Avenant n°1 · N°112</div>
+                <h3>Reprise du plancher passager</h3>
+                <div class="src">Préparé à partir du signalement de Karim</div>
+                <div class="lines">
+                  <div class="line"><span>Tôlerie : plancher et longeron<small>18&nbsp;h × 75&nbsp;€</small></span><span class="num">1 350&nbsp;€</span></div>
+                  <div class="line"><span>Tôles et longeron<small>fournitures</small></span><span class="num">380&nbsp;€</span></div>
+                  <div class="line total"><span>Total HT</span><span class="num">1 730&nbsp;€</span></div>
+                </div>
+                <div class="steps"><span id="st4a">Brouillon</span><span id="st4b">Envoyé au client</span><span id="st4c">Accepté</span></div>
+              </div>
+              <div class="card avant-apres fade-late" id="aa4">
+                <h4>Tôlerie de la Giulia</h4>
+                <div class="aa">
+                  <span></span><span class="hdr">Avant</span><span class="hdr">Après</span>
+                  <span class="l">Heures devisées</span><span class="b num">140&nbsp;h</span><span class="a num">158&nbsp;h</span>
+                  <span class="l">Heures passées</span><span class="b num">80&nbsp;%</span><span class="a num">71&nbsp;%</span>
+                  <span class="l">Avancement</span><span class="b num">60&nbsp;%</span><span class="a num">60&nbsp;%</span>
+                  <span class="l">État</span><span class="b"><span class="chip derive">Dérive</span></span><span class="a"><span class="chip vigil">Vigilance</span></span>
+                  <span class="l">Marge projetée</span><span class="b num">34&nbsp;%</span><span class="a num">36&nbsp;%</span>
+                </div>
+                <div class="gain">Reste <b class="num">29&nbsp;h</b> au-delà du devis si le rythme ne change pas. Cette fois, ce n'est plus le plancher.</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 5 · Brief du matin -->
+        <section class="scene" data-scene="5" aria-label="Le point du matin" hidden>
+          <div class="narr">
+            <div class="eyebrow">Chaque matin, 7&nbsp;h <span class="idx">· 05</span></div>
+            <h2>Le point de l'atelier,<em>dans votre boîte mail.</em></h2>
+            <p class="lead">Rédigé automatiquement à partir des saisies de la veille. Il ne parle que de ce qui demande une décision.</p>
+            <p class="aside"><strong>Aucun chiffre inventé :</strong> tout ce qu'il contient vient de l'atelier. Les jours où tout suit le devis, il tient en deux lignes.</p>
+          </div>
+          <div class="device-wrap">
+            <div class="card mailwin">
+              <div class="mailbar"><i></i><i></i><i></i></div>
+              <div class="mailhdr">
+                <span>De</span><b>Point atelier · L'Atelier Témoin</b><span class="num">07:00</span>
+                <span>À</span><span style="color:var(--encre)">Vous</span><span></span>
+                <div class="subject">Mardi : 1 voiture bloquée, 1 à surveiller, 1 livraison</div>
+              </div>
+              <div class="brief">
+                <p class="hello">Bonjour, voici ce qui demande votre attention aujourd'hui.</p>
+                <div class="item" data-i="0"><div class="n">1</div><div>
+                  <h5>N°115 · Citroën DS 21 Pallas <span class="chip bloque">Bloquée</span></h5>
+                  <p>Deux pièces attendues depuis 19 jours : cardan de transmission et joint de pare-brise. La mécanique est à l'arrêt.</p>
+                  <div class="act">Relancer le fournisseur, ou chercher une autre source.</div>
+                </div></div>
+                <div class="item" data-i="1"><div class="n">2</div><div>
+                  <h5>N°112 · Alfa Romeo Giulia Sprint GT <span class="chip vigil">Vigilance</span></h5>
+                  <p>Tôlerie à 71&nbsp;% des heures pour 60&nbsp;% du travail, après l'avenant plancher accepté hier (+1 730&nbsp;€).</p>
+                  <div class="act">Faire le point avec Karim sur les 29&nbsp;h qui dépassent encore.</div>
+                </div></div>
+                <div class="item" data-i="2"><div class="n">3</div><div>
+                  <h5>N°110 · Alpine A110 1300 <span class="chip ok">Livraison dans 5 jours</span></h5>
+                  <p>Il reste les essais routiers, 6&nbsp;h devisées.</p>
+                </div></div>
+                <p class="foot" id="foot5">Saisies d'hier : 5 personnes sur 6, il manque Théo. Les deux autres voitures suivent leur devis.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 6 · Toutes les voitures -->
+        <section class="scene wide" data-scene="6" aria-label="Toutes les voitures" hidden>
+          <div class="narr">
+            <div class="eyebrow">Le lundi <span class="idx">· 06</span></div>
+            <h2>Toutes vos voitures<em>sur une page.</em></h2>
+            <p class="lead">La marge prévue au devis, la marge projetée au rythme actuel, et ce qui bloque. Dans l'ordre de ce qui demande votre attention.</p>
+            <p class="aside">Une voiture qui démarre n'a pas encore de projection : <strong>avant 10&nbsp;% d'avancement, le rythme ne veut rien dire.</strong></p>
+          </div>
+          <div class="device-wrap">
+            <div class="card table-card">
+              <div class="top"><h3>Voitures en cours</h3><span class="num">5 voitures · 191 930&nbsp;€ HT devisés</span></div>
+              <div class="scroll-x">
+                <table>
+                  <thead><tr><th>Voiture</th><th>Poste en cours</th><th>Avancement</th><th class="r">Marge au devis</th><th class="r">Marge projetée</th><th>État</th></tr></thead>
+                  <tbody>
+                    <tr><td><span class="car">N°115 · Citroën DS 21 Pallas</span><span class="sub">1971 · 38 200&nbsp;€</span></td><td>Mécanique, à l'arrêt</td><td><div class="avc"><span class="mini"><i style="width:46%"></i></span><span class="num">46&nbsp;%</span></div></td><td class="r num">35&nbsp;%</td><td class="r num mg">35&nbsp;%</td><td><span class="chip bloque">Bloquée · 2 pièces</span></td></tr>
+                    <tr><td><span class="car">N°112 · Alfa Romeo Giulia Sprint GT</span><span class="sub">1966 · 46 830&nbsp;€</span></td><td>Tôlerie</td><td><div class="avc"><span class="mini"><i style="width:32%"></i></span><span class="num">32&nbsp;%</span></div></td><td class="r num">38&nbsp;%</td><td class="r num mg down">36&nbsp;%</td><td><span class="chip vigil">Vigilance</span></td></tr>
+                    <tr><td><span class="car">N°110 · Alpine A110 1300</span><span class="sub">1972 · 29 600&nbsp;€</span></td><td>Essais routiers</td><td><div class="avc"><span class="mini"><i style="width:94%"></i></span><span class="num">94&nbsp;%</span></div></td><td class="r num">34&nbsp;%</td><td class="r num mg">33&nbsp;%</td><td><span class="chip ok">Dans le devis</span></td></tr>
+                    <tr><td><span class="car">N°108 · Porsche 356 B</span><span class="sub">1962 · 52 400&nbsp;€</span></td><td>Peinture</td><td><div class="avc"><span class="mini"><i style="width:58%"></i></span><span class="num">58&nbsp;%</span></div></td><td class="r num">37&nbsp;%</td><td class="r num mg">37&nbsp;%</td><td><span class="chip ok">Dans le devis</span></td></tr>
+                    <tr><td><span class="car">N°117 · Lancia Fulvia Coupé</span><span class="sub">1969 · 24 900&nbsp;€</span></td><td>Démontage</td><td><div class="avc"><span class="mini"><i style="width:8%"></i></span><span class="num">8&nbsp;%</span></div></td><td class="r num">40&nbsp;%</td><td class="r muted">Trop tôt</td><td><span class="chip neutre">Démarrage</span></td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 7 · Bilan de fin de chantier -->
+        <section class="scene wide" data-scene="7" aria-label="Le bilan de livraison" hidden>
+          <div class="narr">
+            <div class="eyebrow">À la livraison <span class="idx">· 07</span></div>
+            <h2>Vous savez où<em>la marge est partie.</em></h2>
+            <p class="lead">Le devis face au réel, poste par poste. Sur cette BMW 2002 livrée le mois dernier, la marge prévue était de 36&nbsp;%. <span class="hl">Elle finit à 29&nbsp;%.</span></p>
+            <p class="aside">Pas une impression à la facture : <strong>trois lignes chiffrées</strong>, et une quatrième qui n'était pas dans l'écart mais mérite d'être regardée.</p>
+          </div>
+          <div class="device-wrap">
+            <div class="bilan">
+              <div class="card">
+                <h3>N°104 · BMW 2002 tii, 1973</h3>
+                <div class="sub">Livrée · 31 390&nbsp;€ HT facturés, avenant compris</div>
+                <div class="res">
+                  <div><span>Marge au devis</span><b class="num">36&nbsp;%</b></div>
+                  <div><span>Marge réelle</span><b class="num" style="color:var(--derive)">29&nbsp;%</b></div>
+                  <div><span>Écart</span><b class="num">−2 366&nbsp;€</b></div>
+                </div>
+                <div class="ecarts" id="ecarts7"></div>
+              </div>
+              <div class="card where">
+                <h4>Où la marge est partie</h4>
+                <div class="why" data-i="0"><div class="n">1</div><b>Peinture : 31&nbsp;h de plus</b><span class="eur num">1 302&nbsp;€</span><p>Reprise après ponçage : des cloques sont apparues sous l'apprêt.</p></div>
+                <div class="why" data-i="1"><div class="n">2</div><b>Tôlerie : 11&nbsp;h de plus</b><span class="eur num">462&nbsp;€</span><p>Réparations d'ailes plus longues que prévu.</p></div>
+                <div class="why" data-i="2"><div class="n">3</div><b>Faisceau de feux arrière offert</b><span class="eur num">434&nbsp;€</span><p>7&nbsp;h et 140&nbsp;€ de pièces, jamais facturés. Au prix atelier, 720&nbsp;€ de travaux.</p></div>
+                <div class="why rest" data-i="3"><div class="n" style="color:var(--gris)">+</div><b class="muted" style="font-weight:500">Autres postes, net</b><span class="num muted" style="font-weight:600">168&nbsp;€</span></div>
+                <div class="st-note" id="st7"><b>À regarder aussi :</b> la sellerie sous-traitée a été refacturée au prix d'achat. 2 900&nbsp;€ passés sans marge. Prévu comme ça au devis, donc hors de l'écart.</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 8 · Fin -->
+        <section class="scene s-end" data-scene="8" aria-label="Conclusion" hidden>
+          <div class="narr">
+            <div class="eyebrow">En résumé</div>
+            <h2>Dix secondes par saisie.<em>La marge de chaque voiture, pendant le chantier.</em></h2>
+            <p class="lead">J'installe ce dispositif dans votre atelier, avec vos postes et votre façon de chiffrer. Ensuite, je m'occupe de votre marge chaque mois.</p>
+            <div class="sig">
+              <span class="wm">Optialys</span>
+              <span class="tag">Je m'occupe de votre marge.</span>
+            </div>
+            <div class="cta-row">
+              <a class="navbtn primary" href="https://optialys.com/contact" target="_top">Réserver un appel de découverte</a>
+              <button class="navbtn" type="button" id="restart">Revoir la démonstration</button>
+              <span class="mail">nolan@optialys.com</span>
+            </div>
+          </div>
+        </section>
+
+      </main>
+
+      <footer class="controls" id="controls">
+        <button class="navbtn" id="prev" type="button">Précédent</button>
+        <div class="progress" id="progress" role="tablist" aria-label="Scènes"></div>
+        <span class="counter num" id="counter">1 / 9</span>
+        <span class="keys"><kbd>←</kbd> <kbd>→</kbd> naviguer · <kbd>R</kbd> rejouer · <kbd>H</kbd> masquer</span>
+        <button class="navbtn play" id="play" type="button" aria-pressed="false">Lecture auto</button>
+        <button class="navbtn primary" id="next" type="button">Suivant</button>
+      </footer>
+
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var W = 1600, H = 900;
+  var body = document.body;
+  var stage = document.getElementById("stage");
+  var box = document.getElementById("stageBox");
+  var scenes = Array.prototype.slice.call(document.querySelectorAll(".scene"));
+  var current = 0;
+  var timers = [];
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  // ?fixe : chaque scène s'affiche directement dans son état final (captures d'écran, visuels LinkedIn)
+  if (/[?&]fixe/.test(location.search)) reduce = true;
+  // ?embed : intégrée au site. La lecture automatique démarre quand la démo est à l'écran.
+  var embed = /[?&]embed/.test(location.search);
+  if (embed) body.classList.add("embed");
+  var DUR = [8000, 15000, 13000, 14000, 13000, 13000, 11000, 16000, 0];
+  var autoOn = false, autoTimer = null, inView = !embed;
+
+  function $(id) { return document.getElementById(id); }
+  function fr(n, d) { return n.toLocaleString("fr-FR", { minimumFractionDigits: d || 0, maximumFractionDigits: d || 0 }); }
+
+  /* ---------- Données fictives ---------- */
+  var giulia = [
+    { nom: "Démontage", dev: 30, h: 28, av: 100 },
+    { nom: "Tôlerie", dev: 140, h: 108.5, av: 60, cible: 112 },
+    { nom: "Peinture", dev: 90, h: 0, av: 0 },
+    { nom: "Mécanique", dev: 70, h: 12, av: 20 },
+    { nom: "Électricité", dev: 25, h: 0, av: 0 },
+    { nom: "Remontage et essais", dev: 65, h: 0, av: 0 }
+  ];
+  var bmw = [
+    { nom: "Démontage", dev: 20, reel: 22 },
+    { nom: "Tôlerie", dev: 85, reel: 96 },
+    { nom: "Peinture", dev: 60, reel: 91 },
+    { nom: "Mécanique", dev: 55, reel: 52 },
+    { nom: "Électricité", dev: 18, reel: 26 },
+    { nom: "Remontage et essais", dev: 40, reel: 44 }
+  ];
+
+  function etat(p, h) {
+    if (p.av === 0 && h === 0) return { cls: "neutre", txt: "Pas commencé" };
+    if (p.av >= 100) return { cls: "ok", txt: "Terminé" };
+    if (p.av < 10) return { cls: "neutre", txt: "Démarrage" };
+    var ecart = Math.round(((h / p.dev) * 100 - p.av) * 10) / 10;
+    if (ecart >= 20) return { cls: "derive", txt: "Dérive" };
+    if (ecart >= 10) return { cls: "vigil", txt: "Vigilance" };
+    return { cls: "ok", txt: "Dans le devis" };
+  }
+
+  function buildPostes() {
+    var wrap = $("postes2");
+    wrap.innerHTML = "";
+    for (var i = 0; i < giulia.length; i++) {
+      var p = giulia[i];
+      var row = document.createElement("div");
+      row.className = "poste";
+      row.setAttribute("data-i", i);
+      row.innerHTML =
+        '<div class="nom">' + p.nom + '</div>' +
+        '<div class="bar"><div class="fill"></div><div class="gap"></div>' + (p.av > 0 && p.av < 100 ? '<div class="tick"></div>' : '') + '</div>' +
+        '<div class="h num"></div>' +
+        '<div class="etat"><span class="chip"></span></div>';
+      wrap.appendChild(row);
+      setPoste(i, p.h);
+    }
+  }
+
+  function setPoste(i, h) {
+    var p = giulia[i];
+    var row = document.querySelector('#postes2 .poste[data-i="' + i + '"]');
+    var pct = Math.min(100, (h / p.dev) * 100);
+    row.querySelector(".fill").style.width = pct + "%";
+    var gap = row.querySelector(".gap");
+    var e = etat(p, h);
+    if (p.av > 0 && p.av < 100 && pct > p.av) {
+      gap.style.left = p.av + "%";
+      gap.style.width = (pct - p.av) + "%";
+      gap.style.opacity = (e.cls === "derive" || e.cls === "vigil") ? ".55" : "0";
+      gap.className = "gap" + (e.cls === "vigil" ? " vigil" : "");
+    } else {
+      gap.style.width = "0";
+      gap.style.opacity = "0";
+    }
+    var tick = row.querySelector(".tick");
+    if (tick) { tick.style.left = p.av + "%"; }
+    row.querySelector(".h").innerHTML = fr(h, h % 1 ? 1 : 0) + " / " + p.dev + "&nbsp;h" + (p.av > 0 ? "<small>avancement " + p.av + "&nbsp;%</small>" : "<small>&nbsp;</small>");
+    var chip = row.querySelector(".chip");
+    chip.className = "chip " + e.cls;
+    chip.textContent = e.txt;
+  }
+
+  function buildEcarts() {
+    var wrap = $("ecarts7");
+    wrap.innerHTML = "";
+    for (var i = 0; i < bmw.length; i++) {
+      var p = bmw[i];
+      var d = p.reel - p.dev;
+      var row = document.createElement("div");
+      row.className = "ec";
+      row.innerHTML =
+        '<span>' + p.nom + '</span>' +
+        '<span class="hh num">' + p.dev + ' → ' + p.reel + ' h</span>' +
+        '<span class="track"><i class="' + (d >= 0 ? "plus" : "moins") + '" data-w="' + (Math.abs(d) / 31 * 66) + '"></i></span>' +
+        '<span class="v num ' + (d >= 0 ? "plus" : "moins") + '">' + (d > 0 ? "+" : d < 0 ? "−" : "") + Math.abs(d) + ' h</span>';
+      wrap.appendChild(row);
+    }
+  }
+
+  /* ---------- Chronologies de scènes : [délai ms, action] ---------- */
+  function q(sel) { return document.querySelectorAll(sel); }
+  var S = {
+    1: {
+      reset: function () {
+        var pills = q("#f-qui .pill, #f-poste .pill");
+        for (var i = 0; i < pills.length; i++) pills[i].classList.remove("sel");
+        $("f-voiture").innerHTML = '<span class="ph">Choisir une voiture</span><span class="muted">▾</span>';
+        $("f-voiture").classList.remove("focus");
+        $("f-heures").textContent = "0";
+        $("f-switch").classList.remove("on");
+        $("f-notewrap").classList.remove("open");
+        $("f-note").classList.remove("focus");
+        $("f-note").firstChild.textContent = "";
+        $("f-note").firstChild.className = "";
+        $("f-submit").classList.remove("done", "press");
+        $("f-submit").textContent = "Enregistrer";
+      },
+      steps: [
+        [700, function () { document.querySelector('#f-qui [data-v="karim"]').classList.add("sel"); }],
+        [1300, function () { $("f-voiture").classList.add("focus"); }],
+        [1800, function () { $("f-voiture").innerHTML = '<span>N°112 · Alfa Romeo Giulia Sprint GT</span><span class="muted">▾</span>'; $("f-voiture").classList.add("focus"); }],
+        [2400, function () { $("f-voiture").classList.remove("focus"); document.querySelector('#f-poste [data-v="tolerie"]').classList.add("sel"); }],
+        [3000, function () { $("f-heures").textContent = "1"; }],
+        [3250, function () { $("f-heures").textContent = "2"; }],
+        [3500, function () { $("f-heures").textContent = "3"; }],
+        [3750, function () { $("f-heures").textContent = "3,5"; }],
+        [4300, function () { $("f-switch").classList.add("on"); $("f-notewrap").classList.add("open"); }],
+        [4800, function () { typeNote("Plancher passager perforé sous le mastic, longeron à reprendre."); }],
+        [8200, function () { $("f-note").classList.remove("focus"); $("f-note").firstChild.className = ""; $("f-submit").classList.add("press"); }],
+        [8400, function () { $("f-submit").classList.remove("press"); $("f-submit").classList.add("done"); $("f-submit").textContent = "Enregistré. Merci Karim."; }]
+      ],
+      final: function () {
+        document.querySelector('#f-qui [data-v="karim"]').classList.add("sel");
+        document.querySelector('#f-poste [data-v="tolerie"]').classList.add("sel");
+        $("f-voiture").innerHTML = '<span>N°112 · Alfa Romeo Giulia Sprint GT</span><span class="muted">▾</span>';
+        $("f-heures").textContent = "3,5";
+        $("f-switch").classList.add("on");
+        $("f-notewrap").classList.add("open");
+        $("f-note").firstChild.textContent = "Plancher passager perforé sous le mastic, longeron à reprendre.";
+        $("f-submit").classList.add("done");
+        $("f-submit").textContent = "Enregistré. Merci Karim.";
+      }
+    },
+    2: {
+      reset: function () {
+        buildPostes();
+        $("toast2").classList.remove("show");
+        $("fiche-h").textContent = "148,5 h";
+        $("fiche-etat").className = "chip vigil"; $("fiche-etat").textContent = "Vigilance";
+      },
+      steps: [
+        [900, function () { $("toast2").classList.add("show"); }],
+        [1500, function () {
+          document.querySelector('#postes2 .poste[data-i="1"]').classList.add("flash");
+          setPoste(1, 112);
+          $("fiche-h").textContent = "152 h";
+        }],
+        [2500, function () { $("fiche-etat").className = "chip derive"; $("fiche-etat").textContent = "Dérive"; }],
+        [4200, function () { document.querySelector('#postes2 .poste[data-i="1"]').classList.remove("flash"); }]
+      ],
+      final: function () {
+        $("toast2").classList.add("show");
+        setPoste(1, 112);
+        $("fiche-h").textContent = "152 h";
+        $("fiche-etat").className = "chip derive"; $("fiche-etat").textContent = "Dérive";
+      }
+    },
+    3: {
+      reset: function () {
+        $("banner3").className = "banner"; $("mail3").classList.remove("show");
+        $("cmp3a").classList.remove("show"); $("cmp3b").classList.remove("show");
+      },
+      steps: [
+        [700, function () { $("banner3").classList.add("show"); }],
+        [2600, function () { $("banner3").classList.add("gone"); $("mail3").classList.add("show"); }],
+        [4200, function () { $("cmp3a").classList.add("show"); }],
+        [5200, function () { $("cmp3b").classList.add("show"); }]
+      ],
+      final: function () {
+        $("banner3").className = "banner gone"; $("mail3").classList.add("show");
+        $("cmp3a").classList.add("show"); $("cmp3b").classList.add("show");
+      }
+    },
+    4: {
+      reset: function () {
+        $("st4a").className = "done"; $("st4b").className = ""; $("st4c").className = "";
+        $("aa4").classList.remove("show");
+      },
+      steps: [
+        [1400, function () { $("st4b").className = "done"; }],
+        [2800, function () { $("st4c").className = "acc"; }],
+        [3600, function () { $("aa4").classList.add("show"); }]
+      ],
+      final: function () {
+        $("st4a").className = "done"; $("st4b").className = "done"; $("st4c").className = "acc";
+        $("aa4").classList.add("show");
+      }
+    },
+    5: {
+      reset: function () {
+        var it = q("#scenes .item"); for (var i = 0; i < it.length; i++) it[i].classList.remove("show");
+        $("foot5").classList.remove("show");
+      },
+      steps: [
+        [600, function () { q("#scenes .item")[0].classList.add("show"); }],
+        [1400, function () { q("#scenes .item")[1].classList.add("show"); }],
+        [2200, function () { q("#scenes .item")[2].classList.add("show"); }],
+        [3000, function () { $("foot5").classList.add("show"); }]
+      ],
+      final: function () {
+        var it = q("#scenes .item"); for (var i = 0; i < it.length; i++) it[i].classList.add("show");
+        $("foot5").classList.add("show");
+      }
+    },
+    6: {
+      reset: function () { var r = q('[data-scene="6"] tbody tr'); for (var i = 0; i < r.length; i++) r[i].classList.remove("show"); },
+      steps: [
+        [500, function () { q('[data-scene="6"] tbody tr')[0].classList.add("show"); }],
+        [800, function () { q('[data-scene="6"] tbody tr')[1].classList.add("show"); }],
+        [1100, function () { q('[data-scene="6"] tbody tr')[2].classList.add("show"); }],
+        [1400, function () { q('[data-scene="6"] tbody tr')[3].classList.add("show"); }],
+        [1700, function () { q('[data-scene="6"] tbody tr')[4].classList.add("show"); }]
+      ],
+      final: function () { var r = q('[data-scene="6"] tbody tr'); for (var i = 0; i < r.length; i++) r[i].classList.add("show"); }
+    },
+    7: {
+      reset: function () {
+        buildEcarts();
+        var w = q("#scenes .why"); for (var i = 0; i < w.length; i++) w[i].classList.remove("show");
+        $("st7").classList.remove("show");
+      },
+      steps: [
+        [500, function () { var t = q("#ecarts7 .track i"); for (var i = 0; i < t.length; i++) t[i].style.width = t[i].getAttribute("data-w") + "%"; }],
+        [1600, function () { q("#scenes .why")[0].classList.add("show"); }],
+        [2400, function () { q("#scenes .why")[1].classList.add("show"); }],
+        [3200, function () { q("#scenes .why")[2].classList.add("show"); }],
+        [3900, function () { q("#scenes .why")[3].classList.add("show"); }],
+        [4800, function () { $("st7").classList.add("show"); }]
+      ],
+      final: function () {
+        var t = q("#ecarts7 .track i"); for (var i = 0; i < t.length; i++) t[i].style.width = t[i].getAttribute("data-w") + "%";
+        var w = q("#scenes .why"); for (var j = 0; j < w.length; j++) w[j].classList.add("show");
+        $("st7").classList.add("show");
+      }
+    }
+  };
+
+  function typeNote(text) {
+    var el = $("f-note");
+    var span = el.firstChild;
+    el.classList.add("focus");
+    span.className = "caret";
+    span.textContent = "";
+    for (var i = 1; i <= text.length; i++) {
+      (function (k) {
+        timers.push(setTimeout(function () { span.textContent = text.slice(0, k); }, k * 48));
+      })(i);
+    }
+  }
+
+  function clearTimers() { for (var i = 0; i < timers.length; i++) clearTimeout(timers[i]); timers = []; }
+
+  function play(n) {
+    clearTimers();
+    var s = S[n];
+    if (!s) return;
+    s.reset();
+    if (reduce) { s.final(); return; }
+    // les délais partent tous du même instant : l'état initial a le temps d'être peint
+    for (var i = 0; i < s.steps.length; i++) {
+      timers.push(setTimeout(s.steps[i][1], s.steps[i][0] + 40));
+    }
+  }
+
+  /* ---------- Navigation ---------- */
+  var progress = $("progress");
+  for (var i = 0; i < scenes.length; i++) {
+    (function (k) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.setAttribute("aria-label", "Scène " + (k + 1));
+      b.addEventListener("click", function () { go(k); });
+      progress.appendChild(b);
+    })(i);
+  }
+
+  /* ---------- Lecture automatique ---------- */
+  function setAuto(on) {
+    autoOn = on;
+    $("play").textContent = on ? "Pause" : "Lecture auto";
+    $("play").setAttribute("aria-pressed", on ? "true" : "false");
+    scheduleAuto();
+  }
+
+  function scheduleAuto() {
+    clearTimeout(autoTimer);
+    var bs = progress.children;
+    for (var i = 0; i < bs.length; i++) bs[i].classList.remove("run");
+    if (!autoOn) return;
+    if (current >= scenes.length - 1) { setAuto(false); return; }
+    if (!inView || document.hidden || body.classList.contains("flow")) return;
+    var b = bs[current];
+    b.style.setProperty("--dur", DUR[current] + "ms");
+    void b.offsetWidth;
+    b.classList.add("run");
+    autoTimer = setTimeout(function () { go(current + 1, true); }, DUR[current]);
+  }
+
+  function go(n, fromAuto) {
+    if (n < 0 || n >= scenes.length) return;
+    if (!fromAuto && autoOn) { autoOn = false; $("play").textContent = "Lecture auto"; $("play").setAttribute("aria-pressed", "false"); }
+    current = n;
+    for (var i = 0; i < scenes.length; i++) {
+      scenes[i].hidden = i !== n;
+      scenes[i].classList.remove("enter");
+    }
+    void scenes[n].offsetWidth;
+    scenes[n].classList.add("enter");
+    var bs = progress.children;
+    for (var j = 0; j < bs.length; j++) {
+      bs[j].className = j < n ? "done" : (j === n ? "on" : "");
+    }
+    $("counter").textContent = (n + 1) + " / " + scenes.length;
+    $("prev").disabled = n === 0;
+    $("next").disabled = n === scenes.length - 1;
+    if (!embed) { try { history.replaceState(null, "", "#" + (n + 1)); } catch (e) {} }
+    play(n);
+    scheduleAuto();
+  }
+
+  $("play").addEventListener("click", function () {
+    if (autoOn) { setAuto(false); return; }
+    if (current >= scenes.length - 1) go(0, true);
+    setAuto(true);
+  });
+  $("restart").addEventListener("click", function () { go(0, true); setAuto(true); });
+  document.addEventListener("visibilitychange", scheduleAuto);
+  $("prev").addEventListener("click", function () { go(current - 1); });
+  $("next").addEventListener("click", function () { go(current + 1); });
+  document.addEventListener("keydown", function (e) {
+    if (body.classList.contains("flow")) return;
+    var k = e.key;
+    if (k === "ArrowRight" || k === "PageDown" || k === " ") { e.preventDefault(); go(current + 1); }
+    else if (k === "ArrowLeft" || k === "PageUp") { e.preventDefault(); go(current - 1); }
+    else if (k === "r" || k === "R") { go(current); }
+    else if (k === "h" || k === "H") { $("controls").classList.toggle("hide"); }
+    else if (k === "Home") { go(0); }
+    else if (k === "End") { go(scenes.length - 1); }
+  });
+
+  /* ---------- Mise à l'échelle / mode lecture ---------- */
+  var wasFlow = null;
+  function layout() {
+    var vw = window.innerWidth, vh = window.innerHeight;
+    var flow = vw < 900 || vh < 480 || vw / vh < 1.05;
+    if (flow !== wasFlow) {
+      body.classList.toggle("flow", flow);
+      if (flow) {
+        clearTimers();
+        clearTimeout(autoTimer);
+        for (var i = 0; i < scenes.length; i++) { scenes[i].hidden = false; }
+        buildPostes(); buildEcarts();
+        for (var k in S) { if (S.hasOwnProperty(k)) { S[k].reset(); S[k].final(); } }
+      } else {
+        buildPostes(); buildEcarts();
+        go(current, true);
+      }
+      wasFlow = flow;
+    }
+    if (!flow) {
+      var s = Math.min(vw / W, vh / H);
+      stage.style.transform = "scale(" + s + ")";
+      box.style.width = (W * s) + "px";
+      box.style.height = (H * s) + "px";
+    }
+  }
+
+  var start = parseInt((location.hash || "").replace("#", ""), 10);
+  if (start >= 1 && start <= scenes.length) current = start - 1;
+  buildPostes(); buildEcarts();
+  window.addEventListener("resize", layout);
+  layout();
+
+  if (embed && "IntersectionObserver" in window) {
+    var started = false;
+    new IntersectionObserver(function (entries) {
+      var e = entries[entries.length - 1];
+      inView = e.isIntersecting && e.intersectionRatio >= 0.5;
+      if (inView && !started) {
+        started = true;
+        if (!reduce && !body.classList.contains("flow")) { go(current, true); setAuto(true); return; }
+      }
+      scheduleAuto();
+    }, { threshold: [0, 0.5, 1] }).observe(stage);
+  }
+})();
+</script>
+</body>
+</html>
