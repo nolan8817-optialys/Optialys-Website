@@ -69,20 +69,6 @@ const fr: Dict = {
   'home.problem.close':
     'Cause commune : la voiture est unique, le devis est une estimation, et rien ne mesure l’écart pendant qu’il se creuse. La marge se découvre à la fin, quand il est trop tard pour la corriger.',
 
-  // ─── Home · La démonstration ───────────────────────────────────────────
-  // Page statique public/demo/index.html, générée depuis le second brain
-  // (assets/demo-atelier-temoin). Atelier fictif : aucune donnée client.
-  'home.demo.eyebrow': 'La démonstration',
-  'home.demo.title': 'Les trois fuites, vues pendant le chantier.',
-  'home.demo.intro':
-    'Trois minutes dans un atelier de restauration fictif : une saisie d’heures, une alerte avant la facture, un avenant chiffré, le point du matin et le bilan d’une voiture livrée. Les chiffres sont inventés. Le dispositif est celui que j’installe.',
-  'home.demo.caption': 'Atelier fictif · chiffres inventés · environ 3 minutes',
-  'home.demo.fullscreen': 'Plein écran',
-  'home.demo.frameTitle': 'Démonstration Optialys sur un atelier de restauration fictif',
-  'home.demo.mobile.body':
-    'Elle se regarde mieux sur un écran d’ordinateur. Sur téléphone, elle s’ouvre en une page à faire défiler.',
-  'home.demo.mobile.cta': 'Ouvrir la démonstration',
-
   // ─── Home · Déjà livré ─────────────────────────────────────────────────
   // Une société est nommée : Koosmik, accord de leur direction (Nolan, 07/09).
   // Les deux autres restent anonymes tant que l'accord n'est pas demandé.
@@ -173,6 +159,18 @@ const fr: Dict = {
   'home.final.cta': 'Réserver un appel',
 
   // ─── Page méthode ──────────────────────────────────────────────────────
+  // La démonstration, premier bloc de la page. Page statique
+  // public/demo/index.html générée depuis le second brain
+  // (assets/demo-atelier-temoin). Atelier fictif : aucune donnée client.
+  'methode.demo.eyebrow': 'La démonstration',
+  'methode.demo.intro':
+    'Avant le détail, trois minutes dans un atelier de restauration fictif : ce que l’équipe saisit, ce que vous recevez. Les chiffres sont inventés. Le dispositif est celui que j’installe.',
+  'methode.demo.caption': 'Atelier fictif · chiffres inventés · environ 3 minutes',
+  'methode.demo.fullscreen': 'Plein écran',
+  'methode.demo.frameTitle': 'Démonstration Optialys sur un atelier de restauration fictif',
+  'methode.demo.mobile.body':
+    'Elle se regarde mieux sur un écran d’ordinateur. Sur téléphone, elle s’ouvre en une page à faire défiler.',
+  'methode.demo.mobile.cta': 'Ouvrir la démonstration',
   'methode.eyebrow': 'La méthode',
   'methode.title.line1': 'Comment on passe de',
   'methode.title.line2': '« je crois » à « je sais ».',
@@ -307,18 +305,6 @@ const en: Dict = {
   'home.problem.close':
     'One shared cause: every car is unique, the quote is an estimate, and nothing measures the gap while it widens. Margin is discovered at the end, too late to correct it.',
 
-  // ─── Home · The demo ───────────────────────────────────────────────────
-  'home.demo.eyebrow': 'The demo',
-  'home.demo.title': 'The three leaks, caught while the car is still in the shop.',
-  'home.demo.intro':
-    'Three minutes inside a fictional restoration workshop: a time entry, an alert before the invoice, a priced change order, the morning brief and the review of a delivered car. The figures are made up. The setup is the one I install. The demo itself is in French.',
-  'home.demo.caption': 'Fictional workshop · made-up figures · about 3 minutes · in French',
-  'home.demo.fullscreen': 'Full screen',
-  'home.demo.frameTitle': 'Optialys demo on a fictional restoration workshop',
-  'home.demo.mobile.body':
-    'It is best viewed on a computer screen. On a phone, it opens as a single scrolling page.',
-  'home.demo.mobile.cta': 'Open the demo',
-
   // ─── Home · Already delivered ──────────────────────────────────────────
   'home.proof.eyebrow': 'Already delivered',
   'home.proof.title': 'Systems in production, at real companies.',
@@ -405,6 +391,15 @@ const en: Dict = {
   'home.final.cta': 'Book a call',
 
   // ─── Method page ───────────────────────────────────────────────────────
+  'methode.demo.eyebrow': 'The demo',
+  'methode.demo.intro':
+    'Before the detail, three minutes inside a fictional restoration workshop: what the team logs, what you receive. The figures are made up. The setup is the one I install. The demo itself is in French.',
+  'methode.demo.caption': 'Fictional workshop · made-up figures · about 3 minutes · in French',
+  'methode.demo.fullscreen': 'Full screen',
+  'methode.demo.frameTitle': 'Optialys demo on a fictional restoration workshop',
+  'methode.demo.mobile.body':
+    'It is best viewed on a computer screen. On a phone, it opens as a single scrolling page.',
+  'methode.demo.mobile.cta': 'Open the demo',
   'methode.eyebrow': 'The method',
   'methode.title.line1': 'How you get from',
   'methode.title.line2': '“I think” to “I know”.',

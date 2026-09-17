@@ -1,6 +1,6 @@
-import React from 'react';
-import { ArrowRight } from 'lucide-react';
-import { GlowButton, EyebrowRule, Accordion, AsteriskDecor } from '../components/ui';
+import React, { useRef } from 'react';
+import { ArrowRight, Maximize2 } from 'lucide-react';
+import { FadeIn, GlowButton, EyebrowRule, Accordion, AsteriskDecor } from '../components/ui';
 import { useOfferItems } from './Home';
 import { useLanguage } from '../i18n/LanguageContext';
 import { useSEO } from '../hooks/useSEO';
@@ -14,6 +14,68 @@ const METHOD_SCHEMA = {
     { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://optialys.com/' },
     { '@type': 'ListItem', position: 2, name: 'La méthode', item: 'https://optialys.com/methode' },
   ],
+};
+
+/* ── La démonstration ─────────────────────────────────────────────────
+   Premier bloc de la page, sous le titre (demande de Nolan, 17/09).
+   La démo est une page statique (public/demo/index.html), générée depuis
+   le second brain. Sur ordinateur, elle tourne dans l'iframe et démarre
+   seule quand elle est à moitié visible (?embed). En dessous de lg, le
+   texte serait illisible à l'échelle : on renvoie vers la page complète,
+   qui s'affiche alors en défilement.
+   /demonstration est une réécriture Vercel : lien <a>, pas <Link>, sinon
+   React Router renvoie vers l'accueil.                                 */
+const Demo = () => {
+  const { t } = useLanguage();
+  const frame = useRef<HTMLIFrameElement>(null);
+  const fullscreen = () => {
+    frame.current?.requestFullscreen?.().catch(() => undefined);
+  };
+  return (
+    <section className="border-b border-border-cream bg-bg-cream-alt px-6 py-20 md:py-24">
+      <div className="mx-auto max-w-4xl text-center">
+        <EyebrowRule align="center" className="mb-6">
+          {t('methode.demo.eyebrow')}
+        </EyebrowRule>
+        <p className="lead mx-auto mb-12 max-w-2xl">{t('methode.demo.intro')}</p>
+      </div>
+
+      <FadeIn className="mx-auto hidden max-w-7xl lg:block">
+        <div className="overflow-hidden rounded-2xl border border-border-cream bg-bg-cream shadow-[0_24px_60px_rgba(26,26,26,0.14)]">
+          <iframe
+            ref={frame}
+            src="/demo/index.html?embed"
+            title={t('methode.demo.frameTitle')}
+            loading="lazy"
+            allow="fullscreen"
+            className="block aspect-video w-full"
+          />
+        </div>
+        <div className="mt-5 flex items-center justify-between gap-6">
+          <p className="text-xs uppercase tracking-[0.18em] text-ink-gray">
+            {t('methode.demo.caption')}
+          </p>
+          <GlowButton variant="outline" onClick={fullscreen}>
+            <Maximize2 className="h-4 w-4" /> {t('methode.demo.fullscreen')}
+          </GlowButton>
+        </div>
+      </FadeIn>
+
+      <div className="mx-auto max-w-2xl lg:hidden">
+        <div className="rounded-xl border border-border-cream bg-surface-white p-8 text-center">
+          <p className="mb-6 leading-relaxed text-ink-gray">{t('methode.demo.mobile.body')}</p>
+          <a href="/demonstration">
+            <GlowButton variant="primary">
+              {t('methode.demo.mobile.cta')} <ArrowRight className="h-4 w-4" />
+            </GlowButton>
+          </a>
+          <p className="mt-5 text-xs uppercase tracking-[0.18em] text-ink-gray">
+            {t('methode.demo.caption')}
+          </p>
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export const Methode = () => {
@@ -45,6 +107,9 @@ export const Methode = () => {
           <p className="lead mx-auto mt-9 max-w-2xl">{t('methode.intro')}</p>
         </div>
       </section>
+
+      {/* La démonstration, en premier */}
+      <Demo />
 
       {/* Les trois temps */}
       <section className="px-6 py-24 md:py-28">

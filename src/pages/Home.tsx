@@ -1,6 +1,6 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Maximize2 } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import {
   FadeIn,
   GlowButton,
@@ -194,66 +194,6 @@ const Problem = () => {
         <p className="lead mt-14 max-w-3xl border-l-2 border-accent-coral pl-6">
           {t('home.problem.close')}
         </p>
-      </div>
-    </section>
-  );
-};
-
-/* ── La démonstration ─────────────────────────────────────────────────
-   La démo est une page statique (public/demo/index.html), générée depuis
-   le second brain. Sur ordinateur, elle tourne dans l'iframe et démarre
-   seule quand elle arrive à l'écran (?embed). En dessous de lg, le texte
-   serait illisible à l'échelle : on renvoie vers la page complète, qui
-   s'affiche alors en défilement.
-   /demonstration est une réécriture Vercel : lien <a>, pas <Link>, sinon
-   React Router renvoie vers l'accueil.                                 */
-const Demo = () => {
-  const { t } = useLanguage();
-  const frame = useRef<HTMLIFrameElement>(null);
-  const fullscreen = () => {
-    frame.current?.requestFullscreen?.().catch(() => undefined);
-  };
-  return (
-    <section className="border-t border-border-cream bg-bg-cream-alt px-6 py-24 md:py-28">
-      <div className="mx-auto max-w-6xl">
-        <EyebrowRule className="mb-7">{t('home.demo.eyebrow')}</EyebrowRule>
-        <h2 className="display-2 mb-6 max-w-3xl text-ink-navy">{t('home.demo.title')}</h2>
-        <p className="lead mb-14 max-w-2xl">{t('home.demo.intro')}</p>
-      </div>
-
-      <FadeIn className="mx-auto hidden max-w-7xl lg:block">
-        <div className="overflow-hidden rounded-2xl border border-border-cream bg-bg-cream shadow-[0_24px_60px_rgba(26,26,26,0.14)]">
-          <iframe
-            ref={frame}
-            src="/demo/index.html?embed"
-            title={t('home.demo.frameTitle')}
-            loading="lazy"
-            allow="fullscreen"
-            className="block aspect-video w-full"
-          />
-        </div>
-        <div className="mt-5 flex items-center justify-between gap-6">
-          <p className="text-xs uppercase tracking-[0.18em] text-ink-gray">
-            {t('home.demo.caption')}
-          </p>
-          <GlowButton variant="outline" onClick={fullscreen}>
-            <Maximize2 className="h-4 w-4" /> {t('home.demo.fullscreen')}
-          </GlowButton>
-        </div>
-      </FadeIn>
-
-      <div className="mx-auto max-w-6xl lg:hidden">
-        <div className="rounded-xl border border-border-cream bg-surface-white p-8">
-          <p className="mb-6 leading-relaxed text-ink-gray">{t('home.demo.mobile.body')}</p>
-          <a href="/demonstration">
-            <GlowButton variant="primary">
-              {t('home.demo.mobile.cta')} <ArrowRight className="h-4 w-4" />
-            </GlowButton>
-          </a>
-          <p className="mt-5 text-xs uppercase tracking-[0.18em] text-ink-gray">
-            {t('home.demo.caption')}
-          </p>
-        </div>
       </div>
     </section>
   );
@@ -482,7 +422,6 @@ export const Home = () => {
       <Hero />
       <IntroVideo />
       <Problem />
-      <Demo />
       <Proof />
       <Turn />
       <Offer />
