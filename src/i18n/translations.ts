@@ -159,18 +159,16 @@ const fr: Dict = {
   'home.final.cta': 'Réserver un appel',
 
   // ─── Page méthode ──────────────────────────────────────────────────────
-  // La démonstration, premier bloc de la page. Page statique
+  // La démonstration, premier bloc de la page : la vidéo commentée
+  // (public/demo-atelier-temoin.mp4), puis un lien vers la démo interactive
   // public/demo/index.html générée depuis le second brain
   // (assets/demo-atelier-temoin). Atelier fictif : aucune donnée client.
   'methode.demo.eyebrow': 'La démonstration',
   'methode.demo.intro':
     'Avant le détail, trois minutes dans un atelier de restauration fictif : ce que l’équipe saisit, ce que vous recevez. Les chiffres sont inventés. Le dispositif est celui que j’installe.',
-  'methode.demo.caption': 'Atelier fictif · chiffres inventés · environ 3 minutes',
-  'methode.demo.fullscreen': 'Plein écran',
+  'methode.demo.caption': 'Atelier fictif · chiffres inventés · 2 min 44',
   'methode.demo.frameTitle': 'Démonstration Optialys sur un atelier de restauration fictif',
-  'methode.demo.mobile.body':
-    'Elle se regarde mieux sur un écran d’ordinateur. Sur téléphone, elle s’ouvre en une page à faire défiler.',
-  'methode.demo.mobile.cta': 'Ouvrir la démonstration',
+  'methode.demo.interactive': 'Parcourir la démonstration vous-même',
   'methode.eyebrow': 'La méthode',
   'methode.title.line1': 'Comment on passe de',
   'methode.title.line2': '« je crois » à « je sais ».',
@@ -394,12 +392,9 @@ const en: Dict = {
   'methode.demo.eyebrow': 'The demo',
   'methode.demo.intro':
     'Before the detail, three minutes inside a fictional restoration workshop: what the team logs, what you receive. The figures are made up. The setup is the one I install. The demo itself is in French.',
-  'methode.demo.caption': 'Fictional workshop · made-up figures · about 3 minutes · in French',
-  'methode.demo.fullscreen': 'Full screen',
+  'methode.demo.caption': 'Fictional workshop · made-up figures · 2 min 44 · in French',
   'methode.demo.frameTitle': 'Optialys demo on a fictional restoration workshop',
-  'methode.demo.mobile.body':
-    'It is best viewed on a computer screen. On a phone, it opens as a single scrolling page.',
-  'methode.demo.mobile.cta': 'Open the demo',
+  'methode.demo.interactive': 'Explore the demo yourself',
   'methode.eyebrow': 'The method',
   'methode.title.line1': 'How you get from',
   'methode.title.line2': '“I think” to “I know”.',

@@ -1,5 +1,5 @@
-import React, { useRef } from 'react';
-import { ArrowRight, Maximize2 } from 'lucide-react';
+import React from 'react';
+import { ArrowRight } from 'lucide-react';
 import { FadeIn, GlowButton, EyebrowRule, Accordion, AsteriskDecor } from '../components/ui';
 import { useOfferItems } from './Home';
 import { useLanguage } from '../i18n/LanguageContext';
@@ -18,19 +18,15 @@ const METHOD_SCHEMA = {
 
 /* ── La démonstration ─────────────────────────────────────────────────
    Premier bloc de la page, sous le titre (demande de Nolan, 17/09).
-   La démo est une page statique (public/demo/index.html), générée depuis
-   le second brain. Sur ordinateur, elle tourne dans l'iframe et démarre
-   seule quand elle est à moitié visible (?embed). En dessous de lg, le
-   texte serait illisible à l'échelle : on renvoie vers la page complète,
-   qui s'affiche alors en défilement.
+   Depuis le 29/09 : la vidéo commentée par Nolan (2 min 44, tournée sur
+   la démo « L'Atelier Témoin »), lisible aussi sur téléphone. preload="none"
+   + poster : rien ne se télécharge avant le clic. La démo interactive reste
+   accessible en dessous : page statique public/demo/index.html, générée
+   depuis le second brain.
    /demonstration est une réécriture Vercel : lien <a>, pas <Link>, sinon
    React Router renvoie vers l'accueil.                                 */
 const Demo = () => {
   const { t } = useLanguage();
-  const frame = useRef<HTMLIFrameElement>(null);
-  const fullscreen = () => {
-    frame.current?.requestFullscreen?.().catch(() => undefined);
-  };
   return (
     <section className="border-b border-border-cream bg-bg-cream-alt px-6 py-20 md:py-24">
       <div className="mx-auto max-w-4xl text-center">
@@ -40,40 +36,38 @@ const Demo = () => {
         <p className="lead mx-auto mb-12 max-w-2xl">{t('methode.demo.intro')}</p>
       </div>
 
-      <FadeIn className="mx-auto hidden max-w-7xl lg:block">
+      <FadeIn className="mx-auto max-w-6xl">
         <div className="overflow-hidden rounded-2xl border border-border-cream bg-bg-cream shadow-[0_24px_60px_rgba(26,26,26,0.14)]">
-          <iframe
-            ref={frame}
-            src="/demo/index.html?embed"
-            title={t('methode.demo.frameTitle')}
-            loading="lazy"
-            allow="fullscreen"
-            className="block aspect-video w-full"
-          />
+          <video
+            className="block h-auto w-full"
+            controls
+            preload="none"
+            playsInline
+            poster="/demo-atelier-temoin-poster.jpg"
+            width={1920}
+            height={996}
+            aria-label={t('methode.demo.frameTitle')}
+          >
+            <source src="/demo-atelier-temoin.mp4" type="video/mp4" />
+            <p className="p-6">
+              {t('home.video.fallback')}{' '}
+              <a href="/demo-atelier-temoin.mp4" className="underline">
+                {t('home.video.download')}
+              </a>
+            </p>
+          </video>
         </div>
-        <div className="mt-5 flex items-center justify-between gap-6">
+        <div className="mt-5 flex flex-col items-center justify-between gap-4 sm:flex-row">
           <p className="text-xs uppercase tracking-[0.18em] text-ink-gray">
             {t('methode.demo.caption')}
           </p>
-          <GlowButton variant="outline" onClick={fullscreen}>
-            <Maximize2 className="h-4 w-4" /> {t('methode.demo.fullscreen')}
-          </GlowButton>
-        </div>
-      </FadeIn>
-
-      <div className="mx-auto max-w-2xl lg:hidden">
-        <div className="rounded-xl border border-border-cream bg-surface-white p-8 text-center">
-          <p className="mb-6 leading-relaxed text-ink-gray">{t('methode.demo.mobile.body')}</p>
           <a href="/demonstration">
-            <GlowButton variant="primary">
-              {t('methode.demo.mobile.cta')} <ArrowRight className="h-4 w-4" />
+            <GlowButton variant="outline">
+              {t('methode.demo.interactive')} <ArrowRight className="h-4 w-4" />
             </GlowButton>
           </a>
-          <p className="mt-5 text-xs uppercase tracking-[0.18em] text-ink-gray">
-            {t('methode.demo.caption')}
-          </p>
         </div>
-      </div>
+      </FadeIn>
     </section>
   );
 };
