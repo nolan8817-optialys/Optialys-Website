@@ -45,6 +45,31 @@ const fr: Dict = {
   'home.hero.pill.2': 'Installation',
   'home.hero.pill.3': 'Pilotage',
 
+  // ─── Home · Le film d'accueil : le compteur d'heures (19/11/2026) ──────
+  'film.aria': 'Le compteur d’heures d’un chantier, du devis à la facture',
+  'film.hint': 'Faites défiler',
+  'film.meter.label': 'Heures passées',
+  'film.meter.over': 'hors devis',
+  'film.meter.sr': 'heures passées sur le chantier',
+  'film.gauge.seen': '200ᵉ heure',
+  'film.gauge.quote': 'Devis · 400 h',
+  'film.2.kicker': 'À mi-chantier',
+  'film.2.title': 'La 200ᵉ heure.',
+  'film.2.body':
+    'Sur le papier, tout va bien. L’écart entre le devis et le réel est pourtant déjà là. Encore faut-il que quelqu’un le regarde.',
+  'film.3.kicker': 'La limite du devis',
+  'film.3.title': '400 heures.',
+  'film.3.body': 'Le devis s’arrête ici. Le chantier, lui, continue.',
+  'film.4.kicker': 'La facture finale',
+  'film.4.title': '650 heures.',
+  'film.4.body':
+    '250 heures de plus que le devis. Personne ne les a vues passer avant la facture finale.',
+  'film.5.kicker': 'Mon travail',
+  'film.5.title.line1': 'Je le vois',
+  'film.5.title.line2': 'à la 200ᵉ.',
+  'film.5.body':
+    'Je mesure l’écart entre le devis et le réel pendant le chantier, et je vous le dis tant qu’il est encore temps d’agir.',
+
   // ─── Home · La vidéo de présentation ───────────────────────────────────
   'home.video.eyebrow': 'La présentation',
   'home.video.title': 'Deux minutes et demie. Vous saurez si c’est pour vous.',
@@ -278,6 +303,30 @@ const en: Dict = {
   'home.hero.pill.1': 'Diagnostic',
   'home.hero.pill.2': 'Installation',
   'home.hero.pill.3': 'Steering',
+
+  // ─── Home · The opening film: the hour counter (2026-11-19) ────────────
+  'film.aria': 'The hour counter of a job, from quote to invoice',
+  'film.hint': 'Scroll',
+  'film.meter.label': 'Hours spent',
+  'film.meter.over': 'over quote',
+  'film.meter.sr': 'hours spent on the job',
+  'film.gauge.seen': 'Hour 200',
+  'film.gauge.quote': 'Quote · 400 h',
+  'film.2.kicker': 'Halfway through',
+  'film.2.title': 'Hour 200.',
+  'film.2.body':
+    'On paper, everything is fine. The gap between quote and actual is already there. Someone still has to look at it.',
+  'film.3.kicker': 'The limit of the quote',
+  'film.3.title': '400 hours.',
+  'film.3.body': 'The quote stops here. The job doesn’t.',
+  'film.4.kicker': 'The final invoice',
+  'film.4.title': '650 hours.',
+  'film.4.body': '250 hours over the quote. Nobody saw them go by before the final invoice.',
+  'film.5.kicker': 'My job',
+  'film.5.title.line1': 'I see it',
+  'film.5.title.line2': 'at hour 200.',
+  'film.5.body':
+    'I measure the gap between quote and actual while the job is running, and I tell you while there is still time to act.',
 
   // ─── Home · The introduction video ─────────────────────────────────────
   'home.video.eyebrow': 'The introduction',

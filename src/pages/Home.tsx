@@ -5,7 +5,6 @@ import {
   FadeIn,
   GlowButton,
   EyebrowRule,
-  SequencePills,
   IndexCard,
   Accordion,
   AsteriskDecor,
@@ -13,6 +12,7 @@ import {
 } from '../components/ui';
 import { useLanguage } from '../i18n/LanguageContext';
 import { useSEO } from '../hooks/useSEO';
+import { HourFilm } from '../components/HourFilm';
 
 /* Aucun prix dans ce schema : la valeur se justifie au premier appel. */
 const ORGANIZATION_SCHEMA = {
@@ -69,55 +69,6 @@ const ORGANIZATION_SCHEMA = {
 };
 
 const CALENDLY = 'https://calendly.com/nolprayagsing/automation-strategy-audit';
-
-/* ── Hero ────────────────────────────────────────────────────────────────
-   Centré et sans visuel : la typographie porte l'écran seule.            */
-const Hero = () => {
-  const { t } = useLanguage();
-  return (
-    <section className="hero-halo border-b border-border-cream px-6 pt-36 pb-24 md:pt-44 md:pb-28">
-      <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
-        <EyebrowRule align="center" className="mb-10">
-          {t('home.hero.eyebrow')}
-        </EyebrowRule>
-
-        <h1 className="display-1 text-ink-navy">
-          <span className="block">{t('home.hero.title.line1')}</span>
-          <span className="display-accent block">{t('home.hero.title.line2')}</span>
-        </h1>
-
-        <p className="lead mt-9 max-w-xl">
-          {t('home.hero.body')}{' '}
-          <span className="highlight-coral font-semibold">
-            {t('home.hero.body.highlight')}
-          </span>
-        </p>
-
-        <div className="mt-11 flex flex-col items-center gap-4 sm:flex-row">
-          <a href={CALENDLY} target="_blank" rel="noopener noreferrer">
-            <GlowButton variant="primary" className="px-8 py-4 text-base">
-              {t('home.hero.cta.primary')} <ArrowRight className="h-4 w-4" />
-            </GlowButton>
-          </a>
-          <Link to="/methode">
-            <GlowButton variant="outline" className="px-8 py-4 text-base">
-              {t('home.hero.cta.secondary')}
-            </GlowButton>
-          </Link>
-        </div>
-
-        <p className="mt-5 text-xs tracking-wide text-ink-gray">
-          {t('home.hero.cta.reassure')}
-        </p>
-
-        <SequencePills
-          className="mt-14 justify-center"
-          items={[t('home.hero.pill.1'), t('home.hero.pill.2'), t('home.hero.pill.3')]}
-        />
-      </div>
-    </section>
-  );
-};
 
 /* ── La vidéo de présentation ─────────────────────────────────────────
    preload="none" + poster : rien ne se télécharge tant que le visiteur
@@ -419,7 +370,7 @@ export const Home = () => {
   });
   return (
     <>
-      <Hero />
+      <HourFilm />
       <IntroVideo />
       <Problem />
       <Proof />

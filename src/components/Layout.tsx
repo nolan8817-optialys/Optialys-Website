@@ -55,7 +55,8 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ${
+      data-nav
+      className={`fixed left-0 right-0 top-0 z-50 ${
         scrolled
           ? 'border-b border-border-cream bg-bg-cream/95 py-4 backdrop-blur-[20px]'
           : 'bg-transparent py-6'
@@ -239,7 +240,7 @@ const Footer = () => {
 
 export const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="min-h-screen overflow-x-hidden bg-bg-cream font-sans text-ink-black">
+    <div className="min-h-screen overflow-x-clip bg-bg-cream font-sans text-ink-black">
       <Navbar />
       <main>{children}</main>
       <Footer />
