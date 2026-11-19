@@ -117,7 +117,6 @@
   overflow: hidden;
   border-radius: calc(var(--s) * 0.09);
   background: #0a0908;
-  perspective: calc(var(--s) * 6);
 }
 .hf-win::after {
   content: "";
@@ -137,25 +136,21 @@
   box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.55);
 }
 .hf-drum {
-  --a: 0deg;
+  --v: 0;
   position: absolute;
   left: 0;
   right: 0;
-  top: calc(var(--s) * 0.17);
-  height: var(--s);
-  transform-style: preserve-3d;
-  transform: translateZ(calc(var(--s) * -1.5388)) rotateX(var(--a));
+  /* La bande commence par un 9 : on la remonte d'un chiffre pour que le 0 soit au centre. */
+  top: calc(var(--s) * -0.83);
+  transform: translate3d(0, calc(var(--v) * var(--s) * -1), 0);
   will-change: transform;
 }
 .hf-face {
-  position: absolute;
-  inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
+  height: var(--s);
   padding-bottom: 0.06em;
-  backface-visibility: hidden;
-  transform: rotateX(calc(var(--i) * -36deg)) translateZ(calc(var(--s) * 1.5388));
   background: linear-gradient(180deg, #fffdf7, #f3eee2);
   box-shadow: inset 0 1px 0 rgba(26, 26, 26, 0.12), inset 0 -1px 0 rgba(26, 26, 26, 0.12);
   color: #1a1a1a;
