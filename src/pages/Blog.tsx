@@ -133,7 +133,7 @@ export const Blog = () => {
               onClick={() => setActiveFilter(filter)}
               className={`px-5 py-2 rounded-full text-sm font-semibold border transition-all duration-200 ${
                 activeFilter === filter
-                  ? 'bg-ink-navy text-white border-ink-navy'
+                  ? 'bg-ink-navy text-bg-cream border-ink-navy'
                   : 'bg-surface-white text-ink-gray border-border-cream hover:border-accent-coral/40 hover:text-accent-coral'
               }`}
             >

@@ -1,7 +1,8 @@
 /* ─────────────────────────────────────────────────────────────────────────
    Le film d'accueil : le compteur d'heures (refonte du 19/11/2026).
    Palette de la charte, rien d'autre : crème, encre, or ambré.
-   --n va de 0 (le jour) à 1 (la nuit) : il est posé par HourFilm.tsx.
+   Le site entier est en nuit : --n reste à 1. --h va de 0 à 1, c'est la
+   chaleur du moment fort (650 h) ; il est posé par HourFilm.tsx.
    ───────────────────────────────────────────────────────────────────────── */
 
 .hf {
@@ -10,7 +11,8 @@
 }
 
 .hf-stage {
-  --n: 0;
+  --n: 1;
+  --h: 0;
   --fg: color-mix(in srgb, #faf8f3 calc(var(--n) * 100%), #1a1a1a);
   --fg-soft: color-mix(in srgb, #cfc8b6 calc(var(--n) * 100%), #5a5a55);
   position: sticky;
@@ -20,7 +22,6 @@
   overflow: hidden;
   isolation: isolate;
   color: var(--fg);
-  background: color-mix(in srgb, #0b0a08 calc(var(--n) * 100%), #faf8f3);
 }
 
 .hf-bg,
@@ -88,7 +89,7 @@
   opacity: 0;
   color: #d4a017;
   font-variant-numeric: tabular-nums;
-  text-shadow: 0 0 18px rgba(212, 160, 23, calc(var(--n) * 0.7));
+  text-shadow: 0 0 18px rgba(212, 160, 23, calc(0.25 + var(--h) * 0.6));
 }
 .hf-tilt {
   transform-style: preserve-3d;
@@ -104,11 +105,11 @@
   background: linear-gradient(180deg, #2a2823 0%, #171613 52%, #0d0c0a 100%);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.14),
-    0 0 0 1px rgba(212, 160, 23, calc(0.5 + var(--n) * 0.4)),
+    0 0 0 1px rgba(212, 160, 23, calc(0.55 + var(--h) * 0.4)),
     0 0 0 calc(var(--s) * 0.04) #1a1a1a,
-    0 0 0 calc(var(--s) * 0.04 + 1px) rgba(212, 160, 23, calc(0.22 + var(--n) * 0.5)),
+    0 0 0 calc(var(--s) * 0.04 + 1px) rgba(212, 160, 23, calc(0.3 + var(--h) * 0.5)),
     0 calc(var(--s) * 0.4) calc(var(--s) * 0.6) calc(var(--s) * -0.28) rgba(26, 26, 26, 0.5),
-    0 0 calc(var(--s) * 1.1) rgba(212, 160, 23, calc(var(--n) * 0.36));
+    0 0 calc(var(--s) * 1.1) rgba(212, 160, 23, calc(0.1 + var(--h) * 0.3));
 }
 .hf-win {
   position: relative;
@@ -410,9 +411,7 @@
   .hf-hint span { animation: none; }
 }
 
-/* ── La barre de navigation suit la nuit du film ── */
-nav[data-nav] { transition: filter 0.6s ease, background-color 0.3s ease, padding 0.3s ease; }
-html.hf-night nav[data-nav] { filter: invert(1) hue-rotate(180deg); }
+
 
 /* ═════════════════════════════════════════════════════════════════════════
    Les animations ajoutées le 19/11 au soir : l'arrivée du compteur, le
@@ -532,7 +531,7 @@ html.hf-night nav[data-nav] { filter: invert(1) hue-rotate(180deg); }
   z-index: -1;
   border-radius: 50%;
   background: radial-gradient(closest-side, rgba(212, 160, 23, 0.6), rgba(212, 160, 23, 0));
-  opacity: calc(var(--n) * 0.9);
+  opacity: calc(0.18 + var(--h) * 0.72);
   pointer-events: none;
   animation: hf-breath 3.4s ease-in-out infinite;
 }

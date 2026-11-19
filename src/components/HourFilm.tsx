@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { GlowButton, EyebrowRule } from './ui';
 import { useLanguage } from '../i18n/LanguageContext';
+import { nightState } from './NightBackground';
 import './hour-film.css';
 
 /* ─────────────────────────────────────────────────────────────────────────
@@ -86,155 +87,6 @@ function hoursAt(p: number) {
 }
 const nightAt = (p: number) => smooth(0.55, 0.69, p) * (1 - smooth(0.835, 0.915, p));
 
-/* ── Le fond : des plis de lumière très lents, crème le jour, or sur noir la nuit ── */
-const VERT = 'attribute vec2 a;void main(){gl_Position=vec4(a,0.0,1.0);}';
-const FRAG = `
-precision mediump float;
-uniform float uTime; uniform vec2 uRes; uniform vec2 uMouse; uniform float uScroll; uniform float uNight;
-void main(){
-  vec2 uv = (gl_FragCoord.xy - 0.5*uRes) / uRes.y;
-  float aspect = uRes.x / uRes.y;
-  float time = uTime * 0.08;
-  float sd = uScroll * 5.0;
-  vec2 w = uv;
-  w.x += sin(uv.y*2.5 + time*0.2 + sd) * 0.35;
-  w.y += cos(uv.x*2.5 - time*0.15 - sd*0.8) * 0.35;
-  w.x += sin(uv.y*1.2 - time*0.1 - sd*1.5) * 0.25;
-  w.y += cos(uv.x*1.2 + time*0.18 + sd*1.2) * 0.25;
-  w += vec2(uScroll*0.04, -uScroll*0.02) + vec2(uMouse.x*aspect*0.05, uMouse.y*0.05);
-  vec2 d1 = vec2(cos(0.6), sin(0.6));
-  vec2 d2 = vec2(cos(-0.7), sin(-0.7));
-  vec2 d3 = vec2(cos(1.2), sin(1.2));
-  float w1 = sin(dot(w,d1)*2.4 + time);
-  float w2 = cos(dot(w,d2)*3.2 - time*1.4 + w1*0.4);
-  float w3 = sin(dot(w,d3)*4.0 + time*1.8 + w2*0.5);
-  float f = w1*0.50 + w2*0.35 + w3*0.15;
-  float wide = pow(max(0.0, 1.0 - abs(f - 0.1)), 2.5);
-  float crisp = pow(max(0.0, 1.0 - abs(f - 0.15)), 8.0);
-  float crest = wide*0.5 + crisp*0.9;
-  vec3 dB = vec3(0.980,0.973,0.953); vec3 dW2 = vec3(0.964,0.948,0.910);
-  vec3 dW1 = vec3(0.949,0.929,0.880); vec3 dC = vec3(0.925,0.860,0.660);
-  vec3 nB = vec3(0.030,0.027,0.022); vec3 nW2 = vec3(0.062,0.048,0.022);
-  vec3 nW1 = vec3(0.110,0.080,0.026); vec3 nC = vec3(0.660,0.480,0.110);
-  float n = uNight;
-  // Le passage du jour à la nuit se fait par un crépuscule ambré, pas par du gris.
-  float n1 = smoothstep(0.0, 0.6, n); float n2 = smoothstep(0.3, 1.0, n);
-  vec3 kB = vec3(0.560,0.400,0.150); vec3 kW2 = vec3(0.500,0.345,0.110);
-  vec3 kW1 = vec3(0.440,0.290,0.075); vec3 kC = vec3(0.900,0.690,0.250);
-  vec3 col = mix(mix(dB, kB, n1), nB, n2);
-  col = mix(col, mix(mix(dW2, kW2, n1), nW2, n2), smoothstep(-0.6, 0.2, f));
-  col = mix(col, mix(mix(dW1, kW1, n1), nW1, n2), smoothstep(0.0, 0.8, f));
-  col = mix(col, mix(mix(dC, kC, n1), nC, n2), crest * mix(0.40, 0.62, n));
-  col *= 1.0 - dot(uv,uv) * mix(0.03, 0.24, n);
-  gl_FragColor = vec4(col, 1.0);
-}`;
-
-export function initBackground(canvas: HTMLCanvasElement) {
-  const gl = canvas.getContext('webgl', { antialias: false, alpha: false, powerPreference: 'low-power' });
-  if (!gl) return null;
-  const compile = (type: number, src: string) => {
-    const s = gl.createShader(type)!;
-    gl.shaderSource(s, src);
-    gl.compileShader(s);
-    return s;
-  };
-  const prog = gl.createProgram()!;
-  gl.attachShader(prog, compile(gl.VERTEX_SHADER, VERT));
-  gl.attachShader(prog, compile(gl.FRAGMENT_SHADER, FRAG));
-  gl.linkProgram(prog);
-  if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) return null;
-  gl.useProgram(prog);
-  const buf = gl.createBuffer();
-  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
-  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW);
-  const loc = gl.getAttribLocation(prog, 'a');
-  gl.enableVertexAttribArray(loc);
-  gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
-  const u = (name: string) => gl.getUniformLocation(prog, name);
-  const uTime = u('uTime'), uRes = u('uRes'), uMouse = u('uMouse'), uScroll = u('uScroll'), uNight = u('uNight');
-  return {
-    resize() {
-      // Le fond est flou par nature : on le calcule à basse résolution.
-      const scale = Math.min(window.devicePixelRatio || 1, 1.5) * 0.6;
-      canvas.width = Math.max(2, Math.round(canvas.clientWidth * scale));
-      canvas.height = Math.max(2, Math.round(canvas.clientHeight * scale));
-      gl.viewport(0, 0, canvas.width, canvas.height);
-    },
-    draw(time: number, p: number, n: number, mx: number, my: number) {
-      gl.uniform1f(uTime, time);
-      gl.uniform2f(uRes, canvas.width, canvas.height);
-      gl.uniform2f(uMouse, mx, my);
-      gl.uniform1f(uScroll, p);
-      gl.uniform1f(uNight, n);
-      gl.drawArrays(gl.TRIANGLES, 0, 3);
-    },
-  };
-}
-
-/* ── Les étincelles : de la poussière d'or le jour, des étincelles d'atelier la nuit ── */
-function initSparks(canvas: HTMLCanvasElement, count: number) {
-  const ctx = canvas.getContext('2d');
-  if (!ctx) return null;
-  let w = 0, h = 0, dpr = 1;
-  const parts = Array.from({ length: count }, () => ({
-    x: Math.random(),
-    y: Math.random(),
-    vy: 0.015 + Math.random() * 0.045,
-    vx: (Math.random() - 0.5) * 0.012,
-    r: 0.6 + Math.random() * 1.5,
-    ph: Math.random() * Math.PI * 2,
-    sw: 0.5 + Math.random() * 1.5,
-    a: 0.35 + Math.random() * 0.65,
-  }));
-  return {
-    resize() {
-      dpr = Math.min(window.devicePixelRatio || 1, 2);
-      w = canvas.clientWidth;
-      h = canvas.clientHeight;
-      canvas.width = Math.round(w * dpr);
-      canvas.height = Math.round(h * dpr);
-    },
-    /* dir = +1 quand les heures montent, -1 quand le compteur revient en arrière. */
-    draw(dt: number, t: number, n: number, vel: number, dir: number) {
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      ctx.clearRect(0, 0, w, h);
-      ctx.globalCompositeOperation = n > 0.5 ? 'lighter' : 'source-over';
-      const speed = (1 + vel * 320) * (vel > 0.0006 ? dir : 1);
-      const base = 0.16 + 0.74 * n;
-      for (const s of parts) {
-        s.y -= s.vy * dt * speed;
-        s.x += (s.vx + Math.sin(t * s.sw + s.ph) * 0.006 * (1 + vel * 120)) * dt;
-        if (s.y < -0.04) { s.y = 1.04; s.x = Math.random(); }
-        else if (s.y > 1.05) { s.y = -0.03; s.x = Math.random(); }
-        if (s.x < -0.04 || s.x > 1.04) s.x = Math.random();
-        const r = s.r * (1 + n * 0.9);
-        const x = s.x * w, y = s.y * h;
-        // La nuit, une étincelle rapide laisse une traînée.
-        const trail = Math.min(46, vel * 5200) * n;
-        if (trail > 3) {
-          const g2 = ctx.createLinearGradient(x, y, x, y + trail * (speed > 0 ? 1 : -1));
-          g2.addColorStop(0, `rgba(240,196,84,${base * s.a * 0.7})`);
-          g2.addColorStop(1, 'rgba(212,160,23,0)');
-          ctx.strokeStyle = g2;
-          ctx.lineWidth = r * 0.9;
-          ctx.beginPath();
-          ctx.moveTo(x, y);
-          ctx.lineTo(x, y + trail * (speed > 0 ? 1 : -1));
-          ctx.stroke();
-        }
-        const g = ctx.createRadialGradient(x, y, 0, x, y, r * 3);
-        g.addColorStop(0, `rgba(240,196,84,${base * s.a})`);
-        g.addColorStop(0.4, `rgba(212,160,23,${base * s.a * 0.45})`);
-        g.addColorStop(1, 'rgba(212,160,23,0)');
-        ctx.fillStyle = g;
-        ctx.beginPath();
-        ctx.arc(x, y, r * 3, 0, Math.PI * 2);
-        ctx.fill();
-      }
-    },
-  };
-}
-
 /* Un titre découpé lettre par lettre : chaque lettre monte et se met au net. */
 export const Split = ({ text, from = 0, accent = false }: { text: string; from?: number; accent?: boolean }) => {
   let i = from;
@@ -275,8 +127,6 @@ export const HourFilm = () => {
   const { t } = useLanguage();
   const wrap = useRef<HTMLElement>(null);
   const stage = useRef<HTMLDivElement>(null);
-  const bg = useRef<HTMLCanvasElement>(null);
-  const sparks = useRef<HTMLCanvasElement>(null);
   const tilt = useRef<HTMLDivElement>(null);
   const pulse = useRef<HTMLSpanElement>(null);
   const d100 = useRef<HTMLDivElement>(null);
@@ -300,9 +150,6 @@ export const HourFilm = () => {
     const tickets = Array.from(stageEl.querySelectorAll('.hf-ticket')) as HTMLElement[];
     const blurs = Array.from(stageEl.querySelectorAll('.hf-defs feGaussianBlur')) as SVGElement[];
     const drums = [d100.current!, d10.current!, d1.current!];
-    const glBg = initBackground(bg.current!);
-    const fx = reduce ? null : initSparks(sparks.current!, window.innerWidth < 760 ? 34 : 80);
-    if (!glBg) stageEl.classList.add('no-gl');
     if (reduce) stageEl.classList.add('is-calm');
 
     let p = 0, target = 0, raf = 0, running = false;
@@ -319,8 +166,6 @@ export const HourFilm = () => {
       target = total > 0 ? clamp(-r.top / total) : 0;
     };
     const resize = () => {
-      glBg?.resize();
-      fx?.resize();
       blurScale = d1.current!.offsetHeight / 13 / 150; // la bande fait treize chiffres de haut
       small = window.innerWidth <= 900;
       measure();
@@ -353,8 +198,6 @@ export const HourFilm = () => {
 
     const frame = (now: number) => {
       raf = requestAnimationFrame(frame);
-      const dt = Math.min(0.05, (now - last) / 1000);
-      last = now;
       measure();
       const prev = p;
       p += (target - p) * (reduce ? 1 : 0.1);
@@ -366,7 +209,7 @@ export const HourFilm = () => {
       const h = hoursAt(p);
       const n = nightAt(p);
       const time = reduce ? 0 : (now - t0) / 1000;
-      stageEl.style.setProperty('--n', n.toFixed(3));
+      stageEl.style.setProperty('--h', n.toFixed(3));
 
       // Les tambours tournent comme ceux d'un vrai compteur : les unités en
       // continu, les dizaines et les centaines au passage du 9. À l'arrivée
@@ -423,7 +266,6 @@ export const HourFilm = () => {
       stageEl.classList.toggle('is-seen', Math.abs(h - SEEN) < 0.8 && (inCh(1) || inCh(4)));
       stageEl.classList.toggle('is-quote', h >= QUOTE - 0.5);
       stageEl.classList.toggle('is-started', p > 0.02);
-      document.documentElement.classList.toggle('hf-night', n > 0.5 && p < 0.999);
       dashes.forEach((el, i) => {
         el.style.transform = `scaleY(${clamp((p - i / dashes.length) * dashes.length)})`;
       });
@@ -442,8 +284,10 @@ export const HourFilm = () => {
       curDot.current!.style.transform = `translate3d(${cx}px, ${cy}px, 0)`;
       curRing.current!.style.transform = `translate3d(${rx.toFixed(1)}px, ${ry.toFixed(1)}px, 0)`;
 
-      glBg?.draw(time, p, n, mx, -my);
-      fx?.draw(dt, time, n, vel, dir);
+      // Le fond du site suit le film : plus chaud à 650 h, des traînées quand on défile vite.
+      nightState.heat = n;
+      nightState.vel = vel;
+      nightState.dir = dir;
     };
 
     const start = () => {
@@ -455,6 +299,9 @@ export const HourFilm = () => {
     const stop = () => {
       running = false;
       cancelAnimationFrame(raf);
+      // Hors du film, le fond du site redevient calme (plus de trainees).
+      nightState.vel = 0;
+      nightState.heat = 0;
     };
     const io = new IntersectionObserver(([e]) => (e.isIntersecting ? start() : stop()), { threshold: 0 });
     io.observe(wrapEl);
@@ -480,7 +327,8 @@ export const HourFilm = () => {
     return () => {
       stop();
       io.disconnect();
-      document.documentElement.classList.remove('hf-night');
+      nightState.heat = 0;
+      nightState.vel = 0;
       window.removeEventListener('resize', resize);
       window.removeEventListener('pointermove', onMove);
     };
@@ -492,7 +340,6 @@ export const HourFilm = () => {
   return (
     <section ref={wrap} className="hf" aria-label={t('film.aria')}>
       <div ref={stage} className="hf-stage">
-        <canvas ref={bg} className="hf-bg" aria-hidden="true" />
         <div className="hf-grid" aria-hidden="true">
           {[0, 1, 2, 3].map((i) => (
             <span className="hf-gridline" key={i}>
@@ -504,7 +351,6 @@ export const HourFilm = () => {
         <div className="hf-ghost" aria-hidden="true">
           <span ref={ghost}>{ghostText}</span>
         </div>
-        <canvas ref={sparks} className="hf-sparks" aria-hidden="true" />
 
         {/* Le flou de vitesse des tambours : un filtre par tambour. */}
         <svg className="hf-defs" width="0" height="0" aria-hidden="true">

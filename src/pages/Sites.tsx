@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { ArrowRight, Phone, MapPin, Star } from 'lucide-react';
 import { FadeIn, GlowButton, EyebrowRule, IndexCard } from '../components/ui';
-import { initBackground, Split, clamp, smooth } from '../components/HourFilm';
+import { Split, clamp, smooth } from '../components/HourFilm';
 import { useLanguage } from '../i18n/LanguageContext';
 import { useSEO } from '../hooks/useSEO';
 import '../components/hour-film.css';
@@ -46,7 +46,6 @@ export const Sites = () => {
   const fr = lang === 'fr';
   const wrap = useRef<HTMLElement>(null);
   const stage = useRef<HTMLDivElement>(null);
-  const bg = useRef<HTMLCanvasElement>(null);
   const phone = useRef<HTMLDivElement>(null);
 
   useSEO({
@@ -64,8 +63,6 @@ export const Sites = () => {
     const chapters = Array.from(stageEl.querySelectorAll('.hf-ch')) as HTMLElement[];
     const blocks = Array.from(stageEl.querySelectorAll('.sf-block')) as HTMLElement[];
     const dashes = Array.from(stageEl.querySelectorAll('.hf-dash i')) as HTMLElement[];
-    const glBg = initBackground(bg.current!);
-    if (!glBg) stageEl.classList.add('no-gl');
 
     let p = 0, target = 0, raf = 0, running = false;
     const t0 = performance.now();
@@ -78,7 +75,6 @@ export const Sites = () => {
       target = total > 0 ? clamp(-r.top / total) : 0;
     };
     const resize = () => {
-      glBg?.resize();
       w = phoneEl.offsetWidth || 260;
       measure();
     };
@@ -117,7 +113,6 @@ export const Sites = () => {
       dashes.forEach((el, i) => {
         el.style.transform = `scaleY(${clamp((p - i / dashes.length) * dashes.length)})`;
       });
-      glBg?.draw(time, p * 0.6, 0, mx, -my);
     };
 
     const start = () => {
@@ -156,8 +151,6 @@ export const Sites = () => {
     <>
       <section ref={wrap} className="hf sf" aria-label={t('sites.aria')}>
         <div ref={stage} className="hf-stage">
-          <canvas ref={bg} className="hf-bg" aria-hidden="true" />
-
           {/* ── Le téléphone et les six blocs de la page ── */}
           <div className="sf-scene" aria-hidden="true">
             <div ref={phone} className="sf-phone">
