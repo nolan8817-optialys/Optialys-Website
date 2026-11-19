@@ -418,3 +418,189 @@
 /* ── La barre de navigation suit la nuit du film ── */
 nav[data-nav] { transition: filter 0.6s ease, background-color 0.3s ease, padding 0.3s ease; }
 html.hf-night nav[data-nav] { filter: invert(1) hue-rotate(180deg); }
+
+/* ═════════════════════════════════════════════════════════════════════════
+   Les animations ajoutées le 19/11 au soir : l'arrivée du compteur, le
+   filigrane, les fiches d'heures, l'onde, le halo de nuit, le curseur.
+   ═════════════════════════════════════════════════════════════════════════ */
+
+/* ── L'arrivée : le compteur se met au net pendant que ses tambours se calent ── */
+.hf-meter { animation: hf-in 1.3s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+@keyframes hf-in {
+  from { opacity: 0; scale: 0.93; filter: blur(14px); }
+  to { opacity: 1; scale: 1; filter: none; }
+}
+.hf-track { transform-origin: 0 50%; animation: hf-draw 1.4s cubic-bezier(0.2, 0.8, 0.2, 1) 0.5s both; }
+@keyframes hf-draw { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+.hf-defs { position: absolute; }
+
+/* ── Les grands mots en filigrane, derrière le compteur ── */
+.hf-ghost {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 3vh;
+  z-index: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  pointer-events: none;
+}
+.hf-ghost span {
+  display: inline-block;
+  padding-right: 0.3em;
+  color: transparent;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(7rem, 19vw, 19rem);
+  line-height: 1;
+  -webkit-text-stroke: 1px color-mix(in srgb, var(--fg) 14%, transparent);
+  will-change: transform;
+}
+
+/* ── Les fiches d'heures ── */
+.hf-tickets { position: absolute; inset: 0; pointer-events: none; }
+.hf-ticket {
+  position: absolute;
+  left: var(--x);
+  top: 110%;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  min-width: 8.4rem;
+  padding: 0.85rem 1.05rem 0.9rem;
+  border: 1px solid #d8d4c8;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #fffdf7, #f4efe3);
+  box-shadow: 0 20px 36px -18px rgba(26, 26, 26, 0.4);
+  color: #1a1a1a;
+  opacity: 0;
+  filter: blur(0.4px);
+  will-change: transform, top, opacity;
+}
+.hf-ticket.is-near { z-index: 5; filter: blur(1.3px); }
+.hf-ticket span {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: #5a5a55;
+}
+.hf-ticket b {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: 1.95rem;
+  line-height: 1;
+  white-space: nowrap;
+  font-variant-numeric: lining-nums;
+  font-feature-settings: "lnum" 1;
+}
+.hf-ticket i {
+  font-style: normal;
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #d4a017;
+}
+.hf-ticket.is-over {
+  border-color: rgba(212, 160, 23, 0.7);
+  background: linear-gradient(180deg, #241d0c, #120f08);
+  box-shadow: 0 0 0 1px rgba(212, 160, 23, 0.22), 0 0 38px rgba(212, 160, 23, 0.3), 0 20px 36px -18px rgba(0, 0, 0, 0.65);
+  color: #f3d98a;
+}
+.hf-ticket.is-over span { color: #cfc8b6; }
+
+/* ── L'onde qui part du compteur à 400 h, à 650 h, et au retour à 200 h ── */
+.hf-tilt { position: relative; }
+.hf-pulse {
+  position: absolute;
+  inset: 0;
+  border: 1.5px solid #d4a017;
+  border-radius: calc(var(--s) * 0.2);
+  opacity: 0;
+  pointer-events: none;
+}
+.hf-pulse.go { animation: hf-pulse 1.1s cubic-bezier(0.2, 0.7, 0.2, 1); }
+@keyframes hf-pulse {
+  0% { opacity: 0.95; transform: scale(1); box-shadow: 0 0 0 0 rgba(212, 160, 23, 0.5); }
+  100% { opacity: 0; transform: scale(1.42); box-shadow: 0 0 60px 10px rgba(212, 160, 23, 0); }
+}
+
+/* ── Le halo de nuit qui respire derrière le compteur ── */
+.hf-tilt::before {
+  content: "";
+  position: absolute;
+  inset: -22% -12%;
+  z-index: -1;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(212, 160, 23, 0.6), rgba(212, 160, 23, 0));
+  opacity: calc(var(--n) * 0.9);
+  pointer-events: none;
+  animation: hf-breath 3.4s ease-in-out infinite;
+}
+@keyframes hf-breath {
+  0%, 100% { transform: scale(0.96); }
+  50% { transform: scale(1.12); }
+}
+
+/* ── Le curseur du film : un point exact, un anneau or qui le rattrape ── */
+.hf-cur-dot,
+.hf-cur-ring {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 9;
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+  will-change: transform;
+}
+.hf-cur-dot {
+  width: 8px;
+  height: 8px;
+  margin: -4px 0 0 -4px;
+  background: var(--fg);
+  transition: opacity 0.25s ease;
+}
+.hf-cur-ring {
+  width: 38px;
+  height: 38px;
+  margin: -19px 0 0 -19px;
+  border: 1.5px solid #d4a017;
+  transition: opacity 0.25s ease, width 0.25s ease, height 0.25s ease, margin 0.25s ease, background-color 0.25s ease;
+}
+.has-cur .hf-cur-dot,
+.has-cur .hf-cur-ring { opacity: 1; }
+.has-cur .hf-cur-ring.is-link {
+  width: 66px;
+  height: 66px;
+  margin: -33px 0 0 -33px;
+  background: rgba(212, 160, 23, 0.14);
+}
+.hf-stage.has-cur,
+.hf-stage.has-cur * { cursor: none !important; }
+
+@media (max-width: 900px) {
+  .hf-ghost { bottom: 30svh; transition: opacity 0.45s ease; }
+  /* Sur téléphone, le filigrane s'efface quand un chapitre se lit. */
+  .is-reading .hf-ghost { opacity: 0; }
+  .hf-ghost span { font-size: 34vw; }
+  .hf-ticket { left: var(--xm); min-width: 7rem; padding: 0.7rem 0.85rem; }
+  .hf-ticket b { font-size: 1.6rem; }
+}
+
+.is-calm .hf-meter,
+.is-calm .hf-track,
+.is-calm .hf-tilt::before { animation: none; }
+.is-calm .hf-cur-dot,
+.is-calm .hf-cur-ring { display: none; }
+
+/* Le flou de vitesse ne déborde pas de la fenêtre du tambour. */
+.hf-slot {
+  overflow: hidden;
+  border-radius: calc(var(--s) * 0.09);
+  background: #0a0908;
+}
