@@ -14,8 +14,12 @@ import './hour-film.css';
    compteur revient à 200 h et la lumière avec lui : c'est là que je regarde.
 
    Quatre plans, du fond vers l'avant : les plis de lumière (shader WebGL),
-   les grands mots en filigrane, le compteur (tambours en CSS 3D), puis les
-   fiches d'heures qui montent devant lui. Aucune image, aucune bibliothèque 3D.
+   les grands mots en filigrane, le compteur, puis les fiches d'heures qui
+   montent devant lui. Aucune image, aucune bibliothèque 3D.
+
+   Chaque tambour est une bande de treize chiffres qui glisse derrière sa
+   fenêtre : une seule couche à dessiner, donc aucun chiffre manquant quand
+   il tourne vite. Le dégradé de la fenêtre lui donne son volume.
    ───────────────────────────────────────────────────────────────────────── */
 
 const CALENDLY = 'https://calendly.com/nolprayagsing/automation-strategy-audit';
@@ -254,8 +258,10 @@ const Drum = React.forwardRef<HTMLDivElement>((_, ref) => (
   <div className="hf-slot">
     <div className="hf-win">
       <div className="hf-drum" ref={ref}>
-        {Array.from({ length: 10 }, (_, d) => (
-          <span className="hf-face" key={d} style={{ ['--i' as string]: d } as React.CSSProperties}>
+        {/* Treize chiffres : un 9 au-dessus du 0, puis 0 à 9, puis 0 et 1. La fenêtre
+            a ainsi toujours un voisin en haut et en bas, et le 9 passe au 0 sans saut. */}
+        {[9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1].map((d, i) => (
+          <span className="hf-face" key={i}>
             {d}
           </span>
         ))}
@@ -315,7 +321,7 @@ export const HourFilm = () => {
     const resize = () => {
       glBg?.resize();
       fx?.resize();
-      blurScale = d1.current!.offsetHeight / 150;
+      blurScale = d1.current!.offsetHeight / 13 / 150; // la bande fait treize chiffres de haut
       small = window.innerWidth <= 900;
       measure();
     };
@@ -328,10 +334,13 @@ export const HourFilm = () => {
     };
 
     /* Un tambour : son angle, et un flou vertical proportionnel à sa vitesse. */
-    const setDrum = (i: number, deg: number) => {
-      drums[i].style.setProperty('--a', `${deg.toFixed(2)}deg`);
-      const speed = Math.abs(deg - prevDeg[i]);
-      prevDeg[i] = deg;
+    const setDrum = (i: number, value: number) => {
+      const v = ((value % 10) + 10) % 10;
+      drums[i].style.setProperty('--v', v.toFixed(4));
+      let step = Math.abs(v - prevDeg[i]);
+      if (step > 5) step = 10 - step; // le passage du 9 au 0
+      const speed = step * 36;
+      prevDeg[i] = v;
       const std = reduce || speed < 1.5 ? 0 : Math.min(20, speed * 0.42) * blurScale;
       const win = drums[i].parentElement as HTMLElement;
       if (std > 0.6) {
@@ -366,9 +375,9 @@ export const HourFilm = () => {
       const u = h % 10;
       const tens = (Math.floor(h / 10) % 10) + Math.max(0, u - 9);
       const hund = Math.floor(h / 100) + Math.max(0, (h % 100) - 99);
-      setDrum(0, hund * 36 + intro * 360);
-      setDrum(1, tens * 36 + intro * 720);
-      setDrum(2, u * 36 + intro * 1080);
+      setDrum(0, hund + intro * 10);
+      setDrum(1, tens + intro * 20);
+      setDrum(2, u + intro * 30);
 
       // La jauge : en encre jusqu'au devis, en or au-delà.
       fill.current!.style.width = `${(Math.min(h, QUOTE) / TOTAL) * 100}%`;
