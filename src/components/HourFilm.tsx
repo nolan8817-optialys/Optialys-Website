@@ -65,8 +65,8 @@ const TICKETS = [
 ];
 const TICKET_SPAN = 40; // une fiche est visible de at - 40 h à at + 40 h
 
-const clamp = (v: number, a = 0, b = 1) => Math.max(a, Math.min(b, v));
-const smooth = (a: number, b: number, v: number) => {
+export const clamp = (v: number, a = 0, b = 1) => Math.max(a, Math.min(b, v));
+export const smooth = (a: number, b: number, v: number) => {
   const t = clamp((v - a) / (b - a));
   return t * t * (3 - 2 * t);
 };
@@ -125,7 +125,7 @@ void main(){
   gl_FragColor = vec4(col, 1.0);
 }`;
 
-function initBackground(canvas: HTMLCanvasElement) {
+export function initBackground(canvas: HTMLCanvasElement) {
   const gl = canvas.getContext('webgl', { antialias: false, alpha: false, powerPreference: 'low-power' });
   if (!gl) return null;
   const compile = (type: number, src: string) => {
@@ -232,7 +232,7 @@ function initSparks(canvas: HTMLCanvasElement, count: number) {
 }
 
 /* Un titre découpé lettre par lettre : chaque lettre monte et se met au net. */
-const Split = ({ text, from = 0, accent = false }: { text: string; from?: number; accent?: boolean }) => {
+export const Split = ({ text, from = 0, accent = false }: { text: string; from?: number; accent?: boolean }) => {
   let i = from;
   return (
     <span className={`hf-line ${accent ? 'display-accent' : ''}`} aria-hidden="true">

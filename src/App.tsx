@@ -10,6 +10,7 @@ import { LanguageProvider } from './i18n/LanguageContext';
 import { Blog } from './pages/Blog';
 import { BlogPost } from './pages/BlogPost';
 import { SolutionDetail } from './pages/SolutionDetail';
+import { Sites } from './pages/Sites';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -35,6 +36,8 @@ export default function App() {
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="/solutions/:slug" element={<SolutionDetail />} />
+            {/* Hors menu et non indexée : on y arrive par un lien. */}
+            <Route path="/sites-internet" element={<Sites />} />
 
             {/* Anciennes URLs — les 301 sont dans vercel.json ; ce filet
                 évite une page blanche si une route passe au travers. */}
