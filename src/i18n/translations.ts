@@ -18,6 +18,7 @@ const fr: Dict = {
   'nav.methode': 'La méthode',
   'nav.about': 'À propos',
   'nav.contact': 'Contact',
+  'nav.sites': 'Sites internet',
   'nav.cta': 'Réserver un appel',
 
   // ─── Footer ────────────────────────────────────────────────────────────
@@ -134,6 +135,17 @@ const fr: Dict = {
   'sites.step.3.desc': 'Si elle vous plaît, on la met en ligne. Sinon, vous ne payez rien.',
   'sites.final.title': 'Écrivez-moi.',
   'sites.final.body': 'Dites-moi le nom de votre commerce. Je vous réponds avec votre page.',
+  'sites.work.eyebrow': 'Réalisations',
+  'sites.work.title': 'Un site qu’on a envie de faire défiler.',
+  'sites.work.intro': 'Le dernier en date, filmé tel quel : on fait défiler la page, rien n’est monté.',
+  'sites.work.name': 'SAISI',
+  'sites.work.type': 'Maison de viande · Antibes',
+  'sites.work.desc': 'La page entière est une cuisson : un thermomètre à cœur monte de 4 à 54 °C pendant qu’on descend, la côte tourne dans les flammes, puis se tranche sous vos yeux.',
+  'sites.work.tag1': 'Site animé au défilement',
+  'sites.work.tag2': 'Visuels créés pour le site',
+  'sites.work.tag3': 'Ordinateur et téléphone',
+  'sites.work.note': 'SAISI est un restaurant imaginaire, créé pour montrer ce qu’on peut faire : plats, prix et horaires sont inventés. Un site animé comme celui-ci se chiffre avec la maquette.',
+  'sites.work.fallback': 'Votre navigateur ne lit pas la vidéo.',
 
   // ─── Home · La vidéo de présentation ───────────────────────────────────
   'home.video.eyebrow': 'La présentation',
@@ -342,6 +354,7 @@ const en: Dict = {
   'nav.methode': 'The method',
   'nav.about': 'About',
   'nav.contact': 'Contact',
+  'nav.sites': 'Websites',
   'nav.cta': 'Book a call',
 
   // ─── Footer ────────────────────────────────────────────────────────────
@@ -456,6 +469,17 @@ const en: Dict = {
   'sites.step.3.desc': 'If you like it, we put it online. If not, you pay nothing.',
   'sites.final.title': 'Write to me.',
   'sites.final.body': 'Tell me the name of your shop. I reply with your page.',
+  'sites.work.eyebrow': 'Work',
+  'sites.work.title': 'A site people want to scroll.',
+  'sites.work.intro': 'The latest one, filmed as is: just scrolling the page, no editing.',
+  'sites.work.name': 'SAISI',
+  'sites.work.type': 'Steakhouse · Antibes',
+  'sites.work.desc': 'The whole page is a cook: a meat thermometer climbs from 4 to 54 °C as you scroll down, the rib turns in the flames, then gets sliced before your eyes.',
+  'sites.work.tag1': 'Scroll-driven animated site',
+  'sites.work.tag2': 'Visuals made for the site',
+  'sites.work.tag3': 'Desktop and mobile',
+  'sites.work.note': 'SAISI is an imaginary restaurant, made to show what can be done: dishes, prices and hours are made up. An animated site like this one is priced with the mock-up.',
+  'sites.work.fallback': 'Your browser cannot play this video.',
 
   // ─── Home · The introduction video ─────────────────────────────────────
   'home.video.eyebrow': 'The introduction',

@@ -76,7 +76,7 @@ const CALENDLY = 'https://calendly.com/nolprayagsing/automation-strategy-audit';
 const IntroVideo = () => {
   const { t } = useLanguage();
   return (
-    <section className="border-b border-border-cream bg-bg-cream-alt px-6 py-20 md:py-24">
+    <section className="glow-top border-b border-border-cream bg-bg-cream-alt px-6 py-20 md:py-24">
       <div className="mx-auto max-w-4xl">
         <EyebrowRule align="center" className="mb-7">
           {t('home.video.eyebrow')}
@@ -86,7 +86,7 @@ const IntroVideo = () => {
         </h2>
 
         <FadeIn>
-          <div className="overflow-hidden rounded-2xl border border-border-cream bg-ink-navy shadow-[0_24px_60px_rgba(26,26,26,0.14)]">
+          <div className="overflow-hidden rounded-2xl border border-border-cream bg-ink-navy glow-ink">
             <video
               className="block h-auto w-full"
               controls
@@ -161,7 +161,7 @@ const Proof = () => {
     desc: t(`home.proof.${i}.desc`),
   }));
   return (
-    <section className="border-y border-border-cream bg-surface-white px-6 py-24 md:py-28">
+    <section className="glow-top border-y border-border-cream bg-surface-white px-6 py-24 md:py-28">
       <div className="mx-auto max-w-5xl">
         <EyebrowRule className="mb-7">{t('home.proof.eyebrow')}</EyebrowRule>
         <h2 className="display-2 mb-6 max-w-3xl text-ink-navy">{t('home.proof.title')}</h2>
@@ -193,14 +193,14 @@ const Proof = () => {
 const Turn = () => {
   const { t } = useLanguage();
   return (
-    <section className="border-y border-border-cream bg-bg-cream-alt px-6 py-24 md:py-28">
+    <section className="glow-top border-y border-border-cream bg-bg-cream-alt px-6 py-24 md:py-28">
       <div className="mx-auto grid max-w-6xl grid-cols-1 items-start gap-12 lg:grid-cols-2 lg:gap-20">
         <div>
           <EyebrowRule className="mb-7">{t('home.turn.eyebrow')}</EyebrowRule>
           <h2 className="display-2 text-ink-navy">{t('home.turn.title')}</h2>
         </div>
         <div>
-          <figure className="rounded-2xl border-l-2 border-accent-coral bg-ink-navy px-8 py-9 md:px-10">
+          <figure className="glow-ink rounded-2xl border-l-2 border-accent-coral bg-ink-navy px-8 py-9 md:px-10">
             <blockquote className="font-serif text-2xl italic leading-snug text-bg-cream md:text-3xl">
               {t('home.turn.quote')}
             </blockquote>
@@ -278,7 +278,7 @@ const Offer = () => {
 const Anchor = () => {
   const { t } = useLanguage();
   return (
-    <section className="border-y border-border-cream bg-surface-white px-6 py-24 md:py-28">
+    <section className="glow-top border-y border-border-cream bg-surface-white px-6 py-24 md:py-28">
       <div className="mx-auto max-w-3xl text-center">
         <AsteriskDecor size={22} className="mx-auto mb-8" />
         <EyebrowRule align="center" className="mb-7">
@@ -305,7 +305,7 @@ const ForWhom = () => {
           <p className="lead">{t('home.forwho.body')}</p>
         </div>
 
-        <div className="rounded-xl border border-border-cream bg-surface-white p-8 md:p-9">
+        <div className="glow-card rounded-xl border border-border-cream bg-surface-white p-8 md:p-9">
           <h3 className="mb-6 text-base font-bold text-ink-navy">
             {t('home.forwho.not.title')}
           </h3>

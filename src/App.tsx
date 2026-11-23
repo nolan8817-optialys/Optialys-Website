@@ -36,7 +36,7 @@ export default function App() {
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="/solutions/:slug" element={<SolutionDetail />} />
-            {/* Hors menu et non indexée : on y arrive par un lien. */}
+            {/* Au menu depuis le 23/11/2026, toujours non indexée. */}
             <Route path="/sites-internet" element={<Sites />} />
 
             {/* Anciennes URLs — les 301 sont dans vercel.json ; ce filet

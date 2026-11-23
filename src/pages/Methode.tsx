@@ -28,7 +28,7 @@ const METHOD_SCHEMA = {
 const Demo = () => {
   const { t } = useLanguage();
   return (
-    <section className="border-b border-border-cream bg-bg-cream-alt px-6 py-20 md:py-24">
+    <section className="glow-top border-b border-border-cream bg-bg-cream-alt px-6 py-20 md:py-24">
       <div className="mx-auto max-w-4xl text-center">
         <EyebrowRule align="center" className="mb-6">
           {t('methode.demo.eyebrow')}
@@ -113,7 +113,7 @@ export const Methode = () => {
       </section>
 
       {/* Les deux règles */}
-      <section className="border-y border-border-cream bg-bg-cream-alt px-6 py-24 md:py-28">
+      <section className="glow-top border-y border-border-cream bg-bg-cream-alt px-6 py-24 md:py-28">
         <div className="mx-auto grid max-w-6xl grid-cols-1 gap-14 md:grid-cols-2 md:gap-16">
           <div>
             <EyebrowRule className="mb-7">{t('methode.rule.eyebrow')}</EyebrowRule>

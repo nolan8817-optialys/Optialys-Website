@@ -30,9 +30,11 @@ const LangToggle = ({ className = '' }: { className?: string }) => {
   );
 };
 
-/* Trois liens. Volontairement. Un menu qui déborde dilue l'offre. */
+/* Quatre liens. Volontairement peu : un menu qui déborde dilue l'offre.
+   Sites internet depuis le 23/11/2026, à part du reste (demande de Nolan). */
 const NAV_LINKS = [
   { key: 'nav.methode', path: '/methode' },
+  { key: 'nav.sites', path: '/sites-internet' },
   { key: 'nav.about', path: '/a-propos' },
   { key: 'nav.contact', path: '/contact' },
 ];
@@ -187,6 +189,7 @@ const Footer = () => {
             <ul className="space-y-3 text-sm text-ink-gray">
               <li><Link to="/" className="transition-colors hover:text-accent-coral">{t('nav.home')}</Link></li>
               <li><Link to="/methode" className="transition-colors hover:text-accent-coral">{t('nav.methode')}</Link></li>
+              <li><Link to="/sites-internet" className="transition-colors hover:text-accent-coral">{t('nav.sites')}</Link></li>
               <li><Link to="/a-propos" className="transition-colors hover:text-accent-coral">{t('nav.about')}</Link></li>
               <li><Link to="/contact" className="transition-colors hover:text-accent-coral">{t('nav.contact')}</Link></li>
             </ul>

@@ -72,14 +72,14 @@ export const GlowButton = ({ children, className = '', variant = 'primary', ...p
   disabled?: boolean;
   onClick?: () => void;
 }) => {
-  const base = 'relative inline-flex items-center justify-center gap-2 rounded-full font-semibold text-sm px-7 py-3.5 cursor-pointer transition-colors duration-200';
+  const base = 'relative inline-flex items-center justify-center gap-2 rounded-full font-semibold text-sm px-7 py-3.5 cursor-pointer transition-[color,background-color,box-shadow,transform] duration-200';
   const variants = {
     // CTA principal — sombre, l'or réservé aux détails (Charte)
-    primary: 'bg-ink-navy text-bg-cream hover:bg-ink-navy/90',
-    electric: 'bg-ink-navy text-bg-cream hover:bg-ink-navy/90',
-    outline: 'border border-border-cream text-ink-navy hover:border-accent-coral hover:text-accent-coral bg-transparent',
-    dark: 'bg-ink-navy text-bg-cream hover:bg-ink-navy/90',
-    gold: 'bg-accent-coral text-ink-navy hover:bg-accent-coral/90',
+    primary: 'btn-glow bg-ink-navy text-bg-cream hover:bg-ink-navy/90',
+    electric: 'btn-glow bg-ink-navy text-bg-cream hover:bg-ink-navy/90',
+    outline: 'border border-border-cream text-ink-navy hover:border-accent-coral hover:text-accent-coral hover:shadow-[0_0_30px_-8px_rgba(212,160,23,0.5)] bg-transparent',
+    dark: 'btn-glow bg-ink-navy text-bg-cream hover:bg-ink-navy/90',
+    gold: 'btn-glow bg-accent-coral text-ink-navy hover:bg-accent-coral/90',
   };
 
   return (
@@ -126,7 +126,7 @@ export const QuoteBlock = ({
   attribution?: string;
   className?: string;
 }) => (
-  <figure className={`bg-ink-navy border-l-4 border-accent-coral px-8 py-7 ${className}`}>
+  <figure className={`glow-ink bg-ink-navy border-l-4 border-accent-coral px-8 py-7 ${className}`}>
     <blockquote className="font-serif italic text-xl md:text-2xl leading-snug text-bg-cream">
       {children}
     </blockquote>
@@ -194,9 +194,9 @@ export const EyebrowRule = ({
   <div
     className={`flex items-center gap-3 ${align === 'center' ? 'justify-center' : ''} ${className}`}
   >
-    <span className="h-px w-8 bg-accent-coral/50" aria-hidden="true" />
+    <span className="glow-rule h-px w-8 bg-accent-coral/70" aria-hidden="true" />
     <span className="tag-optialys whitespace-nowrap">{children}</span>
-    <span className="h-px w-8 bg-accent-coral/50" aria-hidden="true" />
+    <span className="glow-rule h-px w-8 bg-accent-coral/70" aria-hidden="true" />
   </div>
 );
 
@@ -238,7 +238,7 @@ export const IndexCard = ({
   className?: string;
 }) => (
   <div
-    className={`flex h-full flex-col rounded-xl border border-border-cream bg-surface-white p-8 md:p-9 ${className}`}
+    className={`glow-card flex h-full flex-col rounded-xl border border-border-cream bg-surface-white p-8 md:p-9 ${className}`}
   >
     <div className="mb-6 flex items-start justify-between gap-4">
       <AsteriskDecor size={18} className="mt-1 shrink-0" />

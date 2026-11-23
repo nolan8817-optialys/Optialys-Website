@@ -10,7 +10,7 @@ import './sites.css';
 /* ─────────────────────────────────────────────────────────────────────────
    /sites-internet (19/11/2026) : la page des sites pour les commerces.
 
-   Hors menu, hors plan du site, non indexée : on y arrive par un lien.
+   Au menu depuis le 23/11/2026 (avant : hors menu). Toujours non indexée.
    Le film : un téléphone posé à plat, les six blocs de la page en vue
    éclatée au-dessus de lui. Le défilement les fait descendre un par un
    dans l'écran pendant que le téléphone se redresse face au visiteur.
@@ -40,6 +40,43 @@ const Bars = ({ n }: { n: number }) => (
     ))}
   </>
 );
+
+/* Réalisations (23/11/2026) : la vidéo du défilement de SAISI. Deux formats,
+   un seul est affiché ; elle ne se charge et ne tourne qu'à l'écran. */
+const WorkVideo = ({ src, poster, className, label, fallback }: {
+  src: string; poster: string; className: string; label: string; fallback: string;
+}) => {
+  const ref = useRef<HTMLVideoElement>(null);
+  useEffect(() => {
+    const v = ref.current!;
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const io = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting && v.offsetParent !== null && !reduce) {
+        v.play().catch(() => {});
+      } else {
+        v.pause();
+      }
+    }, { threshold: 0.25 });
+    io.observe(v);
+    return () => io.disconnect();
+  }, []);
+  return (
+    <video
+      ref={ref}
+      className={className}
+      poster={poster}
+      muted
+      loop
+      playsInline
+      controls
+      preload="none"
+      aria-label={label}
+    >
+      <source src={src} type="video/mp4" />
+      {fallback}
+    </video>
+  );
+};
 
 export const Sites = () => {
   const { t, lang } = useLanguage();
@@ -271,8 +308,57 @@ export const Sites = () => {
         </div>
       </section>
 
+      {/* ── Réalisations ── */}
+      <section className="glow-top border-y border-border-cream bg-bg-cream-alt px-6 py-24 md:py-28">
+        <div className="mx-auto max-w-6xl">
+          <EyebrowRule className="mb-7">{t('sites.work.eyebrow')}</EyebrowRule>
+          <h2 className="display-2 mb-6 max-w-3xl text-ink-navy">{t('sites.work.title')}</h2>
+          <p className="lead mb-14 max-w-2xl">{t('sites.work.intro')}</p>
+          <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[1.6fr_1fr] lg:gap-14">
+            <FadeIn>
+              <div className="sf-work glow-ink mx-auto max-w-[340px] overflow-hidden rounded-2xl border border-border-cream bg-ink-navy md:max-w-none">
+                <WorkVideo
+                  src="/portfolio/saisi-16x9.mp4"
+                  poster="/portfolio/saisi-16x9-poster.jpg"
+                  className="hidden aspect-video h-auto w-full md:block"
+                  label={`${t('sites.work.name')} · ${t('sites.work.type')}`}
+                  fallback={t('sites.work.fallback')}
+                />
+                <WorkVideo
+                  src="/portfolio/saisi-9x16.mp4"
+                  poster="/portfolio/saisi-9x16-poster.jpg"
+                  className="block aspect-[9/16] h-auto w-full md:hidden"
+                  label={`${t('sites.work.name')} · ${t('sites.work.type')}`}
+                  fallback={t('sites.work.fallback')}
+                />
+              </div>
+            </FadeIn>
+            <FadeIn delay={0.1}>
+              <p className="tag-optialys mb-3">{t('sites.work.type')}</p>
+              <h3 className="mb-5 font-serif text-5xl leading-none tracking-[0.04em] text-ink-navy md:text-6xl">
+                {t('sites.work.name')}
+              </h3>
+              <p className="lead mb-7">{t('sites.work.desc')}</p>
+              <ul className="mb-8 flex flex-wrap gap-2.5">
+                {[1, 2, 3].map((i) => (
+                  <li
+                    key={i}
+                    className="rounded-full border border-border-cream bg-surface-white/70 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-ink-gray"
+                  >
+                    {t(`sites.work.tag${i}`)}
+                  </li>
+                ))}
+              </ul>
+              <p className="border-l-2 border-accent-coral pl-5 text-sm leading-relaxed text-ink-gray">
+                {t('sites.work.note')}
+              </p>
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
       {/* ── Le prix, en clair ── */}
-      <section className="border-y border-border-cream bg-surface-white px-6 py-24 md:py-28">
+      <section className="border-b border-border-cream bg-surface-white px-6 py-24 md:py-28">
         <div className="mx-auto max-w-6xl">
           <EyebrowRule className="mb-7">{t('sites.price.eyebrow')}</EyebrowRule>
           <h2 className="display-2 mb-14 max-w-3xl text-ink-navy">{t('sites.price.title')}</h2>

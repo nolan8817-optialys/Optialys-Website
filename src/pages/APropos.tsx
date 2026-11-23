@@ -89,7 +89,7 @@ export const APropos = () => {
       </section>
 
       {/* Pourquoi les ateliers */}
-      <section className="border-y border-border-cream bg-bg-cream-alt px-6 py-24 md:py-28">
+      <section className="glow-top border-y border-border-cream bg-bg-cream-alt px-6 py-24 md:py-28">
         <div className="mx-auto grid max-w-6xl grid-cols-1 items-start gap-12 lg:grid-cols-2 lg:gap-20">
           <div>
             <EyebrowRule className="mb-7">{t('about.why.eyebrow')}</EyebrowRule>
