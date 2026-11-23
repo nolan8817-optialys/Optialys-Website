@@ -240,7 +240,7 @@ const Footer = () => {
 
 export const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="min-h-screen overflow-x-clip font-sans text-ink-black">
+    <div className="min-h-screen overflow-x-clip bg-bg-cream font-sans text-ink-black">
       <Navbar />
       <main>{children}</main>
       <Footer />

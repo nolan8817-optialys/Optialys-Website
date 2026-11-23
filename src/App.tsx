@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { Layout } from './components/Layout';
-import { NightBackground } from './components/NightBackground';
 import { Home } from './pages/Home';
 import { Methode } from './pages/Methode';
 import { APropos } from './pages/APropos';
@@ -26,7 +25,7 @@ export default function App() {
     <LanguageProvider>
       <Router>
         <ScrollToTop />
-        <NightBackground />
+        <div className="pointer-events-none fixed inset-0 z-[-1] bg-bg-cream bg-dot-grid" />
         <Layout>
           <Routes>
             <Route path="/" element={<Home />} />

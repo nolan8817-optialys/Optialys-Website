@@ -13,15 +13,15 @@ const VisualBudgetAlert = () => (
     <p className="text-xs font-bold text-ink-gray uppercase tracking-widest mb-6">Budget consommé sur un chantier</p>
     <svg viewBox="0 0 500 120" className="w-full max-w-lg mx-auto block" aria-hidden="true">
       {/* Track */}
-      <rect x="0" y="40" width="460" height="26" fill="#F4EFE3" opacity="0.08" />
+      <rect x="0" y="40" width="460" height="26" fill="#1A1A1A" opacity="0.06" />
       {/* Consumed */}
       <motion.rect x="0" y="40" height="26" fill="#D4A017"
         initial={{ width: 0 }} whileInView={{ width: 386 }} viewport={{ once: true }} transition={{ duration: 1 }} />
       {/* Threshold marker at 80% */}
-      <line x1="368" y1="30" x2="368" y2="76" stroke="#F4EFE3" strokeWidth="2" strokeDasharray="3 3" />
-      <text x="368" y="22" fontSize="10" fill="#F4EFE3" fontFamily="monospace" textAnchor="middle">seuil 80%</text>
-      <text x="0" y="96" fontSize="11" fill="#B4AD9D" fontFamily="monospace">0 €</text>
-      <text x="430" y="96" fontSize="11" fill="#B4AD9D" fontFamily="monospace">budget</text>
+      <line x1="368" y1="30" x2="368" y2="76" stroke="#1A1A1A" strokeWidth="2" strokeDasharray="3 3" />
+      <text x="368" y="22" fontSize="10" fill="#1A1A1A" fontFamily="monospace" textAnchor="middle">seuil 80%</text>
+      <text x="0" y="96" fontSize="11" fill="#5A5A55" fontFamily="monospace">0 €</text>
+      <text x="430" y="96" fontSize="11" fill="#5A5A55" fontFamily="monospace">budget</text>
     </svg>
     <div className="flex items-center gap-3 mt-4 p-3 bg-accent-coral/10 border border-accent-coral/20">
       <span className="text-xl">⚠️</span>

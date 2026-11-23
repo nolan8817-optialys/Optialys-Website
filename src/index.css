@@ -8,30 +8,30 @@
   --font-mono: "Inter", ui-monospace, SFMono-Regular, monospace;
 
   /* Foundation — Optialys palette (Charte v1.0) */
-  --color-bg-cream:         #0B0A08;   /* Blanc Crème — fond principal */
-  --color-bg-cream-alt:     #15120C;   /* Beige Chaud — fond secondaire / encadrés */
-  --color-bg-cream-light:   #0B0A08;
-  --color-surface-white:    #18140E;   /* cartes */
-  --color-ink-navy:         #F4EFE3;   /* Noir Encre */
-  --color-ink-black:        #F4EFE3;
-  --color-ink-gray:         #B4AD9D;   /* Gris Chaud */
+  --color-bg-cream:         #FAF8F3;   /* Blanc Crème — fond principal */
+  --color-bg-cream-alt:     #F1EDE4;   /* Beige Chaud — fond secondaire / encadrés */
+  --color-bg-cream-light:   #FAF8F3;
+  --color-surface-white:    #FFFFFF;   /* cartes */
+  --color-ink-navy:         #1A1A1A;   /* Noir Encre */
+  --color-ink-black:        #1A1A1A;
+  --color-ink-gray:         #5A5A55;   /* Gris Chaud */
 
   /* Accent — Or Ambré, accent unique */
   --color-accent-coral:     #D4A017;   /* Or Ambré */
   --color-accent-coral-soft:#D4A017;
-  --color-accent-peach:     #3A2F12;   /* Or Doux — highlights */
+  --color-accent-peach:     #F5E9C0;   /* Or Doux — highlights */
   --color-accent-electric:  #D4A017;
   --color-accent-green:     #4A6B3A;   /* Vert Forêt — statuts internes uniquement */
 
   /* Borders */
-  --color-border-cream:     #332D20;   /* Sable Clair */
+  --color-border-cream:     #D8D4C8;   /* Sable Clair */
 
   /* Legacy aliases (some pages still use brand-* classes) */
-  --color-brand-navy:       #F4EFE3;
+  --color-brand-navy:       #1A1A1A;
   --color-brand-blue:       #D4A017;
-  --color-brand-gray:       #B4AD9D;
-  --color-brand-card:       #18140E;
-  --color-brand-light:      #0B0A08;
+  --color-brand-gray:       #5A5A55;
+  --color-brand-card:       #FFFFFF;
+  --color-brand-light:      #FAF8F3;
 
   /* Formes arrondies, epurees (amendement charte 2026-09-07) */
   --radius-xs:   4px;
@@ -219,92 +219,4 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-}
-
-
-/* ═════════════════════════════════════════════════════════════════════════
-   Thème nuit (19/11/2026) : tout le site sur le fond noir et or du film
-   d'accueil, à la demande de Nolan. Les jetons de couleur plus haut ont
-   été inversés (les noms « cream », « white », « ink » sont restés pour ne
-   pas toucher à chaque page). Avant : crème #FAF8F3, encre #1A1A1A, gris
-   #5A5A55, sable #D8D4C8, cartes #FFFFFF. L'or #D4A017 n'a pas bougé.
-   ═════════════════════════════════════════════════════════════════════════ */
-body {
-  background-color: #0b0a08;
-  color: #f4efe3;
-}
-::selection {
-  background-color: rgba(212, 160, 23, 0.32);
-  color: #f4efe3;
-}
-
-/* Le fond fixe du site : NightBackground.tsx */
-.night-bg {
-  position: fixed;
-  left: 0;
-  top: 0;
-  z-index: -1;
-  width: 100%;
-  height: 100vh;
-  height: 100lvh;
-  background: #0b0a08;
-  pointer-events: none;
-}
-.night-bg canvas {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-}
-
-/* Les sections laissent passer le fond, avec un voile pour que le texte se lise. */
-main section.bg-bg-cream,
-main div.bg-bg-cream {
-  background-color: rgba(11, 10, 8, 0.3);
-}
-main section.bg-bg-cream-alt,
-main section.bg-surface-white {
-  background-color: rgba(20, 16, 10, 0.58);
-}
-main div.bg-surface-white,
-main li.bg-surface-white,
-main article.bg-surface-white {
-  background-color: rgba(24, 20, 14, 0.9);
-}
-
-/* Les blocs « encre » (citation, cadre vidéo, encarts) : un noir relevé, bordé d'or.
-   Les boutons, eux, gardent le jeton : crème, texte sombre. */
-:not(button).bg-ink-navy {
-  background-color: #1b1710;
-  box-shadow: inset 0 0 0 1px rgba(212, 160, 23, 0.22);
-}
-:not(button).bg-ink-navy.text-bg-cream,
-:not(button).bg-ink-navy :not(button).text-bg-cream {
-  color: #f4efe3;
-}
-
-.cream-card {
-  background-color: #18140e;
-  border-color: #332d20;
-}
-.lead {
-  color: #d8d1c2;
-}
-.accordion-row,
-.accordion-row:last-child {
-  border-color: #332d20;
-}
-.prose-optialys,
-.prose-optialys h2,
-.prose-optialys h3,
-.prose-optialys strong {
-  color: #f4efe3;
-}
-.prose-optialys p,
-.prose-optialys ul,
-.prose-optialys ol {
-  color: #d8d1c2;
-}
-.prose-optialys em {
-  color: #b4ad9d;
 }
