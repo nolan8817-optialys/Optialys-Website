@@ -74,6 +74,15 @@ for (const route of routes()) {
   console.log(`  ${indexable ? 'index  ' : 'noindex'}  ${route}  (${(page.length / 1024).toFixed(1)} Ko)`);
 }
 
+// Page 404 : l'accueil, non indexé. Le routeur renvoie ensuite vers « / ».
+const home = fs.readFileSync(path.join(dist, 'index.html'), 'utf8');
+fs.writeFileSync(
+  path.join(dist, '404.html'),
+  home
+    .replace(/<meta name="robots" content="[^"]*" \/>/, '<meta name="robots" content="noindex, follow" />')
+    .replace(/<link rel="canonical" href="[^"]*" \/>\s*/, ''),
+);
+
 const today = new Date().toISOString().slice(0, 10);
 const priority = (r) => (r === '/' ? '1.0' : r === '/methode' ? '0.9' : r.startsWith('/blog/') ? '0.6' : '0.8');
 const xml =
