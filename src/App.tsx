@@ -20,10 +20,10 @@ const ScrollToTop = () => {
   return null;
 };
 
-export default function App() {
-  return (
-    <LanguageProvider>
-      <Router>
+/* Les routes, partagées par le navigateur (BrowserRouter) et le prérendu
+   du build (StaticRouter, src/entry-server.tsx). */
+export const AppShell = () => (
+  <LanguageProvider>
         <ScrollToTop />
         <div className="pointer-events-none fixed inset-0 z-[-1] bg-bg-cream bg-dot-grid" />
         <Layout>
@@ -43,8 +43,14 @@ export default function App() {
                 évite une page blanche si une route passe au travers. */}
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
-        </Layout>
-      </Router>
-    </LanguageProvider>
+    </Layout>
+  </LanguageProvider>
+);
+
+export default function App() {
+  return (
+    <Router>
+      <AppShell />
+    </Router>
   );
 }

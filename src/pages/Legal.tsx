@@ -2,10 +2,19 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { FadeIn, PillBadge } from '../components/ui';
 import { useLanguage } from '../i18n/LanguageContext';
+import { useSEO } from '../hooks/useSEO';
 
 export const Legal = () => {
   const { lang } = useLanguage();
   const fr = lang === 'fr';
+  useSEO({
+    title: fr ? 'Mentions légales et confidentialité' : 'Legal notice and privacy',
+    description: fr
+      ? 'Mentions légales, données personnelles et cookies du site optialys.com.'
+      : 'Legal notice, personal data and cookies of optialys.com.',
+    canonical: 'https://optialys.com/legal',
+    noindex: true,
+  });
 
   const locale = fr ? 'fr-FR' : 'en-US';
   const updated = new Date().toLocaleDateString(locale, { month: 'long', year: 'numeric' });

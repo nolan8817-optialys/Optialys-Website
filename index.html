@@ -3,51 +3,93 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--seo:start-->
     <title>Optialys — Je m’occupe de votre marge</title>
     <meta name="description" content="Vous devisez 400 heures, le chantier en prend 650, et personne ne le voit avant la facture. Optialys mesure l’écart en continu et pilote la marge des ateliers haut de gamme." />
-    <meta name="keywords" content="pilotage de marge atelier, contrôle de gestion atelier, restauration voitures de collection rentabilité, écart devis réel chantier, heures non pointées atelier, marge par chantier, contrôle de gestion à l’affaire" />
-    <meta name="author" content="Optialys" />
-    <meta name="robots" content="index, follow" />
-    <meta name="theme-color" content="#FAF8F3" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
     <link rel="canonical" href="https://optialys.com/" />
-    <link rel="alternate" hreflang="fr" href="https://optialys.com/" />
-    <link rel="alternate" hreflang="en" href="https://optialys.com/" />
-    <link rel="alternate" hreflang="x-default" href="https://optialys.com/" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-
-    <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://optialys.com/" />
     <meta property="og:title" content="Optialys — Je m’occupe de votre marge" />
     <meta property="og:description" content="Le contrôle de gestion opérationnel des ateliers haut de gamme. Diagnostic · Installation · Pilotage." />
-    <meta property="og:image" content="https://optialys.com/optialys-logo.webp" />
-    <meta property="og:locale" content="fr_FR" />
-    <meta property="og:site_name" content="Optialys" />
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="og:image" content="https://optialys.com/og-optialys.jpg" />
     <meta name="twitter:title" content="Optialys — Je m’occupe de votre marge" />
     <meta name="twitter:description" content="Le contrôle de gestion opérationnel des ateliers haut de gamme. Diagnostic · Installation · Pilotage." />
-    <meta name="twitter:image" content="https://optialys.com/optialys-logo.webp" />
+    <meta name="twitter:image" content="https://optialys.com/og-optialys.jpg" />
+    <!--seo:end-->
+    <meta name="author" content="Nolan Prayagsing — Optialys" />
+    <meta name="theme-color" content="#FAF8F3" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:site_name" content="Optialys" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 
-    <!-- Structured data -->
+    <!-- Données structurées communes à tout le site (aucun prix) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "name": "Optialys",
-      "description": "Contrôle de gestion opérationnel pour ateliers haut de gamme travaillant à l’affaire",
-      "url": "https://optialys.com",
-      "email": "nolan@optialys.com",
-      "serviceType": "Contrôle de gestion opérationnel et pilotage de marge"
+      "@graph": [
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://optialys.com/#organisation",
+          "name": "Optialys",
+          "url": "https://optialys.com/",
+          "logo": "https://optialys.com/optialys-logo.webp",
+          "image": "https://optialys.com/og-optialys.jpg",
+          "email": "nolan@optialys.com",
+          "description": "Contrôle de gestion opérationnel pour les ateliers haut de gamme qui travaillent à l’affaire : Optialys mesure l’écart entre les heures devisées et les heures passées, et pilote la marge chantier par chantier.",
+          "slogan": "Je m’occupe de votre marge.",
+          "serviceType": "Contrôle de gestion opérationnel et pilotage de marge",
+          "areaServed": [
+            { "@type": "Country", "name": "France" },
+            { "@type": "Country", "name": "Belgique" },
+            { "@type": "Country", "name": "Suisse" },
+            { "@type": "Country", "name": "Luxembourg" },
+            { "@type": "Country", "name": "Monaco" }
+          ],
+          "knowsAbout": [
+            "contrôle de gestion à l’affaire",
+            "marge par chantier",
+            "écart devis / réel",
+            "pointage des heures en atelier",
+            "restauration de voitures de collection",
+            "avenants et travaux supplémentaires",
+            "sites internet pour les commerces"
+          ],
+          "founder": {
+            "@type": "Person",
+            "@id": "https://optialys.com/a-propos#nolan",
+            "name": "Nolan Prayagsing",
+            "url": "https://optialys.com/a-propos",
+            "sameAs": [
+              "https://www.linkedin.com/in/nolan-prayagsing-a70815278/",
+              "https://www.instagram.com/nolan.optialys/"
+            ]
+          },
+          "sameAs": [
+            "https://www.linkedin.com/in/nolan-prayagsing-a70815278/",
+            "https://www.instagram.com/nolan.optialys/"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://optialys.com/#site",
+          "url": "https://optialys.com/",
+          "name": "Optialys",
+          "inLanguage": "fr-FR",
+          "publisher": { "@id": "https://optialys.com/#organisation" }
+        }
+      ]
     }
     </script>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root"><!--app-html--></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

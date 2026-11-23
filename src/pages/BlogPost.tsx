@@ -3,6 +3,7 @@ import { useParams, Link, Navigate } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { ArrowLeft, Clock, Calendar, ArrowRight } from 'lucide-react';
 import { FadeIn, GlowButton } from '../components/ui';
+import { useSEO } from '../hooks/useSEO';
 import { useLanguage } from '../i18n/LanguageContext';
 import { blogArticles, getCategoryColor } from '../data/blog';
 
@@ -91,64 +92,47 @@ export const BlogPost = () => {
 
   const article = blogArticles.find(a => a.slug === slug);
 
-  // Update document meta for SEO
-  useEffect(() => {
-    if (!article) return;
-    const title = fr ? article.seoTitle.fr : article.seoTitle.en;
-    const desc = fr ? article.seoDescription.fr : article.seoDescription.en;
-    document.title = title;
-    const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) metaDesc.setAttribute('content', desc);
-
-    // JSON-LD structured data
-    const schema = {
-      "@context": "https://schema.org",
-      "@type": "BlogPosting",
-      "headline": fr ? article.title.fr : article.title.en,
-      "description": fr ? article.seoDescription.fr : article.seoDescription.en,
-      "datePublished": article.date,
-      "author": {
-        "@type": "Person",
-        "name": "Nolan Prayagsing",
-        "url": "https://optialys.com/a-propos"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "Optialys",
-        "url": "https://optialys.com"
-      },
-      "keywords": article.keywords.join(', '),
-      "inLanguage": fr ? "fr-FR" : "en-GB",
-      "mainEntityOfPage": `https://optialys.com/blog/${article.slug}`
-    };
-
-    let scriptTag = document.getElementById('blog-schema');
-    if (!scriptTag) {
-      scriptTag = document.createElement('script');
-      scriptTag.id = 'blog-schema';
-      (scriptTag as HTMLScriptElement).type = 'application/ld+json';
-      document.head.appendChild(scriptTag);
-    }
-    const faqList = fr ? article.faq?.fr : article.faq?.en;
-    const graph: Record<string, unknown>[] = [schema];
-    if (faqList && faqList.length > 0) {
-      graph.push({
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": faqList.map((item) => ({
-          "@type": "Question",
-          "name": item.q,
-          "acceptedAnswer": { "@type": "Answer", "text": item.a }
-        }))
-      });
-    }
-    scriptTag.textContent = JSON.stringify(graph.length === 1 ? schema : graph);
-
-    return () => {
-      document.title = 'Optialys — Je m’occupe de votre marge';
-      document.getElementById('blog-schema')?.remove();
-    };
-  }, [article, fr]);
+  // SEO : titre, description, canonical et JSON-LD (lus aussi au prérendu)
+  const faqList = article ? (fr ? article.faq?.fr : article.faq?.en) : undefined;
+  useSEO({
+    title: article ? (fr ? article.seoTitle.fr : article.seoTitle.en) : 'Blog | Optialys',
+    description: article ? (fr ? article.seoDescription.fr : article.seoDescription.en) : '',
+    canonical: `https://optialys.com/blog/${slug}`,
+    type: 'article',
+    noindex: !article,
+    schema: article ? {
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': 'BlogPosting',
+          headline: fr ? article.title.fr : article.title.en,
+          description: fr ? article.seoDescription.fr : article.seoDescription.en,
+          datePublished: article.date,
+          dateModified: article.date,
+          author: { '@type': 'Person', name: 'Nolan Prayagsing', url: 'https://optialys.com/a-propos' },
+          publisher: {
+            '@type': 'Organization',
+            name: 'Optialys',
+            url: 'https://optialys.com',
+            logo: { '@type': 'ImageObject', url: 'https://optialys.com/optialys-logo.webp' },
+          },
+          keywords: article.keywords.join(', '),
+          inLanguage: fr ? 'fr-FR' : 'en-GB',
+          mainEntityOfPage: `https://optialys.com/blog/${article.slug}`,
+        },
+        ...(faqList && faqList.length > 0
+          ? [{
+              '@type': 'FAQPage',
+              mainEntity: faqList.map((item) => ({
+                '@type': 'Question',
+                name: item.q,
+                acceptedAnswer: { '@type': 'Answer', text: item.a },
+              })),
+            }]
+          : []),
+      ],
+    } : undefined,
+  });
 
   if (!article) return <Navigate to="/blog" replace />;
 

@@ -66,6 +66,12 @@ quatre mille euros par mois, chargés, en France).
 - [Contact](https://optialys.com/contact) : formulaire et prise de rendez-vous
 - [Voitures de collection](https://optialys.com/solutions/voitures-collection) : le secteur de référence
 
+## Articles
+
+- [Pourquoi vos chantiers dépassent leur budget sans que vous le voyiez venir](https://optialys.com/blog/chantiers-depassent-budget-sans-alerte)
+- [Connecter vos outils plutôt que les remplacer : la bonne approche pour un atelier](https://optialys.com/blog/connecter-vos-outils-sans-les-remplacer)
+- [La fin du carnet papier : faire remonter la donnée terrain en temps réel](https://optialys.com/blog/fin-du-papier-donnees-terrain-temps-reel)
+
 ## Contact
 
 - Email : nolan@optialys.com

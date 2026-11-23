@@ -18,6 +18,7 @@ import { HourFilm } from '../components/HourFilm';
 const ORGANIZATION_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'ProfessionalService',
+  '@id': 'https://optialys.com/#organisation',
   name: 'Optialys',
   url: 'https://optialys.com',
   logo: 'https://optialys.com/optialys-logo.webp',

@@ -1,20 +1,34 @@
 import { useEffect } from 'react';
 
-interface SEOProps {
+export interface SEOProps {
   title: string;
   description: string;
   canonical?: string;
   ogImage?: string;
   schema?: Record<string, unknown>;
   noindex?: boolean;
+  type?: 'website' | 'article';
 }
 
-const DEFAULT_OG_IMAGE = 'https://optialys.com/optialys-logo.webp';
+export const DEFAULT_OG_IMAGE = 'https://optialys.com/og-optialys.jpg';
 const DEFAULT_TITLE_SUFFIX = ' | Optialys';
 
-export function useSEO({ title, description, canonical, ogImage, schema, noindex }: SEOProps) {
+export const fullTitleOf = (title: string) =>
+  title.includes('Optialys') ? title : title + DEFAULT_TITLE_SUFFIX;
+
+/* Prérendu (23/11/2026) : au build, les pages sont rendues en HTML par
+   scripts/prerender.mjs. Les effets ne tournent pas côté serveur : le hook
+   dépose donc ses valeurs ici, et le script les écrit dans le <head> de
+   chaque page. Une seule source pour le titre, la description, le canonical
+   et le JSON-LD, côté navigateur comme côté robots. */
+export const ssrHead: { current: SEOProps | null } = { current: null };
+
+export function useSEO(props: SEOProps) {
+  const { title, description, canonical, ogImage, schema, noindex, type } = props;
+  if (typeof window === 'undefined') ssrHead.current = props;
+
   useEffect(() => {
-    const fullTitle = title.includes('Optialys') ? title : title + DEFAULT_TITLE_SUFFIX;
+    const fullTitle = fullTitleOf(title);
     document.title = fullTitle;
 
     const setMeta = (selector: string, attr: string, value: string) => {
@@ -35,7 +49,8 @@ export function useSEO({ title, description, canonical, ogImage, schema, noindex
     const canonicalUrl = canonical ?? `https://optialys.com${window.location.pathname}`;
 
     setMeta('meta[name="description"]', 'content', description);
-    setMeta('meta[name="robots"]', 'content', noindex ? 'noindex, follow' : 'index, follow');
+    setMeta('meta[name="robots"]', 'content', noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large');
+    setMeta('meta[property="og:type"]', 'content', type ?? 'website');
     setMeta('meta[property="og:title"]', 'content', fullTitle);
     setMeta('meta[property="og:description"]', 'content', description);
     setMeta('meta[property="og:image"]', 'content', image);
@@ -65,15 +80,5 @@ export function useSEO({ title, description, canonical, ogImage, schema, noindex
     } else if (scriptEl) {
       scriptEl.remove();
     }
-
-    return () => {
-      document.title = 'Optialys — Je m’occupe de votre marge';
-      document.querySelector('meta[name="description"]')?.setAttribute(
-        'content',
-        'Vous devisez 400 heures, le chantier en prend 650, et personne ne le voit avant la facture. Optialys mesure l’écart en continu et pilote la marge des ateliers haut de gamme.'
-      );
-      document.querySelector('meta[name="robots"]')?.setAttribute('content', 'index, follow');
-      document.getElementById(SCHEMA_ID)?.remove();
-    };
-  }, [title, description, canonical, ogImage, schema, noindex]);
+  }, [title, description, canonical, ogImage, schema, noindex, type]);
 }

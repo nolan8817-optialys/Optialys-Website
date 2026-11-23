@@ -31,8 +31,8 @@ export const SolutionDetail = () => {
           "@type": "Service",
           "name": fr ? solution.h1.fr : solution.h1.en,
           "description": fr ? solution.seoDescription.fr : solution.seoDescription.en,
-          "serviceType": "Infrastructure opérationnelle et automatisation",
-          "areaServed": { "@type": "Country", "name": "France" },
+          "serviceType": "Contrôle de gestion opérationnel et pilotage de marge",
+          "areaServed": ["FR", "BE", "CH", "LU", "MC"].map((c) => ({ "@type": "Country", "name": c })),
           "provider": { "@type": "Organization", "name": "Optialys", "url": "https://optialys.com" },
           "url": url
         },
